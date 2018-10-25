@@ -1,0 +1,1365 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05D25B6DBEB54585037B6865F87A2DB0 /* IGListAdapterUpdaterInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = EB305F006B0B354A077EEEDC77D805FF /* IGListAdapterUpdaterInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		07E1CE62E195A6280012DB41D75254A1 /* YGNode.h in Headers */ = {isa = PBXBuildFile; fileRef = E87FE7B1A0552F22E4D692DF673AC94D /* YGNode.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		083ACC4E8BACFE27C57A3CBDEC5A0F4B /* IGListMoveIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = D5FB32F6383500044C88095345E44B86 /* IGListMoveIndex.m */; };
+		08C1B50F00B4F95EE74393755AF20B2B /* IGListAdapterProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 266B3AC142099C74BD750FDA2E89B856 /* IGListAdapterProxy.m */; };
+		0BF10D6141DE23D4394920F4CEB90988 /* YogaKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA87A389DB0FFE2E2DA3C808FB7FFBC1 /* YogaKit-dummy.m */; };
+		0D84FC3BDA72734CE045B29DB2FAE4D3 /* IGListWorkingRangeHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = B7D8E99009D5648CFF8F5D79F74D73A9 /* IGListWorkingRangeHandler.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		103621E625FBCFC539FFC71D62CDB51B /* YGMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = E8C59CCBFBFE93CCB18A4CA62D936705 /* YGMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1053D7AF7E6EDBDD8A85BB52D745B1C4 /* IGListAdapterDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A635B07DBC3F1CD7A394395F554E25 /* IGListAdapterDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10AC3BC6447DDC9A55BADC11666F0E36 /* UIView+Yoga.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B55695B1C499398FFBCA01FCB0A012 /* UIView+Yoga.m */; };
+		1398D2A15C7748C471F621769BB9A0A1 /* IGListDisplayHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 245DD00ECF528E4435E8D3F335644B72 /* IGListDisplayHandler.m */; };
+		14D4CB3213305ADC12FE8EDC2D2DAFF4 /* IGListStackedSectionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78FE87A7445F399D15F781C0615002AA /* IGListStackedSectionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		19D8BDA6E7993FAC7F2E8847284B0EA0 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1EA2DB975532986CBB151CE3C02C5539 /* Utils.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -std=c++1y -fPIC -fno-objc-arc"; }; };
+		1AFC598523323E04C6B274BCF8E91C0A /* YGFloatOptional.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DB4C0F7DF982B58E26A56B735764676C /* YGFloatOptional.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -std=c++1y -fPIC -fno-objc-arc"; }; };
+		1B368BBE143B5316EA5E252280ECE4D8 /* UICollectionView+IGListBatchUpdateData.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B6D8B8D0D83EDF185ACDEA311AEA59 /* UICollectionView+IGListBatchUpdateData.m */; };
+		1C21F0FE136FA9B18F203E908CD8E180 /* IGListAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = D816BD0B929E63963005BCE52AA31ABF /* IGListAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C74BA9EFE87637227667AD3C5CD9939 /* NSString+IGListDiffable.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D3E2A7FF0512A734A5F199893F84C9 /* NSString+IGListDiffable.m */; };
+		1CAEA309CC09BA5C22908D27BD729752 /* IGListIndexSetResultInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 98D02077A09E7ABEB1A8DDCB507651E2 /* IGListIndexSetResultInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		2049A71FD299C3DC3E09162C39D8F43D /* IGListScrollDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E489D5A742C44334FDE3374E4EB8957A /* IGListScrollDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21316F5EF0D2A2C5873122482B67FDCF /* IGListSectionMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 82966D9F422493D0866B984C74DE115A /* IGListSectionMap.m */; };
+		2246F494109F42DCC83F0760D769C5D1 /* IGListAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2448E2BEB5468627C58A7E3993EC361A /* IGListAdapter.m */; };
+		23F860B1577037C92092E4FC80FED82A /* IGListAdapterInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 11801F5F657B1D7C7BEEF3F2FBC2CD13 /* IGListAdapterInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		2676F004D2043DAB99651196A59D5D1D /* Yoga.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 789D6565A320D1B0791BCE522767131F /* Yoga.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -std=c++1y -fPIC -fno-objc-arc"; }; };
+		2AA15610E63520AA2C8050724C066631 /* YGLayout+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 2228FB416BCD57ED0EC231F9FCFD3CAB /* YGLayout+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		2B2BD22A475ECE4FBC225C347AEA9B0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185BECC8439A0B2E1A117ECCBAFC346A /* Foundation.framework */; };
+		302630C96C1DBD815E45959D7AC8EFD0 /* IGListMoveIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 31223BCB117A1FB3018A4CB88F2FEC79 /* IGListMoveIndex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		36CF522E876B322D66EE28E500817848 /* IGListAssert.h in Headers */ = {isa = PBXBuildFile; fileRef = E51483DD527BDB267A82E4F78EE77BDC /* IGListAssert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		377A489D1630ABE347D4174CA658257A /* YGStyle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BCE8E4140CA9F1F097BEC9037BB28 /* YGStyle.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -std=c++1y -fPIC -fno-objc-arc"; }; };
+		37F3CEC6B6F0088C7BF5B975C3D6456E /* IGListIndexSetResult.h in Headers */ = {isa = PBXBuildFile; fileRef = E27E2D61D6AD49A27621101DE9022375 /* IGListIndexSetResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		384A59431CF2C020D3CB010BE3337CBC /* Yoga-internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 515CB0C294EE24DB0004EE2488EA9609 /* Yoga-internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3975B38041802D93761D76E3CBEF0599 /* YGLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D45EA0551BFBBBE3B32FD2878E33B8F /* YGLayout.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -std=c++1y -fPIC -fno-objc-arc"; }; };
+		3F310EBDD196E03C09FE0225C8FA3849 /* IGListSectionMap.h in Headers */ = {isa = PBXBuildFile; fileRef = E48E12098DC087302B3A5F41D3E35CE9 /* IGListSectionMap.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		419E7381943975A7ED302E6436AA04D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26DE90A1CED8E999796B3936341E674 /* UIKit.framework */; };
+		45599A6E2B0FB23F07637527DBC72369 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185BECC8439A0B2E1A117ECCBAFC346A /* Foundation.framework */; };
+		455F595FBFD8AF2A8CD76A77B23EE884 /* IGListDiff.mm in Sources */ = {isa = PBXBuildFile; fileRef = 43D068C98138300DFA626FB623761C7E /* IGListDiff.mm */; };
+		461E079882DB29F87C23CF0C6371E113 /* IGListBatchUpdateData.h in Headers */ = {isa = PBXBuildFile; fileRef = EF3ABCBB08E5E1EDC8AE65EC1731781B /* IGListBatchUpdateData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		46DC9ECA43A5C2CE3762D252A6FAA27E /* IGListAdapterUpdaterDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A815125B0C512BCBF54A4C7163F521D /* IGListAdapterUpdaterDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		484B24A8BA5575B71C582BAC9E807E78 /* IGListMoveIndexInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 686F146474713EB60457955884DF26CB /* IGListMoveIndexInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		4CAD69E7A650839AB2A0E7D9C13BF11A /* IGListSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 069DF38E702857D84F939C059BD9E431 /* IGListSectionController.m */; };
+		4CDAE8640E8E2DFDD1FB59C73CB3D424 /* IGListDiffKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1617C217BDA6B203E72BEEC4423301D6 /* IGListDiffKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D2AA82EE4E5A774C992DBFAC46A75C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26DE90A1CED8E999796B3936341E674 /* UIKit.framework */; };
+		506BE278A9F3B3C62E189920AEED79A3 /* IGListReloadDataUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = 06621AB56BA11AC3F79012550F3454C3 /* IGListReloadDataUpdater.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		51149130289FB398CECDCD2177534552 /* NSNumber+IGListDiffable.h in Headers */ = {isa = PBXBuildFile; fileRef = D22C592E4D70D3390441E7A1C68AF401 /* NSNumber+IGListDiffable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		527E37C0D19CCAB4E2F4A8395DF81130 /* IGListSectionController.h in Headers */ = {isa = PBXBuildFile; fileRef = 216A53EFE942B4A453E7F7933BABB217 /* IGListSectionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5603CE4B33EEDE85D28B787F277ECE02 /* YGStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CDC45A431638E30EE137B0586C623F6 /* YGStyle.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		562CD33D4FBC0B2ED2E4CB79F75704AB /* Pods-YogaKitSample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A264806F7F412BED750F5DC80BD86BF /* Pods-YogaKitSample-dummy.m */; };
+		56AECCA2F8745C1183497BA7938999A5 /* NSNumber+IGListDiffable.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A50DF099A0EEA205CAA3ECD69160C1 /* NSNumber+IGListDiffable.m */; };
+		5A0DC447F74211ABFC7EA6FC85A1269B /* YogaKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 44341EB5D13FF3C20764BEBBA2A30C1D /* YogaKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A71A7BD6BEEF95B83AA8D1194B46CF9 /* IGListIndexPathResultInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = BB36681B7A228F496455F82E2ECAB972 /* IGListIndexPathResultInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		5C02B0E76917177B2C743D4F358ED31D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185BECC8439A0B2E1A117ECCBAFC346A /* Foundation.framework */; };
+		5DD28A1257DADED39598387FDF322551 /* YGNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC773119B62E32BECA022F49118C5300 /* YGNode.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -std=c++1y -fPIC -fno-objc-arc"; }; };
+		63714C7ED319EF9D3D4EB49BC2834F29 /* Yoga-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA072E961A7A8668210E921ACB15659C /* Yoga-dummy.m */; };
+		6AEA949404B161E86F0B4B0FFDF78B55 /* YGEnums.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F11E0758BEF0909751BF2A8D2B9213F /* YGEnums.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -std=c++1y -fPIC -fno-objc-arc"; }; };
+		6C1E08D049B30F4C6BF78AB893FA46BF /* IGListDisplayDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1625885639BDF228F4BF112EE698485A /* IGListDisplayDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CB2BFDEAE167625EAF3E45E3536437E /* IGListAdapterUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9387AEB152684BEDAAADFF59DDF8050C /* IGListAdapterUpdater.m */; };
+		6CC741676BD567950A183B2E48D1D69C /* IGListMoveIndexPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 90108955D01550F2C6A540D0B0DAC660 /* IGListMoveIndexPath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D514C62EF66536A0784AA86618A0EC7 /* UICollectionView+IGListBatchUpdateData.h in Headers */ = {isa = PBXBuildFile; fileRef = 60573D14F162317BF4B17CB0B52FD144 /* UICollectionView+IGListBatchUpdateData.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		6FCA141767C51B3A913A34A77D9204DC /* IGListMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 84EA6E375C112EA5D24DDA2BCC86FD4C /* IGListMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70C506C9A1EC257B2B0DBEA9E8B1216B /* IGListWorkingRangeDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C42ADBC68261807E2257BC0AD3FED39 /* IGListWorkingRangeDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		755CAA49CDFFF788F73CEA9B7F77DCB6 /* YGNodePrint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B31C013B3293DEB5F2B14D79622A99FF /* YGNodePrint.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -std=c++1y -fPIC -fno-objc-arc"; }; };
+		850069D9CA16CF650E8BC9191880A675 /* IGListIndexPathResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BEA2651CB5A80B98B3754D8B9BDADB /* IGListIndexPathResult.m */; };
+		86EE2FFDA18283C2B46740CAAEBA6806 /* IGListIndexPathResult.h in Headers */ = {isa = PBXBuildFile; fileRef = F643D390D4914BA91F86C4D58774D788 /* IGListIndexPathResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		87F0EF0E10D92A935BEC13DDE53433FA /* Pods-YogaKitSample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 30889B5BA0F155296F458E488106FFCE /* Pods-YogaKitSample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88C709CE6E2E3D69D3CBFFE697D43025 /* YGFloatOptional.h in Headers */ = {isa = PBXBuildFile; fileRef = 670FF310D37A7304B6E0588E97D8B626 /* YGFloatOptional.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8C098C929F0C22A49EA9C1EFDF0CBE95 /* IGListKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 54A4F7E0847247FCAEF7EB20F5B1EFD4 /* IGListKit-dummy.m */; };
+		8F1445A8C0894594D23442FB24B97CA2 /* IGListKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D78321A363442F71F1D860A2134E0554 /* IGListKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9218E7235B6B7FD6ABF5977D72C9C718 /* IGListExperiments.h in Headers */ = {isa = PBXBuildFile; fileRef = 18FDC42B0486AB35268528DF58775F5A /* IGListExperiments.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9444A15B95081385AE08272A23A4722E /* YGLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F643380EF4F2812C475D474E4FEDCD5F /* YGLayout.m */; };
+		94EC45D3D4E33DD78209F1B0FF1EBC61 /* Yoga-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C934C57947162BE1559BEBDF8D823612 /* Yoga-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		957F5CFE532D3BF682773433BF6A0406 /* UIView+Yoga.h in Headers */ = {isa = PBXBuildFile; fileRef = 70BACF2E813B58B5BD2E34C433E6DD3A /* UIView+Yoga.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9667660DA621BDED0851B4870B2030F4 /* IGListAdapterProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 164B4732C8CBF71744825B08DB305481 /* IGListAdapterProxy.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		97CD6D1226AFF5EFEBDBE2E702303D4A /* IGListGridCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B21978B756A8EC51C28519FD50B58 /* IGListGridCollectionViewLayout.m */; };
+		A16F4CCF6B683777C49F5A604A0273C4 /* IGListCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = D28B387E521F01AF3C37D8C996EC5010 /* IGListCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3A0A2204F32A87A60031134FFA59F73 /* YGNodePrint.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD704951D8044B505C4E037C451996D /* YGNodePrint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A4AE22DE9DDD5194039860884DFE0852 /* IGListSupplementaryViewSource.h in Headers */ = {isa = PBXBuildFile; fileRef = AFB735168F36DE37A195F453EA1FF6EE /* IGListSupplementaryViewSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A81CDC0764EFA286550744E9939C0D16 /* IGListBatchUpdateData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8B99383CFD71B4341EF80EAF067D0447 /* IGListBatchUpdateData.mm */; };
+		AA8FD4C43EDFD580BCC2A94A00B3D8A5 /* IGListDiff.h in Headers */ = {isa = PBXBuildFile; fileRef = 247860B8DF2E2AED3EC0E7893286B660 /* IGListDiff.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AB597D4CEC50E2FCFCB4E91D29443B29 /* IGListIndexSetResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0F27A31287C76908CB721DBC2693D /* IGListIndexSetResult.m */; };
+		AB7E96239435558ABC8D0FF7D8C72B67 /* NSString+IGListDiffable.h in Headers */ = {isa = PBXBuildFile; fileRef = ED40663D5F3A364559CB49A1C431F906 /* NSString+IGListDiffable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ADDCB7D3FA145C68B9C3F090E0ADB7FF /* IGListCompatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = A17D169A0948E1359A946BF9E3725E2F /* IGListCompatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF5477FF313EBE4042B772AF56E8B82A /* IGListStackedSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A1C49336B40A73BE11951844841531 /* IGListStackedSectionController.m */; };
+		AFB2269495EAB3C563B5E61A74CDF858 /* YGLayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A548E6BD8CCC8F70688600127A9EF6 /* YGLayoutExtensions.swift */; };
+		B233265046A06096722EE9EDB5F2392D /* yoga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 096C7C39110A43C8A594B59BC630E07A /* yoga.framework */; };
+		B3597BFB16D85B9D2770100C30025C71 /* IGListStackedSectionControllerInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EFE09F7134FA30F221509DCEAF91C78 /* IGListStackedSectionControllerInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		B8A4F84AA1EFF71083867A5A9237484B /* IGListSectionType.h in Headers */ = {isa = PBXBuildFile; fileRef = DC4653860A61D89203D74C3BFB88E198 /* IGListSectionType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B9D29288F97A02FA6092DFA019BB81EF /* IGListDisplayHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 7020495C48287036FFE30F9D53D3F457 /* IGListDisplayHandler.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		BF23A426C46629AE4F235D40B649A9D8 /* IGListSingleSectionController.h in Headers */ = {isa = PBXBuildFile; fileRef = BA39C3F03EDC890FE2BC0779DA17A784 /* IGListSingleSectionController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C29888794257A7816ECD02587CD5C69D /* IGListReloadDataUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D4AB917F0DDD2DBF2F0307F2EA71BF /* IGListReloadDataUpdater.m */; };
+		C95CE305245463139B94088B3F6232C6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185BECC8439A0B2E1A117ECCBAFC346A /* Foundation.framework */; };
+		CB328958429F4194819DE8604E9CD674 /* Yoga.h in Headers */ = {isa = PBXBuildFile; fileRef = 61B74D0D9E1B17A8A9998AFF867236FA /* Yoga.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D14D05463BE4B64049896AC5B48A1695 /* IGListCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDD8177C78E245BC28C649DF896002F /* IGListCollectionView.m */; };
+		D3A29E4030ECAC842CC2142774772AFA /* IGListMoveIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 24348B5A59863BCE4DD34E4D755C4288 /* IGListMoveIndexPath.m */; };
+		D4883405AE74BEDBCAABC7E3A2AFC7BC /* IGListMoveIndexPathInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A5F8AE4F3899062A480C2D92FB2D978 /* IGListMoveIndexPathInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		D6F1910B414AF47AA1FE6F88A026036B /* IGListKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B010E8DE68619D538381124CE3B80038 /* IGListKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF83A4E43AF4BD90E994FEDA0BF6ED3D /* IGListSectionControllerInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = F5DCB85FA5EE9679A08ECE0677D38B9E /* IGListSectionControllerInternal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		E43F0C63BB697CCA0424083E37E5FF0E /* IGListCollectionContext.h in Headers */ = {isa = PBXBuildFile; fileRef = DE978F93694FC2EE278663F8BBDA6789 /* IGListCollectionContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E8411F0162BE25AA606BD7205404A4C3 /* IGListGridCollectionViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = C7DFA32DF25C70D80EF0AC3EBACBFE65 /* IGListGridCollectionViewLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ED0F1580D5A64EAD96D17EB1E9F26DD1 /* IGListAdapterDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E97E4ADD05AAABB1BEC04DC08BA0BF /* IGListAdapterDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE93BD3B65B49848B56119DBBC6C101B /* YGConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = BFA2FB7ECAC1DBAE524BC7B8DA401044 /* YGConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EF117FC823400F59F41A72115B1EDA7E /* YGConfig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A314404E197EA1CB0D432E26DF5F71B0 /* YGConfig.cpp */; settings = {COMPILER_FLAGS = "-fno-omit-frame-pointer -fexceptions -Wall -Werror -std=c++1y -fPIC -fno-objc-arc"; }; };
+		F1A2EA0FE87316AC1D6B1ED661206299 /* IGListSingleSectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A62ADC19ECC7FFA66A22249EC11EBD4 /* IGListSingleSectionController.m */; };
+		F1CC00CD23125F3A319100DF7AF8D463 /* YGLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E7E5B7498ADD37F7D0EB8BB2E694DB9 /* YGLayout.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F3586AA9583B5764CCCB8C0B04C88609 /* YGLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B12AD3FBB7FEF2327F4A85165A1A88 /* YGLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4E1A9F5734693C1D934282C7595A5AF /* IGListAdapterUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = 44F17E706443ECA76A94B0A909DB76B8 /* IGListAdapterUpdater.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F728C3243CE53CDB280AF1A37502C0B7 /* IGListWorkingRangeHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 097E2F5E6D58DD2A620F014D98558F84 /* IGListWorkingRangeHandler.mm */; };
+		FB010D283D8D33FDF6686A909309CB96 /* IGListUpdatingDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = FCE1493D0C70AC8C4E10384FF622F98B /* IGListUpdatingDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB3400FA103AFB4CBFADC6C3615376C1 /* IGListDiffable.h in Headers */ = {isa = PBXBuildFile; fileRef = A69F19DE29BB7804EEFC1F960D639E1D /* IGListDiffable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FC605CCC77A26D1D063E4EB4C29446DF /* YGEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = BABE0D8A2E5075D93FD4CE35A5966945 /* YGEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE98329DF2A5E2F86C8E80303F850248 /* Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 00AAD6AE6828BF68D5959CA0B3EA737D /* Utils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		33E758BD7ADA3BB4FBE87B92EEB65914 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4D2DC51E52FA1C78A0EA55043B36D19;
+			remoteInfo = YogaKit;
+		};
+		4A394E943987419BF18B44B1184D1301 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA7115CC3A0A4E731185428269E4B61D;
+			remoteInfo = Yoga;
+		};
+		BA6FD2EC8A7DDD54777FD1E7AE3EEC16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA7115CC3A0A4E731185428269E4B61D;
+			remoteInfo = Yoga;
+		};
+		F982B07E8E4178FF6034352F0CADCFE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9349F4C1B5286D92344524B0FC25DB4;
+			remoteInfo = IGListKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00AAD6AE6828BF68D5959CA0B3EA737D /* Utils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = yoga/Utils.h; sourceTree = "<group>"; };
+		00B55695B1C499398FFBCA01FCB0A012 /* UIView+Yoga.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Yoga.m"; path = "YogaKit/Source/UIView+Yoga.m"; sourceTree = "<group>"; };
+		0189AB94FDA1CFA679D9825AE7DB6D1E /* Pods-YogaKitSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YogaKitSample.debug.xcconfig"; sourceTree = "<group>"; };
+		01D4AB917F0DDD2DBF2F0307F2EA71BF /* IGListReloadDataUpdater.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListReloadDataUpdater.m; path = Source/IGListReloadDataUpdater.m; sourceTree = "<group>"; };
+		04B12AD3FBB7FEF2327F4A85165A1A88 /* YGLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGLayout.h; path = YogaKit/Source/YGLayout.h; sourceTree = "<group>"; };
+		06621AB56BA11AC3F79012550F3454C3 /* IGListReloadDataUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListReloadDataUpdater.h; path = Source/IGListReloadDataUpdater.h; sourceTree = "<group>"; };
+		069DF38E702857D84F939C059BD9E431 /* IGListSectionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListSectionController.m; path = Source/IGListSectionController.m; sourceTree = "<group>"; };
+		07A1C49336B40A73BE11951844841531 /* IGListStackedSectionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListStackedSectionController.m; path = Source/IGListStackedSectionController.m; sourceTree = "<group>"; };
+		096C7C39110A43C8A594B59BC630E07A /* yoga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = yoga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		097E2F5E6D58DD2A620F014D98558F84 /* IGListWorkingRangeHandler.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = IGListWorkingRangeHandler.mm; path = Source/Internal/IGListWorkingRangeHandler.mm; sourceTree = "<group>"; };
+		0A62ADC19ECC7FFA66A22249EC11EBD4 /* IGListSingleSectionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListSingleSectionController.m; path = Source/IGListSingleSectionController.m; sourceTree = "<group>"; };
+		0A815125B0C512BCBF54A4C7163F521D /* IGListAdapterUpdaterDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterUpdaterDelegate.h; path = Source/IGListAdapterUpdaterDelegate.h; sourceTree = "<group>"; };
+		0DC59A3FFEAB3ADC316CDA95AA0D565F /* YogaKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YogaKit.framework; path = YogaKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E2737E95ABA1BAB7EC82E575A587E89 /* YogaKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YogaKit.xcconfig; sourceTree = "<group>"; };
+		11801F5F657B1D7C7BEEF3F2FBC2CD13 /* IGListAdapterInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterInternal.h; path = Source/Internal/IGListAdapterInternal.h; sourceTree = "<group>"; };
+		1617C217BDA6B203E72BEEC4423301D6 /* IGListDiffKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListDiffKit.h; path = Source/Common/IGListDiffKit.h; sourceTree = "<group>"; };
+		1625885639BDF228F4BF112EE698485A /* IGListDisplayDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListDisplayDelegate.h; path = Source/IGListDisplayDelegate.h; sourceTree = "<group>"; };
+		164B4732C8CBF71744825B08DB305481 /* IGListAdapterProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterProxy.h; path = Source/Internal/IGListAdapterProxy.h; sourceTree = "<group>"; };
+		16A03A19DCAB9D0460B11D8DB0FC6C8F /* IGListKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IGListKit.framework; path = IGListKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17C0F27A31287C76908CB721DBC2693D /* IGListIndexSetResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListIndexSetResult.m; path = Source/Common/IGListIndexSetResult.m; sourceTree = "<group>"; };
+		185BECC8439A0B2E1A117ECCBAFC346A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		18FDC42B0486AB35268528DF58775F5A /* IGListExperiments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListExperiments.h; path = Source/Common/IGListExperiments.h; sourceTree = "<group>"; };
+		1A5B30F2EF667E8C2988381E9C6653DA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A5F8AE4F3899062A480C2D92FB2D978 /* IGListMoveIndexPathInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListMoveIndexPathInternal.h; path = Source/Common/Internal/IGListMoveIndexPathInternal.h; sourceTree = "<group>"; };
+		1D3BCE8E4140CA9F1F097BEC9037BB28 /* YGStyle.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = YGStyle.cpp; path = yoga/YGStyle.cpp; sourceTree = "<group>"; };
+		1EA2DB975532986CBB151CE3C02C5539 /* Utils.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = Utils.cpp; path = yoga/Utils.cpp; sourceTree = "<group>"; };
+		216A53EFE942B4A453E7F7933BABB217 /* IGListSectionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListSectionController.h; path = Source/IGListSectionController.h; sourceTree = "<group>"; };
+		21B5EB1EA5C43564F848BA43908DB063 /* Pods-YogaKitSample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YogaKitSample-frameworks.sh"; sourceTree = "<group>"; };
+		2228FB416BCD57ED0EC231F9FCFD3CAB /* YGLayout+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "YGLayout+Private.h"; path = "YogaKit/Source/YGLayout+Private.h"; sourceTree = "<group>"; };
+		23A9A4716830DD5E488B12F4CAE4FA0A /* YogaKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YogaKit-prefix.pch"; sourceTree = "<group>"; };
+		24348B5A59863BCE4DD34E4D755C4288 /* IGListMoveIndexPath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListMoveIndexPath.m; path = Source/Common/IGListMoveIndexPath.m; sourceTree = "<group>"; };
+		2448E2BEB5468627C58A7E3993EC361A /* IGListAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListAdapter.m; path = Source/IGListAdapter.m; sourceTree = "<group>"; };
+		245DD00ECF528E4435E8D3F335644B72 /* IGListDisplayHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListDisplayHandler.m; path = Source/Internal/IGListDisplayHandler.m; sourceTree = "<group>"; };
+		247860B8DF2E2AED3EC0E7893286B660 /* IGListDiff.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListDiff.h; path = Source/Common/IGListDiff.h; sourceTree = "<group>"; };
+		266B3AC142099C74BD750FDA2E89B856 /* IGListAdapterProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListAdapterProxy.m; path = Source/Internal/IGListAdapterProxy.m; sourceTree = "<group>"; };
+		2B94B7842CDCC5DED7AECDA042DC8B88 /* yoga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = yoga.framework; path = Yoga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C42ADBC68261807E2257BC0AD3FED39 /* IGListWorkingRangeDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListWorkingRangeDelegate.h; path = Source/IGListWorkingRangeDelegate.h; sourceTree = "<group>"; };
+		30889B5BA0F155296F458E488106FFCE /* Pods-YogaKitSample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YogaKitSample-umbrella.h"; sourceTree = "<group>"; };
+		31223BCB117A1FB3018A4CB88F2FEC79 /* IGListMoveIndex.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListMoveIndex.h; path = Source/Common/IGListMoveIndex.h; sourceTree = "<group>"; };
+		34DC1489D5541EA4C5F5B5BA94259481 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3974305D45B7D5BD095310311F7C6598 /* Yoga-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Yoga-prefix.pch"; sourceTree = "<group>"; };
+		3BD704951D8044B505C4E037C451996D /* YGNodePrint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGNodePrint.h; path = yoga/YGNodePrint.h; sourceTree = "<group>"; };
+		42872E02B204C942A23568737878C285 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43D068C98138300DFA626FB623761C7E /* IGListDiff.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = IGListDiff.mm; path = Source/Common/IGListDiff.mm; sourceTree = "<group>"; };
+		44341EB5D13FF3C20764BEBBA2A30C1D /* YogaKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YogaKit-umbrella.h"; sourceTree = "<group>"; };
+		44F17E706443ECA76A94B0A909DB76B8 /* IGListAdapterUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterUpdater.h; path = Source/IGListAdapterUpdater.h; sourceTree = "<group>"; };
+		4542D9BD2248C57DF7CA064A8D1A217D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47E97E4ADD05AAABB1BEC04DC08BA0BF /* IGListAdapterDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterDataSource.h; path = Source/IGListAdapterDataSource.h; sourceTree = "<group>"; };
+		4F11E0758BEF0909751BF2A8D2B9213F /* YGEnums.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = YGEnums.cpp; path = yoga/YGEnums.cpp; sourceTree = "<group>"; };
+		515CB0C294EE24DB0004EE2488EA9609 /* Yoga-internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Yoga-internal.h"; path = "yoga/Yoga-internal.h"; sourceTree = "<group>"; };
+		5464BDF254BCCA9691EDA29AF75FDB08 /* Pods-YogaKitSample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YogaKitSample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		54A4F7E0847247FCAEF7EB20F5B1EFD4 /* IGListKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IGListKit-dummy.m"; sourceTree = "<group>"; };
+		54A635B07DBC3F1CD7A394395F554E25 /* IGListAdapterDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterDelegate.h; path = Source/IGListAdapterDelegate.h; sourceTree = "<group>"; };
+		584CBB2DAF7B47CAC6692FBDD6E23874 /* IGListKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IGListKit.xcconfig; sourceTree = "<group>"; };
+		5A264806F7F412BED750F5DC80BD86BF /* Pods-YogaKitSample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YogaKitSample-dummy.m"; sourceTree = "<group>"; };
+		60573D14F162317BF4B17CB0B52FD144 /* UICollectionView+IGListBatchUpdateData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UICollectionView+IGListBatchUpdateData.h"; path = "Source/Internal/UICollectionView+IGListBatchUpdateData.h"; sourceTree = "<group>"; };
+		61B74D0D9E1B17A8A9998AFF867236FA /* Yoga.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Yoga.h; path = yoga/Yoga.h; sourceTree = "<group>"; };
+		670FF310D37A7304B6E0588E97D8B626 /* YGFloatOptional.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGFloatOptional.h; path = yoga/YGFloatOptional.h; sourceTree = "<group>"; };
+		686F146474713EB60457955884DF26CB /* IGListMoveIndexInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListMoveIndexInternal.h; path = Source/Common/Internal/IGListMoveIndexInternal.h; sourceTree = "<group>"; };
+		6CDC45A431638E30EE137B0586C623F6 /* YGStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGStyle.h; path = yoga/YGStyle.h; sourceTree = "<group>"; };
+		7020495C48287036FFE30F9D53D3F457 /* IGListDisplayHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListDisplayHandler.h; path = Source/Internal/IGListDisplayHandler.h; sourceTree = "<group>"; };
+		70BACF2E813B58B5BD2E34C433E6DD3A /* UIView+Yoga.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Yoga.h"; path = "YogaKit/Source/UIView+Yoga.h"; sourceTree = "<group>"; };
+		789D6565A320D1B0791BCE522767131F /* Yoga.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = Yoga.cpp; path = yoga/Yoga.cpp; sourceTree = "<group>"; };
+		78FE87A7445F399D15F781C0615002AA /* IGListStackedSectionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListStackedSectionController.h; path = Source/IGListStackedSectionController.h; sourceTree = "<group>"; };
+		7CE825BEB7B9058A10661EE554A59FC7 /* Pods-YogaKitSample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-YogaKitSample.modulemap"; sourceTree = "<group>"; };
+		7D45EA0551BFBBBE3B32FD2878E33B8F /* YGLayout.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = YGLayout.cpp; path = yoga/YGLayout.cpp; sourceTree = "<group>"; };
+		7E7E5B7498ADD37F7D0EB8BB2E694DB9 /* YGLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGLayout.h; path = yoga/YGLayout.h; sourceTree = "<group>"; };
+		7EFE09F7134FA30F221509DCEAF91C78 /* IGListStackedSectionControllerInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListStackedSectionControllerInternal.h; path = Source/Internal/IGListStackedSectionControllerInternal.h; sourceTree = "<group>"; };
+		82966D9F422493D0866B984C74DE115A /* IGListSectionMap.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListSectionMap.m; path = Source/Internal/IGListSectionMap.m; sourceTree = "<group>"; };
+		84EA6E375C112EA5D24DDA2BCC86FD4C /* IGListMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListMacros.h; path = Source/Common/IGListMacros.h; sourceTree = "<group>"; };
+		8ADB26B0E8F8156FB4EF54D56B272B67 /* Pods_YogaKitSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YogaKitSample.framework; path = "Pods-YogaKitSample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B99383CFD71B4341EF80EAF067D0447 /* IGListBatchUpdateData.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = IGListBatchUpdateData.mm; path = Source/Common/IGListBatchUpdateData.mm; sourceTree = "<group>"; };
+		8D9B21978B756A8EC51C28519FD50B58 /* IGListGridCollectionViewLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListGridCollectionViewLayout.m; path = Source/IGListGridCollectionViewLayout.m; sourceTree = "<group>"; };
+		90108955D01550F2C6A540D0B0DAC660 /* IGListMoveIndexPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListMoveIndexPath.h; path = Source/Common/IGListMoveIndexPath.h; sourceTree = "<group>"; };
+		9387AEB152684BEDAAADFF59DDF8050C /* IGListAdapterUpdater.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListAdapterUpdater.m; path = Source/IGListAdapterUpdater.m; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		98D02077A09E7ABEB1A8DDCB507651E2 /* IGListIndexSetResultInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListIndexSetResultInternal.h; path = Source/Common/Internal/IGListIndexSetResultInternal.h; sourceTree = "<group>"; };
+		9A4A49AB929BCFA5D8BE82D114FF1ABA /* Yoga.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Yoga.modulemap; sourceTree = "<group>"; };
+		A169A356819576F5198E6E7A3BDE0060 /* IGListKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IGListKit.modulemap; sourceTree = "<group>"; };
+		A17D169A0948E1359A946BF9E3725E2F /* IGListCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListCompatibility.h; path = Source/Common/IGListCompatibility.h; sourceTree = "<group>"; };
+		A314404E197EA1CB0D432E26DF5F71B0 /* YGConfig.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = YGConfig.cpp; path = yoga/YGConfig.cpp; sourceTree = "<group>"; };
+		A69F19DE29BB7804EEFC1F960D639E1D /* IGListDiffable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListDiffable.h; path = Source/Common/IGListDiffable.h; sourceTree = "<group>"; };
+		A9D3E2A7FF0512A734A5F199893F84C9 /* NSString+IGListDiffable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+IGListDiffable.m"; path = "Source/Common/NSString+IGListDiffable.m"; sourceTree = "<group>"; };
+		AFB735168F36DE37A195F453EA1FF6EE /* IGListSupplementaryViewSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListSupplementaryViewSource.h; path = Source/IGListSupplementaryViewSource.h; sourceTree = "<group>"; };
+		B010E8DE68619D538381124CE3B80038 /* IGListKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListKit.h; path = Source/IGListKit.h; sourceTree = "<group>"; };
+		B31C013B3293DEB5F2B14D79622A99FF /* YGNodePrint.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = YGNodePrint.cpp; path = yoga/YGNodePrint.cpp; sourceTree = "<group>"; };
+		B7D8E99009D5648CFF8F5D79F74D73A9 /* IGListWorkingRangeHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListWorkingRangeHandler.h; path = Source/Internal/IGListWorkingRangeHandler.h; sourceTree = "<group>"; };
+		BA39C3F03EDC890FE2BC0779DA17A784 /* IGListSingleSectionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListSingleSectionController.h; path = Source/IGListSingleSectionController.h; sourceTree = "<group>"; };
+		BABE0D8A2E5075D93FD4CE35A5966945 /* YGEnums.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGEnums.h; path = yoga/YGEnums.h; sourceTree = "<group>"; };
+		BB36681B7A228F496455F82E2ECAB972 /* IGListIndexPathResultInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListIndexPathResultInternal.h; path = Source/Common/Internal/IGListIndexPathResultInternal.h; sourceTree = "<group>"; };
+		BFA2FB7ECAC1DBAE524BC7B8DA401044 /* YGConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGConfig.h; path = yoga/YGConfig.h; sourceTree = "<group>"; };
+		C7DFA32DF25C70D80EF0AC3EBACBFE65 /* IGListGridCollectionViewLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListGridCollectionViewLayout.h; path = Source/IGListGridCollectionViewLayout.h; sourceTree = "<group>"; };
+		C8A50DF099A0EEA205CAA3ECD69160C1 /* NSNumber+IGListDiffable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+IGListDiffable.m"; path = "Source/Common/NSNumber+IGListDiffable.m"; sourceTree = "<group>"; };
+		C934C57947162BE1559BEBDF8D823612 /* Yoga-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Yoga-umbrella.h"; sourceTree = "<group>"; };
+		CA87A389DB0FFE2E2DA3C808FB7FFBC1 /* YogaKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YogaKit-dummy.m"; sourceTree = "<group>"; };
+		CBF0A1B2300A26915172B8E7B7C509FB /* Pods-YogaKitSample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YogaKitSample-resources.sh"; sourceTree = "<group>"; };
+		D035F41075E000F6B6A7E56F0F11085B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		D22C592E4D70D3390441E7A1C68AF401 /* NSNumber+IGListDiffable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSNumber+IGListDiffable.h"; path = "Source/Common/NSNumber+IGListDiffable.h"; sourceTree = "<group>"; };
+		D28B387E521F01AF3C37D8C996EC5010 /* IGListCollectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListCollectionView.h; path = Source/IGListCollectionView.h; sourceTree = "<group>"; };
+		D5FB32F6383500044C88095345E44B86 /* IGListMoveIndex.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListMoveIndex.m; path = Source/Common/IGListMoveIndex.m; sourceTree = "<group>"; };
+		D78321A363442F71F1D860A2134E0554 /* IGListKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IGListKit-umbrella.h"; sourceTree = "<group>"; };
+		D816BD0B929E63963005BCE52AA31ABF /* IGListAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapter.h; path = Source/IGListAdapter.h; sourceTree = "<group>"; };
+		DA072E961A7A8668210E921ACB15659C /* Yoga-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Yoga-dummy.m"; sourceTree = "<group>"; };
+		DB4C0F7DF982B58E26A56B735764676C /* YGFloatOptional.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = YGFloatOptional.cpp; path = yoga/YGFloatOptional.cpp; sourceTree = "<group>"; };
+		DC4653860A61D89203D74C3BFB88E198 /* IGListSectionType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListSectionType.h; path = Source/IGListSectionType.h; sourceTree = "<group>"; };
+		DC773119B62E32BECA022F49118C5300 /* YGNode.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = YGNode.cpp; path = yoga/YGNode.cpp; sourceTree = "<group>"; };
+		DE978F93694FC2EE278663F8BBDA6789 /* IGListCollectionContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListCollectionContext.h; path = Source/IGListCollectionContext.h; sourceTree = "<group>"; };
+		DFDD8177C78E245BC28C649DF896002F /* IGListCollectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListCollectionView.m; path = Source/IGListCollectionView.m; sourceTree = "<group>"; };
+		E0B9BB1A05B058C1033FE54E3CBD80E6 /* YogaKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YogaKit.modulemap; sourceTree = "<group>"; };
+		E26DE90A1CED8E999796B3936341E674 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		E27E2D61D6AD49A27621101DE9022375 /* IGListIndexSetResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListIndexSetResult.h; path = Source/Common/IGListIndexSetResult.h; sourceTree = "<group>"; };
+		E489D5A742C44334FDE3374E4EB8957A /* IGListScrollDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListScrollDelegate.h; path = Source/IGListScrollDelegate.h; sourceTree = "<group>"; };
+		E48E12098DC087302B3A5F41D3E35CE9 /* IGListSectionMap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListSectionMap.h; path = Source/Internal/IGListSectionMap.h; sourceTree = "<group>"; };
+		E51483DD527BDB267A82E4F78EE77BDC /* IGListAssert.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAssert.h; path = Source/Common/IGListAssert.h; sourceTree = "<group>"; };
+		E7BEA2651CB5A80B98B3754D8B9BDADB /* IGListIndexPathResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IGListIndexPathResult.m; path = Source/Common/IGListIndexPathResult.m; sourceTree = "<group>"; };
+		E87FE7B1A0552F22E4D692DF673AC94D /* YGNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGNode.h; path = yoga/YGNode.h; sourceTree = "<group>"; };
+		E8AC6442129DEF46BDD0CE0AF0D7AE2F /* Yoga.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Yoga.xcconfig; sourceTree = "<group>"; };
+		E8B6D8B8D0D83EDF185ACDEA311AEA59 /* UICollectionView+IGListBatchUpdateData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UICollectionView+IGListBatchUpdateData.m"; path = "Source/Internal/UICollectionView+IGListBatchUpdateData.m"; sourceTree = "<group>"; };
+		E8C59CCBFBFE93CCB18A4CA62D936705 /* YGMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGMacros.h; path = yoga/YGMacros.h; sourceTree = "<group>"; };
+		E9A548E6BD8CCC8F70688600127A9EF6 /* YGLayoutExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YGLayoutExtensions.swift; path = YogaKit/Source/YGLayoutExtensions.swift; sourceTree = "<group>"; };
+		EB305F006B0B354A077EEEDC77D805FF /* IGListAdapterUpdaterInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListAdapterUpdaterInternal.h; path = Source/Internal/IGListAdapterUpdaterInternal.h; sourceTree = "<group>"; };
+		EC43FBE9BEAFCA3567D060A22CD248AB /* YogaKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = YogaKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ECC7C03472D546DB6ACE19EEA758A0EF /* Pods-YogaKitSample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YogaKitSample-acknowledgements.plist"; sourceTree = "<group>"; };
+		ED40663D5F3A364559CB49A1C431F906 /* NSString+IGListDiffable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+IGListDiffable.h"; path = "Source/Common/NSString+IGListDiffable.h"; sourceTree = "<group>"; };
+		EF3ABCBB08E5E1EDC8AE65EC1731781B /* IGListBatchUpdateData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListBatchUpdateData.h; path = Source/Common/IGListBatchUpdateData.h; sourceTree = "<group>"; };
+		F5DCB85FA5EE9679A08ECE0677D38B9E /* IGListSectionControllerInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListSectionControllerInternal.h; path = Source/Internal/IGListSectionControllerInternal.h; sourceTree = "<group>"; };
+		F5F7497FD4E206EC9145143F52E5926A /* Pods-YogaKitSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YogaKitSample.release.xcconfig"; sourceTree = "<group>"; };
+		F643380EF4F2812C475D474E4FEDCD5F /* YGLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YGLayout.m; path = YogaKit/Source/YGLayout.m; sourceTree = "<group>"; };
+		F643D390D4914BA91F86C4D58774D788 /* IGListIndexPathResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListIndexPathResult.h; path = Source/Common/IGListIndexPathResult.h; sourceTree = "<group>"; };
+		FAA0DA4885C8ACF2076EBBE12582E444 /* IGListKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IGListKit-prefix.pch"; sourceTree = "<group>"; };
+		FCE1493D0C70AC8C4E10384FF622F98B /* IGListUpdatingDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IGListUpdatingDelegate.h; path = Source/IGListUpdatingDelegate.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04C8FB7C8E3AB383F178014EC79AE8A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B2BD22A475ECE4FBC225C347AEA9B0D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B5A87B8F78699D4AA26E475A819D065 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C02B0E76917177B2C743D4F358ED31D /* Foundation.framework in Frameworks */,
+				419E7381943975A7ED302E6436AA04D8 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37894030F0763DF0B19BF32735511C58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C95CE305245463139B94088B3F6232C6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7214A72101E1B6D9088E1964B923E53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45599A6E2B0FB23F07637527DBC72369 /* Foundation.framework in Frameworks */,
+				4D2AA82EE4E5A774C992DBFAC46A75C7 /* UIKit.framework in Frameworks */,
+				B233265046A06096722EE9EDB5F2392D /* yoga.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		271E237C815F40ABE9F677E5C09994AF /* Diffing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Diffing;
+			sourceTree = "<group>";
+		};
+		2FCE8AC4A64B039FE80994FD5A3740CD /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				725026EEA967885D5029CFDCC1A6382A /* Pods-YogaKitSample */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		33EFF1CF7FFC9483D15CF9D81DDEB6B9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A169A356819576F5198E6E7A3BDE0060 /* IGListKit.modulemap */,
+				584CBB2DAF7B47CAC6692FBDD6E23874 /* IGListKit.xcconfig */,
+				54A4F7E0847247FCAEF7EB20F5B1EFD4 /* IGListKit-dummy.m */,
+				FAA0DA4885C8ACF2076EBBE12582E444 /* IGListKit-prefix.pch */,
+				D78321A363442F71F1D860A2134E0554 /* IGListKit-umbrella.h */,
+				1A5B30F2EF667E8C2988381E9C6653DA /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IGListKit";
+			sourceTree = "<group>";
+		};
+		39CCBC84FCADB8B61218CE09A96B5285 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				D035F41075E000F6B6A7E56F0F11085B /* LICENSE */,
+				EC43FBE9BEAFCA3567D060A22CD248AB /* YogaKit.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		3AB7152B76BFFFFFC4EF898402E8807D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				185BECC8439A0B2E1A117ECCBAFC346A /* Foundation.framework */,
+				E26DE90A1CED8E999796B3936341E674 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		4C9CF86114B88A77AA71667A95D66019 /* YogaKit */ = {
+			isa = PBXGroup;
+			children = (
+				70BACF2E813B58B5BD2E34C433E6DD3A /* UIView+Yoga.h */,
+				00B55695B1C499398FFBCA01FCB0A012 /* UIView+Yoga.m */,
+				04B12AD3FBB7FEF2327F4A85165A1A88 /* YGLayout.h */,
+				F643380EF4F2812C475D474E4FEDCD5F /* YGLayout.m */,
+				2228FB416BCD57ED0EC231F9FCFD3CAB /* YGLayout+Private.h */,
+				E9A548E6BD8CCC8F70688600127A9EF6 /* YGLayoutExtensions.swift */,
+				39CCBC84FCADB8B61218CE09A96B5285 /* Pod */,
+				EBD01BEAD5D1D9C0FCCE760CCBFB632C /* Support Files */,
+			);
+			name = YogaKit;
+			path = ../../..;
+			sourceTree = "<group>";
+		};
+		509209115BB0F46399F32B149D0925D1 /* IGListKit */ = {
+			isa = PBXGroup;
+			children = (
+				E07D91DE30AAFC585A82A5774608E993 /* Default */,
+				271E237C815F40ABE9F677E5C09994AF /* Diffing */,
+				33EFF1CF7FFC9483D15CF9D81DDEB6B9 /* Support Files */,
+			);
+			name = IGListKit;
+			path = IGListKit;
+			sourceTree = "<group>";
+		};
+		725026EEA967885D5029CFDCC1A6382A /* Pods-YogaKitSample */ = {
+			isa = PBXGroup;
+			children = (
+				34DC1489D5541EA4C5F5B5BA94259481 /* Info.plist */,
+				7CE825BEB7B9058A10661EE554A59FC7 /* Pods-YogaKitSample.modulemap */,
+				5464BDF254BCCA9691EDA29AF75FDB08 /* Pods-YogaKitSample-acknowledgements.markdown */,
+				ECC7C03472D546DB6ACE19EEA758A0EF /* Pods-YogaKitSample-acknowledgements.plist */,
+				5A264806F7F412BED750F5DC80BD86BF /* Pods-YogaKitSample-dummy.m */,
+				21B5EB1EA5C43564F848BA43908DB063 /* Pods-YogaKitSample-frameworks.sh */,
+				CBF0A1B2300A26915172B8E7B7C509FB /* Pods-YogaKitSample-resources.sh */,
+				30889B5BA0F155296F458E488106FFCE /* Pods-YogaKitSample-umbrella.h */,
+				0189AB94FDA1CFA679D9825AE7DB6D1E /* Pods-YogaKitSample.debug.xcconfig */,
+				F5F7497FD4E206EC9145143F52E5926A /* Pods-YogaKitSample.release.xcconfig */,
+			);
+			name = "Pods-YogaKitSample";
+			path = "Target Support Files/Pods-YogaKitSample";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				FF951280A3281BAE4619F2F641D7A522 /* Development Pods */,
+				C916A5D995A23EC78B88ACD3FC665100 /* Frameworks */,
+				CA9454C07C2878FD2D9D4506D5228D6C /* Pods */,
+				EB42E6D08F43CEEE115A126DA9D004BF /* Products */,
+				2FCE8AC4A64B039FE80994FD5A3740CD /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		B3E654EB0A21BD9936EE45CB1DB3C027 /* Yoga */ = {
+			isa = PBXGroup;
+			children = (
+				1EA2DB975532986CBB151CE3C02C5539 /* Utils.cpp */,
+				00AAD6AE6828BF68D5959CA0B3EA737D /* Utils.h */,
+				A314404E197EA1CB0D432E26DF5F71B0 /* YGConfig.cpp */,
+				BFA2FB7ECAC1DBAE524BC7B8DA401044 /* YGConfig.h */,
+				4F11E0758BEF0909751BF2A8D2B9213F /* YGEnums.cpp */,
+				BABE0D8A2E5075D93FD4CE35A5966945 /* YGEnums.h */,
+				DB4C0F7DF982B58E26A56B735764676C /* YGFloatOptional.cpp */,
+				670FF310D37A7304B6E0588E97D8B626 /* YGFloatOptional.h */,
+				7D45EA0551BFBBBE3B32FD2878E33B8F /* YGLayout.cpp */,
+				7E7E5B7498ADD37F7D0EB8BB2E694DB9 /* YGLayout.h */,
+				E8C59CCBFBFE93CCB18A4CA62D936705 /* YGMacros.h */,
+				DC773119B62E32BECA022F49118C5300 /* YGNode.cpp */,
+				E87FE7B1A0552F22E4D692DF673AC94D /* YGNode.h */,
+				B31C013B3293DEB5F2B14D79622A99FF /* YGNodePrint.cpp */,
+				3BD704951D8044B505C4E037C451996D /* YGNodePrint.h */,
+				1D3BCE8E4140CA9F1F097BEC9037BB28 /* YGStyle.cpp */,
+				6CDC45A431638E30EE137B0586C623F6 /* YGStyle.h */,
+				789D6565A320D1B0791BCE522767131F /* Yoga.cpp */,
+				61B74D0D9E1B17A8A9998AFF867236FA /* Yoga.h */,
+				515CB0C294EE24DB0004EE2488EA9609 /* Yoga-internal.h */,
+				F8C0A86CDDB9DD14BE186E9D149CCAB8 /* Support Files */,
+			);
+			name = Yoga;
+			path = Yoga;
+			sourceTree = "<group>";
+		};
+		C916A5D995A23EC78B88ACD3FC665100 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				096C7C39110A43C8A594B59BC630E07A /* yoga.framework */,
+				3AB7152B76BFFFFFC4EF898402E8807D /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA9454C07C2878FD2D9D4506D5228D6C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				509209115BB0F46399F32B149D0925D1 /* IGListKit */,
+				B3E654EB0A21BD9936EE45CB1DB3C027 /* Yoga */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E07D91DE30AAFC585A82A5774608E993 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				D816BD0B929E63963005BCE52AA31ABF /* IGListAdapter.h */,
+				2448E2BEB5468627C58A7E3993EC361A /* IGListAdapter.m */,
+				47E97E4ADD05AAABB1BEC04DC08BA0BF /* IGListAdapterDataSource.h */,
+				54A635B07DBC3F1CD7A394395F554E25 /* IGListAdapterDelegate.h */,
+				11801F5F657B1D7C7BEEF3F2FBC2CD13 /* IGListAdapterInternal.h */,
+				164B4732C8CBF71744825B08DB305481 /* IGListAdapterProxy.h */,
+				266B3AC142099C74BD750FDA2E89B856 /* IGListAdapterProxy.m */,
+				44F17E706443ECA76A94B0A909DB76B8 /* IGListAdapterUpdater.h */,
+				9387AEB152684BEDAAADFF59DDF8050C /* IGListAdapterUpdater.m */,
+				0A815125B0C512BCBF54A4C7163F521D /* IGListAdapterUpdaterDelegate.h */,
+				EB305F006B0B354A077EEEDC77D805FF /* IGListAdapterUpdaterInternal.h */,
+				E51483DD527BDB267A82E4F78EE77BDC /* IGListAssert.h */,
+				EF3ABCBB08E5E1EDC8AE65EC1731781B /* IGListBatchUpdateData.h */,
+				8B99383CFD71B4341EF80EAF067D0447 /* IGListBatchUpdateData.mm */,
+				DE978F93694FC2EE278663F8BBDA6789 /* IGListCollectionContext.h */,
+				D28B387E521F01AF3C37D8C996EC5010 /* IGListCollectionView.h */,
+				DFDD8177C78E245BC28C649DF896002F /* IGListCollectionView.m */,
+				A17D169A0948E1359A946BF9E3725E2F /* IGListCompatibility.h */,
+				247860B8DF2E2AED3EC0E7893286B660 /* IGListDiff.h */,
+				43D068C98138300DFA626FB623761C7E /* IGListDiff.mm */,
+				A69F19DE29BB7804EEFC1F960D639E1D /* IGListDiffable.h */,
+				1617C217BDA6B203E72BEEC4423301D6 /* IGListDiffKit.h */,
+				1625885639BDF228F4BF112EE698485A /* IGListDisplayDelegate.h */,
+				7020495C48287036FFE30F9D53D3F457 /* IGListDisplayHandler.h */,
+				245DD00ECF528E4435E8D3F335644B72 /* IGListDisplayHandler.m */,
+				18FDC42B0486AB35268528DF58775F5A /* IGListExperiments.h */,
+				C7DFA32DF25C70D80EF0AC3EBACBFE65 /* IGListGridCollectionViewLayout.h */,
+				8D9B21978B756A8EC51C28519FD50B58 /* IGListGridCollectionViewLayout.m */,
+				F643D390D4914BA91F86C4D58774D788 /* IGListIndexPathResult.h */,
+				E7BEA2651CB5A80B98B3754D8B9BDADB /* IGListIndexPathResult.m */,
+				BB36681B7A228F496455F82E2ECAB972 /* IGListIndexPathResultInternal.h */,
+				E27E2D61D6AD49A27621101DE9022375 /* IGListIndexSetResult.h */,
+				17C0F27A31287C76908CB721DBC2693D /* IGListIndexSetResult.m */,
+				98D02077A09E7ABEB1A8DDCB507651E2 /* IGListIndexSetResultInternal.h */,
+				B010E8DE68619D538381124CE3B80038 /* IGListKit.h */,
+				84EA6E375C112EA5D24DDA2BCC86FD4C /* IGListMacros.h */,
+				31223BCB117A1FB3018A4CB88F2FEC79 /* IGListMoveIndex.h */,
+				D5FB32F6383500044C88095345E44B86 /* IGListMoveIndex.m */,
+				686F146474713EB60457955884DF26CB /* IGListMoveIndexInternal.h */,
+				90108955D01550F2C6A540D0B0DAC660 /* IGListMoveIndexPath.h */,
+				24348B5A59863BCE4DD34E4D755C4288 /* IGListMoveIndexPath.m */,
+				1A5F8AE4F3899062A480C2D92FB2D978 /* IGListMoveIndexPathInternal.h */,
+				06621AB56BA11AC3F79012550F3454C3 /* IGListReloadDataUpdater.h */,
+				01D4AB917F0DDD2DBF2F0307F2EA71BF /* IGListReloadDataUpdater.m */,
+				E489D5A742C44334FDE3374E4EB8957A /* IGListScrollDelegate.h */,
+				216A53EFE942B4A453E7F7933BABB217 /* IGListSectionController.h */,
+				069DF38E702857D84F939C059BD9E431 /* IGListSectionController.m */,
+				F5DCB85FA5EE9679A08ECE0677D38B9E /* IGListSectionControllerInternal.h */,
+				E48E12098DC087302B3A5F41D3E35CE9 /* IGListSectionMap.h */,
+				82966D9F422493D0866B984C74DE115A /* IGListSectionMap.m */,
+				DC4653860A61D89203D74C3BFB88E198 /* IGListSectionType.h */,
+				BA39C3F03EDC890FE2BC0779DA17A784 /* IGListSingleSectionController.h */,
+				0A62ADC19ECC7FFA66A22249EC11EBD4 /* IGListSingleSectionController.m */,
+				78FE87A7445F399D15F781C0615002AA /* IGListStackedSectionController.h */,
+				07A1C49336B40A73BE11951844841531 /* IGListStackedSectionController.m */,
+				7EFE09F7134FA30F221509DCEAF91C78 /* IGListStackedSectionControllerInternal.h */,
+				AFB735168F36DE37A195F453EA1FF6EE /* IGListSupplementaryViewSource.h */,
+				FCE1493D0C70AC8C4E10384FF622F98B /* IGListUpdatingDelegate.h */,
+				2C42ADBC68261807E2257BC0AD3FED39 /* IGListWorkingRangeDelegate.h */,
+				B7D8E99009D5648CFF8F5D79F74D73A9 /* IGListWorkingRangeHandler.h */,
+				097E2F5E6D58DD2A620F014D98558F84 /* IGListWorkingRangeHandler.mm */,
+				D22C592E4D70D3390441E7A1C68AF401 /* NSNumber+IGListDiffable.h */,
+				C8A50DF099A0EEA205CAA3ECD69160C1 /* NSNumber+IGListDiffable.m */,
+				ED40663D5F3A364559CB49A1C431F906 /* NSString+IGListDiffable.h */,
+				A9D3E2A7FF0512A734A5F199893F84C9 /* NSString+IGListDiffable.m */,
+				60573D14F162317BF4B17CB0B52FD144 /* UICollectionView+IGListBatchUpdateData.h */,
+				E8B6D8B8D0D83EDF185ACDEA311AEA59 /* UICollectionView+IGListBatchUpdateData.m */,
+			);
+			name = Default;
+			sourceTree = "<group>";
+		};
+		EB42E6D08F43CEEE115A126DA9D004BF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16A03A19DCAB9D0460B11D8DB0FC6C8F /* IGListKit.framework */,
+				8ADB26B0E8F8156FB4EF54D56B272B67 /* Pods_YogaKitSample.framework */,
+				2B94B7842CDCC5DED7AECDA042DC8B88 /* yoga.framework */,
+				0DC59A3FFEAB3ADC316CDA95AA0D565F /* YogaKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBD01BEAD5D1D9C0FCCE760CCBFB632C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4542D9BD2248C57DF7CA064A8D1A217D /* Info.plist */,
+				E0B9BB1A05B058C1033FE54E3CBD80E6 /* YogaKit.modulemap */,
+				0E2737E95ABA1BAB7EC82E575A587E89 /* YogaKit.xcconfig */,
+				CA87A389DB0FFE2E2DA3C808FB7FFBC1 /* YogaKit-dummy.m */,
+				23A9A4716830DD5E488B12F4CAE4FA0A /* YogaKit-prefix.pch */,
+				44341EB5D13FF3C20764BEBBA2A30C1D /* YogaKit-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "YogaKit/YogaKitSample/Pods/Target Support Files/YogaKit";
+			sourceTree = "<group>";
+		};
+		F8C0A86CDDB9DD14BE186E9D149CCAB8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				42872E02B204C942A23568737878C285 /* Info.plist */,
+				9A4A49AB929BCFA5D8BE82D114FF1ABA /* Yoga.modulemap */,
+				E8AC6442129DEF46BDD0CE0AF0D7AE2F /* Yoga.xcconfig */,
+				DA072E961A7A8668210E921ACB15659C /* Yoga-dummy.m */,
+				3974305D45B7D5BD095310311F7C6598 /* Yoga-prefix.pch */,
+				C934C57947162BE1559BEBDF8D823612 /* Yoga-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Yoga";
+			sourceTree = "<group>";
+		};
+		FF951280A3281BAE4619F2F641D7A522 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C9CF86114B88A77AA71667A95D66019 /* YogaKit */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		27FA980EBAE3E10AE4ECCC857C51C221 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87F0EF0E10D92A935BEC13DDE53433FA /* Pods-YogaKitSample-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		980E0AAE687E2CD4E439893A662969F8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				957F5CFE532D3BF682773433BF6A0406 /* UIView+Yoga.h in Headers */,
+				2AA15610E63520AA2C8050724C066631 /* YGLayout+Private.h in Headers */,
+				F3586AA9583B5764CCCB8C0B04C88609 /* YGLayout.h in Headers */,
+				5A0DC447F74211ABFC7EA6FC85A1269B /* YogaKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0E4DCC9E06F9B8CDAA7B212655C8660 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C21F0FE136FA9B18F203E908CD8E180 /* IGListAdapter.h in Headers */,
+				ED0F1580D5A64EAD96D17EB1E9F26DD1 /* IGListAdapterDataSource.h in Headers */,
+				1053D7AF7E6EDBDD8A85BB52D745B1C4 /* IGListAdapterDelegate.h in Headers */,
+				23F860B1577037C92092E4FC80FED82A /* IGListAdapterInternal.h in Headers */,
+				9667660DA621BDED0851B4870B2030F4 /* IGListAdapterProxy.h in Headers */,
+				F4E1A9F5734693C1D934282C7595A5AF /* IGListAdapterUpdater.h in Headers */,
+				46DC9ECA43A5C2CE3762D252A6FAA27E /* IGListAdapterUpdaterDelegate.h in Headers */,
+				05D25B6DBEB54585037B6865F87A2DB0 /* IGListAdapterUpdaterInternal.h in Headers */,
+				36CF522E876B322D66EE28E500817848 /* IGListAssert.h in Headers */,
+				461E079882DB29F87C23CF0C6371E113 /* IGListBatchUpdateData.h in Headers */,
+				E43F0C63BB697CCA0424083E37E5FF0E /* IGListCollectionContext.h in Headers */,
+				A16F4CCF6B683777C49F5A604A0273C4 /* IGListCollectionView.h in Headers */,
+				ADDCB7D3FA145C68B9C3F090E0ADB7FF /* IGListCompatibility.h in Headers */,
+				AA8FD4C43EDFD580BCC2A94A00B3D8A5 /* IGListDiff.h in Headers */,
+				FB3400FA103AFB4CBFADC6C3615376C1 /* IGListDiffable.h in Headers */,
+				4CDAE8640E8E2DFDD1FB59C73CB3D424 /* IGListDiffKit.h in Headers */,
+				6C1E08D049B30F4C6BF78AB893FA46BF /* IGListDisplayDelegate.h in Headers */,
+				B9D29288F97A02FA6092DFA019BB81EF /* IGListDisplayHandler.h in Headers */,
+				9218E7235B6B7FD6ABF5977D72C9C718 /* IGListExperiments.h in Headers */,
+				E8411F0162BE25AA606BD7205404A4C3 /* IGListGridCollectionViewLayout.h in Headers */,
+				86EE2FFDA18283C2B46740CAAEBA6806 /* IGListIndexPathResult.h in Headers */,
+				5A71A7BD6BEEF95B83AA8D1194B46CF9 /* IGListIndexPathResultInternal.h in Headers */,
+				37F3CEC6B6F0088C7BF5B975C3D6456E /* IGListIndexSetResult.h in Headers */,
+				1CAEA309CC09BA5C22908D27BD729752 /* IGListIndexSetResultInternal.h in Headers */,
+				8F1445A8C0894594D23442FB24B97CA2 /* IGListKit-umbrella.h in Headers */,
+				D6F1910B414AF47AA1FE6F88A026036B /* IGListKit.h in Headers */,
+				6FCA141767C51B3A913A34A77D9204DC /* IGListMacros.h in Headers */,
+				302630C96C1DBD815E45959D7AC8EFD0 /* IGListMoveIndex.h in Headers */,
+				484B24A8BA5575B71C582BAC9E807E78 /* IGListMoveIndexInternal.h in Headers */,
+				6CC741676BD567950A183B2E48D1D69C /* IGListMoveIndexPath.h in Headers */,
+				D4883405AE74BEDBCAABC7E3A2AFC7BC /* IGListMoveIndexPathInternal.h in Headers */,
+				506BE278A9F3B3C62E189920AEED79A3 /* IGListReloadDataUpdater.h in Headers */,
+				2049A71FD299C3DC3E09162C39D8F43D /* IGListScrollDelegate.h in Headers */,
+				527E37C0D19CCAB4E2F4A8395DF81130 /* IGListSectionController.h in Headers */,
+				DF83A4E43AF4BD90E994FEDA0BF6ED3D /* IGListSectionControllerInternal.h in Headers */,
+				3F310EBDD196E03C09FE0225C8FA3849 /* IGListSectionMap.h in Headers */,
+				B8A4F84AA1EFF71083867A5A9237484B /* IGListSectionType.h in Headers */,
+				BF23A426C46629AE4F235D40B649A9D8 /* IGListSingleSectionController.h in Headers */,
+				14D4CB3213305ADC12FE8EDC2D2DAFF4 /* IGListStackedSectionController.h in Headers */,
+				B3597BFB16D85B9D2770100C30025C71 /* IGListStackedSectionControllerInternal.h in Headers */,
+				A4AE22DE9DDD5194039860884DFE0852 /* IGListSupplementaryViewSource.h in Headers */,
+				FB010D283D8D33FDF6686A909309CB96 /* IGListUpdatingDelegate.h in Headers */,
+				70C506C9A1EC257B2B0DBEA9E8B1216B /* IGListWorkingRangeDelegate.h in Headers */,
+				0D84FC3BDA72734CE045B29DB2FAE4D3 /* IGListWorkingRangeHandler.h in Headers */,
+				51149130289FB398CECDCD2177534552 /* NSNumber+IGListDiffable.h in Headers */,
+				AB7E96239435558ABC8D0FF7D8C72B67 /* NSString+IGListDiffable.h in Headers */,
+				6D514C62EF66536A0784AA86618A0EC7 /* UICollectionView+IGListBatchUpdateData.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD1E81523A200604C07C4A00E30248C7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE98329DF2A5E2F86C8E80303F850248 /* Utils.h in Headers */,
+				EE93BD3B65B49848B56119DBBC6C101B /* YGConfig.h in Headers */,
+				FC605CCC77A26D1D063E4EB4C29446DF /* YGEnums.h in Headers */,
+				88C709CE6E2E3D69D3CBFFE697D43025 /* YGFloatOptional.h in Headers */,
+				F1CC00CD23125F3A319100DF7AF8D463 /* YGLayout.h in Headers */,
+				103621E625FBCFC539FFC71D62CDB51B /* YGMacros.h in Headers */,
+				07E1CE62E195A6280012DB41D75254A1 /* YGNode.h in Headers */,
+				A3A0A2204F32A87A60031134FFA59F73 /* YGNodePrint.h in Headers */,
+				5603CE4B33EEDE85D28B787F277ECE02 /* YGStyle.h in Headers */,
+				384A59431CF2C020D3CB010BE3337CBC /* Yoga-internal.h in Headers */,
+				94EC45D3D4E33DD78209F1B0FF1EBC61 /* Yoga-umbrella.h in Headers */,
+				CB328958429F4194819DE8604E9CD674 /* Yoga.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9F14B122E2EA35BA0CA5FD0FB1CA8C02 /* Pods-YogaKitSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0C5A7C13F1DA015967789107492395C /* Build configuration list for PBXNativeTarget "Pods-YogaKitSample" */;
+			buildPhases = (
+				27FA980EBAE3E10AE4ECCC857C51C221 /* Headers */,
+				80BBFCC5F08810213C4C5730D91071FB /* Sources */,
+				37894030F0763DF0B19BF32735511C58 /* Frameworks */,
+				1D3173922127F1375F0583AE86820D65 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A211267E991EF7A9214A8B6E2BAA7C71 /* PBXTargetDependency */,
+				E71DDB2B2856E7E81C836007795C1FD6 /* PBXTargetDependency */,
+				7C71E916BDC05F2D8EC203CBD0A7957A /* PBXTargetDependency */,
+			);
+			name = "Pods-YogaKitSample";
+			productName = "Pods-YogaKitSample";
+			productReference = 8ADB26B0E8F8156FB4EF54D56B272B67 /* Pods_YogaKitSample.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B9349F4C1B5286D92344524B0FC25DB4 /* IGListKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A43F0F4CB0CD0E1EA79EA1F56B4CE613 /* Build configuration list for PBXNativeTarget "IGListKit" */;
+			buildPhases = (
+				A0E4DCC9E06F9B8CDAA7B212655C8660 /* Headers */,
+				1BF992FA5516EEB683CCD854CCB31B0A /* Sources */,
+				1B5A87B8F78699D4AA26E475A819D065 /* Frameworks */,
+				756B7413B0FB9519B938C9355A5C3262 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IGListKit;
+			productName = IGListKit;
+			productReference = 16A03A19DCAB9D0460B11D8DB0FC6C8F /* IGListKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D4D2DC51E52FA1C78A0EA55043B36D19 /* YogaKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BF0D7E5C0FEF06F194116EF7754F3C1 /* Build configuration list for PBXNativeTarget "YogaKit" */;
+			buildPhases = (
+				980E0AAE687E2CD4E439893A662969F8 /* Headers */,
+				C3A064B5819CF9DB7A8E5F97ED6D92BC /* Sources */,
+				C7214A72101E1B6D9088E1964B923E53 /* Frameworks */,
+				3DBE6DF5B145ADC2038D3540B5249F27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F74F38C46AABC3AABD01E77479CA487 /* PBXTargetDependency */,
+			);
+			name = YogaKit;
+			productName = YogaKit;
+			productReference = 0DC59A3FFEAB3ADC316CDA95AA0D565F /* YogaKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EA7115CC3A0A4E731185428269E4B61D /* Yoga */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF6B7D341753BBF6999C8B8BC44EB8BB /* Build configuration list for PBXNativeTarget "Yoga" */;
+			buildPhases = (
+				AD1E81523A200604C07C4A00E30248C7 /* Headers */,
+				3A04EC4663189EAF271B3623E31AE6E7 /* Sources */,
+				04C8FB7C8E3AB383F178014EC79AE8A0 /* Frameworks */,
+				4DFF3B2BA4702B08F050B1E16AABE902 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Yoga;
+			productName = Yoga;
+			productReference = 2B94B7842CDCC5DED7AECDA042DC8B88 /* yoga.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = EB42E6D08F43CEEE115A126DA9D004BF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B9349F4C1B5286D92344524B0FC25DB4 /* IGListKit */,
+				9F14B122E2EA35BA0CA5FD0FB1CA8C02 /* Pods-YogaKitSample */,
+				EA7115CC3A0A4E731185428269E4B61D /* Yoga */,
+				D4D2DC51E52FA1C78A0EA55043B36D19 /* YogaKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D3173922127F1375F0583AE86820D65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DBE6DF5B145ADC2038D3540B5249F27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DFF3B2BA4702B08F050B1E16AABE902 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		756B7413B0FB9519B938C9355A5C3262 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1BF992FA5516EEB683CCD854CCB31B0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2246F494109F42DCC83F0760D769C5D1 /* IGListAdapter.m in Sources */,
+				08C1B50F00B4F95EE74393755AF20B2B /* IGListAdapterProxy.m in Sources */,
+				6CB2BFDEAE167625EAF3E45E3536437E /* IGListAdapterUpdater.m in Sources */,
+				A81CDC0764EFA286550744E9939C0D16 /* IGListBatchUpdateData.mm in Sources */,
+				D14D05463BE4B64049896AC5B48A1695 /* IGListCollectionView.m in Sources */,
+				455F595FBFD8AF2A8CD76A77B23EE884 /* IGListDiff.mm in Sources */,
+				1398D2A15C7748C471F621769BB9A0A1 /* IGListDisplayHandler.m in Sources */,
+				97CD6D1226AFF5EFEBDBE2E702303D4A /* IGListGridCollectionViewLayout.m in Sources */,
+				850069D9CA16CF650E8BC9191880A675 /* IGListIndexPathResult.m in Sources */,
+				AB597D4CEC50E2FCFCB4E91D29443B29 /* IGListIndexSetResult.m in Sources */,
+				8C098C929F0C22A49EA9C1EFDF0CBE95 /* IGListKit-dummy.m in Sources */,
+				083ACC4E8BACFE27C57A3CBDEC5A0F4B /* IGListMoveIndex.m in Sources */,
+				D3A29E4030ECAC842CC2142774772AFA /* IGListMoveIndexPath.m in Sources */,
+				C29888794257A7816ECD02587CD5C69D /* IGListReloadDataUpdater.m in Sources */,
+				4CAD69E7A650839AB2A0E7D9C13BF11A /* IGListSectionController.m in Sources */,
+				21316F5EF0D2A2C5873122482B67FDCF /* IGListSectionMap.m in Sources */,
+				F1A2EA0FE87316AC1D6B1ED661206299 /* IGListSingleSectionController.m in Sources */,
+				AF5477FF313EBE4042B772AF56E8B82A /* IGListStackedSectionController.m in Sources */,
+				F728C3243CE53CDB280AF1A37502C0B7 /* IGListWorkingRangeHandler.mm in Sources */,
+				56AECCA2F8745C1183497BA7938999A5 /* NSNumber+IGListDiffable.m in Sources */,
+				1C74BA9EFE87637227667AD3C5CD9939 /* NSString+IGListDiffable.m in Sources */,
+				1B368BBE143B5316EA5E252280ECE4D8 /* UICollectionView+IGListBatchUpdateData.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A04EC4663189EAF271B3623E31AE6E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19D8BDA6E7993FAC7F2E8847284B0EA0 /* Utils.cpp in Sources */,
+				EF117FC823400F59F41A72115B1EDA7E /* YGConfig.cpp in Sources */,
+				6AEA949404B161E86F0B4B0FFDF78B55 /* YGEnums.cpp in Sources */,
+				1AFC598523323E04C6B274BCF8E91C0A /* YGFloatOptional.cpp in Sources */,
+				3975B38041802D93761D76E3CBEF0599 /* YGLayout.cpp in Sources */,
+				5DD28A1257DADED39598387FDF322551 /* YGNode.cpp in Sources */,
+				755CAA49CDFFF788F73CEA9B7F77DCB6 /* YGNodePrint.cpp in Sources */,
+				377A489D1630ABE347D4174CA658257A /* YGStyle.cpp in Sources */,
+				63714C7ED319EF9D3D4EB49BC2834F29 /* Yoga-dummy.m in Sources */,
+				2676F004D2043DAB99651196A59D5D1D /* Yoga.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80BBFCC5F08810213C4C5730D91071FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				562CD33D4FBC0B2ED2E4CB79F75704AB /* Pods-YogaKitSample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3A064B5819CF9DB7A8E5F97ED6D92BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10AC3BC6447DDC9A55BADC11666F0E36 /* UIView+Yoga.m in Sources */,
+				9444A15B95081385AE08272A23A4722E /* YGLayout.m in Sources */,
+				AFB2269495EAB3C563B5E61A74CDF858 /* YGLayoutExtensions.swift in Sources */,
+				0BF10D6141DE23D4394920F4CEB90988 /* YogaKit-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4F74F38C46AABC3AABD01E77479CA487 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Yoga;
+			target = EA7115CC3A0A4E731185428269E4B61D /* Yoga */;
+			targetProxy = BA6FD2EC8A7DDD54777FD1E7AE3EEC16 /* PBXContainerItemProxy */;
+		};
+		7C71E916BDC05F2D8EC203CBD0A7957A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YogaKit;
+			target = D4D2DC51E52FA1C78A0EA55043B36D19 /* YogaKit */;
+			targetProxy = 33E758BD7ADA3BB4FBE87B92EEB65914 /* PBXContainerItemProxy */;
+		};
+		A211267E991EF7A9214A8B6E2BAA7C71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IGListKit;
+			target = B9349F4C1B5286D92344524B0FC25DB4 /* IGListKit */;
+			targetProxy = F982B07E8E4178FF6034352F0CADCFE5 /* PBXContainerItemProxy */;
+		};
+		E71DDB2B2856E7E81C836007795C1FD6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Yoga;
+			target = EA7115CC3A0A4E731185428269E4B61D /* Yoga */;
+			targetProxy = 4A394E943987419BF18B44B1184D1301 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		15E0B8E5AE655771BB7252AB6FA5DA5B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		26EFE2B805A37F91AD8296A9C0F9A2B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 584CBB2DAF7B47CAC6692FBDD6E23874 /* IGListKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IGListKit/IGListKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IGListKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IGListKit/IGListKit.modulemap";
+				PRODUCT_MODULE_NAME = IGListKit;
+				PRODUCT_NAME = IGListKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		437289F7786CA0A945ADE0175323BF65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8AC6442129DEF46BDD0CE0AF0D7AE2F /* Yoga.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Yoga/Yoga-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Yoga/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Yoga/Yoga.modulemap";
+				PRODUCT_MODULE_NAME = yoga;
+				PRODUCT_NAME = yoga;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		47FA62489F4790ABE931A281BB1E1A15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0189AB94FDA1CFA679D9825AE7DB6D1E /* Pods-YogaKitSample.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-YogaKitSample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-YogaKitSample/Pods-YogaKitSample.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		68C00E6A50C51921506DD55FC1ADD000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		967985C023D3BAE2A8E0BD17FFE4192D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8AC6442129DEF46BDD0CE0AF0D7AE2F /* Yoga.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Yoga/Yoga-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Yoga/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Yoga/Yoga.modulemap";
+				PRODUCT_MODULE_NAME = yoga;
+				PRODUCT_NAME = yoga;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C3B05A3C652A71043587D53ED06C2612 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E2737E95ABA1BAB7EC82E575A587E89 /* YogaKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/YogaKit/YogaKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YogaKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/YogaKit/YogaKit.modulemap";
+				PRODUCT_MODULE_NAME = YogaKit;
+				PRODUCT_NAME = YogaKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C55191C3113684CCCC6DFC9C5C830D2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E2737E95ABA1BAB7EC82E575A587E89 /* YogaKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/YogaKit/YogaKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YogaKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/YogaKit/YogaKit.modulemap";
+				PRODUCT_MODULE_NAME = YogaKit;
+				PRODUCT_NAME = YogaKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D56E8665C56C1A64FF13FEF320A55E9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5F7497FD4E206EC9145143F52E5926A /* Pods-YogaKitSample.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-YogaKitSample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-YogaKitSample/Pods-YogaKitSample.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E90062759D5D701FA06576356BCC29B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 584CBB2DAF7B47CAC6692FBDD6E23874 /* IGListKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IGListKit/IGListKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IGListKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IGListKit/IGListKit.modulemap";
+				PRODUCT_MODULE_NAME = IGListKit;
+				PRODUCT_NAME = IGListKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68C00E6A50C51921506DD55FC1ADD000 /* Debug */,
+				15E0B8E5AE655771BB7252AB6FA5DA5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BF0D7E5C0FEF06F194116EF7754F3C1 /* Build configuration list for PBXNativeTarget "YogaKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C55191C3113684CCCC6DFC9C5C830D2B /* Debug */,
+				C3B05A3C652A71043587D53ED06C2612 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A43F0F4CB0CD0E1EA79EA1F56B4CE613 /* Build configuration list for PBXNativeTarget "IGListKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E90062759D5D701FA06576356BCC29B3 /* Debug */,
+				26EFE2B805A37F91AD8296A9C0F9A2B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF6B7D341753BBF6999C8B8BC44EB8BB /* Build configuration list for PBXNativeTarget "Yoga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				437289F7786CA0A945ADE0175323BF65 /* Debug */,
+				967985C023D3BAE2A8E0BD17FFE4192D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0C5A7C13F1DA015967789107492395C /* Build configuration list for PBXNativeTarget "Pods-YogaKitSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47FA62489F4790ABE931A281BB1E1A15 /* Debug */,
+				D56E8665C56C1A64FF13FEF320A55E9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
