@@ -146,3 +146,11 @@ void setBackgroundColor(void * view, float r, float g, float b, float a)
     UIView * v = (__bridge UIView *)view;
     [v setBackgroundColor:[UIColor colorWithRed:r green:g blue:b alpha:a]];
 }
+
+void setYogaViewContentMode(void *view, float contentModeType)
+{
+    UIView * v = (__bridge UIView *)view;
+    v.contentMode = (UIViewContentMode)contentModeType;
+}
+
+
