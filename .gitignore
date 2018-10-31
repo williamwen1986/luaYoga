@@ -4,4 +4,4 @@ xcuserdata
 intermediates
 lib_chromium/build/generated
 lib_chromium/build/outputs
-LuaKitProject/src/Projects/jni/obj
+src/Projects/jni/obj
