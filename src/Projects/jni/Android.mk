@@ -14,7 +14,8 @@ MY_FILTER_OUT_CONTAIN := %shell.c %.h %.hpp %.mm %.proto %test.cpp %mock_server.
 
 # login_protocol_handler.cpp && mail_login_protocol_handler.cpp  ->  %login_protocol_handler.cpp 只合并这一个,task系列不太好用简化
 
-My_All_Files := $(foreach src_path,$(MY_FILES_PATH), $(shell find "$(src_path)" -type f) ) 
+My_All_Files := $(foreach src_path,$(MY_FILES_PATH), $(shell find "$(src_path)" -type f) )
+My_All_Files += $(wildcard $(LOCAL_PATH)/../yoga/*.cpp)
 My_All_Files := $(My_All_Files:$(LOCAL_PATH)/./%=$(LOCAL_PATH)%)
 MY_SRC_LIST  := $(filter-out $(MY_FILTER_OUT_CONTAIN),$(My_All_Files)) 
 MY_SRC_LIST  := $(MY_SRC_LIST:$(LOCAL_PATH)/%=%)
@@ -45,6 +46,7 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/.././ \
                     $(LOCAL_PATH)/../extensions/File \
                     $(LOCAL_PATH)/../extensions/Notify \
                     $(LOCAL_PATH)/../lua-5.1.5/lua/tools \
+                    $(LOCAL_PATH)/../yoga \
 
 
 LOCAL_STATIC_LIBRARIES += common \

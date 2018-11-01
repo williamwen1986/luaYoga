@@ -17,10 +17,10 @@
 		3C23C2072181CDF400DB6052 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C23C2062181CDF400DB6052 /* libz.tbd */; };
 		3C23C20A2181CE0A00DB6052 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C23C2082181CE0A00DB6052 /* libcrypto.a */; };
 		3C23C20B2181CE0A00DB6052 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C23C2092181CE0A00DB6052 /* libssl.a */; };
-		3C23C21C2181D08000DB6052 /* luaYogaBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C2162181D08000DB6052 /* luaYogaBridge.mm */; };
 		3C23C21D2181D08000DB6052 /* LuaYogaView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C2192181D08000DB6052 /* LuaYogaView.mm */; };
-		3C23C21E2181D08000DB6052 /* lua_yoga.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C21A2181D08000DB6052 /* lua_yoga.cpp */; };
 		3C23C2402181DE4700DB6052 /* yoga.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3C23C23F2181DE4700DB6052 /* yoga.lua */; };
+		3C7E2118218ADCDC0061B5F8 /* luaYogaBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C7E2114218ADCDC0061B5F8 /* luaYogaBridge.mm */; };
+		3C7E2119218ADCDC0061B5F8 /* lua_yoga.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7E2115218ADCDC0061B5F8 /* lua_yoga.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,13 +55,13 @@
 		3C23C2062181CDF400DB6052 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3C23C2082181CE0A00DB6052 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = src/Projects/openssl/lib/libcrypto.a; sourceTree = "<group>"; };
 		3C23C2092181CE0A00DB6052 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = src/Projects/openssl/lib/libssl.a; sourceTree = "<group>"; };
-		3C23C2162181D08000DB6052 /* luaYogaBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = luaYogaBridge.mm; sourceTree = "<group>"; };
-		3C23C2172181D08000DB6052 /* luaYogaBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = luaYogaBridge.h; sourceTree = "<group>"; };
-		3C23C2182181D08000DB6052 /* lua_yoga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lua_yoga.h; sourceTree = "<group>"; };
 		3C23C2192181D08000DB6052 /* LuaYogaView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaYogaView.mm; sourceTree = "<group>"; };
-		3C23C21A2181D08000DB6052 /* lua_yoga.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lua_yoga.cpp; sourceTree = "<group>"; };
 		3C23C21B2181D08000DB6052 /* LuaYogaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaYogaView.h; sourceTree = "<group>"; };
 		3C23C23F2181DE4700DB6052 /* yoga.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yoga.lua; sourceTree = "<group>"; };
+		3C7E2114218ADCDC0061B5F8 /* luaYogaBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = luaYogaBridge.mm; path = src/Projects/yoga/luaYogaBridge.mm; sourceTree = SOURCE_ROOT; };
+		3C7E2115218ADCDC0061B5F8 /* lua_yoga.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lua_yoga.cpp; path = src/Projects/yoga/lua_yoga.cpp; sourceTree = SOURCE_ROOT; };
+		3C7E2116218ADCDC0061B5F8 /* luaYogaBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = luaYogaBridge.h; path = src/Projects/yoga/luaYogaBridge.h; sourceTree = SOURCE_ROOT; };
+		3C7E2117218ADCDC0061B5F8 /* lua_yoga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lua_yoga.h; path = src/Projects/yoga/lua_yoga.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,11 +100,11 @@
 		3C23C1DC2181CCD100DB6052 /* luaYoga */ = {
 			isa = PBXGroup;
 			children = (
+				3C7E2115218ADCDC0061B5F8 /* lua_yoga.cpp */,
+				3C7E2117218ADCDC0061B5F8 /* lua_yoga.h */,
+				3C7E2116218ADCDC0061B5F8 /* luaYogaBridge.h */,
+				3C7E2114218ADCDC0061B5F8 /* luaYogaBridge.mm */,
 				3C23C23F2181DE4700DB6052 /* yoga.lua */,
-				3C23C21A2181D08000DB6052 /* lua_yoga.cpp */,
-				3C23C2182181D08000DB6052 /* lua_yoga.h */,
-				3C23C2172181D08000DB6052 /* luaYogaBridge.h */,
-				3C23C2162181D08000DB6052 /* luaYogaBridge.mm */,
 				3C23C21B2181D08000DB6052 /* LuaYogaView.h */,
 				3C23C2192181D08000DB6052 /* LuaYogaView.mm */,
 				3C23C1DD2181CCD100DB6052 /* AppDelegate.h */,
@@ -226,12 +226,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C23C21E2181D08000DB6052 /* lua_yoga.cpp in Sources */,
+				3C7E2119218ADCDC0061B5F8 /* lua_yoga.cpp in Sources */,
 				3C23C1E22181CCD100DB6052 /* ViewController.m in Sources */,
+				3C7E2118218ADCDC0061B5F8 /* luaYogaBridge.mm in Sources */,
 				3C23C1ED2181CCD200DB6052 /* main.mm in Sources */,
 				3C23C21D2181D08000DB6052 /* LuaYogaView.mm in Sources */,
 				3C23C1DF2181CCD100DB6052 /* AppDelegate.m in Sources */,
-				3C23C21C2181D08000DB6052 /* luaYogaBridge.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
