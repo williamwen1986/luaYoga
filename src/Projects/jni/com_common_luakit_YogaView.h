@@ -13,7 +13,7 @@ JNIEXPORT jlong JNICALL Java_com_common_luakit_YogaView_loadLua
 
 
 JNIEXPORT void JNICALL Java_com_common_luakit_YogaView_dispose
-  (JNIEnv *, jobject);
+  (JNIEnv *, jobject , jlong);
 
 #ifdef __cplusplus
 }
