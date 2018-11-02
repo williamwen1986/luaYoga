@@ -5,3 +5,6 @@ intermediates
 lib_chromium/build/generated
 lib_chromium/build/outputs
 src/Projects/jni/obj
+Pods/
+Podfile.lock
+luaYoga.xcworkspace
