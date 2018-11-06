@@ -21,7 +21,6 @@
 		3C23C2402181DE4700DB6052 /* yoga.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3C23C23F2181DE4700DB6052 /* yoga.lua */; };
 		3C7E2118218ADCDC0061B5F8 /* luaYogaBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C7E2114218ADCDC0061B5F8 /* luaYogaBridge.mm */; };
 		3C7E2119218ADCDC0061B5F8 /* lua_yoga.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7E2115218ADCDC0061B5F8 /* lua_yoga.cpp */; };
-		B47D3A84111FE0130A8E0860 /* Pods_luaYoga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3073EB637C66109476EE74A4 /* Pods_luaYoga.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3073EB637C66109476EE74A4 /* Pods_luaYoga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_luaYoga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C23C1DA2181CCD100DB6052 /* luaYoga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = luaYoga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C23C1DD2181CCD100DB6052 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C23C1DE2181CCD100DB6052 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -64,8 +62,6 @@
 		3C7E2115218ADCDC0061B5F8 /* lua_yoga.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lua_yoga.cpp; path = src/Projects/yoga/lua_yoga.cpp; sourceTree = SOURCE_ROOT; };
 		3C7E2116218ADCDC0061B5F8 /* luaYogaBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = luaYogaBridge.h; path = src/Projects/yoga/luaYogaBridge.h; sourceTree = SOURCE_ROOT; };
 		3C7E2117218ADCDC0061B5F8 /* lua_yoga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lua_yoga.h; path = src/Projects/yoga/lua_yoga.h; sourceTree = SOURCE_ROOT; };
-		8C07D1FFFC3FAE2D707677F5 /* Pods-luaYoga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-luaYoga.release.xcconfig"; path = "Target Support Files/Pods-luaYoga/Pods-luaYoga.release.xcconfig"; sourceTree = "<group>"; };
-		D9B00AA1E8DF8C405EB58AF9 /* Pods-luaYoga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-luaYoga.debug.xcconfig"; path = "Target Support Files/Pods-luaYoga/Pods-luaYoga.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +73,6 @@
 				3C23C20B2181CE0A00DB6052 /* libssl.a in Frameworks */,
 				3C23C2072181CDF400DB6052 /* libz.tbd in Frameworks */,
 				3C23C2052181CDE800DB6052 /* libLuakit.a in Frameworks */,
-				B47D3A84111FE0130A8E0860 /* Pods_luaYoga.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +86,6 @@
 				3C23C1DC2181CCD100DB6052 /* luaYoga */,
 				3C23C1DB2181CCD100DB6052 /* Products */,
 				3C23C2042181CDE800DB6052 /* Frameworks */,
-				75370F41237C29390D623200 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,18 +134,8 @@
 				3C23C2082181CE0A00DB6052 /* libcrypto.a */,
 				3C23C2092181CE0A00DB6052 /* libssl.a */,
 				3C23C2062181CDF400DB6052 /* libz.tbd */,
-				3073EB637C66109476EE74A4 /* Pods_luaYoga.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		75370F41237C29390D623200 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D9B00AA1E8DF8C405EB58AF9 /* Pods-luaYoga.debug.xcconfig */,
-				8C07D1FFFC3FAE2D707677F5 /* Pods-luaYoga.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,11 +145,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C23C1F02181CCD200DB6052 /* Build configuration list for PBXNativeTarget "luaYoga" */;
 			buildPhases = (
-				38B99EE46CD7C2690853B5C9 /* [CP] Check Pods Manifest.lock */,
 				3C23C1D62181CCD100DB6052 /* Sources */,
 				3C23C1D72181CCD100DB6052 /* Frameworks */,
 				3C23C1D82181CCD100DB6052 /* Resources */,
-				43C783FE6B3625DC48408F66 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,47 +220,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		38B99EE46CD7C2690853B5C9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-luaYoga-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		43C783FE6B3625DC48408F66 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-luaYoga/Pods-luaYoga-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Yoga/yoga.framework",
-				"${BUILT_PRODUCTS_DIR}/YogaKit/YogaKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YogaKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-luaYoga/Pods-luaYoga-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C23C1D62181CCD100DB6052 /* Sources */ = {
@@ -454,7 +395,6 @@
 		};
 		3C23C1F12181CCD200DB6052 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9B00AA1E8DF8C405EB58AF9 /* Pods-luaYoga.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -476,7 +416,6 @@
 		};
 		3C23C1F22181CCD200DB6052 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C07D1FFFC3FAE2D707677F5 /* Pods-luaYoga.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
