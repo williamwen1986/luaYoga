@@ -18,7 +18,7 @@ float getYogaProperty(void * view, YogaType type, std::string propertyName)
     return 0;
 }
 
-void * mos_addView(void * parentView, YogaType type)
+void * addView(void * parentView, YogaType type)
 {
     UIView * v = (__bridge UIView *)parentView;
     UIView * child = nil;

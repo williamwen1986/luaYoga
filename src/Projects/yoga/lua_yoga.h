@@ -24,6 +24,7 @@ struct YogaInfo {
 
 //view
 #define ADD_CONTAINER "addContainer"
+#define ADD_ListView "addListView"
 #define ADD_ImageView "addImageView"
 
 #define ALPHA "alpha"

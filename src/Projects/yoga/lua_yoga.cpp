@@ -126,6 +126,15 @@ static int __yogaViewIndex(lua_State *L)
             yf->type = CONTAINER;
             yf->root = viewInfo->root;
         }
+        else if(name == ADD_ListView){
+            size_t nbytes = sizeof(YogaFunction);
+            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
+            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
+            lua_setmetatable(L, -2);
+            yf->view = viewInfo->view;
+            yf->type = LIST;
+            yf->root = viewInfo->root;
+        }
         else if(name == ADD_ImageView){
             size_t nbytes = sizeof(YogaFunction);
             YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
@@ -164,7 +173,7 @@ static int __yogaFuncCall(lua_State *L)
     BEGIN_STACK_MODIFY(L);
     YogaFunction *yf = (YogaFunction *)luaL_checkudata(L, 1, LUA_YOGA_FUNCTION_METATABLE_NAME);
     if(yf->view != NULL){
-        void * child = mos_addView(yf->view, yf->type);
+        void * child = addView(yf->view, yf->type);
         size_t nbytes = sizeof(YogaInfo);
         YogaInfo *yi = (YogaInfo *)lua_newuserdata(L, nbytes);
         luaL_getmetatable(L, LUA_YOGA_VIEW_METATABLE_NAME);
