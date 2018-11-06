@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "lua_yoga.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LuaYogaView : UIView
 
--(void)loadLua:(NSString *)module;
+- (void)loadLua:(NSString *)module type:(YogaType)type;
 
 @end
 

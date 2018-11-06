@@ -24,8 +24,20 @@ struct YogaInfo {
 
 //view
 #define ADD_CONTAINER "addContainer"
+#define ADD_ImageView "addImageView"
+
 #define ALPHA "alpha"
 #define BACKGROUND_COLOR "backgroundColor"
+
+#define ImageView_Name "imageName"
+#define ImageView_Name_HL "imageName_hl"
+
+
+#define ImageView_ContentMode "imageViewContentMode"
+#define View_Cliping "cliping"
+#define View_Highlighted "highlighted"
+
+
 #define WIDTH "width"
 #define HEIGHT "height"
 

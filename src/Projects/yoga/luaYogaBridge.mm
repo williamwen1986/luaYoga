@@ -18,11 +18,25 @@ float getYogaProperty(void * view, YogaType type, std::string propertyName)
     return 0;
 }
 
-void * addView(void * parentView, YogaType type)
+void * mos_addView(void * parentView, YogaType type)
 {
     UIView * v = (__bridge UIView *)parentView;
-    UIView * child = [[UIView alloc] init];
-    [v addSubview:child];
+    UIView * child = nil;
+    switch (type) {
+        case CONTAINER:{
+            child = [[UIView alloc] init];
+            [v addSubview:child];
+        }
+            break;
+        case IMAGE:{
+            child = [[UIImageView alloc]init];
+            [v addSubview:child];
+        }
+            break;
+        default:
+            break;
+    }
+    
     return (__bridge void *)child;
 }
 
@@ -147,10 +161,44 @@ void setBackgroundColor(void * view, float r, float g, float b, float a)
     [v setBackgroundColor:[UIColor colorWithRed:r green:g blue:b alpha:a]];
 }
 
-void setYogaViewContentMode(void *view, float contentModeType)
+void setImageName(void * imageView,  std::string imageName)
 {
-    UIView * v = (__bridge UIView *)view;
+    UIImageView * v = (__bridge UIImageView *)imageView;
+    
+    NSString *str= [NSString stringWithFormat:@"%s",imageName.c_str()];
+    
+    v.image = [UIImage imageNamed:str];
+}
+
+void setImageName_hl(void * imageView,  std::string imageName)
+{
+    UIImageView * v = (__bridge UIImageView *)imageView;
+    
+    NSString *str= [NSString stringWithFormat:@"%s",imageName.c_str()];
+    
+    v.highlightedImage = [UIImage imageNamed:str];
+}
+
+void setImageViewContentMode(void *imageView, float contentModeType)
+{
+    UIView * v = (__bridge UIView *)imageView;
+    
     v.contentMode = (UIViewContentMode)contentModeType;
 }
+
+void setCliping(void * parentView,  float isCliping){
+    
+    UIView * v = (__bridge UIView *)parentView;
+    
+    v.clipsToBounds = isCliping;
+}
+
+void setHighlighted(void * imageView,  float isHighlighted){
+    
+    UIImageView * v = (__bridge UIImageView *)imageView;
+    
+    [v setHighlighted:isHighlighted];
+}
+
 
 

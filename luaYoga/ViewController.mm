@@ -9,6 +9,10 @@
 #import "ViewController.h"
 #import <YogaKit/UIView+Yoga.h>
 #import "LuaYogaView.h"
+
+#include "lua_yoga.h"
+
+
 @interface ViewController ()
 
 @end
@@ -17,7 +21,7 @@
 
 - (void)viewDidLoad {
     LuaYogaView *root = [[LuaYogaView alloc] initWithFrame:CGRectMake(0, 200, self.view.bounds.size.width, self.view.bounds.size.height/2)];
-    [root loadLua:@"yoga"];
+    [root loadLua:@"yoga" type:CONTAINER];
     //    UIView * containView = [[UIScrollView alloc] initWithFrame:CGRectZero];
     //    UIView *root = containView;
     //    root.backgroundColor = [UIColor redColor];

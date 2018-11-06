@@ -9,11 +9,47 @@ extern "C" {
 
 static void addYogaEnum(lua_State *L);
 
+static void process_bgColor(lua_State *L);
+
 struct YogaFunction {
     void * view;
     YogaType type;
     void * root;
 };
+
+static void process_bgColor(lua_State *L,YogaInfo*viewInfo){
+    float r = 0, g = 0, b = 0;
+    float a = 1.0;
+    lua_pushstring(L, "r");
+    lua_rawget(L, -2);
+    if (!lua_isnil(L, -1)) {
+        r = lua_tonumber(L, -1);
+    }
+    lua_pop(L, 1);
+    
+    lua_pushstring(L, "g");
+    lua_rawget(L, -2);
+    if (!lua_isnil(L, -1)) {
+        g = lua_tonumber(L, -1);
+    }
+    lua_pop(L, 1);
+    
+    lua_pushstring(L, "b");
+    lua_rawget(L, -2);
+    if (!lua_isnil(L, -1)) {
+        b = lua_tonumber(L, -1);
+    }
+    lua_pop(L, 1);
+    
+    lua_pushstring(L, "a");
+    lua_rawget(L, -2);
+    if (!lua_isnil(L, -1)) {
+        a = lua_tonumber(L, -1);
+    }
+    lua_pop(L, 1);
+    
+    setBackgroundColor(viewInfo->view, r, g, b, a);
+}
 
 static int __yogaViewNewIndex(lua_State *L)
 {
@@ -21,42 +57,51 @@ static int __yogaViewNewIndex(lua_State *L)
     YogaInfo *viewInfo = (YogaInfo *)luaL_checkudata(L, 1, LUA_YOGA_VIEW_METATABLE_NAME);
     if (!viewInfo->isDead) {
         std::string name = lua_tostring(L, 2);
-        if (name == BACKGROUND_COLOR) {
-            float r = 0, g = 0, b = 0;
-            float a = 1.0;
-            lua_pushstring(L, "r");
-            lua_rawget(L, -2);
-            if (!lua_isnil(L, -1)) {
-                r = lua_tonumber(L, -1);
-            }
-            lua_pop(L, 1);
-            
-            lua_pushstring(L, "g");
-            lua_rawget(L, -2);
-            if (!lua_isnil(L, -1)) {
-                g = lua_tonumber(L, -1);
-            }
-            lua_pop(L, 1);
-            
-            lua_pushstring(L, "b");
-            lua_rawget(L, -2);
-            if (!lua_isnil(L, -1)) {
-                b = lua_tonumber(L, -1);
-            }
-            lua_pop(L, 1);
-            
-            lua_pushstring(L, "a");
-            lua_rawget(L, -2);
-            if (!lua_isnil(L, -1)) {
-                a = lua_tonumber(L, -1);
-            }
-            lua_pop(L, 1);
-            
-            setBackgroundColor(viewInfo->view, r, g, b, a);
-        } else if(name == YOGA_IS_ENABLE) {
+        
+        if (name == BACKGROUND_COLOR)
+        {
+            process_bgColor(L,viewInfo);
+        }
+        else if(name == YOGA_IS_ENABLE) {
             bool b = lua_toboolean(L, -1);
             setYogaProperty(viewInfo->view, viewInfo->type ,name, b);
-        } else {
+        }
+        else if (name == ImageView_Name){
+            
+            std::string c_imageName =  lua_tostring(L, -1);
+            
+            setImageName(viewInfo->view, c_imageName);
+            
+        }
+        else if (name == ImageView_Name_HL){
+            
+            std::string c_imageName =  lua_tostring(L, -1);
+            
+            setImageName_hl(viewInfo->view, c_imageName);
+            
+        }
+        else if (name == ImageView_ContentMode){
+            
+            long contentMode  =  lua_tointeger(L, -1);
+            
+            setImageViewContentMode(viewInfo->view, contentMode);
+            
+        }
+        else if (name == View_Cliping){
+            
+            long isCliping  =  lua_tointeger(L, -1);
+            
+            setCliping(viewInfo->view, isCliping);
+            
+        }
+        else if (name == View_Highlighted){
+            
+            long isHighlighted  =  lua_tointeger(L, -1);
+            
+            setHighlighted(viewInfo->view, isHighlighted);
+            
+        }
+        else {
             float value = lua_tonumber(L, -1);
             setYogaProperty(viewInfo->view, viewInfo->type ,name, value);
         }
@@ -70,6 +115,7 @@ static int __yogaViewIndex(lua_State *L)
     BEGIN_STACK_MODIFY(L);
     YogaInfo *viewInfo = (YogaInfo *)luaL_checkudata(L, 1, LUA_YOGA_VIEW_METATABLE_NAME);
     std::string name = lua_tostring(L, 2);
+    
     if (!viewInfo->isDead) {
         if(name == ADD_CONTAINER){
             size_t nbytes = sizeof(YogaFunction);
@@ -79,12 +125,27 @@ static int __yogaViewIndex(lua_State *L)
             yf->view = viewInfo->view;
             yf->type = CONTAINER;
             yf->root = viewInfo->root;
+        }
+        else if(name == ADD_ImageView){
+            size_t nbytes = sizeof(YogaFunction);
+            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
+            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
+            lua_setmetatable(L, -2);
+            yf->view = viewInfo->view;
+            yf->type = IMAGE;
+            yf->root = viewInfo->root;
         } else {
             float ret = getYogaProperty(viewInfo->view, viewInfo->type, name);
             lua_pushnumber(L, ret);
         }
     } else {
         if(name == ADD_CONTAINER){
+            size_t nbytes = sizeof(YogaFunction);
+            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
+            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
+            lua_setmetatable(L, -2);
+            yf->view = NULL;
+        }else if(name == ImageView_Name){
             size_t nbytes = sizeof(YogaFunction);
             YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
             luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
@@ -103,7 +164,7 @@ static int __yogaFuncCall(lua_State *L)
     BEGIN_STACK_MODIFY(L);
     YogaFunction *yf = (YogaFunction *)luaL_checkudata(L, 1, LUA_YOGA_FUNCTION_METATABLE_NAME);
     if(yf->view != NULL){
-        void * child = addView(yf->view, yf->type);
+        void * child = mos_addView(yf->view, yf->type);
         size_t nbytes = sizeof(YogaInfo);
         YogaInfo *yi = (YogaInfo *)lua_newuserdata(L, nbytes);
         luaL_getmetatable(L, LUA_YOGA_VIEW_METATABLE_NAME);
@@ -171,7 +232,7 @@ extern int luaopen_yoga_func(lua_State *L) {
 }
 
 static void addYogaEnum(lua_State *L) {
-//    YGAlign
+    //    YGAlign
     lua_pushinteger(L, 0);
     lua_setglobal(L, "YGAlignAuto");
     lua_pushinteger(L, 1);
@@ -189,7 +250,7 @@ static void addYogaEnum(lua_State *L) {
     lua_pushinteger(L, 7);
     lua_setglobal(L, "YGAlignSpaceAround");
     
-//    YGDirection
+    //    YGDirection
     lua_pushinteger(L, 0);
     lua_setglobal(L, "YGDirectionInherit");
     lua_pushinteger(L, 1);
@@ -197,13 +258,13 @@ static void addYogaEnum(lua_State *L) {
     lua_pushinteger(L, 2);
     lua_setglobal(L, "YGDirectionRTL");
     
-//    YGDisplay
+    //    YGDisplay
     lua_pushinteger(L, 0);
     lua_setglobal(L, "YGDisplayFlex");
     lua_pushinteger(L, 1);
     lua_setglobal(L, "YGDisplayNone");
     
-//    YGFlexDirection
+    //    YGFlexDirection
     lua_pushinteger(L, 0);
     lua_setglobal(L, "YGFlexDirectionColumn");
     lua_pushinteger(L, 1);
@@ -213,7 +274,7 @@ static void addYogaEnum(lua_State *L) {
     lua_pushinteger(L, 3);
     lua_setglobal(L, "YGFlexDirectionRowReverse");
     
-//    YGJustify
+    //    YGJustify
     lua_pushinteger(L, 0);
     lua_setglobal(L, "YGJustifyFlexStart");
     lua_pushinteger(L, 1);
@@ -227,13 +288,13 @@ static void addYogaEnum(lua_State *L) {
     lua_pushinteger(L, 5);
     lua_setglobal(L, "YGJustifySpaceEvenly");
     
-//    YGPositionType
+    //    YGPositionType
     lua_pushinteger(L, 0);
     lua_setglobal(L, "YGPositionTypeRelative");
     lua_pushinteger(L, 1);
     lua_setglobal(L, "YGPositionTypeAbsolute");
     
-//    YGWrap
+    //    YGWrap
     lua_pushinteger(L, 0);
     lua_setglobal(L, "YGWrapNoWrap");
     lua_pushinteger(L, 1);
@@ -241,7 +302,7 @@ static void addYogaEnum(lua_State *L) {
     lua_pushinteger(L, 2);
     lua_setglobal(L, "YGWrapWrapReverse");
     
-//    YGOverflow
+    //    YGOverflow
     lua_pushinteger(L, 0);
     lua_setglobal(L, "YGOverflowVisible");
     lua_pushinteger(L, 1);
