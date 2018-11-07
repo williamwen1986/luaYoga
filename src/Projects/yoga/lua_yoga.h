@@ -39,6 +39,7 @@ struct YogaInfo {
 #define View_Highlighted "highlighted"
 
 #define List_NumberOfGroups "numberOfGroups"
+#define List_Identifier "identifier"
 #define List_ColumnsInGroup "columnsInGroup"
 #define List_RenderItem "renderItem"
 #define List_ItemHeight "itemHeight"

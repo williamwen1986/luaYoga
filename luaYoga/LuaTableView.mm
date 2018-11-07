@@ -94,6 +94,37 @@ extern "C" {
     return num;
 }
 
+-(NSString *)getIdentifier:(NSIndexPath *)indexPath
+{
+    NSString* identifier = @"";
+    lua_State * state = BusinessThread::GetCurrentThreadLuaState();
+    BEGIN_STACK_MODIFY(state);
+    assert(self.luaRoot != nil);
+    pushUserdataInStrongTable(state,(__bridge void *)self.luaRoot);
+    assert(lua_type(state, -1) == LUA_TTABLE);
+    lua_pushlightuserdata(state, (__bridge void *)self);
+    lua_rawget(state, -2);
+    assert(lua_type(state, -1) == LUA_TUSERDATA);
+    if(lua_type(state, -1) == LUA_TUSERDATA){
+        lua_getfield(state, -1, List_ItemHeight);
+        if (lua_type(state, -1) == LUA_TFUNCTION) {
+            lua_tointeger(state, (int)indexPath.section);
+            lua_tointeger(state, (int)indexPath.row);
+            lua_pcall(state, 2, 1, 0);
+            const char * s = lua_tostring(state, -1);
+            identifier = [NSString stringWithUTF8String:s];
+        } else {
+            NSLog(@"tableView List_ItemHeight not function ");
+            assert(false);
+        }
+    } else {
+        NSLog(@"tableView heightForRowAtIndexPath no userdata ");
+        assert(false);
+    }
+    END_STACK_MODIFY(state, 0)
+    return identifier;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
