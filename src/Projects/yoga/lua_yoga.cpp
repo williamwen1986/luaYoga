@@ -167,7 +167,13 @@ static int __yogaFuncCall(lua_State *L)
     BEGIN_STACK_MODIFY(L);
     YogaFunction *yf = (YogaFunction *)luaL_checkudata(L, 1, LUA_YOGA_FUNCTION_METATABLE_NAME);
     if(yf->view != NULL){
-        void * child = addView(yf->view, yf->type);
+        void * root = NULL;
+        if (yf->root != NULL) {
+            root = yf->root;
+        } else {
+            root = yf->view;
+        }
+        void * child = addView(yf->view, yf->type, root);
         size_t nbytes = sizeof(YogaInfo);
         YogaInfo *yi = (YogaInfo *)lua_newuserdata(L, nbytes);
         luaL_getmetatable(L, LUA_YOGA_VIEW_METATABLE_NAME);
@@ -175,11 +181,7 @@ static int __yogaFuncCall(lua_State *L)
         yi->view = child;
         yi->type = yf->type;
         yi->isDead = false;
-        if (yf->root != NULL) {
-            yi->root = yf->root;
-        } else {
-            yi->root = yf->view;
-        }
+        yi->root = root;
         pushUserdataInStrongTable(L,yi->root);
         lua_pushlightuserdata(L, child);
         lua_pushvalue(L, -3);

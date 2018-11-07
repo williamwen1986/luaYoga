@@ -3,7 +3,7 @@
 
 float getYogaProperty(void * view, YogaType type, std::string propertyName);
 
-void *addView(void * parentView, YogaType type);
+void *addView(void * parentView, YogaType type, void * root);
 
 void setYogaProperty(void * view, YogaType type, std::string propertyName, float value);
 

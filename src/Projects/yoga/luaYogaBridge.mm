@@ -2,7 +2,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <YogaKit/UIView+Yoga.h>
-
+#import "LuaTableView.h"
 float getYogaProperty(void * view, YogaType type, std::string propertyName)
 {
     if (propertyName == "width") {
@@ -18,7 +18,7 @@ float getYogaProperty(void * view, YogaType type, std::string propertyName)
     return 0;
 }
 
-void * addView(void * parentView, YogaType type)
+void * addView(void * parentView, YogaType type, void * root)
 {
     UIView * v = (__bridge UIView *)parentView;
     UIView * child = nil;
@@ -30,6 +30,10 @@ void * addView(void * parentView, YogaType type)
             break;
         case IMAGE:{
             child = [[UIImageView alloc]init];
+            [v addSubview:child];
+        }
+        case LIST:{
+            child = [[LuaTableView alloc]init];
             [v addSubview:child];
         }
             break;
