@@ -15,6 +15,7 @@ extern "C" {
 #include "tools/lua_helpers.h"
 #import "lua_yoga.h"
 #import "LuaYogaView.h"
+#import <YogaKit/UIView+Yoga.h>
 
 #define LUA_CELL_TAG 999
 
@@ -108,8 +109,8 @@ extern "C" {
     if(lua_type(state, -1) == LUA_TUSERDATA){
         lua_getfield(state, -1, List_ItemHeight);
         if (lua_type(state, -1) == LUA_TFUNCTION) {
-            lua_tointeger(state, (int)indexPath.section);
-            lua_tointeger(state, (int)indexPath.row);
+            lua_pushinteger(state, (int)indexPath.section);
+            lua_pushinteger(state, (int)indexPath.row);
             lua_pcall(state, 2, 1, 0);
             const char * s = lua_tostring(state, -1);
             identifier = [NSString stringWithUTF8String:s];
@@ -182,6 +183,7 @@ extern "C" {
         NSLog(@"tableView cellForRowAtIndexPath no userdata ");
         assert(false);
     }
+    [v.yoga applyLayoutPreservingOrigin:YES];
     END_STACK_MODIFY(state, 0)
     return cell;
 }
@@ -200,8 +202,8 @@ extern "C" {
     if(lua_type(state, -1) == LUA_TUSERDATA){
         lua_getfield(state, -1, List_ItemHeight);
         if (lua_type(state, -1) == LUA_TFUNCTION) {
-            lua_tointeger(state, (int)section);
-            lua_tointeger(state, (int)row);
+            lua_pushinteger(state, (int)section);
+            lua_pushinteger(state, (int)row);
             lua_pcall(state, 2, 1, 0);
             height = lua_tonumber(state, -1);
         } else {
@@ -235,7 +237,7 @@ extern "C" {
     if(lua_type(state, -1) == LUA_TUSERDATA){
         lua_getfield(state, -1, List_GroupHeaderHeight);
         if (lua_type(state, -1) == LUA_TFUNCTION) {
-            lua_tointeger(state, (int)section);
+            lua_pushinteger(state, (int)section);
             lua_pcall(state, 1, 1, 0);
             height = lua_tonumber(state, -1);
         }
@@ -261,7 +263,7 @@ extern "C" {
     if(lua_type(state, -1) == LUA_TUSERDATA){
         lua_getfield(state, -1, List_GroupFooterHeight);
         if (lua_type(state, -1) == LUA_TFUNCTION) {
-            lua_tointeger(state, (int)section);
+            lua_pushinteger(state, (int)section);
             lua_pcall(state, 1, 1, 0);
             height = lua_tonumber(state, -1);
         }
@@ -324,6 +326,7 @@ extern "C" {
             assert(false);
         }
         END_STACK_MODIFY(state, 0)
+        [view.yoga applyLayoutPreservingOrigin:YES];
         return view;
     } else {
         return nil;
@@ -371,6 +374,7 @@ extern "C" {
             assert(false);
         }
         END_STACK_MODIFY(state, 0)
+        [view.yoga applyLayoutPreservingOrigin:YES];
         return view;
     } else {
         return nil;

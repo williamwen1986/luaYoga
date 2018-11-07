@@ -32,6 +32,7 @@ void * addView(void * parentView, YogaType type, void * root)
             child = [[UIImageView alloc]init];
             [v addSubview:child];
         }
+            break;
         case LIST:{
             child = [[LuaTableView alloc] init];
             ((LuaTableView *)child).luaRoot = (__bridge UIView *)root;

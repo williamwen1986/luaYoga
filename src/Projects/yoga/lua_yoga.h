@@ -44,9 +44,9 @@ struct YogaInfo {
 #define List_RenderItem "renderItem"
 #define List_ItemHeight "itemHeight"
 #define List_GroupHeaderHeight "groupHeaderHeight"
-#define List_GroupFooterHeight "GroupFooterHeight"
+#define List_GroupFooterHeight "groupFooterHeight"
 #define List_GroupHeader "groupHeader"
-#define List_GroupFooter "GroupFooter"
+#define List_GroupFooter "groupFooter"
 
 #define WIDTH "width"
 #define HEIGHT "height"
