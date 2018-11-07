@@ -148,13 +148,7 @@ static int __yogaViewIndex(lua_State *L)
             lua_pushnumber(L, ret);
         }
     } else {
-        if(name == ADD_CONTAINER){
-            size_t nbytes = sizeof(YogaFunction);
-            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
-            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
-            lua_setmetatable(L, -2);
-            yf->view = NULL;
-        }else if(name == ImageView_Name){
+        if(name == ADD_CONTAINER || name == ImageView_Name || name == ADD_ListView){
             size_t nbytes = sizeof(YogaFunction);
             YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
             luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
