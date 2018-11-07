@@ -45,7 +45,7 @@ void * addView(void * parentView, YogaType type, void * root)
     return (__bridge void *)child;
 }
 
-void setYogaProperty(void * view, YogaType type, std::string propertyName, float value)
+bool setYogaProperty(void * view, YogaType type, std::string propertyName, float value)
 {
     UIView * v = (__bridge UIView *)view;
     if (propertyName == YOGA_IS_ENABLE) {
@@ -155,9 +155,9 @@ void setYogaProperty(void * view, YogaType type, std::string propertyName, float
     } else if(propertyName == ALPHA){
         v.alpha= value;
     } else {
-        NSLog(@"luaYogaBridge setYogaProperty no such property %s ",propertyName.c_str());
-        assert(false);
+        return false;
     }
+    return true;
 }
 
 void setBackgroundColor(void * view, float r, float g, float b, float a)

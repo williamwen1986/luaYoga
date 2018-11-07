@@ -5,7 +5,7 @@ float getYogaProperty(void * view, YogaType type, std::string propertyName);
 
 void *addView(void * parentView, YogaType type, void * root);
 
-void setYogaProperty(void * view, YogaType type, std::string propertyName, float value);
+bool setYogaProperty(void * view, YogaType type, std::string propertyName, float value);
 
 void setBackgroundColor(void * view, float r, float g, float b, float a);
 

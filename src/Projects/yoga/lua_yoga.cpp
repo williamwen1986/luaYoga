@@ -101,21 +101,14 @@ static int __yogaViewNewIndex(lua_State *L)
             setHighlighted(viewInfo->view, isHighlighted);
             
         }
-        else if (name == List_NumberOfGroups ||
-                 name == List_ColumnsInGroup ||
-                 name == List_RenderItem ||
-                 name == List_ItemHeight ||
-                 name == List_GroupHeaderHeight ||
-                 name == List_GroupFooterHeight ||
-                 name == List_GroupHeader ||
-                 name == List_GroupFooter){
-            lua_getfenv(L, 1);
-            lua_insert(L, 2);
-            lua_rawset(L, 2);
-        }
         else {
             float value = lua_tonumber(L, -1);
-            setYogaProperty(viewInfo->view, viewInfo->type ,name, value);
+            bool hasSetProperty = setYogaProperty(viewInfo->view, viewInfo->type ,name, value);
+            if (!hasSetProperty) {
+                lua_getfenv(L, 1);
+                lua_insert(L, 2);
+                lua_rawset(L, 2);
+            }
         }
     }
     END_STACK_MODIFY(L, 0);
@@ -155,9 +148,16 @@ static int __yogaViewIndex(lua_State *L)
             yf->view = viewInfo->view;
             yf->type = IMAGE;
             yf->root = viewInfo->root;
-        } else {
+        }
+        else if (name == "width" ||
+                 name == "height"){
             float ret = getYogaProperty(viewInfo->view, viewInfo->type, name);
             lua_pushnumber(L, ret);
+        }
+        else {
+            lua_getfenv(L, -2);
+            lua_pushvalue(L, -2);
+            lua_rawget(L, 3);
         }
     } else {
         if(name == ADD_CONTAINER || name == ImageView_Name || name == ADD_ListView){
@@ -191,6 +191,7 @@ static int __yogaFuncCall(lua_State *L)
         YogaInfo *yi = (YogaInfo *)lua_newuserdata(L, nbytes);
         luaL_getmetatable(L, LUA_YOGA_VIEW_METATABLE_NAME);
         lua_setmetatable(L, -2);
+        
         lua_newtable(L);
         lua_setfenv(L, -2);
         

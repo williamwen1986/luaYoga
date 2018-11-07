@@ -39,6 +39,8 @@ extern "C" {
         YogaInfo *yi = (YogaInfo *)lua_newuserdata(state, nbytes);
         luaL_getmetatable(state, LUA_YOGA_VIEW_METATABLE_NAME);
         lua_setmetatable(state, -2);
+        lua_newtable(state);
+        lua_setfenv(state, -2);
         yi->view = (__bridge void *)self;
         yi->type = type;
         yi->isDead = false;
