@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LuaTableView : UITableView
 
+@property (weak, nonatomic) UIView *luaRoot;
+
 @end
 
 NS_ASSUME_NONNULL_END

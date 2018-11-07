@@ -101,6 +101,18 @@ static int __yogaViewNewIndex(lua_State *L)
             setHighlighted(viewInfo->view, isHighlighted);
             
         }
+        else if (name == List_NumberOfGroups ||
+                 name == List_ColumnsInGroup ||
+                 name == List_RenderItem ||
+                 name == List_ItemHeight ||
+                 name == List_GroupHeaderHeight ||
+                 name == List_GroupFooterHeight ||
+                 name == List_GroupHeader ||
+                 name == List_GroupFooter){
+            lua_getfenv(L, 1);
+            lua_insert(L, 2);
+            lua_rawset(L, 2);
+        }
         else {
             float value = lua_tonumber(L, -1);
             setYogaProperty(viewInfo->view, viewInfo->type ,name, value);
@@ -173,11 +185,15 @@ static int __yogaFuncCall(lua_State *L)
         } else {
             root = yf->view;
         }
+        
         void * child = addView(yf->view, yf->type, root);
         size_t nbytes = sizeof(YogaInfo);
         YogaInfo *yi = (YogaInfo *)lua_newuserdata(L, nbytes);
         luaL_getmetatable(L, LUA_YOGA_VIEW_METATABLE_NAME);
         lua_setmetatable(L, -2);
+        lua_newtable(L);
+        lua_setfenv(L, -2);
+        
         yi->view = child;
         yi->type = yf->type;
         yi->isDead = false;

@@ -38,6 +38,14 @@ struct YogaInfo {
 #define View_Cliping "cliping"
 #define View_Highlighted "highlighted"
 
+#define List_NumberOfGroups "numberOfGroups"
+#define List_ColumnsInGroup "columnsInGroup"
+#define List_RenderItem "renderItem"
+#define List_ItemHeight "itemHeight"
+#define List_GroupHeaderHeight "groupHeaderHeight"
+#define List_GroupFooterHeight "GroupFooterHeight"
+#define List_GroupHeader "groupHeader"
+#define List_GroupFooter "GroupFooter"
 
 #define WIDTH "width"
 #define HEIGHT "height"
