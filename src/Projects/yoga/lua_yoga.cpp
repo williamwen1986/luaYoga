@@ -6,6 +6,8 @@ extern "C" {
 #include "lua_yoga.h"
 #include "luaYogaBridge.h"
 #include <vector>
+#include <string>
+
 static void addYogaEnum(lua_State *L);
 
 static std::vector<float> process_bgColor(lua_State *L);
@@ -13,6 +15,7 @@ static std::vector<float> process_bgColor(lua_State *L);
 struct YogaFunction {
     void * view;
     YogaType type;
+    std::string action;
     void * root;
 };
 
@@ -156,6 +159,16 @@ static int __yogaViewIndex(lua_State *L)
             yf->type = IMAGE;
             yf->root = viewInfo->root;
         }
+        else if(name == List_Reload){
+            size_t nbytes = sizeof(YogaFunction);
+            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
+            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
+            lua_setmetatable(L, -2);
+            yf->view = viewInfo->view;
+            yf->type = OTHER;
+            yf->action = List_Reload;
+            yf->root = viewInfo->root;
+        }
         else if (name == "width" ||
                  name == "height"){
             float ret = getYogaProperty(viewInfo->view, viewInfo->type, name);
@@ -186,31 +199,35 @@ static int __yogaFuncCall(lua_State *L)
     BEGIN_STACK_MODIFY(L);
     YogaFunction *yf = (YogaFunction *)luaL_checkudata(L, 1, LUA_YOGA_FUNCTION_METATABLE_NAME);
     if(yf->view != NULL){
-        void * root = NULL;
-        if (yf->root != NULL) {
-            root = yf->root;
-        } else {
-            root = yf->view;
+        if (yf->type != OTHER) {
+            void * root = NULL;
+            if (yf->root != NULL) {
+                root = yf->root;
+            } else {
+                root = yf->view;
+            }
+            void * child = addView(yf->view, yf->type, root);
+            size_t nbytes = sizeof(YogaInfo);
+            YogaInfo *yi = (YogaInfo *)lua_newuserdata(L, nbytes);
+            luaL_getmetatable(L, LUA_YOGA_VIEW_METATABLE_NAME);
+            lua_setmetatable(L, -2);
+            
+            lua_newtable(L);
+            lua_setfenv(L, -2);
+            
+            yi->view = child;
+            yi->type = yf->type;
+            yi->isDead = false;
+            yi->root = root;
+            pushUserdataInStrongTable(L,yi->root);
+            lua_pushlightuserdata(L, child);
+            lua_pushvalue(L, -3);
+            lua_rawset(L, -3);
+            lua_pop(L, 1);
+        } else if(yf->action == List_Reload){
+            listReload(yf->view);
+            lua_pushnil(L);
         }
-        
-        void * child = addView(yf->view, yf->type, root);
-        size_t nbytes = sizeof(YogaInfo);
-        YogaInfo *yi = (YogaInfo *)lua_newuserdata(L, nbytes);
-        luaL_getmetatable(L, LUA_YOGA_VIEW_METATABLE_NAME);
-        lua_setmetatable(L, -2);
-        
-        lua_newtable(L);
-        lua_setfenv(L, -2);
-        
-        yi->view = child;
-        yi->type = yf->type;
-        yi->isDead = false;
-        yi->root = root;
-        pushUserdataInStrongTable(L,yi->root);
-        lua_pushlightuserdata(L, child);
-        lua_pushvalue(L, -3);
-        lua_rawset(L, -3);
-        lua_pop(L, 1);
     } else {
         lua_pushnil(L);
     }

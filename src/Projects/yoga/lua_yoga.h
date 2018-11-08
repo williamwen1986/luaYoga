@@ -2,7 +2,6 @@
 extern "C" {
 #include "lua.h"
 }
-#include <string>
 
 #define LUA_YOGA_VIEW_METATABLE_NAME "lua.yoga.view"
 #define LUA_YOGA_FUNCTION_METATABLE_NAME "lua.yoga.function"
@@ -21,7 +20,6 @@ struct YogaInfo {
     void * view;
     bool isDead;
     YogaType type;
-    std::string action;
     void * root;
 };
 

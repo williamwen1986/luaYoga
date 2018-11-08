@@ -173,6 +173,12 @@ void setListSeperatorColor(void * view, float r, float g, float b, float a)
     t.separatorColor = [UIColor colorWithRed:r green:g blue:b alpha:a];
 }
 
+void listReload(void * view)
+{
+    UITableView *t = (__bridge UITableView *)view;
+    [t reloadData];
+}
+
 void setImageName(void * imageView,  std::string imageName)
 {
     UIImageView * v = (__bridge UIImageView *)imageView;

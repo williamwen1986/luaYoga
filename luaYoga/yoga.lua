@@ -84,6 +84,7 @@ listView.renderItem = function (cell, group ,column)
 end
 
 listView.didSelect = function (group ,column)
+	listView.reload()
 	print('didSelect '..group.."-"..column)
 end
 

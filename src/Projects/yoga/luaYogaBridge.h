@@ -13,6 +13,8 @@ void setBackgroundColor(void * view, float r, float g, float b, float a);
 //list 相关
 void setListSeperatorColor(void * view, float r, float g, float b, float a);
 
+void listReload(void * view);
+
 //ImageView 相关
 void setImageViewContentMode(void * imageView, float contentModeType);
 
