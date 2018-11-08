@@ -8,6 +8,10 @@ extern "C" {
 #include <vector>
 #include <string>
 
+enum ActionType {
+    LIST_RELOAD,
+};
+
 static void addYogaEnum(lua_State *L);
 
 static std::vector<float> process_bgColor(lua_State *L);
@@ -15,7 +19,7 @@ static std::vector<float> process_bgColor(lua_State *L);
 struct YogaFunction {
     void * view;
     YogaType type;
-    std::string action;
+    ActionType action;
     void * root;
 };
 
@@ -166,7 +170,7 @@ static int __yogaViewIndex(lua_State *L)
             lua_setmetatable(L, -2);
             yf->view = viewInfo->view;
             yf->type = OTHER;
-            yf->action = List_Reload;
+            yf->action = LIST_RELOAD;
             yf->root = viewInfo->root;
         }
         else if (name == "width" ||
@@ -224,7 +228,7 @@ static int __yogaFuncCall(lua_State *L)
             lua_pushvalue(L, -3);
             lua_rawset(L, -3);
             lua_pop(L, 1);
-        } else if(yf->action == List_Reload){
+        } else if(yf->action == LIST_RELOAD){
             listReload(yf->view);
             lua_pushnil(L);
         }
