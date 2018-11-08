@@ -66,6 +66,7 @@ listView.renderItem = function (cell, group ,column)
 	cell.backgroundColor = {g=0.5, r=1.0, b=0.5}
 	cell.flexDirection = YGFlexDirectionRow
 	cell.alignItems = YGAlignFlexStart
+	-- cell 重用 not init 才add，以im为key存储
 	if not cell.hasInit then
 		cell.im = cell.addImageView()
 	end
