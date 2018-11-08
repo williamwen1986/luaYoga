@@ -2,6 +2,7 @@
 extern "C" {
 #include "lua.h"
 }
+#include <string>
 
 #define LUA_YOGA_VIEW_METATABLE_NAME "lua.yoga.view"
 #define LUA_YOGA_FUNCTION_METATABLE_NAME "lua.yoga.function"
@@ -13,12 +14,14 @@ enum YogaType {
     BUTTON,
     SVGA,
     LIST,
+    OTHER
 };
 
 struct YogaInfo {
     void * view;
     bool isDead;
     YogaType type;
+    std::string action;
     void * root;
 };
 
@@ -48,6 +51,9 @@ struct YogaInfo {
 #define List_GroupHeader "groupHeader"
 #define List_GroupFooter "groupFooter"
 #define List_DidSelect "didSelect"
+#define List_SeperatorColor "seperatorColor"
+#define List_Reload "reload"
+
 
 #define WIDTH "width"
 #define HEIGHT "height"

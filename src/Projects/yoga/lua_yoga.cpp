@@ -5,11 +5,10 @@ extern "C" {
 #include "tools/lua_helpers.h"
 #include "lua_yoga.h"
 #include "luaYogaBridge.h"
-#include <string>
-
+#include <vector>
 static void addYogaEnum(lua_State *L);
 
-static void process_bgColor(lua_State *L);
+static std::vector<float> process_bgColor(lua_State *L);
 
 struct YogaFunction {
     void * view;
@@ -17,7 +16,8 @@ struct YogaFunction {
     void * root;
 };
 
-static void process_bgColor(lua_State *L,YogaInfo*viewInfo){
+static std::vector<float> process_bgColor(lua_State *L,YogaInfo*viewInfo){
+    std::vector<float> color;
     float r = 0, g = 0, b = 0;
     float a = 1.0;
     lua_pushstring(L, "r");
@@ -47,8 +47,11 @@ static void process_bgColor(lua_State *L,YogaInfo*viewInfo){
         a = lua_tonumber(L, -1);
     }
     lua_pop(L, 1);
-    
-    setBackgroundColor(viewInfo->view, r, g, b, a);
+    color.push_back(r);
+    color.push_back(g);
+    color.push_back(b);
+    color.push_back(a);
+    return color;
 }
 
 static int __yogaViewNewIndex(lua_State *L)
@@ -60,7 +63,8 @@ static int __yogaViewNewIndex(lua_State *L)
         
         if (name == BACKGROUND_COLOR)
         {
-            process_bgColor(L,viewInfo);
+            std::vector<float> color = process_bgColor(L,viewInfo);
+            setBackgroundColor(viewInfo->view, color[0], color[1], color[2], color[3]);
         }
         else if(name == YOGA_IS_ENABLE) {
             bool b = lua_toboolean(L, -1);
