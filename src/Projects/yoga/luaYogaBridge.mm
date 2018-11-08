@@ -90,6 +90,18 @@ float getYogaProperty(void * view, YogaType type, std::string propertyName)
     return 0;
 }
 
+void reloadYoga(void * view)
+{
+    UIView * v = (__bridge UIView *)view;
+    [v.yoga applyLayoutPreservingOrigin:YES];
+}
+
+void removeFromParent(void * view)
+{
+    UIView * v = (__bridge UIView *)view;
+    [v removeFromSuperview];
+}
+
 void * addView(void * parentView, YogaType type, void * root)
 {
     UIView * v = (__bridge UIView *)parentView;

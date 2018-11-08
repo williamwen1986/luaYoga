@@ -157,7 +157,6 @@ extern "C" {
         [cell.contentView addSubview:view];
         view.tag = LUA_CELL_TAG;
         cell.selectedBackgroundView = [[UIView alloc] init] ;
-       
     }
     LuaYogaView * v = [cell.contentView viewWithTag:LUA_CELL_TAG];
     assert(self.luaRoot != nil);

@@ -13,6 +13,9 @@ void addTapGesture(void * view, void *root);
 
 void addLongPressGesture(void * view, void *root);
 
+void reloadYoga(void * view);
+
+void removeFromParent(void * view);
 //list 相关
 void setListSeperatorColor(void * view, float r, float g, float b, float a);
 

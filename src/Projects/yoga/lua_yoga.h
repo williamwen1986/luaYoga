@@ -27,9 +27,10 @@ struct YogaInfo {
 #define ADD_CONTAINER "addContainer"
 #define ADD_ListView "addListView"
 #define ADD_ImageView "addImageView"
-
 #define TAP_FUNCTION "tapFunction"
 #define LONGPRESS_FUNCTION "longPressFunction"
+#define RELOAD_YOGA "reloadYoga"
+#define REMOVE_FROM_PARENT "removeFromParent"
 #define ALPHA "alpha"
 #define BACKGROUND_COLOR "backgroundColor"
 #define ImageView_Name "imageName"

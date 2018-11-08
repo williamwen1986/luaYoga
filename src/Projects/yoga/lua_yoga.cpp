@@ -10,6 +10,8 @@ extern "C" {
 
 enum ActionType {
     LIST_RELOAD,
+    VIEW_RELOAD_YOGA,
+    VIEW_REMOVE_FROM_PARENT,
 };
 
 static void addYogaEnum(lua_State *L);
@@ -164,6 +166,26 @@ static int __yogaViewIndex(lua_State *L)
             yf->type = LIST;
             yf->root = viewInfo->root;
         }
+        else if (name == RELOAD_YOGA){
+            size_t nbytes = sizeof(YogaFunction);
+            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
+            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
+            lua_setmetatable(L, -2);
+            yf->view = viewInfo->view;
+            yf->type = OTHER;
+            yf->action = VIEW_RELOAD_YOGA;
+            yf->root = viewInfo->root;
+        }
+        else if (name == REMOVE_FROM_PARENT){
+            size_t nbytes = sizeof(YogaFunction);
+            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
+            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
+            lua_setmetatable(L, -2);
+            yf->view = viewInfo->view;
+            yf->type = OTHER;
+            yf->action = VIEW_REMOVE_FROM_PARENT;
+            yf->root = viewInfo->root;
+        }
         else if(name == ADD_ImageView){
             size_t nbytes = sizeof(YogaFunction);
             YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
@@ -240,6 +262,12 @@ static int __yogaFuncCall(lua_State *L)
             lua_pop(L, 1);
         } else if(yf->action == LIST_RELOAD){
             listReload(yf->view);
+            lua_pushnil(L);
+        } else if(yf->action == VIEW_RELOAD_YOGA){
+            reloadYoga(yf->view);
+            lua_pushnil(L);
+        } else if(yf->action == VIEW_REMOVE_FROM_PARENT){
+            removeFromParent(yf->view);
             lua_pushnil(L);
         }
     } else {
