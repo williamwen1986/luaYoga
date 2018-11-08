@@ -14,7 +14,7 @@ extern "C" {
 
 -(void)tapGesture;
 
--(void)longPressGesture;
+-(void)longPressGesture:(UIGestureRecognizer *)gesture;
 
 @end
 
