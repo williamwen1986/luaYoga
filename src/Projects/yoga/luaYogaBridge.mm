@@ -167,6 +167,12 @@ void setBackgroundColor(void * view, float r, float g, float b, float a)
     [v setBackgroundColor:[UIColor colorWithRed:r green:g blue:b alpha:a]];
 }
 
+void setListSeperatorColor(void * view, float r, float g, float b, float a)
+{
+    UITableView *t = (__bridge UITableView *)view;
+    t.separatorColor = [UIColor colorWithRed:r green:g blue:b alpha:a];
+}
+
 void setImageName(void * imageView,  std::string imageName)
 {
     UIImageView * v = (__bridge UIImageView *)imageView;

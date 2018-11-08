@@ -104,6 +104,9 @@ static int __yogaViewNewIndex(lua_State *L)
             
             setHighlighted(viewInfo->view, isHighlighted);
             
+        } else if (name == List_SeperatorColor){
+            std::vector<float> color = process_bgColor(L,viewInfo);
+            setListSeperatorColor(viewInfo->view, color[0], color[1], color[2], color[3]);
         }
         else {
             float value = lua_tonumber(L, -1);

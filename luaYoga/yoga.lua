@@ -20,11 +20,12 @@ imageView.highlighted = 1                       --赋值->是否高亮模式：.
 --]]               
 
 local listView = container.addListView()
+
 listView.isEnabled = true
 listView.backgroundColor = {g=1.0}
-
 listView.width = container.width
 listView.height = 400
+listView.seperatorColor = {b=0.5}
 
 listView.identifier = function (section, row)
 	return "test"

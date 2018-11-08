@@ -10,7 +10,8 @@ bool setYogaProperty(void * view, YogaType type, std::string propertyName, float
 void setBackgroundColor(void * view, float r, float g, float b, float a);
 
 
-
+//list 相关
+void setListSeperatorColor(void * view, float r, float g, float b, float a);
 
 //ImageView 相关
 void setImageViewContentMode(void * imageView, float contentModeType);
