@@ -47,6 +47,7 @@ struct YogaInfo {
 #define List_GroupFooterHeight "groupFooterHeight"
 #define List_GroupHeader "groupHeader"
 #define List_GroupFooter "groupFooter"
+#define List_DidSelect "didSelect"
 
 #define WIDTH "width"
 #define HEIGHT "height"

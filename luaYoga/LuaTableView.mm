@@ -154,10 +154,12 @@ extern "C" {
         lua_rawset(state, -3);
         lua_rawset(state, -3);
         lua_pop(state, 2);
-        [cell addSubview:view];
+        [cell.contentView addSubview:view];
         view.tag = LUA_CELL_TAG;
+        cell.selectedBackgroundView = [[UIView alloc] init] ;
+       
     }
-    LuaYogaView * v = [cell viewWithTag:LUA_CELL_TAG];
+    LuaYogaView * v = [cell.contentView viewWithTag:LUA_CELL_TAG];
     assert(self.luaRoot != nil);
     pushUserdataInStrongTable(state,(__bridge void *)self.luaRoot);
     assert(lua_type(state, -1) == LUA_TTABLE);
@@ -174,7 +176,9 @@ extern "C" {
             lua_rawget(state, -2);
             lua_remove(state, -2);
             lua_remove(state, -2);
-            lua_pcall(state, 1, 0, 0);
+            lua_pushinteger(state, indexPath.section);
+            lua_pushinteger(state, indexPath.row);
+            lua_pcall(state, 3, 0, 0);
         } else {
             NSLog(@"tableView List_ItemHeight not function ");
             assert(false);
@@ -273,6 +277,31 @@ extern "C" {
     }
     END_STACK_MODIFY(state, 0)
     return height;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    lua_State * state = BusinessThread::GetCurrentThreadLuaState();
+    BEGIN_STACK_MODIFY(state);
+    assert(self.luaRoot != nil);
+    pushUserdataInStrongTable(state,(__bridge void *)self.luaRoot);
+    assert(lua_type(state, -1) == LUA_TTABLE);
+    lua_pushlightuserdata(state, (__bridge void *)self);
+    lua_rawget(state, -2);
+    assert(lua_type(state, -1) == LUA_TUSERDATA);
+    if(lua_type(state, -1) == LUA_TUSERDATA){
+        lua_getfield(state, -1, List_DidSelect);
+        if (lua_type(state, -1) == LUA_TFUNCTION) {
+            lua_pushinteger(state, (int)indexPath.section);
+            lua_pushinteger(state, (int)indexPath.row);
+            lua_pcall(state, 2, 0, 0);
+        }
+    } else {
+        NSLog(@"tableView didSelectRowAtIndexPath no userdata ");
+        assert(false);
+    }
+    END_STACK_MODIFY(state, 0)
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

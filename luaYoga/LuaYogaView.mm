@@ -74,7 +74,7 @@ extern "C" {
     assert(lua_istable(state, -1));
     lua_pushnil(state);  /* first key */
     while (lua_next(state, -2)) {
-        YogaInfo *viewInfo = (YogaInfo *)luaL_checkudata(state, 1, LUA_YOGA_VIEW_METATABLE_NAME);
+        YogaInfo *viewInfo = (YogaInfo *)luaL_checkudata(state, -1, LUA_YOGA_VIEW_METATABLE_NAME);
         viewInfo->isDead = true;
         lua_pop(state, 1); // Pop off the value
     }
