@@ -19,7 +19,7 @@ struct YogaFunction {
     void * root;
 };
 
-static std::vector<float> process_bgColor(lua_State *L,YogaInfo*viewInfo){
+static std::vector<float> process_bgColor(lua_State *L){
     std::vector<float> color;
     float r = 0, g = 0, b = 0;
     float a = 1.0;
@@ -66,7 +66,7 @@ static int __yogaViewNewIndex(lua_State *L)
         
         if (name == BACKGROUND_COLOR)
         {
-            std::vector<float> color = process_bgColor(L,viewInfo);
+            std::vector<float> color = process_bgColor(L);
             setBackgroundColor(viewInfo->view, color[0], color[1], color[2], color[3]);
         }
         else if(name == YOGA_IS_ENABLE) {
@@ -108,7 +108,7 @@ static int __yogaViewNewIndex(lua_State *L)
             setHighlighted(viewInfo->view, isHighlighted);
             
         } else if (name == List_SeperatorColor){
-            std::vector<float> color = process_bgColor(L,viewInfo);
+            std::vector<float> color = process_bgColor(L);
             setListSeperatorColor(viewInfo->view, color[0], color[1], color[2], color[3]);
         }
         else {
