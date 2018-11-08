@@ -3,6 +3,78 @@
 #import <UIKit/UIKit.h>
 #import <YogaKit/UIView+Yoga.h>
 #import "LuaTableView.h"
+#import <objc/runtime.h>
+extern "C" {
+#include "lua.h"
+#include "lauxlib.h"
+}
+#include "common/business_runtime.h"
+#include "tools/lua_helpers.h"
+@interface UIView (LuaGesture)
+
+-(void)tapGesture;
+
+-(void)longPressGesture;
+
+@end
+
+@implementation UIView (LuaGesture)
+
+-(void)tapGesture
+{
+    UIView * root = objc_getAssociatedObject(self, "root");
+    if (!root) {
+        root = self;
+    }
+    lua_State * state = BusinessThread::GetCurrentThreadLuaState();
+    BEGIN_STACK_MODIFY(state);
+    pushUserdataInStrongTable(state,(__bridge void *)root);
+    assert(lua_type(state, -1) == LUA_TTABLE);
+    lua_pushlightuserdata(state, (__bridge void *)self);
+    lua_rawget(state, -2);
+    assert(lua_type(state, -1) == LUA_TUSERDATA);
+    if(lua_type(state, -1) == LUA_TUSERDATA){
+        lua_getfield(state, -1, TAP_FUNCTION);
+        if (lua_type(state, -1) == LUA_TFUNCTION) {
+            lua_pcall(state, 0, 0, 0);
+        }
+    } else {
+        NSLog(@"view tapGesture no userdata ");
+        assert(false);
+    }
+    END_STACK_MODIFY(state, 0)
+}
+
+-(void)longPressGesture:(UIGestureRecognizer *)gesture
+{
+    if ([gesture state] == UIGestureRecognizerStateBegan) {
+        UIView * root = objc_getAssociatedObject(self, "root");
+        if (!root) {
+            root = self;
+        }
+        lua_State * state = BusinessThread::GetCurrentThreadLuaState();
+        BEGIN_STACK_MODIFY(state);
+        pushUserdataInStrongTable(state,(__bridge void *)root);
+        assert(lua_type(state, -1) == LUA_TTABLE);
+        lua_pushlightuserdata(state, (__bridge void *)self);
+        lua_rawget(state, -2);
+        assert(lua_type(state, -1) == LUA_TUSERDATA);
+        if(lua_type(state, -1) == LUA_TUSERDATA){
+            lua_getfield(state, -1, LONGPRESS_FUNCTION);
+            if (lua_type(state, -1) == LUA_TFUNCTION) {
+                lua_pcall(state, 0, 0, 0);
+            }
+        } else {
+            NSLog(@"view longPressGesture no userdata ");
+            assert(false);
+        }
+        END_STACK_MODIFY(state, 0)
+    }
+}
+
+@end
+
+
 float getYogaProperty(void * view, YogaType type, std::string propertyName)
 {
     if (propertyName == "width") {
@@ -165,6 +237,30 @@ void setBackgroundColor(void * view, float r, float g, float b, float a)
 {
     UIView * v = (__bridge UIView *)view;
     [v setBackgroundColor:[UIColor colorWithRed:r green:g blue:b alpha:a]];
+}
+
+void addTapGesture(void * view, void *root)
+{
+    UIView * v = (__bridge UIView *)view;
+    v.userInteractionEnabled = YES;
+    if (root != NULL) {
+        UIView * r = (__bridge UIView *)root;
+        objc_setAssociatedObject(v,"root", r, OBJC_ASSOCIATION_ASSIGN);
+    }
+    UITapGestureRecognizer * recognizer = [[UITapGestureRecognizer alloc] initWithTarget:v action:@selector(tapGesture)];
+    [v addGestureRecognizer:recognizer];
+}
+
+void addLongPressGesture(void * view, void *root)
+{
+    UIView * v = (__bridge UIView *)view;
+    v.userInteractionEnabled = YES;
+    if (root != NULL) {
+        UIView * r = (__bridge UIView *)root;
+        objc_setAssociatedObject(v,"root", r, OBJC_ASSOCIATION_ASSIGN);
+    }
+    UILongPressGestureRecognizer * recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:v action:@selector(longPressGesture:)];
+    [v addGestureRecognizer:recognizer];
 }
 
 void setListSeperatorColor(void * view, float r, float g, float b, float a)

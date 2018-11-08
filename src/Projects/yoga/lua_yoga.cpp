@@ -114,6 +114,16 @@ static int __yogaViewNewIndex(lua_State *L)
         } else if (name == List_SeperatorColor){
             std::vector<float> color = process_bgColor(L);
             setListSeperatorColor(viewInfo->view, color[0], color[1], color[2], color[3]);
+        } else if (name == TAP_FUNCTION){
+            addTapGesture(viewInfo->view, viewInfo->root);
+            lua_getfenv(L, 1);
+            lua_insert(L, 2);
+            lua_rawset(L, 2);
+        } else if (name == LONGPRESS_FUNCTION){
+            addLongPressGesture(viewInfo->view, viewInfo->root);
+            lua_getfenv(L, 1);
+            lua_insert(L, 2);
+            lua_rawset(L, 2);
         }
         else {
             float value = lua_tonumber(L, -1);

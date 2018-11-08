@@ -17,6 +17,13 @@ imageView.imageName_hl = 'highlightImage'       --赋值->图片资源highlighte
 imageView.imageViewContentMode = 1              --赋值->填充模式： .imageViewContentMode = 0-12  ( def 0
 imageView.cliping = 0                           --赋值->是否裁剪：.cliping = 0/1  ( def 0
 imageView.highlighted = 1                       --赋值->是否高亮模式：.highlighted = 0/1  ( def 0
+imageView.tapFunction = function ()
+	print("imageView did tap")
+end
+
+imageView.longPressFunction = function ()
+	print("imageView did longPress")
+end
 --]]               
 
 local listView = container.addListView()

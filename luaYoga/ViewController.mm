@@ -20,7 +20,7 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
-    LuaYogaView *root = [[LuaYogaView alloc] initWithFrame:CGRectMake(0, 200, self.view.bounds.size.width, self.view.bounds.size.height/2)];
+    LuaYogaView *root = [[LuaYogaView alloc] initWithFrame:CGRectMake(0, 200, self.view.bounds.size.width, self.view.bounds.size.height*2/3)];
     [root loadLua:@"yoga" type:CONTAINER];
     //    UIView * containView = [[UIScrollView alloc] initWithFrame:CGRectZero];
     //    UIView *root = containView;
