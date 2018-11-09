@@ -14,6 +14,7 @@ enum YogaType {
     SVGA,
     LIST,
     COLLECTIONVIEW,
+    SCROLLVIEW,
     OTHER
 };
 
