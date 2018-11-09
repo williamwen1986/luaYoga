@@ -25,12 +25,14 @@ struct YogaFunction {
     void * root;
 };
 
-static std::vector<std::string> process_ImageName(lua_State *L){
-    std::vector<std::string> names;
+
+static std::tuple<std::string, std::string, float, float, float,float> process_ImageTable(lua_State *L){
+    
+    typedef std::tuple<std::string, std::string, float, float, float,float> ImageTuple;
     
     std::string imageName_normal = "";
     std::string imageName_highlighted = "";
-
+    
     lua_pushstring(L, "imageName");
     lua_rawget(L, -2);
     if (!lua_isnil(L, -1)) {
@@ -45,13 +47,13 @@ static std::vector<std::string> process_ImageName(lua_State *L){
     }
     lua_pop(L, 1);
     
-    names.push_back(imageName_normal);
-    names.push_back(imageName_highlighted);
+    std::vector<float> color = process_bgColor(L);
 
-    return names;
+    ImageTuple tuple(imageName_normal, imageName_highlighted,color[0],color[1],color[2],color[3]);
+
+
+    return tuple;
 }
-
-
 
 static std::vector<float> process_bgColor(lua_State *L){
     std::vector<float> color;
@@ -130,15 +132,15 @@ static int __yogaViewNewIndex(lua_State *L)
         }
         else if (name == ImageView_Image){
             
-            std::vector<float> color = process_bgColor(L);
-            std::vector<std::string> names = process_ImageName(L);
-
-            setImageTable(viewInfo->view, names[0], names[1], color[0], color[1], color[2], color[3]);
-
-            //            (void * imageView,
-//             std::string imageName_Normal ,
-//             std::string imageName_Highlighted,
-//             float r, float g, float b, float a)
+            std::tuple<std::string, std::string, float, float, float,float> imageTuble = process_ImageTable(L);
+            
+            setImageTable(viewInfo->view,
+                          std::get<0>(imageTuble),
+                          std::get<1>(imageTuble),
+                          std::get<2>(imageTuble),
+                          std::get<3>(imageTuble),
+                          std::get<4>(imageTuble),
+                          std::get<5>(imageTuble));
             
         }
         else if (name == View_Cliping){
