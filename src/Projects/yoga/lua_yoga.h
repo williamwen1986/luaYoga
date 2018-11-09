@@ -25,6 +25,7 @@ struct YogaInfo {
 };
 
 //view
+#define IS_DEAD "isDead"
 #define ADD_CONTAINER "addContainer"
 #define ADD_ListView "addListView"
 #define ADD_ImageView "addImageView"
