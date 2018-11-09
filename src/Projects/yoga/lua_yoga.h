@@ -13,6 +13,7 @@ enum YogaType {
     BUTTON,
     SVGA,
     LIST,
+    COLLECTIONVIEW,
     OTHER
 };
 
@@ -33,8 +34,10 @@ struct YogaInfo {
 #define REMOVE_FROM_PARENT "removeFromParent"
 #define ALPHA "alpha"
 #define BACKGROUND_COLOR "backgroundColor"
+
 #define ImageView_Name "imageName"
 #define ImageView_Name_HL "imageName_hl"
+#define ImageView_Image "imageTable"
 
 
 #define ImageView_ContentMode "imageViewContentMode"
