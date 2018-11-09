@@ -181,6 +181,7 @@ static int __yogaViewIndex(lua_State *L)
             YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
             luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
             lua_setmetatable(L, -2);
+            viewInfo->isDead = true;
             yf->view = viewInfo->view;
             yf->type = OTHER;
             yf->action = VIEW_REMOVE_FROM_PARENT;
@@ -209,6 +210,9 @@ static int __yogaViewIndex(lua_State *L)
                  name == "height"){
             float ret = getYogaProperty(viewInfo->view, viewInfo->type, name);
             lua_pushnumber(L, ret);
+        }
+        else if (name == IS_DEAD){
+            lua_pushboolean(L, viewInfo->isDead);
         }
         else {
             lua_getfenv(L, -2);
