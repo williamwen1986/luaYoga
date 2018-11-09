@@ -30,7 +30,7 @@ struct YogaInfo {
 #define ADD_CONTAINER "addContainer"
 #define ADD_ListView "addListView"
 #define ADD_ImageView "addImageView"
-#define ADD_TEXT "addTEXT"
+#define ADD_TEXT "addTextView"
 
 
 #pragma mark - 通用属性
@@ -69,6 +69,7 @@ struct YogaInfo {
 #pragma mark - Text/UILabel 相关
 #define Text_Alignment "textAlignment"
 #define Text_TextColor "textColor"
+#define Text_Text "text"
 
 
 

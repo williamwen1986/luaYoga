@@ -147,7 +147,6 @@ static int __yogaViewNewIndex(lua_State *L)
                           color[0],color[1],color[2],color[3],
                           color_gl[0],color_gl[1],color_gl[2],color_gl[3]);
         }
-        
         else if (name == View_Cliping){
             
             long isCliping  =  lua_tointeger(L, -1);
@@ -155,6 +154,21 @@ static int __yogaViewNewIndex(lua_State *L)
             setCliping(viewInfo->view, isCliping);
             
         }
+        else if (name == Text_Alignment){
+            
+            long alignment  =  lua_tointeger(L, -1);
+            
+//            setTextAlignment(viewInfo->view, alignment);
+            
+        }
+        else if (name == Text_Text){
+            
+            std::string contentText  =  lua_tostring(L, -1);
+            
+            setText(viewInfo->view, contentText);
+            
+        }
+        
         else if (name == View_Highlighted){
             
             long isHighlighted  =  lua_tointeger(L, -1);
@@ -244,6 +258,15 @@ static int __yogaViewIndex(lua_State *L)
             yf->type = IMAGE;
             yf->root = viewInfo->root;
         }
+        else if(name == ADD_TEXT){
+            size_t nbytes = sizeof(YogaFunction);
+            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
+            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
+            lua_setmetatable(L, -2);
+            yf->view = viewInfo->view;
+            yf->type = TEXT;
+            yf->root = viewInfo->root;
+        }
         else if(name == List_Reload){
             size_t nbytes = sizeof(YogaFunction);
             YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
@@ -254,8 +277,8 @@ static int __yogaViewIndex(lua_State *L)
             yf->action = LIST_RELOAD;
             yf->root = viewInfo->root;
         }
-        else if (name == "width" ||
-                 name == "height"){
+        else if (name == WIDTH ||
+                 name == HEIGHT){
             float ret = getYogaProperty(viewInfo->view, viewInfo->type, name);
             lua_pushnumber(L, ret);
         }
@@ -268,7 +291,7 @@ static int __yogaViewIndex(lua_State *L)
             lua_rawget(L, 3);
         }
     } else {
-        if(name == ADD_CONTAINER || name == ImageView_Name || name == ADD_ListView){
+        if(name == ADD_CONTAINER || name == ADD_ListView || name == ADD_ImageView || name == ADD_TEXT){
             size_t nbytes = sizeof(YogaFunction);
             YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
             luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);

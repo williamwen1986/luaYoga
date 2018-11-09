@@ -42,3 +42,7 @@ void setImageColorTable(void * imageView,
                         float r, float g, float b, float a,     //普通状态-颜色生成Image
                         float r_hl, float g_hl, float b_hl, float a_hl //高亮状态-颜色生成Image
                         );
+
+void setTextAlignment(void * textView,  float textAlignment);
+
+void setText(void * textView,  std::string imageName_Normal);

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D1D9843EEEEF496668016CC /* Pods_luaYoga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7BDA3A508F9548488DA8150 /* Pods_luaYoga.framework */; };
+		2E111BB72195913500A833EF /* textView.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E111BB62195913500A833EF /* textView.lua */; };
 		2E3A745E21957BC90053B9EE /* UIImage+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3A745C21957BC90053B9EE /* UIImage+Add.m */; };
 		2E3A746321957BCE0053B9EE /* imageView.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746021957BCE0053B9EE /* imageView.lua */; };
 		2E3A746421957BCE0053B9EE /* yoga.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746121957BCE0053B9EE /* yoga.lua */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E111BB62195913500A833EF /* textView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = textView.lua; sourceTree = "<group>"; };
 		2E3A745C21957BC90053B9EE /* UIImage+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Add.m"; sourceTree = "<group>"; };
 		2E3A745D21957BC90053B9EE /* UIImage+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Add.h"; sourceTree = "<group>"; };
 		2E3A746021957BCE0053B9EE /* imageView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = imageView.lua; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				2E3A746121957BCE0053B9EE /* yoga.lua */,
 				2E3A746221957BCE0053B9EE /* listView.lua */,
 				2E3A746021957BCE0053B9EE /* imageView.lua */,
+				2E111BB62195913500A833EF /* textView.lua */,
 			);
 			path = ViewLua;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				3C23C1E72181CCD200DB6052 /* Assets.xcassets in Resources */,
 				3C23C1E52181CCD100DB6052 /* Main.storyboard in Resources */,
 				2E3A746321957BCE0053B9EE /* imageView.lua in Resources */,
+				2E111BB72195913500A833EF /* textView.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +508,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = luaYoga/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -526,6 +531,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = luaYoga/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

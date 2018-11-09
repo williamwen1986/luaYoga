@@ -7,6 +7,7 @@
 extern "C" {
 #include "lua.h"
 #include "lauxlib.h"
+    
 }
 #include "common/business_runtime.h"
 #include "tools/lua_helpers.h"
@@ -111,18 +112,15 @@ void * addView(void * parentView, YogaType type, void * root)
     switch (type) {
         case CONTAINER:{
             child = [[UIView alloc] init];
-            [v addSubview:child];
         }
             break;
         case IMAGE:{
             child = [[UIImageView alloc]init];
-            [v addSubview:child];
         }
             break;
         case LIST:{
             child = [[LuaTableView alloc] init];
             ((LuaTableView *)child).luaRoot = (__bridge UIView *)root;
-            [v addSubview:child];
         }
             break;
         case COLLECTIONVIEW:{
@@ -131,12 +129,14 @@ void * addView(void * parentView, YogaType type, void * root)
             break;
         case TEXT:{
             child = [[UILabel alloc]init];
+
         }
             break;
         default:
             break;
     }
-    
+    [v addSubview:child];
+
     return (__bridge void *)child;
 }
 
@@ -369,9 +369,21 @@ void setImageColorTable(void * imageView,
 }
 
 
-void setTextAligment(void * view,  int textAlignment){
+void setTextAligment(void * view,  float textAlignment){
     
     UILabel * v = (__bridge UILabel *)view;
-    v.textAlignment = (NSTextAlignment)textAlignment;
+    [v setTextAlignment:(NSTextAlignment)textAlignment];
     
 }
+
+void setText(void * textView,  std::string text){
+    
+    UILabel * v = (__bridge UILabel *)textView;
+    
+    NSString *textStr = [NSString stringWithFormat:@"%s",text.c_str()];
+
+    v.text = textStr;
+    
+}
+
+
