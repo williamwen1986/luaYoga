@@ -24,27 +24,53 @@ struct YogaInfo {
     void * root;
 };
 
-//view
 #define IS_DEAD "isDead"
+
+#pragma mark - 图层添加方法
 #define ADD_CONTAINER "addContainer"
 #define ADD_ListView "addListView"
 #define ADD_ImageView "addImageView"
+#define ADD_TEXT "addTEXT"
+
+
+#pragma mark - 通用属性
+#define ALPHA "alpha"
+#define BACKGROUND_COLOR "backgroundColor"
+#define WIDTH "width"
+#define HEIGHT "height"
+
+
+#pragma mark - Action相关
 #define TAP_FUNCTION "tapFunction"
 #define LONGPRESS_FUNCTION "longPressFunction"
 #define RELOAD_YOGA "reloadYoga"
 #define REMOVE_FROM_PARENT "removeFromParent"
-#define ALPHA "alpha"
-#define BACKGROUND_COLOR "backgroundColor"
-
-#define ImageView_Name "imageName"
-#define ImageView_Name_HL "imageName_hl"
-#define ImageView_Image "imageTable"
 
 
-#define ImageView_ContentMode "imageViewContentMode"
+
+#pragma mark - View相关
 #define View_Cliping "cliping"
 #define View_Highlighted "highlighted"
 
+
+
+
+#pragma mark - ImageView相关
+#define ImageView_Image "imageTable"
+#define ImageView_Name "imageName"
+#define ImageView_Name_HL "imageName_hl"
+#define ImageView_ContentMode "imageViewContentMode"
+
+
+
+
+#pragma mark - Text/UILabel 相关
+#define Text_Alignment "textAlignment"
+#define Text_TextColor "textColor"
+
+
+
+#pragma mark - ListView/TableView 相关
 #define List_NumberOfGroups "numberOfGroups"
 #define List_Identifier "identifier"
 #define List_ColumnsInGroup "columnsInGroup"
@@ -59,10 +85,9 @@ struct YogaInfo {
 #define List_Reload "reload"
 
 
-#define WIDTH "width"
-#define HEIGHT "height"
 
-//YGLayout
+#pragma mark - YGLayout 相关
+
 #define YOGA_IS_ENABLE "isEnabled"
 #define YOGA_FLEX_DIRECTION "flexDirection"
 #define YOGA_JUSTIFY_CONTENT "justifyContent"

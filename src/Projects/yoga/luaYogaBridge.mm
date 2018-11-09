@@ -355,3 +355,10 @@ void setImageTable(void * imageView,
         v.image = [UIImage imageWithColor:[UIColor colorWithRed:r green:g blue:b alpha:a]];
     }
 }
+
+void setTextAligment(void * view,  int textAlignment){
+    
+    UILabel * v = (__bridge UILabel *)view;
+    v.textAlignment = (NSTextAlignment)textAlignment;
+    
+}
