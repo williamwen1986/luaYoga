@@ -129,6 +129,10 @@ void * addView(void * parentView, YogaType type, void * root)
             
         }
             break;
+        case TEXT:{
+            child = [[UILabel alloc]init];
+        }
+            break;
         default:
             break;
     }
