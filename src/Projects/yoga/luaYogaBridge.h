@@ -16,6 +16,7 @@ void addLongPressGesture(void * view, void *root);
 void reloadYoga(void * view);
 
 void removeFromParent(void * view);
+
 //list 相关
 void setListSeperatorColor(void * view, float r, float g, float b, float a);
 
@@ -31,3 +32,8 @@ void setImageName_hl(void * imageView,  std::string imageName);
 void setCliping(void * parentView,  float isCliping);
 
 void setHighlighted(void * imageView,  float isHighlighted);
+
+void setImageTable(void * imageView,
+                   std::string imageName_Normal , //普通状态资源名
+                   std::string imageName_Highlighted, //高亮状态
+                   float r, float g, float b, float a); //上述两者都无参数时采用颜色生成图片

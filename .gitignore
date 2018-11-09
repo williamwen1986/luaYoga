@@ -8,3 +8,4 @@ src/Projects/jni/obj
 Pods/
 Podfile.lock
 luaYoga.xcworkspace
+luaYoga.xcodeproj/project.pbxproj

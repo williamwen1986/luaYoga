@@ -25,6 +25,34 @@ struct YogaFunction {
     void * root;
 };
 
+static std::vector<std::string> process_ImageName(lua_State *L){
+    std::vector<std::string> names;
+    
+    std::string imageName_normal = "";
+    std::string imageName_highlighted = "";
+
+    lua_pushstring(L, "imageName");
+    lua_rawget(L, -2);
+    if (!lua_isnil(L, -1)) {
+        imageName_normal = lua_tostring(L, -1);
+    }
+    lua_pop(L, 1);
+    
+    lua_pushstring(L, "imageName_hl");
+    lua_rawget(L, -2);
+    if (!lua_isnil(L, -1)) {
+        imageName_highlighted = lua_tostring(L, -1);
+    }
+    lua_pop(L, 1);
+    
+    names.push_back(imageName_normal);
+    names.push_back(imageName_highlighted);
+
+    return names;
+}
+
+
+
 static std::vector<float> process_bgColor(lua_State *L){
     std::vector<float> color;
     float r = 0, g = 0, b = 0;
@@ -98,6 +126,19 @@ static int __yogaViewNewIndex(lua_State *L)
             long contentMode  =  lua_tointeger(L, -1);
             
             setImageViewContentMode(viewInfo->view, contentMode);
+            
+        }
+        else if (name == ImageView_Image){
+            
+            std::vector<float> color = process_bgColor(L);
+            std::vector<std::string> names = process_ImageName(L);
+
+            setImageTable(viewInfo->view, names[0], names[1], color[0], color[1], color[2], color[3]);
+
+            //            (void * imageView,
+//             std::string imageName_Normal ,
+//             std::string imageName_Highlighted,
+//             float r, float g, float b, float a)
             
         }
         else if (name == View_Cliping){

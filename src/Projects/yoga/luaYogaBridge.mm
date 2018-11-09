@@ -10,6 +10,8 @@ extern "C" {
 }
 #include "common/business_runtime.h"
 #include "tools/lua_helpers.h"
+#import "UIImage+Add.h"
+
 @interface UIView (LuaGesture)
 
 -(void)tapGesture;
@@ -121,6 +123,10 @@ void * addView(void * parentView, YogaType type, void * root)
             child = [[LuaTableView alloc] init];
             ((LuaTableView *)child).luaRoot = (__bridge UIView *)root;
             [v addSubview:child];
+        }
+            break;
+        case COLLECTIONVIEW:{
+            
         }
             break;
         default:
@@ -326,5 +332,26 @@ void setHighlighted(void * imageView,  float isHighlighted){
     [v setHighlighted:isHighlighted];
 }
 
+void setImageTable(void * imageView,
+                   std::string imageName_Normal ,
+                   std::string imageName_Highlighted,
+                   float r, float g, float b, float a){
+  
+    UIImageView * v = (__bridge UIImageView *)imageView;
 
+    NSString *str_normal = [NSString stringWithFormat:@"%s",imageName_Normal.c_str()];
+    NSString *str_highlighted = [NSString stringWithFormat:@"%s",imageName_Highlighted.c_str()];
 
+    
+    if (str_normal.length) {
+        v.image = [UIImage imageNamed:str_normal];
+    }
+    
+    if (str_highlighted.length) {
+        v.highlightedImage = [UIImage imageNamed:str_highlighted];
+    }
+    
+    if (!v.image) {
+        v.image = [UIImage imageWithColor:[UIColor colorWithRed:r green:g blue:b alpha:a]];
+    }
+}
