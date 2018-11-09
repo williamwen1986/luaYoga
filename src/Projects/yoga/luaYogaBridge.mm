@@ -338,8 +338,7 @@ void setHighlighted(void * imageView,  float isHighlighted){
 
 void setImageTable(void * imageView,
                    std::string imageName_Normal ,
-                   std::string imageName_Highlighted,
-                   float r, float g, float b, float a){
+                   std::string imageName_Highlighted){
   
     UIImageView * v = (__bridge UIImageView *)imageView;
 
@@ -355,10 +354,20 @@ void setImageTable(void * imageView,
         v.highlightedImage = [UIImage imageNamed:str_highlighted];
     }
     
-    if (!v.image) {
-        v.image = [UIImage imageWithColor:[UIColor colorWithRed:r green:g blue:b alpha:a]];
-    }
 }
+
+void setImageColorTable(void * imageView,
+                        float r, float g, float b, float a,     //普通状态-颜色生成Image
+                        float r_hl, float g_hl, float b_hl, float a_hl){ //高亮状态-颜色生成Image
+    
+    UIImageView * v = (__bridge UIImageView *)imageView;
+    
+    v.image = [UIImage imageWithColor:[UIColor colorWithRed:r green:g blue:b alpha:a]];
+
+    v.highlightedImage = [UIImage imageWithColor:[UIColor colorWithRed:r_hl green:g_hl blue:b_hl alpha:a_hl]];
+
+}
+
 
 void setTextAligment(void * view,  int textAlignment){
     

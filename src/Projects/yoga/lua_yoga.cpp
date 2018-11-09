@@ -16,7 +16,7 @@ enum ActionType {
 
 static void addYogaEnum(lua_State *L);
 
-static std::vector<float> process_bgColor(lua_State *L);
+static std::vector<float> process_bgColor(lua_State *L,bool isHighlighted);
 
 struct YogaFunction {
     void * view;
@@ -26,9 +26,9 @@ struct YogaFunction {
 };
 
 
-static std::tuple<std::string, std::string, float, float, float,float> process_ImageTable(lua_State *L){
+static std::tuple<std::string, std::string> process_ImageTable(lua_State *L){
     
-    typedef std::tuple<std::string, std::string, float, float, float,float> ImageTuple;
+    typedef std::tuple<std::string, std::string> ImageTuple;
     
     std::string imageName_normal = "";
     std::string imageName_highlighted = "";
@@ -47,40 +47,39 @@ static std::tuple<std::string, std::string, float, float, float,float> process_I
     }
     lua_pop(L, 1);
     
-    std::vector<float> color = process_bgColor(L);
-
-    ImageTuple tuple(imageName_normal, imageName_highlighted,color[0],color[1],color[2],color[3]);
+    ImageTuple tuple(imageName_normal, imageName_highlighted);
 
 
     return tuple;
 }
 
-static std::vector<float> process_bgColor(lua_State *L){
+
+static std::vector<float> process_bgColor(lua_State *L,bool isHighlighted){
     std::vector<float> color;
     float r = 0, g = 0, b = 0;
     float a = 1.0;
-    lua_pushstring(L, "r");
+    lua_pushstring(L, isHighlighted?"r_hl":"r");
     lua_rawget(L, -2);
     if (!lua_isnil(L, -1)) {
         r = lua_tonumber(L, -1);
     }
     lua_pop(L, 1);
     
-    lua_pushstring(L, "g");
+    lua_pushstring(L, isHighlighted?"g_hl":"g");
     lua_rawget(L, -2);
     if (!lua_isnil(L, -1)) {
         g = lua_tonumber(L, -1);
     }
     lua_pop(L, 1);
     
-    lua_pushstring(L, "b");
+    lua_pushstring(L, isHighlighted?"b_hl":"b");
     lua_rawget(L, -2);
     if (!lua_isnil(L, -1)) {
         b = lua_tonumber(L, -1);
     }
     lua_pop(L, 1);
     
-    lua_pushstring(L, "a");
+    lua_pushstring(L, isHighlighted?"a_hl":"a");
     lua_rawget(L, -2);
     if (!lua_isnil(L, -1)) {
         a = lua_tonumber(L, -1);
@@ -102,7 +101,7 @@ static int __yogaViewNewIndex(lua_State *L)
         
         if (name == BACKGROUND_COLOR)
         {
-            std::vector<float> color = process_bgColor(L);
+            std::vector<float> color = process_bgColor(L,false);
             setBackgroundColor(viewInfo->view, color[0], color[1], color[2], color[3]);
         }
         else if(name == YOGA_IS_ENABLE) {
@@ -132,17 +131,23 @@ static int __yogaViewNewIndex(lua_State *L)
         }
         else if (name == ImageView_Image){
             
-            std::tuple<std::string, std::string, float, float, float,float> imageTuble = process_ImageTable(L);
+            std::tuple<std::string, std::string> imageTuble = process_ImageTable(L);
             
             setImageTable(viewInfo->view,
                           std::get<0>(imageTuble),
-                          std::get<1>(imageTuble),
-                          std::get<2>(imageTuble),
-                          std::get<3>(imageTuble),
-                          std::get<4>(imageTuble),
-                          std::get<5>(imageTuble));
+                          std::get<1>(imageTuble));
             
         }
+        else if (name == ImageView_ColorImage){
+            
+            std::vector<float> color = process_bgColor(L,false);
+            std::vector<float> color_gl = process_bgColor(L,true);
+
+            setImageColorTable(viewInfo->view,
+                          color[0],color[1],color[2],color[3],
+                          color_gl[0],color_gl[1],color_gl[2],color_gl[3]);
+        }
+        
         else if (name == View_Cliping){
             
             long isCliping  =  lua_tointeger(L, -1);
@@ -157,7 +162,7 @@ static int __yogaViewNewIndex(lua_State *L)
             setHighlighted(viewInfo->view, isHighlighted);
             
         } else if (name == List_SeperatorColor){
-            std::vector<float> color = process_bgColor(L);
+            std::vector<float> color = process_bgColor(L,false);
             setListSeperatorColor(viewInfo->view, color[0], color[1], color[2], color[3]);
         } else if (name == TAP_FUNCTION){
             addTapGesture(viewInfo->view, viewInfo->root);

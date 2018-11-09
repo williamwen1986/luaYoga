@@ -57,6 +57,8 @@ struct YogaInfo {
 
 #pragma mark - ImageView相关
 #define ImageView_Image "imageTable"
+#define ImageView_ColorImage "imageColorTable"
+
 #define ImageView_Name "imageName"
 #define ImageView_Name_HL "imageName_hl"
 #define ImageView_ContentMode "imageViewContentMode"

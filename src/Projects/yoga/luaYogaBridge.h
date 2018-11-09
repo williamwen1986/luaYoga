@@ -35,5 +35,10 @@ void setHighlighted(void * imageView,  float isHighlighted);
 
 void setImageTable(void * imageView,
                    std::string imageName_Normal , //普通状态资源名
-                   std::string imageName_Highlighted, //高亮状态
-                   float r, float g, float b, float a); //上述两者都无参数时采用颜色生成图片
+                   std::string imageName_Highlighted);  //高亮状态
+
+
+void setImageColorTable(void * imageView,
+                        float r, float g, float b, float a,     //普通状态-颜色生成Image
+                        float r_hl, float g_hl, float b_hl, float a_hl //高亮状态-颜色生成Image
+                        );
