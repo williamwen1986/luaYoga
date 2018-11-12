@@ -19,7 +19,7 @@ android {
     //add jniLibs.srcDir
     sourceSets{
         main{
-            jniLibs.srcDir '../../src/Projects/jni/libs/'
+            jniLibs.srcDir '../../src/Projects/jni/libs'
         }
     }
 }
