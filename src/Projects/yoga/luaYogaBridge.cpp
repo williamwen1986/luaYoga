@@ -2,6 +2,12 @@
 #include "lua_yoga.h"
 #include "jni.h"
 #include "JniEnvWrapper.h"
+#include "android/log.h"
+#include "java_weak_ref.h"
+
+#define TAG    "LuaYogaDemo-jni" 
+#define LOGD(...)  __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
+
 
 float getYogaProperty(void * view, YogaType type, std::string propertyName)
 {
@@ -37,15 +43,22 @@ bool setYogaProperty(void * view, YogaType type, std::string propertyName, float
         return false;
     }
     JniEnvWrapper env;
-    // jclass clazzYogaView = env->FindClass("com/example/freeman/myjnisample/YogaView");
-    // if (clazzYogaView == NULL) {
-    //     return false;
-    // }
-    // jclass clazzView = env->FindClass("android/view/View");
-    // jmethodID mid = env->GetMethodID(clazzYogaView, "setYogaProperty", "(clazzView;I;Ljava/lang/String;F;)V");
-    // void* view convert to jobject.
-    // env->CallVoidMethod(view, mid, view, viewType, propertyName, value);
-    return true;
+    jclass clazzYogaView = env->FindClass("com/common/luakit/YogaView");
+    if (clazzYogaView == NULL) {
+        return false;
+    }
+
+    jmethodID mid = env->GetMethodID(clazzYogaView, "setYogaProperty", "(Lcom/common/luakit/YogaView;ILjava/lang/String;F)Z");
+    if (mid == NULL) {
+        return false;
+    }
+    jstring jpropertyName = env->NewStringUTF(propertyName.c_str());
+    if (jpropertyName == NULL) {
+        return false;
+    }
+    jobject hostView = ((java_weak_ref * )view)->obj();
+    jboolean success = (jboolean)env->CallBooleanMethod(hostView, mid, hostView, (jint)viewType, jpropertyName, (jfloat)value);
+    return (bool)success; 
 }
 
 void setBackgroundColor(void * view, float r, float g, float b, float a)

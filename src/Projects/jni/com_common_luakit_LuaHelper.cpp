@@ -11,11 +11,13 @@
 #include "common/base_lambda_support.h"
 #include "tools/lua_helpers.h"
 #include "JniLuaConvertor.h"
+#include "lua_yoga.h"
 #ifdef __cplusplus
 extern "C" {
 #endif
 #include "lua.h"
 #include "lauxlib.h"
+
 
 JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_startLuaKitNative
   (JNIEnv *env, jclass c, jobject context)
@@ -27,6 +29,10 @@ JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_startLuaKitNative
     BusinessRuntime* Business_runtime(BusinessRuntime::Create());
     Business_runtime->Initialize(delegate);
     Business_runtime->Run();
+
+    lua_State * L = BusinessThread::GetCurrentThreadLuaState();
+    luaopen_yoga(L);
+    luaopen_yoga_func(L);
 }
 
 void pushLuaModule(std::string moduleName)

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.common.luakit.YogaView;
+import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.soloader.SoLoader;
 import com.facebook.yoga.YogaAlign;
 import com.facebook.yoga.YogaEdge;
@@ -13,6 +14,8 @@ import com.facebook.yoga.YogaNode;
 import com.facebook.yoga.YogaPositionType;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
 
     private YogaView yogaView;
 
@@ -24,8 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
         SoLoader.init(MainActivity.this, false);
 
-
-        // long root = yogaView.render("testYoga");
+        LogUtil.i(TAG, "Begin to render the yoga layout !!!!!!");
+        long root = yogaView.render("testYoga");
+        LogUtil.i(TAG, "The root address is : " + root);
 
         // For test begin
         /*YogaNode root = new YogaNode();

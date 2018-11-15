@@ -20,7 +20,7 @@ public class YogaView extends FrameLayout {
 
     private Context context;
 
-    private native void loadLua(String moduleName);
+    private native long loadLua(String moduleName);
 
     private boolean loadSuccess = true;
 
@@ -44,13 +44,22 @@ public class YogaView extends FrameLayout {
      *
      * @param moduleName The name of .lua script without suffix
      */
-    public void render(String moduleName) {
+    public long render(String moduleName) {
         if (loadSuccess) {
-            loadLua(moduleName);
+            return loadLua(moduleName);
         }
+        return 0;
     }
 
-    public boolean setYogaProperty(View view, int type, String propertyName, float value) {
+    /**
+     * Called by Jni
+     * @param view
+     * @param type
+     * @param propertyName
+     * @param value
+     * @return
+     */
+    public boolean setYogaProperty(YogaView view, int type, String propertyName, float value) {
         LogUtil.i(TAG, "setYogaProperty -> propertyName: " + propertyName + ", value: " + value);
         if (propertyName.equals(PropertyType.YOGA_IS_ENABLE)) {
 
