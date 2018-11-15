@@ -7,6 +7,7 @@ extern "C" {
 #include "luaYogaBridge.h"
 #include <vector>
 #include <string>
+#include <tuple>
 
 enum ActionType {
     LIST_RELOAD,
