@@ -5,7 +5,7 @@ container.isEnabled = true
 container.alignItems = YGAlignFlexStart
 container.flexDirection = YGFlexDirectionColumn
 
----[[
+
 -- ImageView 相关
 local imageView = container.addImageView()      --取值->添加图层关系： addImageView()
 imageView.isEnabled = true

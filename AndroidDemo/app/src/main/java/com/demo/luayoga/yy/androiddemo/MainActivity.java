@@ -22,9 +22,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         yogaView = findViewById(R.id.demo_root_container);
 
-        // long root = yogaView.render();
-
         SoLoader.init(MainActivity.this, false);
+
+
+        // long root = yogaView.render("testYoga");
 
         // For test begin
         /*YogaNode root = new YogaNode();

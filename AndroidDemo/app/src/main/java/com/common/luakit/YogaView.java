@@ -50,7 +50,7 @@ public class YogaView extends FrameLayout {
         }
     }
 
-    public void setYogaProperty(View view, int type, String propertyName, float value) {
+    public boolean setYogaProperty(View view, int type, String propertyName, float value) {
         LogUtil.i(TAG, "setYogaProperty -> propertyName: " + propertyName + ", value: " + value);
         if (propertyName.equals(PropertyType.YOGA_IS_ENABLE)) {
 
@@ -155,7 +155,7 @@ public class YogaView extends FrameLayout {
         } else if (propertyName.equals(PropertyType.YOGA_ASPECT_RATIO)) {
 
         }
-
+        return true;
     }
 
     public float getYogaProperty(View view, int type, String propertyName) {
