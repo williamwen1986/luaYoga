@@ -5,6 +5,7 @@ extern "C" {
 #include "tools/lua_helpers.h"
 #include "lua_yoga.h"
 #include "luaYogaBridge.h"
+
 #include <vector>
 #include <string>
 #include <tuple>
@@ -27,69 +28,68 @@ struct YogaFunction {
 };
 
 
+static LuaModel getValueFromState(lua_State *state,LuaValueType valueType, std::string luaKey){
+    
+    struct LuaModel result;
+    result.type = valueType;
+    
+    switch (valueType) {
+        case Value_String:{
+            lua_pushstring(state, luaKey.c_str());
+            lua_rawget(state,-2);
+            if (!lua_isnil(state, -1)) {
+                result.value_string = lua_tostring(state, -1);
+            }else{
+                result.value_string = "";
+            }
+            lua_pop(state, 1);
+        }
+            break;
+        case Value_Number:{
+            lua_pushstring(state, luaKey.c_str());
+            lua_rawget(state, -2);
+            if (!lua_isnil(state, -1)) {
+                result.value_float = lua_tonumber(state, -1);
+            }else{
+                result.value_float = (luaKey == "a")?1:0;
+            }
+            lua_pop(state, 1);
+        }
+            break;
+        default:
+            break;
+    }
+    
+    return result;
+    
+}
+
 static std::tuple<std::string, std::string> process_ImageTable(lua_State *L){
     
     typedef std::tuple<std::string, std::string> ImageTuple;
     
-    std::string imageName_normal = "";
-    std::string imageName_highlighted = "";
-    
-    lua_pushstring(L, "imageName");
-    lua_rawget(L, -2);
-    if (!lua_isnil(L, -1)) {
-        imageName_normal = lua_tostring(L, -1);
-    }
-    lua_pop(L, 1);
-    
-    lua_pushstring(L, "imageName_hl");
-    lua_rawget(L, -2);
-    if (!lua_isnil(L, -1)) {
-        imageName_highlighted = lua_tostring(L, -1);
-    }
-    lua_pop(L, 1);
+    std::string imageName_normal = getValueFromState(L, Value_String, "imageName").value_string;
+    std::string imageName_highlighted = getValueFromState(L, Value_String, "imageName_hl").value_string;
     
     ImageTuple tuple(imageName_normal, imageName_highlighted);
-
-
+    
     return tuple;
 }
 
 
 static std::vector<float> process_bgColor(lua_State *L,bool isHighlighted){
     std::vector<float> color;
-    float r = 0, g = 0, b = 0;
-    float a = 1.0;
-    lua_pushstring(L, isHighlighted?"r_hl":"r");
-    lua_rawget(L, -2);
-    if (!lua_isnil(L, -1)) {
-        r = lua_tonumber(L, -1);
-    }
-    lua_pop(L, 1);
     
-    lua_pushstring(L, isHighlighted?"g_hl":"g");
-    lua_rawget(L, -2);
-    if (!lua_isnil(L, -1)) {
-        g = lua_tonumber(L, -1);
-    }
-    lua_pop(L, 1);
+    std::string redKey = isHighlighted?"r_hl":"r";
+    std::string greenKey = isHighlighted?"g_hl":"g";
+    std::string blueKey = isHighlighted?"b_hl":"b";
+    std::string aplhaKey = isHighlighted?"a_hl":"a";
+
     
-    lua_pushstring(L, isHighlighted?"b_hl":"b");
-    lua_rawget(L, -2);
-    if (!lua_isnil(L, -1)) {
-        b = lua_tonumber(L, -1);
-    }
-    lua_pop(L, 1);
-    
-    lua_pushstring(L, isHighlighted?"a_hl":"a");
-    lua_rawget(L, -2);
-    if (!lua_isnil(L, -1)) {
-        a = lua_tonumber(L, -1);
-    }
-    lua_pop(L, 1);
-    color.push_back(r);
-    color.push_back(g);
-    color.push_back(b);
-    color.push_back(a);
+    color.push_back(getValueFromState(L, Value_Number, redKey).value_float);
+    color.push_back(getValueFromState(L, Value_Number, greenKey).value_float);
+    color.push_back(getValueFromState(L, Value_Number, blueKey).value_float);
+    color.push_back(getValueFromState(L, Value_Number, aplhaKey).value_float);
     return color;
 }
 

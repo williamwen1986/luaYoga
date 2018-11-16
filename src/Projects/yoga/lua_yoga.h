@@ -3,6 +3,9 @@ extern "C" {
 #include "lua.h"
 }
 
+#include <vector>
+#include <string>
+
 #define LUA_YOGA_VIEW_METATABLE_NAME "lua.yoga.view"
 #define LUA_YOGA_FUNCTION_METATABLE_NAME "lua.yoga.function"
 
@@ -18,12 +21,26 @@ enum YogaType {
     OTHER
 };
 
+enum LuaValueType {
+    Value_String,
+    Value_Number,
+};
+
 struct YogaInfo {
     void * view;
     bool isDead;
     YogaType type;
     void * root;
 };
+
+struct LuaModel {
+    LuaValueType type;
+    std::string value_string;
+    bool value_bool;
+    float value_float;
+};
+
+
 
 #define IS_DEAD "isDead"
 
@@ -68,10 +85,11 @@ struct YogaInfo {
 
 
 #pragma mark - Text/UILabel 相关
-#define Text_Alignment "textAlignment"
-#define Text_TextColor "textColor"
-#define Text_Text "text"
 
+#define Text_Text "text"
+#define Text_TextFont "textFont"
+#define Text_TextColor "textColor"
+#define Text_Alignment "textAlignment"
 
 
 #pragma mark - ListView/TableView 相关
