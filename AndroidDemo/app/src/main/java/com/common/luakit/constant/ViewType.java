@@ -1,4 +1,4 @@
-package com.common.luakit;
+package com.common.luakit.constant;
 
 /**
  * Created by hjx on 2018/11/14

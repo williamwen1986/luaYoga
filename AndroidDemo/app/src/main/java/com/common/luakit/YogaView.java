@@ -12,7 +12,13 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.common.luakit.constant.PropertyType;
+import com.common.luakit.constant.ViewType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
+import com.facebook.yoga.YogaNode;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class YogaView extends FrameLayout {
 
@@ -23,6 +29,8 @@ public class YogaView extends FrameLayout {
     private native long loadLua(String moduleName);
 
     private boolean loadSuccess = true;
+
+    private Map<View, YogaNode> viewMap = new HashMap<>();
 
     public YogaView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -61,6 +69,10 @@ public class YogaView extends FrameLayout {
      */
     public boolean setYogaProperty(YogaView view, int type, String propertyName, float value) {
         LogUtil.i(TAG, "setYogaProperty -> propertyName: " + propertyName + ", value: " + value);
+        YogaNode yogaNode = viewMap.get(view);
+        if (yogaNode == null) {
+            return false;
+        }
         if (propertyName.equals(PropertyType.YOGA_IS_ENABLE)) {
 
         } else if (propertyName.equals(PropertyType.YOGA_FLEX_DIRECTION)) {
@@ -150,9 +162,9 @@ public class YogaView extends FrameLayout {
         } else if (propertyName.equals(PropertyType.YOGA_BORDER)) {
 
         } else if (propertyName.equals(PropertyType.YOGA_WIDTH)) {
-
+            yogaNode.setWidth(value);
         } else if (propertyName.equals(PropertyType.YOGA_HEIGHT)) {
-
+            yogaNode.setHeight(value);
         } else if (propertyName.equals(PropertyType.YOGA_MIN_WIDTH)) {
 
         } else if (propertyName.equals(PropertyType.YOGA_MIN_HEIGHT)) {
@@ -173,6 +185,8 @@ public class YogaView extends FrameLayout {
 
     public View addSubView(View parent, int type) {
         View added = null;
+        YogaNode newView = new YogaNode();
+        YogaNode parentView = viewMap.get(parent);
         switch (type) {
             case ViewType.VIEW_TYPE_CONTAINER:
                 added = new FrameLayout(context);
@@ -202,6 +216,10 @@ public class YogaView extends FrameLayout {
                 added = new View(context);
                 break;
         }
+        if (parentView != null) {
+            parentView.addChildAt(newView, parentView.getChildCount());
+        }
+        viewMap.put(added, newView);
         return added;
     }
 
