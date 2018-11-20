@@ -11,7 +11,7 @@ import com.common.luakit.constant.ViewType;
 import com.common.luakit.yoganode.YogaButton;
 import com.common.luakit.yoganode.YogaFrameLayout;
 import com.common.luakit.yoganode.YogaImageView;
-import com.common.luakit.yoganode.YogaInterface;
+import com.common.luakit.yoganode.IYoga;
 import com.common.luakit.yoganode.YogaLayoutHelper;
 import com.common.luakit.yoganode.YogaListView;
 import com.common.luakit.yoganode.YogaNodeWrapper;
@@ -21,20 +21,22 @@ import com.common.luakit.yoganode.YogaTextView;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaNode;
 
-public class YogaView extends FrameLayout implements YogaInterface {
+public class YogaView extends FrameLayout implements IYoga {
 
     private static final String TAG = "YogaView";
 
     /**
-     * The pointer address in Jni.
+     * The native pointer address returned from Jni calling.
      */
-    private long self, parent, root;
+    private long self, parent, root = -1;
 
     private Context context;
 
     private native long loadLua(String moduleName);
 
     private boolean loadSuccess = true;
+
+    private boolean isRoot;
 
     private YogaNode rootNode;
 
@@ -47,7 +49,7 @@ public class YogaView extends FrameLayout implements YogaInterface {
 
         this.context = context;
         rootNode = new YogaNode();
-        yogaNodeWrapper = new YogaNodeWrapper(this);
+        yogaNodeWrapper = new YogaNodeWrapper(this, rootNode);
         yogaLayoutHelper = YogaLayoutHelper.getInstance();
         loadSo();
     }
@@ -87,8 +89,14 @@ public class YogaView extends FrameLayout implements YogaInterface {
         return 0.0f;
     }
 
+    /**
+     * Called by jni.
+     * @param parent parent view
+     * @param type the type of added view
+     * @return the object of added view
+     */
     public View addYogaView(View parent, int type) {
-        YogaInterface added = null;
+        IYoga added = null;
         switch (type) {
             case ViewType.VIEW_TYPE_CONTAINER:
                 added = new YogaFrameLayout(context);
@@ -119,14 +127,13 @@ public class YogaView extends FrameLayout implements YogaInterface {
                 break;
         }
         if (added != null) {
-            // rootNode.addChildAt(added.getYogaNode(), rootNode.getChildCount());
-            // yogaNodeWrapper.addChildNode((View)added, added.getYogaNode(), );
+            yogaNodeWrapper.addChild(added);
         }
         return (View) added;
     }
 
     @Override
-    public void setPointer(long self, long parent, long root) {
+    public void setNativePointer(long self, long parent, long root) {
         this.self = self;
         this.parent = parent;
         this.root = root;
@@ -145,6 +152,15 @@ public class YogaView extends FrameLayout implements YogaInterface {
     @Override
     public long getRootPointer() {
         return root;
+    }
+
+    public void setIsRoot(boolean isRoot) {
+        this.isRoot = isRoot;
+    }
+
+    @Override
+    public boolean isRoot() {
+        return false;
     }
 
 }

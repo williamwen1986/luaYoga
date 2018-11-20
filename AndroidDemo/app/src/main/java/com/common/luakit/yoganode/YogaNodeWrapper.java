@@ -14,33 +14,37 @@ public class YogaNodeWrapper {
 
     private static final String TAG = "YogaNodeWrapper";
 
-    private View parent;
-    private YogaNode root;
+    private View view;
+    private YogaNode node;
 
-    private List<View> viewList;
-    private List<YogaNode> nodeList;
+    private List<View> childViewList;
 
-    public YogaNodeWrapper(View view) {
-        this.parent = view;
-        viewList = new ArrayList<>();
-        nodeList = new ArrayList<>();
+    public YogaNodeWrapper(View view, YogaNode yogaNode) {
+        this.view = view;
+        childViewList = new ArrayList<>();
+        node = yogaNode;
     }
 
-    public void addChildNode(View childView, YogaNode childNode, int i) {
-        nodeList.add(i, childNode);
-        viewList.add(i, childView);
+    public void addChild(IYoga yoga) {
+        int index = node.getChildCount();
+        node.addChildAt(yoga.getYogaNode(), index);
+        childViewList.add(index, (View) yoga);
     }
 
-    private View getParent() {
-        return parent;
+    private View getView() {
+        return view;
     }
 
     public YogaNode getChildNode(int i) {
-        return nodeList.get(i);
+        return node.getChildAt(i);
     }
 
     public View getChildView(int i) {
-        return viewList.get(i);
+        return childViewList.get(i);
+    }
+
+    public int getChildCount() {
+        return Math.min(node.getChildCount(), childViewList.size());
     }
 
 }

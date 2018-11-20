@@ -12,12 +12,12 @@ import com.facebook.yoga.YogaNode;
 /**
  * Created by hjx on 2018/11/19
  */
-public class YogaFrameLayout extends FrameLayout implements YogaInterface {
+public class YogaFrameLayout extends FrameLayout implements IYoga {
 
     private static final String TAG = "YogaFrameLayout";
 
     /**
-     * The pointer address in Jni.
+     * The native pointer address returned from Jni calling.
      */
     private long self, parent, root;
 
@@ -25,11 +25,14 @@ public class YogaFrameLayout extends FrameLayout implements YogaInterface {
 
     private YogaNode yogaNode;
 
+    private YogaNodeWrapper yogaNodeWrapper;
+
     private YogaLayoutHelper yogaLayoutHelper;
 
     public YogaFrameLayout(@NonNull Context context) {
         super(context);
         yogaNode = new YogaNode();
+        yogaNodeWrapper = new YogaNodeWrapper(this, yogaNode);
         yogaLayoutHelper = YogaLayoutHelper.getInstance();
     }
 
@@ -44,7 +47,7 @@ public class YogaFrameLayout extends FrameLayout implements YogaInterface {
     }
 
     public View addYogaView(View parent, int type) {
-        YogaInterface added = null;
+        IYoga added = null;
         switch (type) {
             case ViewType.VIEW_TYPE_CONTAINER:
                 added = new YogaFrameLayout(context);
@@ -75,14 +78,13 @@ public class YogaFrameLayout extends FrameLayout implements YogaInterface {
                 break;
         }
         if (added != null) {
-            // rootNode.addChildAt(added.getYogaNode(), rootNode.getChildCount());
-            // yogaNodeWrapper.addChildNode((View)added, added.getYogaNode(), );
+            yogaNodeWrapper.addChild(added);
         }
         return (View) added;
     }
 
     @Override
-    public void setPointer(long self, long parent, long root) {
+    public void setNativePointer(long self, long parent, long root) {
         this.self = self;
         this.parent = parent;
         this.root = root;
@@ -101,6 +103,11 @@ public class YogaFrameLayout extends FrameLayout implements YogaInterface {
     @Override
     public long getRootPointer() {
         return root;
+    }
+
+    @Override
+    public boolean isRoot() {
+        return false;
     }
 
 }

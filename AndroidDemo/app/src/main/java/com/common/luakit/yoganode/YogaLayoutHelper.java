@@ -1,5 +1,7 @@
 package com.common.luakit.yoganode;
 
+import android.view.ViewGroup;
+
 import com.common.luakit.constant.PropertyType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaAlign;
@@ -133,6 +135,14 @@ public class YogaLayoutHelper {
             yogaNode.setAspectRatio(value);
         }
         return true;
+    }
+
+    /**
+     * recursive to inflate the layout with YogaNode.
+     */
+    public void inflate(IYoga root) {
+        /*YogaNode layoutProperty = root.getYogaNode();
+        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams()*/
     }
 
 }

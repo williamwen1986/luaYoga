@@ -9,12 +9,12 @@ import com.facebook.yoga.YogaNode;
 /**
  * Created by hjx on 2018/11/19
  */
-public class YogaScrollView extends ScrollView implements YogaInterface {
+public class YogaScrollView extends ScrollView implements IYoga {
 
     private static final String TAG = "YogaScrollView";
 
     /**
-     * The pointer address in Jni.
+     * The native pointer address returned from Jni calling.
      */
     private long self, parent, root;
 
@@ -39,7 +39,7 @@ public class YogaScrollView extends ScrollView implements YogaInterface {
     }
 
     @Override
-    public void setPointer(long self, long parent, long root) {
+    public void setNativePointer(long self, long parent, long root) {
         this.self = self;
         this.parent = parent;
         this.root = root;
@@ -58,6 +58,11 @@ public class YogaScrollView extends ScrollView implements YogaInterface {
     @Override
     public long getRootPointer() {
         return root;
+    }
+
+    @Override
+    public boolean isRoot() {
+        return false;
     }
 
 }

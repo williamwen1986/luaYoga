@@ -3,18 +3,20 @@ package com.common.luakit.yoganode;
 import com.common.luakit.YogaView;
 import com.facebook.yoga.YogaNode;
 
-public interface YogaInterface {
+public interface IYoga {
 
     boolean setYogaProperty(YogaView view, int type, String propertyName, float value);
 
     YogaNode getYogaNode();
 
-    void setPointer(long self, long parent, long root);
+    void setNativePointer(long self, long parent, long root);
 
     long getSelfPointer();
 
     long getParentPointer();
 
     long getRootPointer();
+
+    boolean isRoot();
 
 }

@@ -8,12 +8,12 @@ import com.facebook.yoga.YogaNode;
 /**
  * Created by hjx on 2018/11/19
  */
-public class YogaTextView extends android.support.v7.widget.AppCompatTextView implements YogaInterface {
+public class YogaTextView extends android.support.v7.widget.AppCompatTextView implements IYoga {
 
     private static final String TAG = "YogaTextView";
 
     /**
-     * The pointer address in Jni.
+     * The native pointer address returned from Jni calling.
      */
     private long self, parent, root;
 
@@ -38,7 +38,7 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
     }
 
     @Override
-    public void setPointer(long self, long parent, long root) {
+    public void setNativePointer(long self, long parent, long root) {
         this.self = self;
         this.parent = parent;
         this.root = root;
@@ -57,6 +57,11 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
     @Override
     public long getRootPointer() {
         return root;
+    }
+
+    @Override
+    public boolean isRoot() {
+        return false;
     }
 
 }
