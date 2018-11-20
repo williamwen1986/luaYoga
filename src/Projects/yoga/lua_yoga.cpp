@@ -56,6 +56,15 @@ static LuaModel getValueFromState(lua_State *state,LuaValueType valueType, std::
             lua_pop(state, 1);
         }
             break;
+        case Value_Boolean:{
+            lua_pushstring(state, luaKey.c_str());
+            lua_rawget(state, -2);
+            
+            result.value_bool = lua_toboolean(state, -1);
+
+            lua_pop(state, 1);
+        }
+            break;
         default:
             break;
     }
@@ -154,7 +163,7 @@ static int __yogaViewNewIndex(lua_State *L)
             std::string alignment = "alignment";
             
             long textFontSize = getValueFromState(L, Value_Number, fontSize).value_float;
-            bool textBold = getValueFromState(L, Value_Number, isBold).value_bool;
+            bool textBold = getValueFromState(L, Value_Boolean, isBold).value_bool;
             long textAlignment = getValueFromState(L, Value_Number, alignment).value_float;
 
             std::vector<float> color = process_bgColor(L, false);

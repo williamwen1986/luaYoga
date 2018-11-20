@@ -24,6 +24,7 @@ enum YogaType {
 enum LuaValueType {
     Value_String,
     Value_Number,
+    Value_Boolean,
 };
 
 struct YogaInfo {

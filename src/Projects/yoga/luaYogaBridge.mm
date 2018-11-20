@@ -391,7 +391,7 @@ void setTextColor(void * view, std::vector<float> color){
 }
 
 //对应移动端默认字体 iOS-> PingFang ，默认字号是17pt
-void setTextFont(void * view, float fontSize, float isBold){
+void setTextFont(void * view, float fontSize, bool isBold){
     UILabel * v = (__bridge UILabel *)view;
     v.font = [UIFont systemFontOfSize:fontSize weight:isBold?UIFontWeightBold:UIFontWeightRegular];
 };

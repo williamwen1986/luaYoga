@@ -20,7 +20,7 @@ textView.text = 'pengweijun'
 --textView.textAlignment = 1;
 --textView.textColor = {r=1.0};
 --textView.textFont = 30;
-textView.textTable = {r=1.0,fontSize=30,isBold=1,alignment=1};
+textView.textTable = {r=1.0,fontSize=30,isBold=false,alignment=2};
 
 
 rightTextView = container.addTextView()
