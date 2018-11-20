@@ -29,8 +29,6 @@ void setImageName(void * imageView,  std::string imageName);
 
 void setImageName_hl(void * imageView,  std::string imageName);
 
-void setCliping(void * parentView,  float isCliping);
-
 void setHighlighted(void * imageView,  float isHighlighted);
 
 void setImageTable(void * imageView,
@@ -39,10 +37,19 @@ void setImageTable(void * imageView,
 
 
 void setImageColorTable(void * imageView,
-                        float r, float g, float b, float a,     //普通状态-颜色生成Image
-                        float r_hl, float g_hl, float b_hl, float a_hl //高亮状态-颜色生成Image
+                        std::vector<float> color,    //普通状态-颜色生成Image
+                        std::vector<float> color_hl  //高亮状态-颜色生成Image
                         );
+
+
+void setCliping(void * parentView,  float isCliping);
 
 void setTextAlignment(void * textView,  float textAlignment);
 
 void setText(void * textView,  std::string imageName_Normal);
+
+void setTextColor(void * view,  std::vector<float> color);
+
+void setTextFont(void * view, float fontSize, float isBold); //对应移动端默认字体 iOS-> PingFang ，默认字号是17pt
+
+void setTextNumberOfLines(void *view,float numberOfLines);

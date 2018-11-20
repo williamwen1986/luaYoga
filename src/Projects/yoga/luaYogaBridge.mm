@@ -2,6 +2,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <YogaKit/UIView+Yoga.h>
+
 #import "LuaTableView.h"
 #import <objc/runtime.h>
 extern "C" {
@@ -357,33 +358,47 @@ void setImageTable(void * imageView,
 }
 
 void setImageColorTable(void * imageView,
-                        float r, float g, float b, float a,     //普通状态-颜色生成Image
-                        float r_hl, float g_hl, float b_hl, float a_hl){ //高亮状态-颜色生成Image
+                        std::vector<float> color,       //普通状态-颜色生成Image
+                        std::vector<float> color_hl){   //高亮状态-颜色生成Image
+
     
     UIImageView * v = (__bridge UIImageView *)imageView;
     
-    v.image = [UIImage imageWithColor:[UIColor colorWithRed:r green:g blue:b alpha:a]];
-
-    v.highlightedImage = [UIImage imageWithColor:[UIColor colorWithRed:r_hl green:g_hl blue:b_hl alpha:a_hl]];
-
+    v.image = [UIImage imageWithColor:[UIColor colorWithRed:color[0] green:color[1] blue:color[2] alpha:color[3]]];
+    v.highlightedImage = [UIImage imageWithColor:[UIColor colorWithRed:color_hl[0] green:color_hl[1] blue:color_hl[2] alpha:color_hl[3]]];
 }
 
 
-void setTextAligment(void * view,  float textAlignment){
+void setTextAlignment(void * view,  float textAlignment){
     
     UILabel * v = (__bridge UILabel *)view;
-    [v setTextAlignment:(NSTextAlignment)textAlignment];
-    
+    v.textAlignment = (NSTextAlignment)textAlignment;
 }
 
 void setText(void * textView,  std::string text){
     
     UILabel * v = (__bridge UILabel *)textView;
     
-    NSString *textStr = [NSString stringWithFormat:@"%s",text.c_str()];
-
+    NSString *textStr = [NSString stringWithCString:text.c_str() encoding:NSUTF8StringEncoding];
     v.text = textStr;
     
 }
 
+void setTextColor(void * view, std::vector<float> color){
+    
+    UILabel * v = (__bridge UILabel *)view;
+    v.textColor = [UIColor colorWithRed:color[0] green:color[1] blue:color[2] alpha:color[3]];
+}
+
+//对应移动端默认字体 iOS-> PingFang ，默认字号是17pt
+void setTextFont(void * view, float fontSize, float isBold){
+    UILabel * v = (__bridge UILabel *)view;
+    v.font = [UIFont systemFontOfSize:fontSize weight:isBold?UIFontWeightBold:UIFontWeightRegular];
+};
+
+
+void setTextNumberOfLines(void *view,float numberOfLines){
+    UILabel *label = (__bridge UILabel *)view;
+    label.numberOfLines = numberOfLines;
+};
 

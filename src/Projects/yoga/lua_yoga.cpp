@@ -90,6 +90,7 @@ static std::vector<float> process_bgColor(lua_State *L,bool isHighlighted){
     color.push_back(getValueFromState(L, Value_Number, greenKey).value_float);
     color.push_back(getValueFromState(L, Value_Number, blueKey).value_float);
     color.push_back(getValueFromState(L, Value_Number, aplhaKey).value_float);
+    
     return color;
 }
 
@@ -144,9 +145,27 @@ static int __yogaViewNewIndex(lua_State *L)
             std::vector<float> color = process_bgColor(L,false);
             std::vector<float> color_gl = process_bgColor(L,true);
 
-            setImageColorTable(viewInfo->view,
-                          color[0],color[1],color[2],color[3],
-                          color_gl[0],color_gl[1],color_gl[2],color_gl[3]);
+            setImageColorTable(viewInfo->view,color,color_gl); 
+
+        }else if (name == Text_Table){
+            
+            std::string fontSize = "fontSize";
+            std::string isBold = "isBold";
+            std::string alignment = "alignment";
+            
+            long textFontSize = getValueFromState(L, Value_Number, fontSize).value_float;
+            bool textBold = getValueFromState(L, Value_Number, isBold).value_bool;
+            long textAlignment = getValueFromState(L, Value_Number, alignment).value_float;
+
+            std::vector<float> color = process_bgColor(L, false);
+
+            setTextColor(viewInfo->view, color);
+            setTextFont(viewInfo->view, textFontSize, textBold);
+            setTextAlignment(viewInfo->view, textAlignment);
+            
+        }else if (name == Text_NumberOfLines){
+            long numberOfLines =lua_tointeger(L, -1);
+            setTextNumberOfLines(viewInfo->view, numberOfLines);
         }
         else if (name == View_Cliping){
             
@@ -154,23 +173,32 @@ static int __yogaViewNewIndex(lua_State *L)
             
             setCliping(viewInfo->view, isCliping);
             
-        }
-        else if (name == Text_Alignment){
+        }else if (name == Text_Alignment){
             
             long alignment  =  lua_tointeger(L, -1);
             
-//            setTextAlignment(viewInfo->view, alignment);
+            setTextAlignment(viewInfo->view, alignment);
             
-        }
-        else if (name == Text_Text){
+        }else if (name == Text_Text){
             
             std::string contentText  =  lua_tostring(L, -1);
             
             setText(viewInfo->view, contentText);
             
-        }
-        
-        else if (name == View_Highlighted){
+        }else if (name == Text_TextColor){
+            
+            std::vector<float> color = process_bgColor(L,false);
+            
+            setTextColor(viewInfo->view, color);
+            
+        }else if (name == Text_TextFont){
+            
+            long fontSize =  lua_tointeger(L, -1);
+            
+            setTextFont(viewInfo->view, fontSize, 0);
+            
+            
+        }else if (name == View_Highlighted){
             
             long isHighlighted  =  lua_tointeger(L, -1);
             
@@ -190,6 +218,7 @@ static int __yogaViewNewIndex(lua_State *L)
             lua_insert(L, 2);
             lua_rawset(L, 2);
         }
+        
         else {
             float value = lua_tonumber(L, -1);
             bool hasSetProperty = setYogaProperty(viewInfo->view, viewInfo->type ,name, value);

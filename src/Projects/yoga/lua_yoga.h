@@ -86,10 +86,14 @@ struct LuaModel {
 
 #pragma mark - Text/UILabel 相关
 
-#define Text_Text "text"
-#define Text_TextFont "textFont"
-#define Text_TextColor "textColor"
-#define Text_Alignment "textAlignment"
+#define Text_Text           "text"
+#define Text_TextFont       "textFont"
+#define Text_TextColor      "textColor"
+#define Text_Alignment      "textAlignment"
+#define Text_NumberOfLines  "numberOfLines"
+#define Text_Table          "textTable"
+
+
 
 
 #pragma mark - ListView/TableView 相关

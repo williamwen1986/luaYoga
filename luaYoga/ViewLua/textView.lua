@@ -1,6 +1,6 @@
 local yogaBuilder = function (container)
 
-container.backgroundColor = {r=1.0}
+container.backgroundColor = {r=.9,g=0.5}
 container.isEnabled = true
 container.alignItems = YGAlignFlexStart
 container.flexDirection = YGFlexDirectionColumn
@@ -17,14 +17,21 @@ textView.height = container.width/4
 textView.backgroundColor = {r=0.5,g=0.8,b=0.3,a=0.5}
 textView.text = 'pengweijun'
 
+--textView.textAlignment = 1;
+--textView.textColor = {r=1.0};
+--textView.textFont = 30;
+textView.textTable = {r=1.0,fontSize=30,isBold=1,alignment=1};
+
+
 rightTextView = container.addTextView()
 rightTextView.isEnabled = true
 rightTextView.backgroundColor = {g=1.0}
 rightTextView.width = container.width/2
 rightTextView.height = container.width/4
 rightTextView.backgroundColor = {r=0.2,g=0.3,b=0.3,a=0.8}
-rightTextView.text = 'pengw'
- 
+rightTextView.text = 'pengwpengwpengwpengwpeAF3DBCB3wpengwpengwAF3DBCB3sdadAF3DBCB3AF3DBCB3asdasdpengwpengwpengwpengwpeAF3DBCB3wpengwpengwAF3DBCB3sdadAF3DBCB3AF3DBCB3asdas'
+rightTextView.numberOfLines = 0;
+
 
 
 end
