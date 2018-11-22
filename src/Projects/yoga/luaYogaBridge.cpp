@@ -105,7 +105,14 @@ bool setYogaProperty(void * view, YogaType type, std::string propertyName, float
 
 void setBackgroundColor(void * view, float r, float g, float b, float a)
 {
-
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref *)view)->obj();
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    jmethodID mid = env->GetMethodID(jhostViewClass, "nativeSetBackgroundColor", "(FFFF)V");
+    if (mid == NULL) {
+        return;
+    }
+    env->CallVoidMethod(jhostView, mid, (jfloat)r, (jfloat)g, (jfloat)b, (jfloat)a);
 }
 
 void addTapGesture(void * view, void *root)

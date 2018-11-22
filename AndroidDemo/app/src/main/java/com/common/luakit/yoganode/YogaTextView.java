@@ -80,4 +80,9 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
         setLayoutParams(params);
     }
 
+    @Override
+    public void nativeSetBackgroundColor(float r, float g, float b, float a) {
+
+    }
+
 }

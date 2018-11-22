@@ -25,6 +25,8 @@ public interface IYoga {
      */
     void setNativePointer(long self, long parent, long root);
 
+    void nativeSetBackgroundColor(float r, float g, float b, float a);
+
     YogaNode getYogaNode();
 
     long getSelfPointer();

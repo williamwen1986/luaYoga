@@ -1,6 +1,7 @@
 package com.common.luakit.yoganode;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.widget.FrameLayout;
 
 import com.common.luakit.YogaView;
@@ -78,6 +79,11 @@ public class YogaImageView extends android.support.v7.widget.AppCompatImageView 
         params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT), (int) yogaNode.getMargin(YogaEdge.TOP),
                 (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));
         setLayoutParams(params);
+    }
+
+    @Override
+    public void nativeSetBackgroundColor(float r, float g, float b, float a) {
+
     }
 
 }

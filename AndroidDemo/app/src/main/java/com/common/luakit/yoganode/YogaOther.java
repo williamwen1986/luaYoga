@@ -81,4 +81,9 @@ public class YogaOther extends View implements IYoga {
         setLayoutParams(params);
     }
 
+    @Override
+    public void nativeSetBackgroundColor(float r, float g, float b, float a) {
+
+    }
+
 }

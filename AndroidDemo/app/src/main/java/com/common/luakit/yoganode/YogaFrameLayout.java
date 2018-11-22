@@ -129,4 +129,8 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
         }
     }
 
+    @Override
+    public void nativeSetBackgroundColor(float r, float g, float b, float a) {
+
+    }
 }

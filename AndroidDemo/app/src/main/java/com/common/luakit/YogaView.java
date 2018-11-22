@@ -1,6 +1,7 @@
 package com.common.luakit;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -180,6 +181,11 @@ public class YogaView extends FrameLayout implements IYoga {
             yogaNodeWrapper.getChildView(i).inflate();
             addView((View) yogaNodeWrapper.getChildView(i), i);
         }
+    }
+
+    @Override
+    public void nativeSetBackgroundColor(float r, float g, float b, float a) {
+        setBackgroundColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
     }
 
 }

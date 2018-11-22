@@ -1,10 +1,9 @@
 local yogaBuilder = function (container)
 
-container.backgroundColor = {r=1.0}
+container.backgroundColor = {r=0.5, g=0.2, b=0.7}
 container.isEnabled = true
 container.alignItems = YGAlignFlexStart
 container.flexDirection = YGFlexDirectionColumn
-
 
 -- -- ImageView 相关
 -- local imageView = container.addImageView()      --取值->添加图层关系： addImageView()

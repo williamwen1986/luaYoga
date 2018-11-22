@@ -82,4 +82,9 @@ public class YogaListView extends RecyclerView implements IYoga {
         setLayoutParams(params);
     }
 
+    @Override
+    public void nativeSetBackgroundColor(float r, float g, float b, float a) {
+
+    }
+
 }

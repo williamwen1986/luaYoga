@@ -79,4 +79,9 @@ public class YogaButton extends android.support.v7.widget.AppCompatButton implem
                 (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));
         setLayoutParams(params);
     }
+
+    @Override
+    public void nativeSetBackgroundColor(float r, float g, float b, float a) {
+
+    }
 }
