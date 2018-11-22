@@ -17,12 +17,12 @@ void reloadYoga(void * view);
 
 void removeFromParent(void * view);
 
-//list 相关
+//MARK:list 相关
 void setListSeperatorColor(void * view, float r, float g, float b, float a);
 
 void listReload(void * view);
 
-//ImageView 相关
+//MARK:ImageView 相关
 void setImageViewContentMode(void * imageView, float contentModeType);
 
 void setImageName(void * imageView,  std::string imageName);
@@ -44,6 +44,7 @@ void setImageColorTable(void * imageView,
 
 void setCliping(void * parentView,  float isCliping);
 
+//MARK:TextView相关
 void setTextAlignment(void * textView,  float textAlignment);
 
 void setText(void * textView,  std::string imageName_Normal);

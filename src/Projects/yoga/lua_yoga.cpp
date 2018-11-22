@@ -11,6 +11,7 @@ extern "C" {
 #include <tuple>
 
 enum ActionType {
+    ACTION_NONE,
     LIST_RELOAD,
     VIEW_RELOAD_YOGA,
     VIEW_REMOVE_FROM_PARENT,
@@ -242,6 +243,37 @@ static int __yogaViewNewIndex(lua_State *L)
     return 0;
 }
 
+static void processUserData(lua_State *state,
+                            YogaInfo *viewInfo,
+                            YogaType type,
+                            ActionType actionType,
+                            bool isDead){
+    size_t nbytes = sizeof(YogaFunction);
+    YogaFunction *yf = (YogaFunction *)lua_newuserdata(state, nbytes);
+    luaL_getmetatable(state, LUA_YOGA_FUNCTION_METATABLE_NAME);
+    lua_setmetatable(state, -2);
+    yf->view = viewInfo->view;
+    yf->type = type;
+    yf->root = viewInfo->root;
+    yf->action = actionType;
+    viewInfo->isDead = isDead;
+}
+
+static YogaType processFunc(std::string functionName){
+    YogaType backType =  CONTAINER;
+    
+    if(functionName == ADD_CONTAINER){ backType = CONTAINER;}
+    else if(functionName == ADD_ListView){ backType = LIST;}
+    else if(functionName == ADD_CollectionView){ backType = COLLECTIONVIEW;}
+    else if(functionName == RELOAD_YOGA){ backType = OTHER;}
+    else if(functionName == REMOVE_FROM_PARENT){ backType = OTHER;}
+    else if(functionName == ADD_ImageView){ backType = IMAGE;}
+    else if(functionName == ADD_TEXT){ backType = TEXT;}
+    else if(functionName == List_Reload){ backType = OTHER;}
+    
+    return backType;
+}
+
 static int __yogaViewIndex(lua_State *L)
 {
     BEGIN_STACK_MODIFY(L);
@@ -250,71 +282,40 @@ static int __yogaViewIndex(lua_State *L)
     
     if (!viewInfo->isDead) {
         if(name == ADD_CONTAINER){
-            size_t nbytes = sizeof(YogaFunction);
-            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
-            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
-            lua_setmetatable(L, -2);
-            yf->view = viewInfo->view;
-            yf->type = CONTAINER;
-            yf->root = viewInfo->root;
+            
+            processUserData(L, viewInfo, CONTAINER,ACTION_NONE,false);
         }
         else if(name == ADD_ListView){
-            size_t nbytes = sizeof(YogaFunction);
-            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
-            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
-            lua_setmetatable(L, -2);
-            yf->view = viewInfo->view;
-            yf->type = LIST;
-            yf->root = viewInfo->root;
+            
+            processUserData(L, viewInfo, LIST,ACTION_NONE,false);
         }
-        else if (name == RELOAD_YOGA){
-            size_t nbytes = sizeof(YogaFunction);
-            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
-            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
-            lua_setmetatable(L, -2);
-            yf->view = viewInfo->view;
-            yf->type = OTHER;
-            yf->action = VIEW_RELOAD_YOGA;
-            yf->root = viewInfo->root;
+        else if(name == ADD_CollectionView){
+            
+            processUserData(L, viewInfo, COLLECTIONVIEW,ACTION_NONE,false);
+
+        }else if (name == RELOAD_YOGA){
+            
+            processUserData(L, viewInfo, OTHER,ACTION_NONE,false);
+
         }
         else if (name == REMOVE_FROM_PARENT){
-            size_t nbytes = sizeof(YogaFunction);
-            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
-            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
-            lua_setmetatable(L, -2);
-            viewInfo->isDead = true;
-            yf->view = viewInfo->view;
-            yf->type = OTHER;
-            yf->action = VIEW_REMOVE_FROM_PARENT;
-            yf->root = viewInfo->root;
+            
+             processUserData(L, viewInfo, OTHER,VIEW_REMOVE_FROM_PARENT,true);
+            
         }
         else if(name == ADD_ImageView){
-            size_t nbytes = sizeof(YogaFunction);
-            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
-            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
-            lua_setmetatable(L, -2);
-            yf->view = viewInfo->view;
-            yf->type = IMAGE;
-            yf->root = viewInfo->root;
+            
+            processUserData(L, viewInfo, IMAGE,ACTION_NONE,false);
         }
         else if(name == ADD_TEXT){
-            size_t nbytes = sizeof(YogaFunction);
-            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
-            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
-            lua_setmetatable(L, -2);
-            yf->view = viewInfo->view;
-            yf->type = TEXT;
-            yf->root = viewInfo->root;
+            
+            processUserData(L, viewInfo, TEXT,ACTION_NONE,false);
+
         }
         else if(name == List_Reload){
-            size_t nbytes = sizeof(YogaFunction);
-            YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
-            luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
-            lua_setmetatable(L, -2);
-            yf->view = viewInfo->view;
-            yf->type = OTHER;
-            yf->action = LIST_RELOAD;
-            yf->root = viewInfo->root;
+            
+            processUserData(L, viewInfo, OTHER,LIST_RELOAD,false);
+
         }
         else if (name == WIDTH ||
                  name == HEIGHT){

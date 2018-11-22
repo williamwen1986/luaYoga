@@ -13,6 +13,7 @@
 		2E3A746321957BCE0053B9EE /* imageView.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746021957BCE0053B9EE /* imageView.lua */; };
 		2E3A746421957BCE0053B9EE /* yoga.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746121957BCE0053B9EE /* yoga.lua */; };
 		2E3A746521957BCE0053B9EE /* listView.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746221957BCE0053B9EE /* listView.lua */; };
+		2EFF348321A6E58500DA68F1 /* LuaCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF348221A6E58500DA68F1 /* LuaCollectionView.m */; };
 		3C23C1DF2181CCD100DB6052 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C1DE2181CCD100DB6052 /* AppDelegate.m */; };
 		3C23C1E22181CCD100DB6052 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C1E12181CCD100DB6052 /* ViewController.mm */; };
 		3C23C1E52181CCD100DB6052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C23C1E32181CCD100DB6052 /* Main.storyboard */; };
@@ -53,6 +54,8 @@
 		2E3A746021957BCE0053B9EE /* imageView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = imageView.lua; sourceTree = "<group>"; };
 		2E3A746121957BCE0053B9EE /* yoga.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yoga.lua; sourceTree = "<group>"; };
 		2E3A746221957BCE0053B9EE /* listView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = listView.lua; sourceTree = "<group>"; };
+		2EFF348121A6E58500DA68F1 /* LuaCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LuaCollectionView.h; sourceTree = "<group>"; };
+		2EFF348221A6E58500DA68F1 /* LuaCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuaCollectionView.m; sourceTree = "<group>"; };
 		3C23C1DA2181CCD100DB6052 /* luaYoga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = luaYoga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C23C1DD2181CCD100DB6052 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C23C1DE2181CCD100DB6052 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				2E3A745B21957BC90053B9EE /* Catergory */,
 				3C6160AD2191AFFA0012E389 /* LuaTableView.h */,
 				3C6160AC2191AFFA0012E389 /* LuaTableView.mm */,
+				2EFF348121A6E58500DA68F1 /* LuaCollectionView.h */,
+				2EFF348221A6E58500DA68F1 /* LuaCollectionView.m */,
 				3C7E2115218ADCDC0061B5F8 /* lua_yoga.cpp */,
 				3C7E2117218ADCDC0061B5F8 /* lua_yoga.h */,
 				3C7E2116218ADCDC0061B5F8 /* luaYogaBridge.h */,
@@ -335,6 +340,7 @@
 				3C6160AE2191AFFA0012E389 /* LuaTableView.mm in Sources */,
 				3C23C1E22181CCD100DB6052 /* ViewController.mm in Sources */,
 				3C7E2118218ADCDC0061B5F8 /* luaYogaBridge.mm in Sources */,
+				2EFF348321A6E58500DA68F1 /* LuaCollectionView.m in Sources */,
 				3C23C1ED2181CCD200DB6052 /* main.mm in Sources */,
 				2E3A745E21957BC90053B9EE /* UIImage+Add.m in Sources */,
 				3C23C21D2181D08000DB6052 /* LuaYogaView.mm in Sources */,
@@ -506,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = luaYoga/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -529,6 +536,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = luaYoga/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

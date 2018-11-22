@@ -8,7 +8,7 @@ extern "C" {
 
 #define LUA_YOGA_VIEW_METATABLE_NAME "lua.yoga.view"
 #define LUA_YOGA_FUNCTION_METATABLE_NAME "lua.yoga.function"
-
+ 
 enum YogaType {
     CONTAINER,
     IMAGE,
@@ -50,6 +50,7 @@ struct LuaModel {
 #define ADD_ListView "addListView"
 #define ADD_ImageView "addImageView"
 #define ADD_TEXT "addTextView"
+#define ADD_CollectionView "addCollectionView"
 
 
 #pragma mark - 通用属性
