@@ -1,6 +1,7 @@
 package com.common.luakit.yoganode;
 
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.common.luakit.constant.PropertyType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
@@ -141,8 +142,7 @@ public class YogaLayoutHelper {
      * recursive to inflate the layout with YogaNode.
      */
     public void inflate(IYoga root) {
-        /*YogaNode layoutProperty = root.getYogaNode();
-        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams()*/
+        root.inflate();
     }
 
 }

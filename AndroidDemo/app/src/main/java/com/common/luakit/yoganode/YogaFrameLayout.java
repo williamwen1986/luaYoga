@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 
 import com.common.luakit.YogaView;
 import com.common.luakit.constant.ViewType;
+import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaNode;
 
 /**
@@ -108,6 +109,24 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
     @Override
     public boolean isRoot() {
         return false;
+    }
+
+    @Override
+    public void inflate() {
+        setPadding((int) yogaNode.getPadding(YogaEdge.LEFT), (int) yogaNode.getPadding(YogaEdge.TOP),
+                (int) yogaNode.getPadding(YogaEdge.RIGHT), (int) yogaNode.getPadding(YogaEdge.BOTTOM));
+        setX(yogaNode.getPosition(YogaEdge.LEFT));
+        setY(yogaNode.getPosition(YogaEdge.TOP));
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) getLayoutParams();
+        params.width = (int) yogaNode.getWidth();
+        params.height = (int) yogaNode.getHeight();
+        params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT), (int) yogaNode.getMargin(YogaEdge.TOP),
+                (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));
+        setLayoutParams(params);
+        for (int i = 0; i < yogaNode.getChildCount(); i++) {
+            yogaNodeWrapper.getChildView(i).inflate();
+            addView((View) yogaNodeWrapper.getChildView(i), i);
+        }
     }
 
 }

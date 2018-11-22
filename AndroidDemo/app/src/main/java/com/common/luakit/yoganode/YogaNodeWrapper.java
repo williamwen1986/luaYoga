@@ -17,7 +17,7 @@ public class YogaNodeWrapper {
     private View view;
     private YogaNode node;
 
-    private List<View> childViewList;
+    private List<IYoga> childViewList;
 
     public YogaNodeWrapper(View view, YogaNode yogaNode) {
         this.view = view;
@@ -28,7 +28,7 @@ public class YogaNodeWrapper {
     public void addChild(IYoga yoga) {
         int index = node.getChildCount();
         node.addChildAt(yoga.getYogaNode(), index);
-        childViewList.add(index, (View) yoga);
+        childViewList.add(index,  yoga);
     }
 
     private View getView() {
@@ -39,7 +39,7 @@ public class YogaNodeWrapper {
         return node.getChildAt(i);
     }
 
-    public View getChildView(int i) {
+    public IYoga getChildView(int i) {
         return childViewList.get(i);
     }
 

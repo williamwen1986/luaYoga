@@ -5,11 +5,27 @@ import com.facebook.yoga.YogaNode;
 
 public interface IYoga {
 
+    /**
+     * Called in jni.
+     * Set the attr and parameter to the view.
+     * @param view The view to set property
+     * @param type The view type
+     * @param propertyName The property to set
+     * @param value the property value
+     * @return
+     */
     boolean setYogaProperty(YogaView view, int type, String propertyName, float value);
 
-    YogaNode getYogaNode();
-
+    /**
+     * Called in jni.
+     * Save the native pointer in java layer.
+     * @param self The native pointer to the current view
+     * @param parent The native pointer to the parent of the current view
+     * @param root The native pointer to the root view
+     */
     void setNativePointer(long self, long parent, long root);
+
+    YogaNode getYogaNode();
 
     long getSelfPointer();
 
@@ -18,5 +34,7 @@ public interface IYoga {
     long getRootPointer();
 
     boolean isRoot();
+
+    void inflate();
 
 }

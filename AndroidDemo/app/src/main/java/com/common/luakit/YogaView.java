@@ -19,6 +19,7 @@ import com.common.luakit.yoganode.YogaOther;
 import com.common.luakit.yoganode.YogaScrollView;
 import com.common.luakit.yoganode.YogaTextView;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
+import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaNode;
 
 public class YogaView extends FrameLayout implements IYoga {
@@ -161,6 +162,24 @@ public class YogaView extends FrameLayout implements IYoga {
     @Override
     public boolean isRoot() {
         return false;
+    }
+
+    @Override
+    public void inflate() {
+        /*setPadding((int) rootNode.getPadding(YogaEdge.LEFT), (int) rootNode.getPadding(YogaEdge.TOP),
+                (int) rootNode.getPadding(YogaEdge.RIGHT), (int) rootNode.getPadding(YogaEdge.BOTTOM));
+        setX(rootNode.getPosition(YogaEdge.LEFT));
+        setY(rootNode.getPosition(YogaEdge.TOP));
+        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) getLayoutParams();
+        params.width = (int) rootNode.getWidth();
+        params.height = (int) rootNode.getHeight();
+        params.setMargins((int) rootNode.getMargin(YogaEdge.LEFT), (int) rootNode.getMargin(YogaEdge.TOP),
+                (int) rootNode.getMargin(YogaEdge.RIGHT), (int) rootNode.getMargin(YogaEdge.BOTTOM));
+        setLayoutParams(params);*/
+        for (int i = 0; i < rootNode.getChildCount(); i++) {
+            yogaNodeWrapper.getChildView(i).inflate();
+            addView((View) yogaNodeWrapper.getChildView(i), i);
+        }
     }
 
 }
