@@ -32,107 +32,107 @@ public class YogaLayoutHelper {
 
     public boolean setYogaProperty(YogaNode yogaNode, String propertyName, float value) {
         LogUtil.i(TAG, "setYogaProperty -> propertyName: " + propertyName + ", value: " + value);
-        if (propertyName.equals(PropertyType.YOGA_IS_ENABLE)) {
+        if (PropertyType.YOGA_IS_ENABLE.equals(propertyName)) {
             // TODO : The property not found...
-        } else if (propertyName.equals(PropertyType.YOGA_FLEX_DIRECTION)) {
+        } else if (PropertyType.YOGA_FLEX_DIRECTION.equals(propertyName)) {
             yogaNode.setFlexDirection(YogaFlexDirection.fromInt((int)value));
-        } else if (propertyName.equals(PropertyType.YOGA_JUSTIFY_CONTENT)) {
+        } else if (PropertyType.YOGA_JUSTIFY_CONTENT.equals(propertyName)) {
             yogaNode.setJustifyContent(YogaJustify.fromInt((int)value));
-        } else if (propertyName.equals(PropertyType.YOGA_ALIGN_CONTENT)) {
+        } else if (PropertyType.YOGA_ALIGN_CONTENT.equals(propertyName)) {
             yogaNode.setAlignContent(YogaAlign.fromInt((int)value));
-        } else if (propertyName.equals(PropertyType.YOGA_ALIGN_ITEMS)) {
+        } else if (PropertyType.YOGA_ALIGN_ITEMS.equals(propertyName)) {
             yogaNode.setAlignItems(YogaAlign.fromInt((int)value));
-        } else if (propertyName.equals(PropertyType.YOGA_ALIGN_SELF)) {
+        } else if (PropertyType.YOGA_ALIGN_SELF.equals(propertyName)) {
             yogaNode.setAlignSelf(YogaAlign.fromInt((int)value));
-        } else if (propertyName.equals(PropertyType.YOGA_POSITION)) {
+        } else if (PropertyType.YOGA_POSITION.equals(propertyName)) {
             yogaNode.setPosition(YogaEdge.ALL, value);
-        } else if (propertyName.equals(PropertyType.YOGA_FLEX_WRAP)) {
+        } else if (PropertyType.YOGA_FLEX_WRAP.equals(propertyName)) {
             yogaNode.setWrap(YogaWrap.fromInt((int)value));
-        } else if (propertyName.equals(PropertyType.YOGA_OVERFLOW)) {
+        } else if (PropertyType.YOGA_OVERFLOW.equals(propertyName)) {
             yogaNode.setOverflow(YogaOverflow.fromInt((int)value));
-        } else if (propertyName.equals(PropertyType.YOGA_DISPLAY)) {
+        } else if (PropertyType.YOGA_DISPLAY.equals(propertyName)) {
             // TODO : The property not found...
-        } else if (propertyName.equals(PropertyType.YOGA_FLEX_GROW)) {
+        } else if (PropertyType.YOGA_FLEX_GROW.equals(propertyName)) {
             yogaNode.setFlexGrow(value);
-        } else if (propertyName.equals(PropertyType.YOGA_FLEX_SHRINK)) {
+        } else if (PropertyType.YOGA_FLEX_SHRINK.equals(propertyName)) {
             yogaNode.setFlexShrink(value);
-        } else if (propertyName.equals(PropertyType.YOGA_FLEX_BASIS)) {
+        } else if (PropertyType.YOGA_FLEX_BASIS.equals(propertyName)) {
             yogaNode.setFlexBasis(value);
-        } else if (propertyName.equals(PropertyType.YOGA_LEFT)) {
+        } else if (PropertyType.YOGA_LEFT.equals(propertyName)) {
             yogaNode.setPosition(YogaEdge.LEFT, value);
-        } else if (propertyName.equals(PropertyType.YOGA_TOP)) {
+        } else if (PropertyType.YOGA_TOP.equals(propertyName)) {
             yogaNode.setPosition(YogaEdge.TOP, value);
-        } else if (propertyName.equals(PropertyType.YOGA_RIGHT)) {
+        } else if (PropertyType.YOGA_RIGHT.equals(propertyName)) {
             yogaNode.setPosition(YogaEdge.RIGHT, value);
-        } else if (propertyName.equals(PropertyType.YOGA_BOTTOM)) {
+        } else if (PropertyType.YOGA_BOTTOM.equals(propertyName)) {
             yogaNode.setPosition(YogaEdge.BOTTOM, value);
-        } else if (propertyName.equals(PropertyType.YOGA_START)) {
+        } else if (PropertyType.YOGA_START.equals(propertyName)) {
             yogaNode.setPosition(YogaEdge.START, value);
-        } else if (propertyName.equals(PropertyType.YOGA_END)) {
+        } else if (PropertyType.YOGA_END.equals(propertyName)) {
             yogaNode.setPosition(YogaEdge.END, value);
-        } else if (propertyName.equals(PropertyType.YOGA_MARGIN_LEFT)) {
+        } else if (PropertyType.YOGA_MARGIN_LEFT.equals(propertyName)) {
             yogaNode.setMargin(YogaEdge.LEFT, value);
-        } else if (propertyName.equals(PropertyType.YOGA_MARGIN_TOP)) {
+        } else if (PropertyType.YOGA_MARGIN_TOP.equals(propertyName)) {
             yogaNode.setMargin(YogaEdge.TOP, value);
-        } else if (propertyName.equals(PropertyType.YOGA_MARGIN_RIGHT)) {
+        } else if (PropertyType.YOGA_MARGIN_RIGHT.equals(propertyName)) {
             yogaNode.setMargin(YogaEdge.RIGHT, value);
-        } else if (propertyName.equals(PropertyType.YOGA_MARGIN_BOTTOM)) {
+        } else if (PropertyType.YOGA_MARGIN_BOTTOM.equals(propertyName)) {
             yogaNode.setMargin(YogaEdge.BOTTOM, value);
-        } else if (propertyName.equals(PropertyType.YOGA_MARGIN_START)) {
+        } else if (PropertyType.YOGA_MARGIN_START.equals(propertyName)) {
             yogaNode.setMargin(YogaEdge.START, value);
-        } else if (propertyName.equals(PropertyType.YOGA_MARGIN_END)) {
+        } else if (PropertyType.YOGA_MARGIN_END.equals(propertyName)) {
             yogaNode.setMargin(YogaEdge.END, value);
-        } else if (propertyName.equals(PropertyType.YOGA_MARGIN_HORIZONTAL)) {
+        } else if (PropertyType.YOGA_MARGIN_HORIZONTAL.equals(propertyName)) {
             yogaNode.setMargin(YogaEdge.HORIZONTAL, value);
-        } else if (propertyName.equals(PropertyType.YOGA_MARGIN)) {
+        } else if (PropertyType.YOGA_MARGIN.equals(propertyName)) {
             yogaNode.setMargin(YogaEdge.ALL, value);
-        } else if (propertyName.equals(PropertyType.YOGA_MARGIN_VERTICAL)) {
+        } else if (PropertyType.YOGA_MARGIN_VERTICAL.equals(propertyName)) {
             yogaNode.setMargin(YogaEdge.VERTICAL, value);
-        } else if (propertyName.equals(PropertyType.YOGA_PADDING_LEFT)) {
+        } else if (PropertyType.YOGA_PADDING_LEFT.equals(propertyName)) {
             yogaNode.setPadding(YogaEdge.LEFT, value);
-        } else if (propertyName.equals(PropertyType.YOGA_PADDING_TOP)) {
+        } else if (PropertyType.YOGA_PADDING_TOP.equals(propertyName)) {
             yogaNode.setPadding(YogaEdge.TOP, value);
-        } else if (propertyName.equals(PropertyType.YOGA_PADDING_RIGHT)) {
+        } else if (PropertyType.YOGA_PADDING_RIGHT.equals(propertyName)) {
             yogaNode.setPadding(YogaEdge.RIGHT, value);
-        } else if (propertyName.equals(PropertyType.YOGA_PADDING_BOTTOM)) {
+        } else if (PropertyType.YOGA_PADDING_BOTTOM.equals(propertyName)) {
             yogaNode.setPadding(YogaEdge.BOTTOM, value);
-        } else if (propertyName.equals(PropertyType.YOGA_PADDING_START)) {
+        } else if (PropertyType.YOGA_PADDING_START.equals(propertyName)) {
             yogaNode.setPadding(YogaEdge.START, value);
-        } else if (propertyName.equals(PropertyType.YOGA_PADDING_END)) {
+        } else if (PropertyType.YOGA_PADDING_END.equals(propertyName)) {
             yogaNode.setPadding(YogaEdge.END, value);
-        } else if (propertyName.equals(PropertyType.YOGA_PADDING_HORIZONTAL)) {
+        } else if (PropertyType.YOGA_PADDING_HORIZONTAL.equals(propertyName)) {
             yogaNode.setPadding(YogaEdge.HORIZONTAL, value);
-        } else if (propertyName.equals(PropertyType.YOGA_PADDING_VERTICAL)) {
+        } else if (PropertyType.YOGA_PADDING_VERTICAL.equals(propertyName)) {
             yogaNode.setPadding(YogaEdge.VERTICAL, value);
-        } else if (propertyName.equals(PropertyType.YOGA_PADDING)) {
+        } else if (PropertyType.YOGA_PADDING.equals(propertyName)) {
             yogaNode.setPadding(YogaEdge.ALL, value);
-        } else if (propertyName.equals(PropertyType.YOGA_BORDER_LEFT)) {
+        } else if (PropertyType.YOGA_BORDER_LEFT.equals(propertyName)) {
             yogaNode.setBorder(YogaEdge.LEFT, value);
-        } else if (propertyName.equals(PropertyType.YOGA_BORDER_TOP)) {
+        } else if (PropertyType.YOGA_BORDER_TOP.equals(propertyName)) {
             yogaNode.setBorder(YogaEdge.TOP, value);
-        } else if (propertyName.equals(PropertyType.YOGA_BORDER_RIGHT)) {
+        } else if (PropertyType.YOGA_BORDER_RIGHT.equals(propertyName)) {
             yogaNode.setBorder(YogaEdge.RIGHT, value);
-        } else if (propertyName.equals(PropertyType.YOGA_BORDER_BOTTOM)) {
+        } else if (PropertyType.YOGA_BORDER_BOTTOM.equals(propertyName)) {
             yogaNode.setBorder(YogaEdge.BOTTOM, value);
-        } else if (propertyName.equals(PropertyType.YOGA_BORDER_START)) {
+        } else if (PropertyType.YOGA_BORDER_START.equals(propertyName)) {
             yogaNode.setBorder(YogaEdge.START, value);
-        } else if (propertyName.equals(PropertyType.YOGA_BORDER_END)) {
+        } else if (PropertyType.YOGA_BORDER_END.equals(propertyName)) {
             yogaNode.setBorder(YogaEdge.END, value);
-        } else if (propertyName.equals(PropertyType.YOGA_BORDER)) {
+        } else if (PropertyType.YOGA_BORDER.equals(propertyName)) {
             yogaNode.setBorder(YogaEdge.ALL, value);
-        } else if (propertyName.equals(PropertyType.YOGA_WIDTH)) {
+        } else if (PropertyType.YOGA_WIDTH.equals(propertyName)) {
             yogaNode.setWidth(value);
-        } else if (propertyName.equals(PropertyType.YOGA_HEIGHT)) {
+        } else if (PropertyType.YOGA_HEIGHT.equals(propertyName)) {
             yogaNode.setHeight(value);
-        } else if (propertyName.equals(PropertyType.YOGA_MIN_WIDTH)) {
+        } else if (PropertyType.YOGA_MIN_WIDTH.equals(propertyName)) {
             yogaNode.setMinWidth(value);
-        } else if (propertyName.equals(PropertyType.YOGA_MIN_HEIGHT)) {
+        } else if (PropertyType.YOGA_MIN_HEIGHT.equals(propertyName)) {
             yogaNode.setMinHeight(value);
-        } else if (propertyName.equals(PropertyType.YOGA_MAX_WIDTH)) {
+        } else if (PropertyType.YOGA_MAX_WIDTH.equals(propertyName)) {
             yogaNode.setMaxWidth(value);
-        } else if (propertyName.equals(PropertyType.YOGA_MAX_HEIGHT)) {
+        } else if (PropertyType.YOGA_MAX_HEIGHT.equals(propertyName)) {
             yogaNode.setMaxHeight(value);
-        } else if (propertyName.equals(PropertyType.YOGA_ASPECT_RATIO)) {
+        } else if (PropertyType.YOGA_ASPECT_RATIO.equals(propertyName)) {
             yogaNode.setAspectRatio(value);
         }
         return true;

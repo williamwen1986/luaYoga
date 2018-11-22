@@ -18,7 +18,7 @@ void setPointer(void * self, void * parentView, void * root) {
     JniEnvWrapper env;
     jclass selfClass = env->GetObjectClass(jself);
     jmethodID jmid = env->GetMethodID(selfClass, "setNativePointer", "(LLL)V");
-    env->CallVoidMethod(jself, jmid, jself, jparentView, jroot);
+    env->CallVoidMethod(jself, jmid, (jlong)jself, (jlong)jparentView, (jlong)jroot);
 }
 
 int convertYogaType(YogaType type) {
@@ -70,9 +70,7 @@ void *addView(void * parentView, YogaType type, void * root)
     }
     jobject addedView = env->CallObjectMethod(jparentView, jmid, jparentView, (jint)viewType);
     java_weak_ref *weakRef = new java_weak_ref(addedView);
-
-    setPointer(weakRef, parentView, root); // Keep the jni pionter in java to find tables.
-
+    // setPointer(weakRef, parentView, root); // Keep the jni pionter in java to find tables.
     return weakRef;
 }
 
@@ -84,13 +82,12 @@ bool setYogaProperty(void * view, YogaType type, std::string propertyName, float
     }
     JniEnvWrapper env;
     jobject jhostView = ((java_weak_ref * )view)->obj();
-
     // jclass clazzYogaView = env->FindClass("com/common/luakit/YogaView");
     jclass jhostViewClass = env->GetObjectClass(jhostView); // Set the property in the view own object.
     if (jhostViewClass == NULL) {
         return false;
     }
-    jmethodID mid = env->GetMethodID(jhostViewClass, "setYogaProperty", "(Lcom/common/luakit/YogaView;ILjava/lang/String;F)Z");
+    jmethodID mid = env->GetMethodID(jhostViewClass, "setYogaProperty", "(ILjava/lang/String;F)Z");
     if (mid == NULL) {
         return false;
     }
@@ -98,8 +95,7 @@ bool setYogaProperty(void * view, YogaType type, std::string propertyName, float
     if (jpropertyName == NULL) {
         return false;
     }
-    
-    jboolean success = (jboolean)env->CallBooleanMethod(jhostView, mid, jhostView, (jint)viewType, jpropertyName, (jfloat)value);
+    jboolean success = (jboolean)env->CallBooleanMethod(jhostView, mid, (jint)viewType, jpropertyName, (jfloat)value);
     return (bool)success; 
 }
 

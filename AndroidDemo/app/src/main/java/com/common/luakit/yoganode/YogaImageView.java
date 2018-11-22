@@ -2,9 +2,10 @@ package com.common.luakit.yoganode;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.common.luakit.YogaView;
+import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaNode;
 
@@ -31,7 +32,7 @@ public class YogaImageView extends android.support.v7.widget.AppCompatImageView 
     }
 
     @Override
-    public boolean setYogaProperty(YogaView view, int type, String propertyName, float value) {
+    public boolean setYogaProperty(int type, String propertyName, float value) {
         return yogaLayoutHelper.setYogaProperty(yogaNode, propertyName, value);
     }
 
@@ -73,7 +74,8 @@ public class YogaImageView extends android.support.v7.widget.AppCompatImageView 
                 (int) yogaNode.getPadding(YogaEdge.RIGHT), (int) yogaNode.getPadding(YogaEdge.BOTTOM));
         setX(yogaNode.getPosition(YogaEdge.LEFT));
         setY(yogaNode.getPosition(YogaEdge.TOP));
-        FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) getLayoutParams();
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
         params.width = (int) yogaNode.getWidth();
         params.height = (int) yogaNode.getHeight();
         params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT), (int) yogaNode.getMargin(YogaEdge.TOP),
@@ -83,7 +85,7 @@ public class YogaImageView extends android.support.v7.widget.AppCompatImageView 
 
     @Override
     public void nativeSetBackgroundColor(float r, float g, float b, float a) {
-
+        setBackgroundColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
     }
 
 }
