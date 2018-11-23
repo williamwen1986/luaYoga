@@ -29,38 +29,6 @@ public class MainActivity extends AppCompatActivity {
             yogaLayoutHelper.inflate(yogaView);
         }
 
-        // For test begin
-        /*YogaNode root = new YogaNode();
-        root.setWidth(500);
-        root.setHeight(300);
-        root.setAlignItems(YogaAlign.CENTER);
-        root.setJustifyContent(YogaJustify.CENTER);
-        root.setPadding(YogaEdge.ALL, 20);
-
-        YogaNode text = new YogaNode();
-        text.setWidth(200);
-        text.setHeight(25);
-
-        YogaNode image = new YogaNode();
-        image.setWidth(50);
-        image.setHeight(50);
-        image.setPositionType(YogaPositionType.ABSOLUTE);
-        image.setPosition(YogaEdge.END, 20);
-        image.setPosition(YogaEdge.TOP, 20);
-
-        root.addChildAt(text, 0);
-        root.addChildAt(image, 1);
-
-        root.calculateLayout();
-
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("text,layout X:").append(text.getLayoutX())
-                .append(" layout Y:").append(text.getLayoutY()).append("\n")
-                .append("image,layout X:").append(image.getLayoutX())
-                .append(" layout Y:").append(image.getLayoutY());
-        Toast.makeText(this, buffer.toString(), Toast.LENGTH_SHORT).show();*/
-        // For test end
-
     }
 
     private void initView() {

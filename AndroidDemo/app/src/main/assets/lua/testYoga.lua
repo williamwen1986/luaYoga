@@ -9,8 +9,8 @@ local yogaBuilder = function(container)
     local imageView = container.addImageView()      --取值->添加图层关系： addImageView()
     imageView.isEnabled = true
     imageView.backgroundColor = { r = 0.5, g = 0.2, b = 0.7 }
-    imageView.width = 200.0
-    imageView.height = 200.0
+    imageView.width = 600.0
+    imageView.height = 600.0
     --imageView.width = container.width
     --imageView.aspectRatio = 4
     --imageView.imageName = 'testImg'                 --赋值->图片资源normal：       .imageName = 'testImg'
@@ -21,11 +21,11 @@ local yogaBuilder = function(container)
 
     local textView = container.addTextView()
     textView.isEnabled = true
-    textView.width = 300.0
-    textView.height = 100.0
+    textView.width = 600.0
+    textView.height = 500.0
     textView.backgroundColor = { r = 0.5, g = 0.8, b = 0.3, a = 0.5 }
     textView.text = 'Freeman'
-    textView.textFont={fontSize = 20, isBold = false}
+    textView.textFont={fontSize = 80.0, isBold = false}
 
 end
 

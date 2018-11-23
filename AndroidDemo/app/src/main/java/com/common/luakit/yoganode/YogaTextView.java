@@ -72,11 +72,11 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
 
     @Override
     public void inflate() {
-        LogUtil.i(TAG, "------------- inflate -------->>>");
         setPadding((int) yogaNode.getPadding(YogaEdge.LEFT), (int) yogaNode.getPadding(YogaEdge.TOP),
                 (int) yogaNode.getPadding(YogaEdge.RIGHT), (int) yogaNode.getPadding(YogaEdge.BOTTOM));
-        setX(yogaNode.getPosition(YogaEdge.LEFT));
-        setY(yogaNode.getPosition(YogaEdge.TOP));
+        // TODO : Display error.
+        /*setX(yogaNode.getPosition(YogaEdge.LEFT));
+        setY(yogaNode.getPosition(YogaEdge.TOP));*/
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         params.width = (int) yogaNode.getWidth();
@@ -93,7 +93,7 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
     }
 
     public void nativeSetText(String text) {
-        LogUtil.i(TAG, "Set text : " + text);
+        LogUtil.i(TAG, this + " set text : " + text );
         setTextColor(Color.BLACK);
         setText(text);
     }
@@ -107,7 +107,7 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
     }
 
     public void nativeSetTextFont(float textSize, boolean isBold) {
-        LogUtil.i(TAG, "textSize=" + textSize + ", isBold=" + isBold);
+        LogUtil.i(TAG, this + " textSize=" + textSize + ", isBold=" + isBold);
         setTextSize(20);
         if (isBold) {
             setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));

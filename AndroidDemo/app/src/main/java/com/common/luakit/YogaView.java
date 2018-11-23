@@ -169,7 +169,6 @@ public class YogaView extends FrameLayout implements IYoga {
         for (int i = 0; i < rootNode.getChildCount(); i++) {
             yogaNodeWrapper.getChildView(i).inflate();
             View child = (View) yogaNodeWrapper.getChildView(i);
-            LogUtil.i(TAG, "The class of child is : " + child.getClass());
             addView(child, i);
         }
     }
