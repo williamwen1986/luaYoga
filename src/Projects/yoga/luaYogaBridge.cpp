@@ -194,12 +194,41 @@ void setTextAlignment(void * textView,  float textAlignment)
 
 void setText(void * textView,  std::string imageName_Normal)
 {
-
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref *) textView)->obj();
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetText", "(Ljava/lang/String;)V");
+    if (jmid == NULL) {
+        LOGD("Failed!! method nativeSetText not found");
+        return;
+    }
+    jstring text = env->NewStringUTF(imageName_Normal.c_str());
+    env->CallVoidMethod(jhostView, jmid, text);
 }
 
 void setTextColor(void * view,  std::vector<float> color) {}
 
-void setTextFont(void * view, float fontSize, bool isBold) {}//对应移动端默认字体 iOS-> PingFang ，默认字号是17pt
+void setTextFont(void * view, float fontSize, bool isBold) { //对应移动端默认字体 iOS-> PingFang ，默认字号是17pt
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref *)view)->obj();
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetTextFont", "(FZ)V");
+    if (jmid == NULL) {
+        LOGD("Failed!! method nativeSetTextFont not found");
+        return;
+    }
+    env->CallVoidMethod(jhostView, jmid, (jfloat)fontSize, (jboolean)isBold);
+}
 
-void setTextNumberOfLines(void *view,float numberOfLines) {}
+void setTextNumberOfLines(void *view, float numberOfLines) {
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref *)view)->obj();
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetTextNumberOfLines", "(F)V");
+    if (jmid == NULL) {
+        LOGD("Failed!! method nativeSetTextNumberOfLines not found");
+        return;
+    }
+    env->CallVoidMethod(jhostView, jmid, (jfloat)numberOfLines);
+}
 

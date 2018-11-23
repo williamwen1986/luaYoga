@@ -1,6 +1,7 @@
 package com.common.luakit.yoganode;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
@@ -85,6 +86,18 @@ public class YogaButton extends android.support.v7.widget.AppCompatButton implem
 
     @Override
     public void nativeSetBackgroundColor(float r, float g, float b, float a) {
+        setBackgroundColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
+    }
 
+    public void nativeSetText(String text) {
+        setText(text);
+    }
+
+    /*public void nativeSetTextColor() {
+        setTextColor();
+    }*/
+
+    public void nativeSetTextNumberOfLines(float numberOfLines) {
+        setMaxLines((int)numberOfLines);
     }
 }

@@ -1,6 +1,8 @@
 package com.common.luakit.yoganode;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
@@ -70,6 +72,7 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
 
     @Override
     public void inflate() {
+        LogUtil.i(TAG, "------------- inflate -------->>>");
         setPadding((int) yogaNode.getPadding(YogaEdge.LEFT), (int) yogaNode.getPadding(YogaEdge.TOP),
                 (int) yogaNode.getPadding(YogaEdge.RIGHT), (int) yogaNode.getPadding(YogaEdge.BOTTOM));
         setX(yogaNode.getPosition(YogaEdge.LEFT));
@@ -78,6 +81,7 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         params.width = (int) yogaNode.getWidth();
         params.height = (int) yogaNode.getHeight();
+        LogUtil.i(TAG, "params.width = " + params.width + ", params.height = " + params.height);
         params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT), (int) yogaNode.getMargin(YogaEdge.TOP),
                 (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));
         setLayoutParams(params);
@@ -85,7 +89,29 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
 
     @Override
     public void nativeSetBackgroundColor(float r, float g, float b, float a) {
+        setBackgroundColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
+    }
 
+    public void nativeSetText(String text) {
+        LogUtil.i(TAG, "Set text : " + text);
+        setTextColor(Color.BLACK);
+        setText(text);
+    }
+
+    /*public void nativeSetTextColor() {
+        setTextColor();
+    }*/
+
+    public void nativeSetTextNumberOfLines(float numberOfLines) {
+        setMaxLines((int) numberOfLines);
+    }
+
+    public void nativeSetTextFont(float textSize, boolean isBold) {
+        LogUtil.i(TAG, "textSize=" + textSize + ", isBold=" + isBold);
+        setTextSize(20);
+        if (isBold) {
+            setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        }
     }
 
 }
