@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ScrollView;
 
-import com.common.luakit.YogaView;
+import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaNode;
 
@@ -46,6 +46,7 @@ public class YogaScrollView extends ScrollView implements IYoga {
         this.self = self;
         this.parent = parent;
         this.root = root;
+        LogUtil.i(TAG, "The self = " + self + ", parent = " + parent + ", root = " + root);
     }
 
     @Override

@@ -17,8 +17,15 @@ void setPointer(void * self, void * parentView, void * root) {
 
     JniEnvWrapper env;
     jclass selfClass = env->GetObjectClass(jself);
-    jmethodID jmid = env->GetMethodID(selfClass, "setNativePointer", "(LLL)V");
-    env->CallVoidMethod(jself, jmid, (jlong)jself, (jlong)jparentView, (jlong)jroot);
+    if (selfClass == NULL) {
+        LOGD("Failed, The setPointer selfClass is NULL");
+        return;
+    }
+    jmethodID jmid = env->GetMethodID(selfClass, "setNativePointer", "(JJJ)V");
+    if (jmid == NULL) {
+        LOGD("Failed!! The method setNativePointer is null");
+    }
+    env->CallVoidMethod(jself, jmid, (jlong)self, (jlong)parentView, (jlong)root);
 }
 
 int convertYogaType(YogaType type) {
@@ -63,14 +70,14 @@ void *addView(void * parentView, YogaType type, void * root)
         LOGD("Failed, The parentView is null");
         return NULL;
     }
-    jmethodID jmid = env->GetMethodID(parentViewClass, "addYogaView", "(Landroid/view/View;I)Landroid/view/View;");
+    jmethodID jmid = env->GetMethodID(parentViewClass, "addYogaView", "(I)Landroid/view/View;");
     if (jmid == NULL) {
         LOGD("Failed, The jmid addYogaView not found");
         return NULL;
     }
-    jobject addedView = env->CallObjectMethod(jparentView, jmid, jparentView, (jint)viewType);
+    jobject addedView = env->CallObjectMethod(jparentView, jmid, (jint)viewType);
     java_weak_ref *weakRef = new java_weak_ref(addedView);
-    // setPointer(weakRef, parentView, root); // Keep the jni pionter in java to find tables.
+    setPointer(weakRef, parentView, root); // Keep the jni pionter in java to find tables.
     return weakRef;
 }
 
@@ -82,7 +89,6 @@ bool setYogaProperty(void * view, YogaType type, std::string propertyName, float
     }
     JniEnvWrapper env;
     jobject jhostView = ((java_weak_ref * )view)->obj();
-    // jclass clazzYogaView = env->FindClass("com/common/luakit/YogaView");
     jclass jhostViewClass = env->GetObjectClass(jhostView); // Set the property in the view own object.
     if (jhostViewClass == NULL) {
         return false;

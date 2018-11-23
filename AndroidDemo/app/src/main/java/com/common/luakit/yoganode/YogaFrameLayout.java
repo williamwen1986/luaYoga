@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.common.luakit.YogaView;
 import com.common.luakit.constant.ViewType;
+import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaNode;
 
@@ -90,6 +90,7 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
         this.self = self;
         this.parent = parent;
         this.root = root;
+        LogUtil.i(TAG, "The self = " + self + ", parent = " + parent + ", root = " + root);
     }
 
     @Override

@@ -92,11 +92,10 @@ public class YogaView extends FrameLayout implements IYoga {
 
     /**
      * Called by jni.
-     * @param parent parent view
      * @param type the type of added view
      * @return the object of added view
      */
-    public View addYogaView(View parent, int type) {
+    public View addYogaView(int type) {
         IYoga added = null;
         switch (type) {
             case ViewType.VIEW_TYPE_CONTAINER:
@@ -138,6 +137,7 @@ public class YogaView extends FrameLayout implements IYoga {
         this.self = self;
         this.parent = parent;
         this.root = root;
+        LogUtil.i(TAG, "The self = " + self + ", parent = " + parent + ", root = " + root);
     }
 
     @Override

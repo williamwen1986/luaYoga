@@ -1,6 +1,5 @@
 package com.common.luakit.yoganode;
 
-import com.common.luakit.YogaView;
 import com.facebook.yoga.YogaNode;
 
 public interface IYoga {
