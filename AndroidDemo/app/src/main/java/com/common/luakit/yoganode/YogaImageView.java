@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaNode;
 
