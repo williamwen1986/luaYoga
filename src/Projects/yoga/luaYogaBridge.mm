@@ -316,6 +316,22 @@ void setImageName_hl(void * imageView,  std::string imageName)
     v.highlightedImage = [UIImage imageNamed:str];
 }
 
+void setImagePath(void * imageView,  std::string imagePath)
+{
+    UIImageView * v = (__bridge UIImageView *)imageView;
+    
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSString *resourcePath = [bundle resourcePath];
+    NSString *filePath = [resourcePath stringByAppendingPathComponent:@"folder_screenShot.png"];
+ 
+//    NSString *filePath= [NSString stringWithFormat:@"%s",imagePath.c_str()];
+    
+    v.image = [UIImage imageWithContentsOfFile:filePath];
+}
+
+
+
+
 void setImageViewContentMode(void *imageView, float contentModeType)
 {
     UIView * v = (__bridge UIView *)imageView;

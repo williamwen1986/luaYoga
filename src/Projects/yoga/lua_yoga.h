@@ -79,10 +79,10 @@ struct LuaModel {
 #define ImageView_Image "imageTable"
 #define ImageView_ColorImage "imageColorTable"
 
-#define ImageView_Name "imageName"
-#define ImageView_Name_HL "imageName_hl"
-#define ImageView_ContentMode "imageViewContentMode"
-
+#define ImageView_Name          "imageName"
+#define ImageView_Name_HL       "imageName_hl"
+#define ImageView_ContentMode   "imageViewContentMode"
+#define ImageView_Path          "imagePath"
 
 
 

@@ -23,8 +23,8 @@
     LuaYogaView *root = [[LuaYogaView alloc] initWithFrame:CGRectMake(0, 200, self.view.bounds.size.width, self.view.bounds.size.height*2/3)];
     
 //    [root loadLua:@"yoga" type:CONTAINER];
-    [root loadLua:@"listView" type:CONTAINER];
-//    [root loadLua:@"imageView" type:CONTAINER];
+//    [root loadLua:@"listView" type:CONTAINER];
+    [root loadLua:@"imageView" type:CONTAINER];
 //    [root loadLua:@"textView" type:CONTAINER];
 
     

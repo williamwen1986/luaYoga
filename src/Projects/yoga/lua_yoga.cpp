@@ -127,6 +127,12 @@ static int __yogaViewNewIndex(lua_State *L)
             setImageName(viewInfo->view, c_imageName);
             
         }
+        else if (name == ImageView_Path){
+            std::string c_imagePath = lua_tostring(L, -1);
+            
+            setImagePath(viewInfo->view, c_imagePath);
+            
+        }
         else if (name == ImageView_Name_HL){
             
             std::string c_imageName =  lua_tostring(L, -1);

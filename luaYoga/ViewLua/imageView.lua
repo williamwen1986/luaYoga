@@ -14,9 +14,9 @@ imageView.width = container.width
 imageView.aspectRatio = 4
 --imageView.imageName = 'testImg'                 --赋值->图片资源normal：       .imageName = 'testImg'
 --imageView.imageName_hl = 'highlightImage'       --赋值->图片资源highlighted：  .imageName_hl = 'highlightImage'
-imageView.imageTable = {imageName='testImg',imageName_hl='highlightImage'}
+--imageView.imageTable = {imageName='testImg',imageName_hl='highlightImage'}
 --imageView.imageColorTable = {r=1.0,b=0.5,g_hl=1.0}
-
+imageView.imagePath = 'www';
 imageView.imageViewContentMode = 1              --赋值->填充模式： .imageViewContentMode = 0-12  ( def 0
 imageView.cliping = 0                           --赋值->是否裁剪：.cliping = 0/1  ( def 0
 imageView.highlighted = 0                       --赋值->是否高亮模式：.highlighted = 0/1  ( def 0

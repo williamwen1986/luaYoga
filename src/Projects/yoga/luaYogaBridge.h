@@ -41,8 +41,12 @@ void setImageColorTable(void * imageView,
                         std::vector<float> color_hl  //高亮状态-颜色生成Image
                         );
 
+void setImagePath(void * imageView,  std::string imagePath);
 
 void setCliping(void * parentView,  float isCliping);
+
+
+
 
 //MARK:TextView相关
 void setTextAlignment(void * textView,  float textAlignment);
