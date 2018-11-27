@@ -50,13 +50,11 @@ int convertYogaType(YogaType type) {
     return viewType;
 }
 
-float getYogaProperty(void * view, YogaType type, std::string propertyName)
-{
+float getYogaProperty(void * view, YogaType type, std::string propertyName) {
     return 0.0;
 }
 
-void *addView(void * parentView, YogaType type, void * root)
-{
+void *addView(void * parentView, YogaType type, void * root) {
     int viewType = convertYogaType(type);
     if (viewType == INVALID_VIEW_TYPE) {
         LOGD("Failed, The view is unsupport.");
@@ -81,8 +79,7 @@ void *addView(void * parentView, YogaType type, void * root)
     return weakRef;
 }
 
-bool setYogaProperty(void * view, YogaType type, std::string propertyName, float value)
-{
+bool setYogaProperty(void * view, YogaType type, std::string propertyName, float value) {
     int viewType = convertYogaType(type);
     if (viewType == INVALID_VIEW_TYPE) {
         return false;
@@ -105,8 +102,7 @@ bool setYogaProperty(void * view, YogaType type, std::string propertyName, float
     return (bool)success; 
 }
 
-void setBackgroundColor(void * view, float r, float g, float b, float a)
-{
+void setBackgroundColor(void * view, float r, float g, float b, float a) {
     JniEnvWrapper env;
     jobject jhostView = ((java_weak_ref *)view)->obj();
     jclass jhostViewClass = env->GetObjectClass(jhostView);
@@ -182,18 +178,19 @@ void setImageTable(void * imageView,
 void setImageColorTable(void * imageView,
                         std::vector<float> color,    //普通状态-颜色生成Image
                         std::vector<float> color_hl  //高亮状态-颜色生成Image
-                        ) 
-{
+                        ) {
 
 }
 
-void setTextAlignment(void * textView,  float textAlignment)
-{
+void setImagePath(void * imageView,  std::string imagePath) {
 
 }
 
-void setText(void * textView,  std::string imageName_Normal)
-{
+void setTextAlignment(void * textView,  float textAlignment) {
+
+}
+
+void setText(void * textView,  std::string imageName_Normal) {
     JniEnvWrapper env;
     jobject jhostView = ((java_weak_ref *) textView)->obj();
     jclass jhostViewClass = env->GetObjectClass(jhostView);
