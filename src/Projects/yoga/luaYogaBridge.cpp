@@ -57,7 +57,7 @@ float getYogaProperty(void * view, YogaType type, std::string propertyName) {
     }
     JniEnvWrapper env;
     jobject jhostView = ((java_weak_ref * )view)->obj();
-    jclass jhostViewClass = env->GetObjectClass(jhostView); // Set the property in the view own object.
+    jclass jhostViewClass = env->GetObjectClass(jhostView); // get the property in the view own object.
     if (jhostViewClass == NULL) {
         return false;
     }

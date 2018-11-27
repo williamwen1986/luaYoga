@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     private YogaLayoutHelper yogaLayoutHelper;
 
+    private boolean hasLoadLua;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,15 +27,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            LogUtil.i(TAG, "Begin to render the yoga layout !!!!!!");
-            long root = yogaView.render("testYoga");
-            LogUtil.i(TAG, "The root address is : " + root);
-            yogaView.getYogaNode().calculateLayout();
-            if (root != -1) {
-                yogaLayoutHelper.inflate(yogaView);
-            }
+        if (!hasFocus || hasLoadLua) {
+            return;
         }
+        LogUtil.i(TAG, "Begin to render the yoga layout !!!!!!");
+        long root = yogaView.render("testYoga");
+        LogUtil.i(TAG, "The root address is : " + root);
+        yogaView.getYogaNode().calculateLayout();
+        if (root != -1) {
+            yogaLayoutHelper.inflate(yogaView);
+            hasLoadLua = true;
+        }
+
     }
 
     private void initView() {
