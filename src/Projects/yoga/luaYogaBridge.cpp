@@ -51,7 +51,26 @@ int convertYogaType(YogaType type) {
 }
 
 float getYogaProperty(void * view, YogaType type, std::string propertyName) {
-    return 0.0;
+    int viewType = convertYogaType(type);
+    if (viewType == INVALID_VIEW_TYPE) {
+        return false;
+    }
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref * )view)->obj();
+    jclass jhostViewClass = env->GetObjectClass(jhostView); // Set the property in the view own object.
+    if (jhostViewClass == NULL) {
+        return false;
+    }
+    jmethodID mid = env->GetMethodID(jhostViewClass, "getYogaProperty", "(ILjava/lang/String;)F");
+    if (mid == NULL) {
+        return false;
+    }
+    jstring jpropertyName = env->NewStringUTF(propertyName.c_str());
+    if (jpropertyName == NULL) {
+        return false;
+    }
+    jfloat value = (jfloat)env->CallFloatMethod(jhostView, mid, (jint)viewType, jpropertyName);
+    return (float)value; 
 }
 
 void *addView(void * parentView, YogaType type, void * root) {

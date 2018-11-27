@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.common.luakit.constant.PropertyType;
 import com.common.luakit.constant.ViewType;
 import com.common.luakit.yoganode.IYoga;
 import com.common.luakit.yoganode.YogaButton;
@@ -45,6 +46,8 @@ public class YogaView extends FrameLayout implements IYoga {
 
     private YogaLayoutHelper yogaLayoutHelper;
 
+    private int width, height;
+
     public YogaView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
@@ -53,6 +56,20 @@ public class YogaView extends FrameLayout implements IYoga {
         yogaNodeWrapper = new YogaNodeWrapper(this, rootNode);
         yogaLayoutHelper = YogaLayoutHelper.getInstance();
         loadSo();
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        width = right - left;
+        height = bottom - top;
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        width = w;
+        height = h;
     }
 
     private void loadSo() {
@@ -82,16 +99,23 @@ public class YogaView extends FrameLayout implements IYoga {
     }
 
     @Override
+    public float getYogaProperty(int type, String propertyName) {
+        if (PropertyType.YOGA_WIDTH.equals(propertyName)) {
+            return width;
+        } else if (PropertyType.YOGA_HEIGHT.equals(propertyName)) {
+            return height;
+        }
+        return yogaLayoutHelper.getYogaProperty(rootNode, propertyName);
+    }
+
+    @Override
     public YogaNode getYogaNode() {
         return rootNode;
     }
 
-    public float getYogaProperty(View view, int type, String propertyName) {
-        return 0.0f;
-    }
-
     /**
      * Called by jni.
+     *
      * @param type the type of added view
      * @return the object of added view
      */

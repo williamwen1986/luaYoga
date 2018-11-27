@@ -9,8 +9,8 @@ local yogaBuilder = function(container)
     local imageView = container.addImageView()      --取值->添加图层关系： addImageView()
     imageView.isEnabled = true
     imageView.backgroundColor = { r = 0.5, g = 0.2, b = 0.7 }
-    imageView.width = 600.0
-    imageView.height = 600.0
+    imageView.width = container.width;
+    imageView.height = container.height/2
     --imageView.width = container.width
     --imageView.aspectRatio = 4
     --imageView.imageName = 'testImg'                 --赋值->图片资源normal：       .imageName = 'testImg'

@@ -20,15 +20,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         initView();
         initMember();
+    }
 
-        LogUtil.i(TAG, "Begin to render the yoga layout !!!!!!");
-        long root = yogaView.render("testYoga");
-        LogUtil.i(TAG, "The root address is : " + root);
-        yogaView.getYogaNode().calculateLayout();
-        if (root != -1) {
-            yogaLayoutHelper.inflate(yogaView);
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            LogUtil.i(TAG, "Begin to render the yoga layout !!!!!!");
+            long root = yogaView.render("testYoga");
+            LogUtil.i(TAG, "The root address is : " + root);
+            yogaView.getYogaNode().calculateLayout();
+            if (root != -1) {
+                yogaLayoutHelper.inflate(yogaView);
+            }
         }
-
     }
 
     private void initView() {

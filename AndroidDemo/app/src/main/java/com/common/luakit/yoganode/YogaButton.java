@@ -37,6 +37,11 @@ public class YogaButton extends android.support.v7.widget.AppCompatButton implem
     }
 
     @Override
+    public float getYogaProperty(int type, String propertyName) {
+        return yogaLayoutHelper.getYogaProperty(yogaNode, propertyName);
+    }
+
+    @Override
     public YogaNode getYogaNode() {
         return yogaNode;
     }

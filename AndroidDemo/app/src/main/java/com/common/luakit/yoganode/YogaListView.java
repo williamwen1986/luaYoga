@@ -38,6 +38,11 @@ public class YogaListView extends RecyclerView implements IYoga {
     }
 
     @Override
+    public float getYogaProperty(int type, String propertyName) {
+        return yogaLayoutHelper.getYogaProperty(yogaNode, propertyName);
+    }
+
+    @Override
     public YogaNode getYogaNode() {
         return yogaNode;
     }

@@ -7,13 +7,21 @@ public interface IYoga {
     /**
      * Called in jni.
      * Set the attr and parameter to the view.
-     * @param view The view to set property
      * @param type The view type
      * @param propertyName The property to set
      * @param value the property value
      * @return
      */
     boolean setYogaProperty(int type, String propertyName, float value);
+
+    /**
+     * Called in jni.
+     * get the attr and parameter to the view.
+     * @param type The view type
+     * @param propertyName The property to set
+     * @return
+     */
+    float getYogaProperty(int type, String propertyName);
 
     /**
      * Called in jni.

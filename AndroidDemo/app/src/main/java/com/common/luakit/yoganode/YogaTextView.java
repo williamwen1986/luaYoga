@@ -38,6 +38,11 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
     }
 
     @Override
+    public float getYogaProperty(int type, String propertyName) {
+        return yogaLayoutHelper.getYogaProperty(yogaNode, propertyName);
+    }
+
+    @Override
     public YogaNode getYogaNode() {
         return yogaNode;
     }
