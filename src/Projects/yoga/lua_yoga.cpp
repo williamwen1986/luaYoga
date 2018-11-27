@@ -12,6 +12,7 @@ extern "C" {
 
 enum ActionType {
     ACTION_NONE,
+    ADD_VIEW,
     LIST_RELOAD,
     VIEW_RELOAD_YOGA,
     VIEW_REMOVE_FROM_PARENT,
@@ -174,6 +175,7 @@ static int __yogaViewNewIndex(lua_State *L)
             long textAlignment = getValueFromState(L, Value_Number, alignment).value_float;
 
             std::vector<float> color = process_bgColor(L, false);
+            std::vector<float> color_gl = process_bgColor(L,true);
 
             setTextColor(viewInfo->view, color);
             setTextFont(viewInfo->view, textFontSize, textBold);
@@ -289,19 +291,19 @@ static int __yogaViewIndex(lua_State *L)
     if (!viewInfo->isDead) {
         if(name == ADD_CONTAINER){
             
-            processUserData(L, viewInfo, CONTAINER,ACTION_NONE,false);
+            processUserData(L, viewInfo, CONTAINER,ADD_VIEW,false);
         }
         else if(name == ADD_ListView){
             
-            processUserData(L, viewInfo, LIST,ACTION_NONE,false);
+            processUserData(L, viewInfo, LIST,ADD_VIEW,false);
         }
         else if(name == ADD_CollectionView){
             
-            processUserData(L, viewInfo, COLLECTIONVIEW,ACTION_NONE,false);
+            processUserData(L, viewInfo, COLLECTIONVIEW,ADD_VIEW,false);
 
         }else if (name == RELOAD_YOGA){
             
-            processUserData(L, viewInfo, OTHER,ACTION_NONE,false);
+            processUserData(L, viewInfo, OTHER,VIEW_RELOAD_YOGA,false);
 
         }
         else if (name == REMOVE_FROM_PARENT){
@@ -311,11 +313,11 @@ static int __yogaViewIndex(lua_State *L)
         }
         else if(name == ADD_ImageView){
             
-            processUserData(L, viewInfo, IMAGE,ACTION_NONE,false);
+            processUserData(L, viewInfo, IMAGE,ADD_VIEW,false);
         }
         else if(name == ADD_TEXT){
             
-            processUserData(L, viewInfo, TEXT,ACTION_NONE,false);
+            processUserData(L, viewInfo, TEXT,ADD_VIEW,false);
 
         }
         else if(name == List_Reload){
@@ -356,7 +358,7 @@ static int __yogaFuncCall(lua_State *L)
     BEGIN_STACK_MODIFY(L);
     YogaFunction *yf = (YogaFunction *)luaL_checkudata(L, 1, LUA_YOGA_FUNCTION_METATABLE_NAME);
     if(yf->view != NULL){
-        if (yf->type != OTHER) {
+        if (yf->action == ADD_VIEW) {
             void * root = NULL;
             if (yf->root != NULL) {
                 root = yf->root;
@@ -518,4 +520,14 @@ static void addYogaEnum(lua_State *L) {
     lua_setglobal(L, "YGOverflowHidden");
     lua_pushinteger(L, 2);
     lua_setglobal(L, "YGOverflowScroll");
+    
+    //    TextAlignment
+    lua_pushinteger(L, 0);
+    lua_setglobal(L, "TextAlignmentLeft");
+    lua_pushinteger(L, 1);
+    lua_setglobal(L, "TextAlignmentCenter");
+    lua_pushinteger(L, 2);
+    lua_setglobal(L, "TextAlignmentRight");
+    
+    
 }
