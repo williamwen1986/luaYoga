@@ -572,5 +572,23 @@ static void addYogaEnum(lua_State *L) {
     lua_pushinteger(L, 2);
     lua_setglobal(L, "TextAlignmentRight");
     
-    
+    //    ContentMode
+    lua_pushinteger(L, 0);
+    lua_setglobal(L, "ContentModeScaleToFill");
+    lua_pushinteger(L, 1);
+    lua_setglobal(L, "ContentModeScaleAspectFit");
+    lua_pushinteger(L, 2);
+    lua_setglobal(L, "ContentModeScaleAspectFill");
+    lua_pushinteger(L, 3);
+    lua_setglobal(L, "ContentModeRedraw");
+    lua_pushinteger(L, 4);
+    lua_setglobal(L, "ContentModeCenter");
+    lua_pushinteger(L, 5);
+    lua_setglobal(L, "ContentModeTop");
+    lua_pushinteger(L, 6);
+    lua_setglobal(L, "ContentModeBottom");
+    lua_pushinteger(L, 7);
+    lua_setglobal(L, "ContentModeLeft");
+    lua_pushinteger(L, 8);
+    lua_setglobal(L, "ContentModeRight");
 }
