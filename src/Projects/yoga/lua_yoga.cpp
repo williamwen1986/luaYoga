@@ -20,7 +20,7 @@ enum ActionType {
 
 static void addYogaEnum(lua_State *L);
 
-static std::vector<float> process_bgColor(lua_State *L,bool isHighlighted);
+static std::vector<float> process_Color(lua_State *L);
 
 struct YogaFunction {
     void * view;
@@ -88,19 +88,13 @@ static std::tuple<std::string, std::string> process_ImageTable(lua_State *L){
 }
 
 
-static std::vector<float> process_bgColor(lua_State *L,bool isHighlighted){
+static std::vector<float> process_Color(lua_State *L){
     std::vector<float> color;
     
-    std::string redKey = isHighlighted?"r_hl":"r";
-    std::string greenKey = isHighlighted?"g_hl":"g";
-    std::string blueKey = isHighlighted?"b_hl":"b";
-    std::string aplhaKey = isHighlighted?"a_hl":"a";
-
-    
-    color.push_back(getValueFromState(L, Value_Number, redKey).value_float);
-    color.push_back(getValueFromState(L, Value_Number, greenKey).value_float);
-    color.push_back(getValueFromState(L, Value_Number, blueKey).value_float);
-    color.push_back(getValueFromState(L, Value_Number, aplhaKey).value_float);
+    color.push_back(getValueFromState(L, Value_Number, "r").value_float);
+    color.push_back(getValueFromState(L, Value_Number, "g").value_float);
+    color.push_back(getValueFromState(L, Value_Number, "b").value_float);
+    color.push_back(getValueFromState(L, Value_Number, "a").value_float);
     
     return color;
 }
@@ -114,7 +108,7 @@ static int __yogaViewNewIndex(lua_State *L)
         
         if (name == BACKGROUND_COLOR)
         {
-            std::vector<float> color = process_bgColor(L,false);
+            std::vector<float> color = process_Color(L);
             setBackgroundColor(viewInfo->view, color[0], color[1], color[2], color[3]);
         }
         else if(name == YOGA_IS_ENABLE) {
@@ -158,10 +152,23 @@ static int __yogaViewNewIndex(lua_State *L)
             
         }
         else if (name == ImageView_ColorImage){
-            
-            std::vector<float> color = process_bgColor(L,false);
-            std::vector<float> color_gl = process_bgColor(L,true);
+            std::vector<float> color ;
+            std::vector<float> color_gl ;
 
+            lua_pushstring(L, "color");
+            lua_rawget(L, -2);
+            if (!lua_isnil(L, -1)) {
+                color = process_Color(L);
+            }
+            lua_pop(L, 1);
+            
+            lua_pushstring(L, "color_hl");
+            lua_rawget(L, -2);
+            if (!lua_isnil(L, -1)) {
+                color_gl = process_Color(L);
+            }
+            lua_pop(L, 1);
+            
             setImageColorTable(viewInfo->view,color,color_gl); 
 
         }else if (name == Text_Table){
@@ -174,10 +181,26 @@ static int __yogaViewNewIndex(lua_State *L)
             bool textBold = getValueFromState(L, Value_Boolean, isBold).value_bool;
             long textAlignment = getValueFromState(L, Value_Number, alignment).value_float;
 
-            std::vector<float> color = process_bgColor(L, false);
-            std::vector<float> color_gl = process_bgColor(L,true);
+            std::vector<float> color ;
+            std::vector<float> color_gl ;
+            
+            lua_pushstring(L, "color");
+            lua_rawget(L, -2);
+            if (!lua_isnil(L, -1)) {
+                color = process_Color(L);
+            }
+            lua_pop(L, 1);
+            
+            lua_pushstring(L, "color_hl");
+            lua_rawget(L, -2);
+            if (!lua_isnil(L, -1)) {
+                color_gl = process_Color(L);
+            }
+            lua_pop(L, 1);
 
-            setTextColor(viewInfo->view, color);
+            
+            setTextColor(viewInfo->view, color,color_gl);
+            
             setTextFont(viewInfo->view, textFontSize, textBold);
             setTextAlignment(viewInfo->view, textAlignment);
             
@@ -205,9 +228,26 @@ static int __yogaViewNewIndex(lua_State *L)
             
         }else if (name == Text_TextColor){
             
-            std::vector<float> color = process_bgColor(L,false);
+            std::vector<float> color ;
+            std::vector<float> color_gl ;
             
-            setTextColor(viewInfo->view, color);
+            lua_pushstring(L, "color");
+            lua_rawget(L, -2);
+            if (!lua_isnil(L, -1)) {
+                color = process_Color(L);
+            }
+            lua_pop(L, 1);
+            
+            lua_pushstring(L, "color_hl");
+            lua_rawget(L, -2);
+            if (!lua_isnil(L, -1)) {
+                color_gl = process_Color(L);
+            }
+            lua_pop(L, 1);
+            
+//            std::vector<float> color = process_bgColor(L,false);
+            
+            setTextColor(viewInfo->view, color,color_gl);
             
         }else if (name == Text_TextFont){
             
@@ -223,8 +263,11 @@ static int __yogaViewNewIndex(lua_State *L)
             setHighlighted(viewInfo->view, isHighlighted);
             
         } else if (name == List_SeperatorColor){
-            std::vector<float> color = process_bgColor(L,false);
+            std::vector<float> color = process_Color(L);
+ 
+            
             setListSeperatorColor(viewInfo->view, color[0], color[1], color[2], color[3]);
+            
         } else if (name == TAP_FUNCTION){
             addTapGesture(viewInfo->view, viewInfo->root);
             lua_getfenv(L, 1);
