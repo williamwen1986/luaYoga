@@ -21,6 +21,7 @@ local yogaBuilder = function(container)
 
     local textView = container.addTextView()
     textView.isEnabled = true
+    textView.margin=100
     textView.width = 600.0
     textView.height = 500.0
     textView.backgroundColor = { r = 0.5, g = 0.8, b = 0.3, a = 0.5 }

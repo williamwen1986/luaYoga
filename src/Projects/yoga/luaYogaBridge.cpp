@@ -157,8 +157,7 @@ void setListSeperatorColor(void * view, float r, float g, float b, float a)
 
 }
 
-void listReload(void * view)
-{
+void listReload(void * view) { //notifyDataChanged()
 
 }
 
@@ -202,14 +201,32 @@ void setImageColorTable(void * imageView,
 }
 
 void setImagePath(void * imageView,  std::string imagePath) {
-
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref*)imageView)->obj();
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetImagePath", "(Ljava/lang/String;)V");
+    if (jmid == NULL) {
+        LOGD("Failed, method nativeSetImagePath not found");
+        return;
+    }
+    jstring jpath = env->NewStringUTF(imagePath.c_str());
+    env->CallVoidMethod(jhostView, jmid, jpath);
 }
 
 void setTextAlignment(void * textView,  float textAlignment) {
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref *)textView)->obj();
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetTextAlignment", "(F)V");
+    if (jmid == NULL) {
+        LOGD("Failed!! method nativeSetTextAlignment not found");
+        return;
+    }
+    env->CallVoidMethod(jhostView, jmid, (jfloat)textAlignment);
 
 }
 
-void setText(void * textView,  std::string imageName_Normal) {
+void setText(void * textView,  std::string text) {
     JniEnvWrapper env;
     jobject jhostView = ((java_weak_ref *) textView)->obj();
     jclass jhostViewClass = env->GetObjectClass(jhostView);
@@ -218,11 +235,13 @@ void setText(void * textView,  std::string imageName_Normal) {
         LOGD("Failed!! method nativeSetText not found");
         return;
     }
-    jstring text = env->NewStringUTF(imageName_Normal.c_str());
-    env->CallVoidMethod(jhostView, jmid, text);
+    jstring jtext = env->NewStringUTF(text.c_str());
+    env->CallVoidMethod(jhostView, jmid, jtext);
 }
 
-void setTextColor(void * view,  std::vector<float> color) {}
+void setTextColor(void * view,  std::vector<float> color, std::vector<float> color_hl) {
+
+}
 
 void setTextFont(void * view, float fontSize, bool isBold) { //对应移动端默认字体 iOS-> PingFang ，默认字号是17pt
     JniEnvWrapper env;

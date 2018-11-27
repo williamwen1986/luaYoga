@@ -1,6 +1,8 @@
 package com.common.luakit.yoganode;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -92,6 +94,42 @@ public class YogaImageView extends android.support.v7.widget.AppCompatImageView 
     @Override
     public void nativeSetBackgroundColor(float r, float g, float b, float a) {
         setBackgroundColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
+    }
+
+    /**
+     * Jni calling method.
+     * Set the image source to the view.
+     *
+     * @param imagePath The path of Picture in sdcard.
+     */
+    public void nativeSetImagePath(String imagePath) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(imagePath, options);
+        int viewWidth = getWidth();
+        int viewHeight = getHeight();
+        options.inSampleSize = calculateInSampleSize(options, viewWidth, viewHeight);
+        options.inJustDecodeBounds = false;
+        Bitmap bitmap = BitmapFactory.decodeFile(imagePath, options);
+        setImageBitmap(bitmap);
+    }
+
+    private int calculateInSampleSize(BitmapFactory.Options options,
+                                      int viewWidth, int viewHeight) {
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        LogUtil.i(TAG, "imgWidth = " + width + ", imgHeight = " + height +
+                "; viewWidth = " + viewWidth + ", viewHeight = " + viewHeight);
+        int inSampleSize = 1;
+        if (height > viewHeight || width > viewWidth) {
+            final int halfHeight = height / 2;
+            final int halfWidth = width / 2;
+            while ((halfHeight / inSampleSize) > viewHeight
+                    && (halfWidth / inSampleSize) > viewWidth) {
+                inSampleSize *= 2;
+            }
+        }
+        return inSampleSize;
     }
 
 }

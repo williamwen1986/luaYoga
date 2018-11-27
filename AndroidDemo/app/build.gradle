@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.demo.luayoga.yy.androiddemo"
-        minSdkVersion 15
+        minSdkVersion 19
 
         targetSdkVersion 28
         versionCode 1

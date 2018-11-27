@@ -118,4 +118,14 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
         }
     }
 
+    public void nativeSetTextAlignment(float textAlignment) {
+        if (textAlignment == 0) { // Left
+            setTextAlignment(TEXT_ALIGNMENT_INHERIT);
+        } else if (textAlignment == 1) { // Center
+            setTextAlignment(TEXT_ALIGNMENT_CENTER);
+        } else if (textAlignment == 2) { // Right
+            setTextAlignment(TEXT_ALIGNMENT_VIEW_END);
+        }
+    }
+
 }
