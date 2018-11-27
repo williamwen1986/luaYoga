@@ -574,21 +574,13 @@ static void addYogaEnum(lua_State *L) {
     
     //    ContentMode
     lua_pushinteger(L, 0);
-    lua_setglobal(L, "ContentModeScaleToFill");
+    lua_setglobal(L, "ContentModeScaleToFill");//android fix_xy
     lua_pushinteger(L, 1);
-    lua_setglobal(L, "ContentModeScaleAspectFit");
+    lua_setglobal(L, "ContentModeScaleAspectFit");//android center_inside
     lua_pushinteger(L, 2);
-    lua_setglobal(L, "ContentModeScaleAspectFill");
-    lua_pushinteger(L, 3);
-    lua_setglobal(L, "ContentModeRedraw");
+    lua_setglobal(L, "ContentModeScaleAspectFill");//android center
     lua_pushinteger(L, 4);
-    lua_setglobal(L, "ContentModeCenter");
-    lua_pushinteger(L, 5);
-    lua_setglobal(L, "ContentModeTop");
-    lua_pushinteger(L, 6);
-    lua_setglobal(L, "ContentModeBottom");
-    lua_pushinteger(L, 7);
-    lua_setglobal(L, "ContentModeLeft");
-    lua_pushinteger(L, 8);
-    lua_setglobal(L, "ContentModeRight");
+    lua_setglobal(L, "ContentModeCenter");//android center_crop
+    lua_pushinteger(L, 9);
+    lua_setglobal(L, "ContentModeTopLeft");//android matrix
 }
