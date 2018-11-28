@@ -120,6 +120,7 @@ public class YogaView extends FrameLayout implements IYoga {
      * @return the object of added view
      */
     public View addYogaView(int type) {
+        LogUtil.i(TAG, "Add YogaView : " + type);
         IYoga added = null;
         switch (type) {
             case ViewType.VIEW_TYPE_CONTAINER:
@@ -135,13 +136,13 @@ public class YogaView extends FrameLayout implements IYoga {
                 added = new YogaButton(context);
                 break;
             case ViewType.VIEW_TYPE_SVGA:
-                // TODO: Which widget in Android?
+                // SurfaceView
                 break;
             case ViewType.VIEW_TYPE_LIST:
                 added = new YogaListView(context);
                 break;
             case ViewType.VIEW_TYPE_COLLECTIONVIEW:
-                // TODO: Which widget in Android?
+                // GridView
                 break;
             case ViewType.VIEW_TYPE_SCROLLVIEW:
                 added = new YogaScrollView(context);
@@ -205,6 +206,6 @@ public class YogaView extends FrameLayout implements IYoga {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        // TODO : release the jni object.
+        // TODO : jni call deadlocK to release the jni object.
     }
 }

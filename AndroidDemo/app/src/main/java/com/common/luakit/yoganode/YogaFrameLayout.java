@@ -69,13 +69,13 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
                 added = new YogaButton(context);
                 break;
             case ViewType.VIEW_TYPE_SVGA:
-                // TODO: Which widget in Android?
+                // SurfaceView
                 break;
             case ViewType.VIEW_TYPE_LIST:
                 added = new YogaListView(context);
                 break;
             case ViewType.VIEW_TYPE_COLLECTIONVIEW:
-                // TODO: Which widget in Android?
+                // GridView
                 break;
             case ViewType.VIEW_TYPE_SCROLLVIEW:
                 added = new YogaScrollView(context);
@@ -140,5 +140,11 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
     @Override
     public void nativeSetBackgroundColor(float r, float g, float b, float a) {
 
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        // TODO : jni call deadlocK to release the jni object.
     }
 }

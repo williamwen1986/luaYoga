@@ -36,16 +36,18 @@ int convertYogaType(YogaType type) {
         viewType = 1;
     } else if (type == TEXT) {
         viewType = 2;
-    } else if (type == SVGA) {
+    } else if (type == BUTTON) {
         viewType = 3;
-    } else if (type == LIST) {
+    } else if (type == SVGA) {
         viewType = 4;
-    } else if (type == COLLECTIONVIEW) {
+    } else if (type == LIST) {
         viewType = 5;
-    } else if (type == SCROLLVIEW) {
+    } else if (type == COLLECTIONVIEW) {
         viewType = 6;
-    } else if (type == OTHER) {
+    } else if (type == SCROLLVIEW) {
         viewType = 7;
+    } else if (type == OTHER) {
+        viewType = 8;
     }
     return viewType;
 }

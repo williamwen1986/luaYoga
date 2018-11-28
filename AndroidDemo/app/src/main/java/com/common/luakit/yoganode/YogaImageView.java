@@ -132,4 +132,9 @@ public class YogaImageView extends android.support.v7.widget.AppCompatImageView 
         return inSampleSize;
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+
+    }
 }
