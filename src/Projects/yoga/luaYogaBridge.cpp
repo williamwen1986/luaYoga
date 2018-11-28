@@ -158,7 +158,14 @@ void setListSeperatorColor(void * view, float r, float g, float b, float a)
 }
 
 void listReload(void * view) { //notifyDataChanged()
-
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref *)view)->obj();
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeListReload", "()V");
+    if (jmid == NULL) {
+        LOGD("Failed, The method nativeListReload is not found");
+    }
+    env->CallVoidMethod(jhostView, jmid);
 }
 
 void setImageViewContentMode(void * imageView, float contentModeType)

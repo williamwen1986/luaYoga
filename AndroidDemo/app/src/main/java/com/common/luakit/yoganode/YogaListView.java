@@ -26,6 +26,8 @@ public class YogaListView extends RecyclerView implements IYoga {
 
     private YogaLayoutHelper yogaLayoutHelper;
 
+    private YogaListViewAdapter adapter;
+
     public YogaListView(@NonNull Context context) {
         super(context);
         yogaNode = new YogaNode();
@@ -88,11 +90,20 @@ public class YogaListView extends RecyclerView implements IYoga {
         params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT), (int) yogaNode.getMargin(YogaEdge.TOP),
                 (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));
         setLayoutParams(params);
+        // Bind the adapter.
+        adapter = new YogaListViewAdapter(self, parent, root);
+        setAdapter(adapter);
     }
 
     @Override
     public void nativeSetBackgroundColor(float r, float g, float b, float a) {
 
+    }
+
+    public void nativeListReload() {
+        if (adapter != null) {
+            adapter.notifyDataSetChanged();
+        }
     }
 
 }

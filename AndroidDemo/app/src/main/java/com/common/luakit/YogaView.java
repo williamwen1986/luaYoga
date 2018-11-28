@@ -202,4 +202,9 @@ public class YogaView extends FrameLayout implements IYoga {
         setBackgroundColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        // TODO : release the jni object.
+    }
 }
