@@ -2,47 +2,65 @@ package com.common.luakit.yoganode;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 
-public class YogaListViewAdapter extends RecyclerView.Adapter {
+public class YogaListViewAdapter extends RecyclerView.Adapter<YogaListViewAdapter.YogaViewHolder> {
 
     private static final String TAG = "YogaListViewAdapter";
+
+    private YogaLayoutHelper yogaLayoutHelper;
 
     /**
      * The jni pointer.
      */
-    private long listViewSelf, listViewParent, listViewRoot;
+    private long listViewSelf;
 
-    YogaListViewAdapter(long listViewSelf, long listViewParent, long listViewRoot) {
+    YogaListViewAdapter(long listViewSelf) {
         LogUtil.i(TAG, "Build the Adapter");
         this.listViewSelf = listViewSelf;
-        this.listViewParent = listViewParent;
-        this.listViewRoot = listViewRoot;
+
+        yogaLayoutHelper = YogaLayoutHelper.getInstance();
     }
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        // TODO : refer to the function numberOfRowsInSection() in luaYoga/LuaTableView.mm
+    public YogaViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        LogUtil.i(TAG, "onCreateViewHolder");
         return null;
+        // return new YogaViewHolder(yogaLayoutHelper.nativeOnCreateView(listViewSelf));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-
+    public void onBindViewHolder(@NonNull YogaViewHolder viewHolder, int position) {
+        // TODO : YogaListView.reload()? how to trigger.
+        LogUtil.i(TAG, "onBindViewHolder");
     }
 
     @Override
     public int getItemCount() {
-        // TODO : refer to the function numberOfRowsInSection() in luaYoga/LuaTableView.mm
+        LogUtil.i(TAG, "getItemCount");
         return 0;
+        // TODO : refer to the function numberOfRowsInSection() in luaYoga/LuaTableView.mm
+        // return yogaLayoutHelper.nativeGetItemcount(listViewSelf);
     }
 
     @Override
     public int getItemViewType(int position) {
+        LogUtil.i(TAG, "getItemViewType");
+        return 0;
         // TODO : refer to the function getIdentifier() in luaYoga/LuaTableView.mm
-        return super.getItemViewType(position);
+        // return yogaLayoutHelper.nativeGetItemViewType(listViewSelf, position);
     }
+
+    static class YogaViewHolder extends RecyclerView.ViewHolder {
+
+        YogaViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
+
+    }
+
 }

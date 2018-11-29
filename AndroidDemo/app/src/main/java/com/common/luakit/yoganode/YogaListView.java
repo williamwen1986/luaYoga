@@ -2,6 +2,7 @@ package com.common.luakit.yoganode;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -31,6 +32,7 @@ public class YogaListView extends RecyclerView implements IYoga {
     public YogaListView(@NonNull Context context) {
         super(context);
         yogaNode = new YogaNode();
+        setLayoutManager(new LinearLayoutManager(context));
         yogaLayoutHelper = YogaLayoutHelper.getInstance();
     }
 
@@ -91,7 +93,7 @@ public class YogaListView extends RecyclerView implements IYoga {
                 (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));
         setLayoutParams(params);
         // Bind the adapter.
-        adapter = new YogaListViewAdapter(self, parent, root);
+        adapter = new YogaListViewAdapter(self);
         setAdapter(adapter);
     }
 
@@ -101,6 +103,10 @@ public class YogaListView extends RecyclerView implements IYoga {
     }
 
     public void nativeListReload() {
+        notifyDataSetChanged();
+    }
+
+    private void notifyDataSetChanged() {
         if (adapter != null) {
             adapter.notifyDataSetChanged();
         }

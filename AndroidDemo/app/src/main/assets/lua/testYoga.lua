@@ -5,7 +5,6 @@ local yogaBuilder = function (container)
     container.alignItems = YGAlignFlexStart
     container.flexDirection = YGFlexDirectionColumn
 
-
     local listView
 
     listView = container.addListView()
@@ -13,7 +12,7 @@ local yogaBuilder = function (container)
     listView.isEnabled = true
     listView.backgroundColor = {g=1.0}
     listView.width = container.width
-    listView.height = 600
+    listView.height = container.height
     listView.seperatorColor = {b=0.5}
 
     listView.identifier = function (section, row)

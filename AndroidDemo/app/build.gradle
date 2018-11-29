@@ -10,6 +10,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            moduleName "test"
+        }
     }
     buildTypes {
         release {
@@ -19,7 +23,7 @@ android {
     }
     //add jniLibs.srcDir
     sourceSets{
-        main{
+        main {
             jniLibs.srcDir '../../src/Projects/jni/libs'
         }
     }

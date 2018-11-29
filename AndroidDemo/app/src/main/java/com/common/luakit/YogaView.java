@@ -36,9 +36,9 @@ public class YogaView extends FrameLayout implements IYoga {
 
     private native long loadLua(String moduleName);
 
-    private boolean loadSuccess = true;
+    private native void dispose(long self);
 
-    private boolean isRoot;
+    private boolean loadSuccess = true;
 
     private YogaNode rootNode;
 
@@ -180,10 +180,6 @@ public class YogaView extends FrameLayout implements IYoga {
         return root;
     }
 
-    public void setIsRoot(boolean isRoot) {
-        this.isRoot = isRoot;
-    }
-
     @Override
     public boolean isRoot() {
         return false;
@@ -206,6 +202,7 @@ public class YogaView extends FrameLayout implements IYoga {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        // TODO : jni call deadlocK to release the jni object.
+        // TODO : Fix me ! occurs crash!
+        // dispose(self);
     }
 }
