@@ -12,8 +12,8 @@ JNIEXPORT jint JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemc
   (JNIEnv *, jobject, jint, jlong, jlong);
 
 
-JNIEXPORT jint JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemViewType
-  (JNIEnv *, jobject, jlong, jint);
+JNIEXPORT jstring JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemViewType
+  (JNIEnv *, jobject, jlong, jlong, jint);
 
 JNIEXPORT void * JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreateView
   (JNIEnv *, jobject, jlong);

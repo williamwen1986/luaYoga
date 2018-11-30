@@ -43,10 +43,36 @@ JNIEXPORT jint JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemc
     return num;
 }
 
-JNIEXPORT jint JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemViewType
-  (JNIEnv *env, jobject thiz, jlong hostView, jint positon) {
+JNIEXPORT jstring JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemViewType
+  (JNIEnv *env, jobject thiz, jlong hostView, jlong rootView, jint positon) {
   	LOGD("Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemViewType");
-  	return 0;
+  	const char * s;
+    lua_State * state = BusinessThread::GetCurrentThreadLuaState();
+    BEGIN_STACK_MODIFY(state);
+    assert(hostView != 0);
+    pushUserdataInStrongTable(state,(void *)rootView);
+    assert(lua_type(state, -1) == LUA_TTABLE);
+    lua_pushlightuserdata(state, (void *)hostView);
+    lua_rawget(state, -2);
+    assert(lua_type(state, -1) == LUA_TUSERDATA);
+    if(lua_type(state, -1) == LUA_TUSERDATA){
+        lua_getfield(state, -1, List_ItemHeight);
+        if (lua_type(state, -1) == LUA_TFUNCTION) {
+            lua_pushinteger(state, (int)0);
+            lua_pushinteger(state, (int)positon);
+            lua_pcall(state, 2, 1, 0);
+            s = lua_tostring(state, -1);
+        } else {
+            LOGD("tableView List_ItemHeight not function");
+            assert(false);
+        }
+    } else {
+        LOGD("tableView heightForRowAtIndexPath no userdata");
+        assert(false);
+    }
+    END_STACK_MODIFY(state, 0)
+    jstring jidentifier = env->NewStringUTF(s);
+    return jidentifier;
 }
 
 JNIEXPORT void * JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreateView

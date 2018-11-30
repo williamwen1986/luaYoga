@@ -20,7 +20,7 @@ public class YogaLayoutHelper {
 
     public native int getItemcount(int group, long hostView, long rootView);
 
-    public native int getItemViewType(long hostView, int position);
+    public native String getItemViewType(long hostView, long rootView, int position);
 
     public native View onCreateView(long hostView);
 
