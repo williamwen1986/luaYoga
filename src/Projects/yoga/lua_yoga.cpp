@@ -230,7 +230,7 @@ static int __yogaViewNewIndex(lua_State *L)
             
             std::vector<float> color ;
             std::vector<float> color_gl ;
-            
+
             lua_pushstring(L, "color");
             lua_rawget(L, -2);
             if (!lua_isnil(L, -1)) {
