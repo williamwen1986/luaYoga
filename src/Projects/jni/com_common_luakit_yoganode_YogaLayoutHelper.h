@@ -8,11 +8,11 @@
 extern "C" {
 #endif
 
-JNIEXPORT jlong JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemcount
-  (JNIEnv *, jobject, jlong);
+JNIEXPORT jint JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemcount
+  (JNIEnv *, jobject, jint, jlong, jlong);
 
 
-JNIEXPORT jlong JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemViewType
+JNIEXPORT jint JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemViewType
   (JNIEnv *, jobject, jlong, jint);
 
 JNIEXPORT void * JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreateView

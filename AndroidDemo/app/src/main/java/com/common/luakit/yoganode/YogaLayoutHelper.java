@@ -18,7 +18,7 @@ public class YogaLayoutHelper {
 
     private static YogaLayoutHelper yogaLayoutHelper;
 
-    public native int getItemcount(long hostView);
+    public native int getItemcount(int group, long hostView, long rootView);
 
     public native int getItemViewType(long hostView, int position);
 

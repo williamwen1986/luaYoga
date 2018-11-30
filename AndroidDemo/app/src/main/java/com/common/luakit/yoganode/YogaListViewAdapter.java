@@ -16,12 +16,12 @@ public class YogaListViewAdapter extends RecyclerView.Adapter<YogaListViewAdapte
     /**
      * The jni pointer.
      */
-    private long listViewSelf;
+    private long listViewSelf, listViewRoot;
 
-    YogaListViewAdapter(long listViewSelf) {
+    YogaListViewAdapter(long listViewSelf, long listViewRoot) {
         LogUtil.i(TAG, "Build the Adapter");
         this.listViewSelf = listViewSelf;
-
+        this.listViewRoot = listViewRoot;
         yogaLayoutHelper = YogaLayoutHelper.getInstance();
     }
 
@@ -40,9 +40,10 @@ public class YogaListViewAdapter extends RecyclerView.Adapter<YogaListViewAdapte
 
     @Override
     public int getItemCount() {
-        LogUtil.i(TAG, "getItemCount");
         // TODO : refer to the function numberOfRowsInSection() in luaYoga/LuaTableView.mm
-        return yogaLayoutHelper.getItemcount(listViewSelf);
+        int itemCount = yogaLayoutHelper.getItemcount(0, listViewSelf, listViewRoot);
+        LogUtil.i(TAG, "getItemCount : " + itemCount);
+        return itemCount;
     }
 
     @Override

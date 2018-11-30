@@ -93,7 +93,7 @@ public class YogaListView extends RecyclerView implements IYoga {
                 (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));
         setLayoutParams(params);
         // Bind the adapter.
-        adapter = new YogaListViewAdapter(self);
+        adapter = new YogaListViewAdapter(self, root);
         setAdapter(adapter);
     }
 
