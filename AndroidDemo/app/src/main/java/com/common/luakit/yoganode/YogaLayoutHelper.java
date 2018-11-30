@@ -1,8 +1,6 @@
 package com.common.luakit.yoganode;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import com.common.luakit.constant.PropertyType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
@@ -20,11 +18,11 @@ public class YogaLayoutHelper {
 
     private static YogaLayoutHelper yogaLayoutHelper;
 
-    public native int nativeGetItemcount(long hostView);
+    public native int getItemcount(long hostView);
 
-    public native int nativeGetItemViewType(long hostView, int position);
+    public native int getItemViewType(long hostView, int position);
 
-    public native View nativeOnCreateView(long hostView);
+    public native View onCreateView(long hostView);
 
     public static YogaLayoutHelper getInstance() {
         if(yogaLayoutHelper == null) {

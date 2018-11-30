@@ -29,8 +29,7 @@ public class YogaListViewAdapter extends RecyclerView.Adapter<YogaListViewAdapte
     @Override
     public YogaViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         LogUtil.i(TAG, "onCreateViewHolder");
-        return null;
-        // return new YogaViewHolder(yogaLayoutHelper.nativeOnCreateView(listViewSelf));
+        return new YogaViewHolder(yogaLayoutHelper.onCreateView(listViewSelf));
     }
 
     @Override
@@ -42,17 +41,15 @@ public class YogaListViewAdapter extends RecyclerView.Adapter<YogaListViewAdapte
     @Override
     public int getItemCount() {
         LogUtil.i(TAG, "getItemCount");
-        return 0;
         // TODO : refer to the function numberOfRowsInSection() in luaYoga/LuaTableView.mm
-        // return yogaLayoutHelper.nativeGetItemcount(listViewSelf);
+        return yogaLayoutHelper.getItemcount(listViewSelf);
     }
 
     @Override
     public int getItemViewType(int position) {
         LogUtil.i(TAG, "getItemViewType");
-        return 0;
         // TODO : refer to the function getIdentifier() in luaYoga/LuaTableView.mm
-        // return yogaLayoutHelper.nativeGetItemViewType(listViewSelf, position);
+        return yogaLayoutHelper.getItemViewType(listViewSelf, position);
     }
 
     static class YogaViewHolder extends RecyclerView.ViewHolder {
