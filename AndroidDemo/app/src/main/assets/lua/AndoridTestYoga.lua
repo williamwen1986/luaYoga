@@ -1,4 +1,4 @@
-local TAG = "testYoga"
+local TAG = "AndroidTestYoga"
 local yogaBuilder = function(container)
     container.isEnabled = true
     container.alignItems = YGAlignFlexStart
@@ -17,26 +17,26 @@ local yogaBuilder = function(container)
     tvContainer.alignItems = YGAlignFlexStart
     tvContainer.flexDirection = YGFlexDirectionColumn --垂直布局
     tvContainer.width = container.width
-    tvContainer.height = container.height
+    tvContainer.height = container.height * 0.5
+    tvContainer.backgroundColor = { a = 1.0, r = 1.0, g = 0.0, b = 0.0 }
 
     local titleTv = tvContainer.addTextView()
     titleTv.isEnabled = true
-    titleTv.position = YGPositionTypeRelative
-    titleTv.top = -160
-    titleTv.start = 90
     titleTv.text = 'MOBILE LEGENDS'
-    titleTv.textFont = 18
-    titleTv.textColor = { color = { r = 1.0, g = 1.0, b = 1.0, a = 1.0 } }
+    titleTv.textTable = { color = { a = 1.0, r = 1.0, g = 1.0, b = 1.0 },
+                          alignment = TextAlignmentCenter,
+                          fontSize = 18, isBold = true }
 
     local descriptionTv = tvContainer.addTextView()
     descriptionTv.width = tvContainer.width * 0.8
     descriptionTv.isEnabled = true
-    descriptionTv.position = YGPositionTypeRelative
-    descriptionTv.top = -90
-    descriptionTv.start = 90
     descriptionTv.text = '专业的数据分析体系，让你了解你的全面数据'
-    descriptionTv.textFont = 12
-    descriptionTv.textColor = { color = { r = 0.5, g = 0.5, b = 0.5, a = 1.0 } }
+    descriptionTv.textTable = {
+        fontSize = 12,
+        isBold = false,
+        alignment = TextAlignmentCenter,
+        color = { r = 0.5, g = 0.5, b = 0.5, a = 1.0 }
+    }
 end
 
 return yogaBuilder
