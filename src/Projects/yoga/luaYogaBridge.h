@@ -22,6 +22,8 @@ void setListSeperatorColor(void * view, float r, float g, float b, float a);
 
 void listReload(void * view);
 
+void setViewCornerRadius(void *view, float cornerRadius);
+
 //MARK:ImageView 相关
 void setImageViewContentMode(void * imageView, float contentModeType);
 

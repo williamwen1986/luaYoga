@@ -53,11 +53,13 @@ struct LuaModel {
 #define ADD_CollectionView "addCollectionView"
 
 
+
 #pragma mark - 通用属性
 #define ALPHA "alpha"
 #define BACKGROUND_COLOR "backgroundColor"
 #define WIDTH "width"
 #define HEIGHT "height"
+
 
 
 #pragma mark - Action相关
@@ -71,6 +73,7 @@ struct LuaModel {
 #pragma mark - View相关
 #define View_Cliping "cliping"
 #define View_Highlighted "highlighted"
+#define View_CornerRadius "viewCornerRadius"
 
 
 

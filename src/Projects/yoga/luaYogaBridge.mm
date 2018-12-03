@@ -329,7 +329,14 @@ void setImagePath(void * imageView,  std::string imagePath)
     v.image = [UIImage imageWithContentsOfFile:filePath];
 }
 
-
+void setViewCornerRadius(void *view, float cornerRadius)
+{
+    UIView * v = (__bridge UIView *)imageView;
+    
+    v.layer.cornerRadius = cornerRadius;
+    
+    v.clipsToBounds = YES;
+}
 
 
 void setImageViewContentMode(void *imageView, float contentModeType)

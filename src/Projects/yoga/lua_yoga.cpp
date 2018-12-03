@@ -262,7 +262,13 @@ static int __yogaViewNewIndex(lua_State *L)
             
             setHighlighted(viewInfo->view, isHighlighted);
             
-        } else if (name == List_SeperatorColor){
+        }else if (name == View_CornerRadius){
+            
+            long cornerRadius  =  lua_tointeger(L, -1);
+            
+            setViewCornerRadius(viewInfo->view, cornerRadius);
+            
+        }else if (name == List_SeperatorColor){
             std::vector<float> color = process_Color(L);
  
             
