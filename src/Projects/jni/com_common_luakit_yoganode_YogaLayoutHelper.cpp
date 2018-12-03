@@ -16,8 +16,8 @@ extern "C" {
 #define LOGD(...)  __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
 
 JNIEXPORT jint JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemcount 
-	(JNIEnv *env, jobject thiz, jint section, jlong hostView, jlong rootView) {
-	LOGD("Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemcount");
+    (JNIEnv *env, jobject thiz, jint section, jlong hostView, jlong rootView) {
+     LOGD("Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemcount");
 
     int num = 0;
     lua_State * state = BusinessThread::GetCurrentThreadLuaState();
@@ -28,7 +28,7 @@ JNIEXPORT jint JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemc
     lua_pushlightuserdata(state, (void *)hostView);
     lua_rawget(state, -2);
     assert(lua_type(state, -1) == LUA_TUSERDATA);
-    if(lua_type(state, -1) == LUA_TUSERDATA){
+    if(lua_type(state, -1) == LUA_TUSERDATA) {
         lua_getfield(state, -1, List_ColumnsInGroup);
         if (lua_type(state, -1) == LUA_TFUNCTION) {
             lua_pushinteger(state, (int)section);

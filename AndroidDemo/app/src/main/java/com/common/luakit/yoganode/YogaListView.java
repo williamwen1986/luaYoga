@@ -23,6 +23,8 @@ public class YogaListView extends RecyclerView implements IYoga {
      */
     private long self, parent, root;
 
+    private Context context;
+
     private YogaNode yogaNode;
 
     private YogaLayoutHelper yogaLayoutHelper;
@@ -31,6 +33,7 @@ public class YogaListView extends RecyclerView implements IYoga {
 
     public YogaListView(@NonNull Context context) {
         super(context);
+        this.context = context;
         yogaNode = new YogaNode();
         setLayoutManager(new LinearLayoutManager(context));
         yogaLayoutHelper = YogaLayoutHelper.getInstance();
@@ -93,7 +96,7 @@ public class YogaListView extends RecyclerView implements IYoga {
                 (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));
         setLayoutParams(params);
         // Bind the adapter.
-        adapter = new YogaListViewAdapter(self, root);
+        adapter = new YogaListViewAdapter(context, self, root);
         setAdapter(adapter);
     }
 

@@ -16,13 +16,18 @@ local yogaBuilder = function (container)
     listView.seperatorColor = {b=0.5}
 
     listView.identifier = function (section, row)
-        return "test"
+        if (row == 0)
+        then
+            return "test"
+        else
+            return "test1"
+        end
     end
 
     listView.numberOfGroups = function ()
-        return 2
+        return 1
     end
-
+    print("listView.columnsInGrouplistView.columnsInGrouplistView.columnsInGroup")
     listView.columnsInGroup = function (group)
         return 10
     end
@@ -30,26 +35,6 @@ local yogaBuilder = function (container)
     listView.itemHeight = function (group,column)
         return 50
     end
-
-    listView.groupHeaderHeight = function (group)
-        return 10
-    end
-
-    listView.groupFooterHeight = function (group)
-        return 0
-    end
-
-    --[[
-    listView.groupHeader = function (headerView)
-        headerView.isEnabled = true
-        headerView.backgroundColor = {g=1.0, r=0.5}
-    end
-
-    listView.groupFooter = function (footerView)
-        footerView.isEnabled = true
-        footerView.backgroundColor = {g=0.5, r=1.0}
-    end
-    --]]
 
     listView.renderItem = function (cell, group ,column)
         cell.isEnabled = true

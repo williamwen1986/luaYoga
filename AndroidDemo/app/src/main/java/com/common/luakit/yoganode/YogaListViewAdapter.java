@@ -1,9 +1,11 @@
 package com.common.luakit.yoganode;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 
@@ -13,13 +15,16 @@ public class YogaListViewAdapter extends RecyclerView.Adapter<YogaListViewAdapte
 
     private YogaLayoutHelper yogaLayoutHelper;
 
+    private Context context;
+
     /**
      * The jni pointer.
      */
     private long listViewSelf, listViewRoot;
 
-    YogaListViewAdapter(long listViewSelf, long listViewRoot) {
+    YogaListViewAdapter(Context context, long listViewSelf, long listViewRoot) {
         LogUtil.i(TAG, "Build the Adapter");
+        this.context = context;
         this.listViewSelf = listViewSelf;
         this.listViewRoot = listViewRoot;
         yogaLayoutHelper = YogaLayoutHelper.getInstance();
@@ -29,7 +34,8 @@ public class YogaListViewAdapter extends RecyclerView.Adapter<YogaListViewAdapte
     @Override
     public YogaViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         LogUtil.i(TAG, "onCreateViewHolder");
-        return new YogaViewHolder(yogaLayoutHelper.onCreateView(listViewSelf));
+        // return new YogaViewHolder(yogaLayoutHelper.onCreateView(listViewSelf));
+        return new YogaViewHolder(new TextView(context));
     }
 
     @Override

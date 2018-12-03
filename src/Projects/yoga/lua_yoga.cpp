@@ -5,7 +5,7 @@ extern "C" {
 #include "tools/lua_helpers.h"
 #include "lua_yoga.h"
 #include "luaYogaBridge.h"
-
+#include "base/logging.h"
 #include <vector>
 #include <string>
 #include <tuple>
@@ -290,6 +290,7 @@ static int __yogaViewNewIndex(lua_State *L)
             float value = lua_tonumber(L, -1);
             bool hasSetProperty = setYogaProperty(viewInfo->view, viewInfo->type ,name, value);
             if (!hasSetProperty) {
+                LOG(WARNING)<<" set table env"<<name<<"--"<<viewInfo;
                 lua_getfenv(L, 1);
                 lua_insert(L, 2);
                 lua_rawset(L, 2);
@@ -384,6 +385,7 @@ static int __yogaViewIndex(lua_State *L)
         }
         else {
             lua_getfenv(L, -2);
+            LOG(WARNING)<<" get table env"<<lua_tostring(L, -2) <<"--"<<viewInfo;;
             lua_pushvalue(L, -2);
             lua_rawget(L, 3);
         }

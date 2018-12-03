@@ -139,6 +139,8 @@ public class YogaLayoutHelper {
             yogaNode.setMaxHeight(value);
         } else if (PropertyType.YOGA_ASPECT_RATIO.equals(propertyName)) {
             yogaNode.setAspectRatio(value);
+        } else {
+            return false;
         }
         return true;
     }
