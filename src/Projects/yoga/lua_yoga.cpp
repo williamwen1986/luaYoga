@@ -176,10 +176,12 @@ static int __yogaViewNewIndex(lua_State *L)
             std::string fontSize = "fontSize";
             std::string isBold = "isBold";
             std::string alignment = "alignment";
-            
+            std::string numberOfLines = "numberOfLines";
+
             long textFontSize = getValueFromState(L, Value_Number, fontSize).value_float;
             bool textBold = getValueFromState(L, Value_Boolean, isBold).value_bool;
             long textAlignment = getValueFromState(L, Value_Number, alignment).value_float;
+            long lines = getValueFromState(L, Value_Number, numberOfLines).value_float;
 
             std::vector<float> color ;
             std::vector<float> color_gl ;
@@ -188,6 +190,7 @@ static int __yogaViewNewIndex(lua_State *L)
             lua_rawget(L, -2);
             if (!lua_isnil(L, -1)) {
                 color = process_Color(L);
+                setTextColor(viewInfo->view, color);
             }
             lua_pop(L, 1);
             
@@ -195,14 +198,19 @@ static int __yogaViewNewIndex(lua_State *L)
             lua_rawget(L, -2);
             if (!lua_isnil(L, -1)) {
                 color_gl = process_Color(L);
+                setTextHighlightedColor(viewInfo->view, color_gl);
             }
             lua_pop(L, 1);
 
+            if (textFontSize > 0) {
+                setTextFont(viewInfo->view, textFontSize, textBold);
+            }
             
-            setTextColor(viewInfo->view, color,color_gl);
+            if (textAlignment >= 0) {
+                setTextAlignment(viewInfo->view, textAlignment);
+            }
             
-            setTextFont(viewInfo->view, textFontSize, textBold);
-            setTextAlignment(viewInfo->view, textAlignment);
+            setTextNumberOfLines(viewInfo->view, lines);
             
         }else if (name == Text_NumberOfLines){
             long numberOfLines =lua_tointeger(L, -1);
@@ -235,19 +243,11 @@ static int __yogaViewNewIndex(lua_State *L)
             lua_rawget(L, -2);
             if (!lua_isnil(L, -1)) {
                 color = process_Color(L);
+                setTextColor(viewInfo->view, color);
             }
             lua_pop(L, 1);
             
-            lua_pushstring(L, "color_hl");
-            lua_rawget(L, -2);
-            if (!lua_isnil(L, -1)) {
-                color_gl = process_Color(L);
-            }
-            lua_pop(L, 1);
             
-//            std::vector<float> color = process_bgColor(L,false);
-            
-            setTextColor(viewInfo->view, color,color_gl);
             
         }else if (name == Text_TextFont){
             

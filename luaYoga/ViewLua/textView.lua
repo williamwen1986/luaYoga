@@ -18,9 +18,9 @@ textView.backgroundColor = {r=0.5,g=0.8,b=0.3,a=0.5}
 textView.text = 'pengweijun'
 
 --textView.textAlignment = 1;
---textView.textColor = {r=1.0};
+--textView.textColor = {color={r=1.0}};
 --textView.textFont = 30;
-textView.textTable = {color={r=1.0},fontSize=30,isBold=false,alignment=2};
+textView.textTable = {color={r=1.0},fontSize=30,isBold=true,alignment=2};
 
 
 rightTextView = container.addTextView()

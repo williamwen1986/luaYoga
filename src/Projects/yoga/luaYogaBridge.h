@@ -53,7 +53,9 @@ void setTextAlignment(void * textView,  float textAlignment);
 
 void setText(void * textView,  std::string imageName_Normal);
 
-void setTextColor(void * view,  std::vector<float> color, std::vector<float> color_hl);
+void setTextColor(void * view,  std::vector<float> color);
+
+void setTextHighlightedColor(void * view,  std::vector<float> color);
 
 void setTextFont(void * view, float fontSize, bool isBold); //对应移动端默认字体 iOS-> PingFang ，默认字号是17pt
 

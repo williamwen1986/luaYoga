@@ -248,7 +248,7 @@ void setText(void * textView,  std::string text) {
     env->CallVoidMethod(jhostView, jmid, jtext);
 }
 
-void setTextColor(void * textView,  std::vector<float> color, std::vector<float> color_hl) {
+void setTextColor(void * textView,  std::vector<float> color) {
     JniEnvWrapper env;
     jobject jhostView = ((java_weak_ref *) textView)->obj();
     jclass jhostViewClass = env->GetObjectClass(jhostView);
@@ -262,10 +262,12 @@ void setTextColor(void * textView,  std::vector<float> color, std::vector<float>
     if (color.size() == 4) {
         env->CallVoidMethod(jhostView, jmid, (jfloat)color[0], (jfloat)color[1], (jfloat)color[2], (jfloat)color[3], (jboolean)false);
     }
-    if (color_hl.size() == 4)
-    {
-        env->CallVoidMethod(jhostView, jmid, (jfloat)color_hl[0], (jfloat)color_hl[1], (jfloat)color_hl[2], (jfloat)color_hl[3], (jboolean)true);
-    }
+    
+}
+
+void setTextHighlightedColor(void * view,  std::vector<float> color)
+{
+
 }
 
 void setTextFont(void * view, float fontSize, bool isBold) { //对应移动端默认字体 iOS-> PingFang ，默认字号是17pt

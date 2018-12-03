@@ -400,16 +400,15 @@ void setText(void * textView,  std::string text){
     
 }
 
-void setTextColor(void * view, std::vector<float> color, std::vector<float> color_hl){
+void setTextColor(void * view, std::vector<float> color){
     
     UILabel * v = (__bridge UILabel *)view;
-    if (color.size()) {
-        v.textColor = [UIColor colorWithRed:color[0] green:color[1] blue:color[2] alpha:color[3]];
-    }
-    
-    if (color_hl.size()) {
-        v.highlightedTextColor = [UIColor colorWithRed:color_hl[0] green:color_hl[1] blue:color_hl[2] alpha:color_hl[3]];
-    }
+    v.textColor = [UIColor colorWithRed:color[0] green:color[1] blue:color[2] alpha:color[3]];
+}
+
+void setTextHighlightedColor(void * view,  std::vector<float> color){
+    UILabel * v = (__bridge UILabel *)view;
+    v.highlightedTextColor = [UIColor colorWithRed:color[0] green:color[1] blue:color[2] alpha:color[3]];
 }
 
 //对应移动端默认字体 iOS-> PingFang ，默认字号是17pt

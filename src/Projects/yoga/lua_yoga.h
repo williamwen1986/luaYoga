@@ -91,6 +91,9 @@ struct LuaModel {
 #define Text_Text           "text"
 #define Text_TextFont       "textFont"
 #define Text_TextColor      "textColor"
+#define Text_TextHighlightedColor      "textHighlightedColor"
+
+
 #define Text_Alignment      "textAlignment"
 #define Text_NumberOfLines  "numberOfLines"
 #define Text_Table          "textTable"
