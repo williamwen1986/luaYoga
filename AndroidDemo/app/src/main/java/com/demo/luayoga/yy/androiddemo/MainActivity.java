@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         LogUtil.i(TAG, "Begin to render the yoga layout !!!!!!");
-        long root = yogaView.render("testYoga");
+        long root = yogaView.render("AndoridTestYoga");
         LogUtil.i(TAG, "The root address is : " + root);
         yogaView.getYogaNode().calculateLayout();
         if (root != -1) {

@@ -250,9 +250,9 @@ static int __yogaViewNewIndex(lua_State *L)
             
             
         }else if (name == Text_TextFont){
-            
+
             long fontSize =  lua_tointeger(L, -1);
-            
+
             setTextFont(viewInfo->view, fontSize, 0);
             
             
@@ -422,7 +422,7 @@ static int __yogaFuncCall(lua_State *L)
             
             lua_newtable(L);
             lua_setfenv(L, -2);
-            
+
             yi->view = child;
             yi->type = yf->type;
             yi->isDead = false;

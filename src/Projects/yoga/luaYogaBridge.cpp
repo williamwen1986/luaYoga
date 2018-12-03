@@ -258,21 +258,31 @@ void setTextColor(void * textView,  std::vector<float> color) {
     jobject jhostView = ((java_weak_ref *) textView)->obj();
     jclass jhostViewClass = env->GetObjectClass(jhostView);
     LOGD("Text Color size: %d", color.size());
-    LOGD("Text hilght Color size: %d", color_hl.size());
-    jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetTextColor", "(FFFFZ)V");
+    jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetTextColor", "(FFFF)V");
     if (jmid == NULL) {
         LOGD("Failed!! method nativeSetTextColor not found");
         return;
     }
     if (color.size() == 4) {
-        env->CallVoidMethod(jhostView, jmid, (jfloat)color[0], (jfloat)color[1], (jfloat)color[2], (jfloat)color[3], (jboolean)false);
+        env->CallVoidMethod(jhostView, jmid, (jfloat)color[0], (jfloat)color[1], (jfloat)color[2], (jfloat)color[3]);
     }
     
 }
 
-void setTextHighlightedColor(void * view,  std::vector<float> color)
+void setTextHighlightedColor(void * textView,  std::vector<float> color)
 {
-
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref *) textView)->obj();
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    LOGD("Text setHighlighted Color size: %d", color.size());
+    jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetTextHighlightedColor", "(FFFF)V");
+    if (jmid == NULL) {
+        LOGD("Failed!! method setTextHighlightedColor not found");
+        return;
+    }
+    if (color.size() == 4) {
+        env->CallVoidMethod(jhostView, jmid, (jfloat)color[0], (jfloat)color[1], (jfloat)color[2], (jfloat)color[3]);
+    }
 }
 
 void setTextFont(void * view, float fontSize, bool isBold) { //对应移动端默认字体 iOS-> PingFang ，默认字号是17pt

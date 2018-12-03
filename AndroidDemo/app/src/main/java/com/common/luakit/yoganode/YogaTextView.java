@@ -106,16 +106,18 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
         setText(text);
     }
 
-    public void nativeSetTextColor(float r, float g, float b, float a, boolean isHighlight) {
-        if (!isHighlight) {
-            setTextColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
-        } else {
-            setHighlightColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
-        }
+    public void nativeSetTextColor(float r, float g, float b, float a) {
+        setTextColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
+    }
+
+    public void nativeSetTextHighlightedColor(float r, float g, float b, float a) {
+        setHighlightColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
     }
 
     public void nativeSetTextNumberOfLines(float numberOfLines) {
-        setMaxLines((int) numberOfLines);
+        if (numberOfLines > 0) {
+            setMaxLines((int) numberOfLines);
+        }
     }
 
     public void nativeSetTextFont(float textSize, boolean isBold) {

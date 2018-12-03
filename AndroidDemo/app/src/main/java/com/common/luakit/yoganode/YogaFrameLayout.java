@@ -1,6 +1,7 @@
 package com.common.luakit.yoganode;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
 
     public YogaFrameLayout(@NonNull Context context) {
         super(context);
+        this.context = context;
         yogaNode = new YogaNode();
         yogaNodeWrapper = new YogaNodeWrapper(this, yogaNode);
         yogaLayoutHelper = YogaLayoutHelper.getInstance();
@@ -53,7 +55,7 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
         return yogaNode;
     }
 
-    public View addYogaView(View parent, int type) {
+    public View addYogaView(int type) {
         IYoga added = null;
         switch (type) {
             case ViewType.VIEW_TYPE_CONTAINER:
@@ -143,7 +145,7 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
 
     @Override
     public void nativeSetBackgroundColor(float r, float g, float b, float a) {
-
+        setBackgroundColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
     }
 
     @Override
