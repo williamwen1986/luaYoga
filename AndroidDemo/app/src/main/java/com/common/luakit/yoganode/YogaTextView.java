@@ -85,11 +85,13 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
         setY(yogaNode.getLayoutY());
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.width = (int) yogaNode.getWidth();
-        params.height = (int) yogaNode.getHeight();
+        if ((int) yogaNode.getWidth() > 0) {
+            params.width = (int) yogaNode.getWidth();
+        }
+        if ((int) yogaNode.getHeight() > 0) {
+            params.height = (int) yogaNode.getHeight();
+        }
         LogUtil.i(TAG, "params.width = " + params.width + ", params.height = " + params.height);
-        /*params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT), (int) yogaNode.getMargin(YogaEdge.TOP),
-                (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));*/
         setLayoutParams(params);
     }
 
@@ -99,7 +101,7 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
     }
 
     public void nativeSetText(String text) {
-        LogUtil.i(TAG, this + " set text : " + text );
+        LogUtil.i(TAG, this + " set text : " + text);
         setTextColor(Color.BLACK);
         setText(text);
     }
@@ -107,8 +109,7 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
     public void nativeSetTextColor(float r, float g, float b, float a, boolean isHighlight) {
         if (!isHighlight) {
             setTextColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
-        }
-        else {
+        } else {
             setHighlightColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
         }
     }
@@ -119,7 +120,7 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
 
     public void nativeSetTextFont(float textSize, boolean isBold) {
         LogUtil.i(TAG, this + " textSize=" + textSize + ", isBold=" + isBold);
-        setTextSize(20);
+        setTextSize(textSize);
         if (isBold) {
             setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
         }

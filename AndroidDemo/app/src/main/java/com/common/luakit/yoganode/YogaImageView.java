@@ -11,6 +11,9 @@ import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaNode;
 
+import java.io.File;
+import java.io.InputStream;
+
 /**
  * Created by hjx on 2018/11/19
  */
@@ -89,6 +92,7 @@ public class YogaImageView extends android.support.v7.widget.AppCompatImageView 
         /*params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT), (int) yogaNode.getMargin(YogaEdge.TOP),
                 (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));*/
         setLayoutParams(params);
+        setScaleType(ScaleType.CENTER_CROP);
     }
 
     @Override
@@ -103,15 +107,22 @@ public class YogaImageView extends android.support.v7.widget.AppCompatImageView 
      * @param imagePath The path of Picture in sdcard.
      */
     public void nativeSetImagePath(String imagePath) {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(imagePath, options);
-        int viewWidth = getWidth();
-        int viewHeight = getHeight();
-        options.inSampleSize = calculateInSampleSize(options, viewWidth, viewHeight);
-        options.inJustDecodeBounds = false;
-        Bitmap bitmap = BitmapFactory.decodeFile(imagePath, options);
-        setImageBitmap(bitmap);
+        try {
+            InputStream inputStream = getContext().getAssets().open(imagePath);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeStream(inputStream, null, options);
+            int viewWidth = (int) yogaNode.getWidth();
+            int viewHeight = (int)yogaNode.getHeight();
+            options.inSampleSize = calculateInSampleSize(options, viewWidth, viewHeight);
+            options.inJustDecodeBounds = false;
+            inputStream.reset();
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream, null, options);
+            setImageBitmap(bitmap);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     private int calculateInSampleSize(BitmapFactory.Options options,

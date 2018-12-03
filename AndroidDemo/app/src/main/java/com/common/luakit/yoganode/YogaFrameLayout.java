@@ -126,8 +126,12 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
         setY(yogaNode.getLayoutY());
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.width = (int) yogaNode.getWidth();
-        params.height = (int) yogaNode.getHeight();
+        if (yogaNode.getWidth() != 0) {
+            params.width = (int) yogaNode.getWidth();
+        }
+        if (yogaNode.getHeight() != 0) {
+            params.height = (int) yogaNode.getHeight();
+        }
         params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT), (int) yogaNode.getMargin(YogaEdge.TOP),
                 (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));
         setLayoutParams(params);
