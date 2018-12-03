@@ -175,6 +175,11 @@ void setImageViewContentMode(void * imageView, float contentModeType)
 
 }
 
+void setViewCornerRadius(void *view, float cornerRadius)
+{
+    
+}
+
 void setImageName(void * imageView,  std::string imageName)
 {
 

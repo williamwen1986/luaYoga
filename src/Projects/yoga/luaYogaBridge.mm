@@ -331,7 +331,7 @@ void setImagePath(void * imageView,  std::string imagePath)
 
 void setViewCornerRadius(void *view, float cornerRadius)
 {
-    UIView * v = (__bridge UIView *)imageView;
+    UIView * v = (__bridge UIView *)view;
     
     v.layer.cornerRadius = cornerRadius;
     
