@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemc
             num = lua_tointeger(state, -1);
         }
     } else {
-        LOGD("tableView numberOfRowsInSection no userdata");
+        LOGD("tableView getItemcount no userdata");
         assert(false);
     }
     END_STACK_MODIFY(state, 0)
@@ -56,18 +56,19 @@ JNIEXPORT jstring JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getIt
     lua_rawget(state, -2);
     assert(lua_type(state, -1) == LUA_TUSERDATA);
     if(lua_type(state, -1) == LUA_TUSERDATA){
-        lua_getfield(state, -1, List_ItemHeight);
+        lua_getfield(state, -1, List_Identifier);
         if (lua_type(state, -1) == LUA_TFUNCTION) {
             lua_pushinteger(state, (int)0);
             lua_pushinteger(state, (int)positon);
             lua_pcall(state, 2, 1, 0);
             s = lua_tostring(state, -1);
+            LOGD("The identifier is %s", s);
         } else {
-            LOGD("tableView List_ItemHeight not function");
+            LOGD("tableView List_Identifier not function");
             assert(false);
         }
     } else {
-        LOGD("tableView heightForRowAtIndexPath no userdata");
+        LOGD("tableView getItemViewType no userdata");
         assert(false);
     }
     END_STACK_MODIFY(state, 0)

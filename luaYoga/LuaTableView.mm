@@ -107,7 +107,7 @@ extern "C" {
     lua_rawget(state, -2);
     assert(lua_type(state, -1) == LUA_TUSERDATA);
     if(lua_type(state, -1) == LUA_TUSERDATA){
-        lua_getfield(state, -1, List_ItemHeight);
+        lua_getfield(state, -1, List_Identifier);
         if (lua_type(state, -1) == LUA_TFUNCTION) {
             lua_pushinteger(state, (int)indexPath.section);
             lua_pushinteger(state, (int)indexPath.row);
@@ -115,11 +115,11 @@ extern "C" {
             const char * s = lua_tostring(state, -1);
             identifier = [NSString stringWithUTF8String:s];
         } else {
-            NSLog(@"tableView List_ItemHeight not function ");
+            NSLog(@"tableView List_Identifier not function ");
             assert(false);
         }
     } else {
-        NSLog(@"tableView heightForRowAtIndexPath no userdata ");
+        NSLog(@"tableView getIdentifier no userdata ");
         assert(false);
     }
     END_STACK_MODIFY(state, 0)

@@ -36,7 +36,6 @@ public class YogaLayoutHelper {
     }
 
     public boolean setYogaProperty(YogaNode yogaNode, String propertyName, float value) {
-        LogUtil.i(TAG, "setYogaProperty -> propertyName: " + propertyName + ", value: " + value);
         if (PropertyType.YOGA_FLEX_DIRECTION.equals(propertyName)) {
             yogaNode.setFlexDirection(YogaFlexDirection.fromInt((int)value));
         } else if (PropertyType.YOGA_JUSTIFY_CONTENT.equals(propertyName)) {
