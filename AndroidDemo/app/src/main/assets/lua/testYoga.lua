@@ -16,6 +16,7 @@ local yogaBuilder = function (container)
     listView.seperatorColor = {b=0.5}
 
     listView.identifier = function (section, row)
+        -- It should to use number to identify the item type
         if (row == 0)
         then
             return "test"

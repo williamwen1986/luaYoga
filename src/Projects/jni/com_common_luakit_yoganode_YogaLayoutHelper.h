@@ -15,8 +15,14 @@ JNIEXPORT jint JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemc
 JNIEXPORT jstring JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemViewType
   (JNIEnv *, jobject, jlong, jlong, jint);
 
-JNIEXPORT void * JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreateView
-  (JNIEnv *, jobject, jlong);
+JNIEXPORT jfloat JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemHeight
+  (JNIEnv *, jobject, jlong, jlong, jint);
+
+JNIEXPORT void JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreateView
+  (JNIEnv *, jobject, jlong, jlong, jobject);
+
+JNIEXPORT jobject JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onBindView
+  (JNIEnv *, jobject, jlong, jlong, jobject, jint);
 
 #ifdef __cplusplus
 }

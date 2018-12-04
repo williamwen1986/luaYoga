@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
+import com.common.luakit.YogaView;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 
 public class YogaListViewAdapter extends RecyclerView.Adapter<YogaListViewAdapter.YogaViewHolder> {
@@ -34,14 +34,18 @@ public class YogaListViewAdapter extends RecyclerView.Adapter<YogaListViewAdapte
     @Override
     public YogaViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         LogUtil.i(TAG, "onCreateViewHolder");
-        // return new YogaViewHolder(yogaLayoutHelper.onCreateView(listViewSelf));
-        return new YogaViewHolder(new TextView(context));
+        YogaView content = new YogaView(context);
+        yogaLayoutHelper.onCreateView(listViewSelf, listViewRoot, content);
+        content.calculateLayout();
+        yogaLayoutHelper.inflate(content);
+        return new YogaViewHolder(content);
     }
 
     @Override
     public void onBindViewHolder(@NonNull YogaViewHolder viewHolder, int position) {
         // TODO : YogaListView.reload()? how to trigger.
         LogUtil.i(TAG, "onBindViewHolder");
+        yogaLayoutHelper.onBindView(listViewSelf, listViewRoot, viewHolder.itemView, position);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.common.luakit.yoganode;
 
 import android.view.View;
 
+import com.common.luakit.YogaView;
 import com.common.luakit.constant.PropertyType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaAlign;
@@ -22,7 +23,11 @@ public class YogaLayoutHelper {
 
     public native String getItemViewType(long hostView, long rootView, int position);
 
-    public native View onCreateView(long hostView);
+    public native void onCreateView(long hostView, long rootView, YogaView contentView);
+
+    public native void onBindView(long hostView, long rootView, View contentView, int position);
+
+    public native float getItemHeight(long hostView, int position);
 
     public static YogaLayoutHelper getInstance() {
         if(yogaLayoutHelper == null) {

@@ -97,8 +97,6 @@ public class YogaImageView extends android.support.v7.widget.AppCompatImageView 
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         params.width = (int) yogaNode.getWidth().value;
         params.height = (int) yogaNode.getHeight().value;
-        /*params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT), (int) yogaNode.getMargin(YogaEdge.TOP),
-                (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));*/
         setLayoutParams(params);
         setScaleType(ScaleType.CENTER_CROP);
     }

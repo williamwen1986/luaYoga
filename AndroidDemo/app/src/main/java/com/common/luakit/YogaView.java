@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.common.luakit.constant.PropertyType;
@@ -30,7 +31,7 @@ public class YogaView extends FrameLayout implements IYoga {
     /**
      * The native pointer address returned from Jni calling.
      */
-    private long self, parent, root = -1;
+    private long self;
 
     private Context context;
 
@@ -38,7 +39,7 @@ public class YogaView extends FrameLayout implements IYoga {
 
     private native void dispose(long self);
 
-    private boolean loadSuccess = true;
+    private static boolean sLoadSuccess = false;
 
     private YogaNode rootNode;
 
@@ -47,6 +48,10 @@ public class YogaView extends FrameLayout implements IYoga {
     private YogaLayoutHelper yogaLayoutHelper;
 
     private int width, height;
+
+    public YogaView(@NonNull Context context) {
+        this(context, null);
+    }
 
     public YogaView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -73,11 +78,15 @@ public class YogaView extends FrameLayout implements IYoga {
     }
 
     private void loadSo() {
+        if (sLoadSuccess) {
+            return;
+        }
         try {
             System.loadLibrary("luaFramework");
+            sLoadSuccess = true;
         } catch (Throwable e) {
             LogUtil.i(TAG, "Load libluaFramework.so failed : " + e);
-            loadSuccess = false;
+            sLoadSuccess = false;
         }
     }
 
@@ -87,7 +96,7 @@ public class YogaView extends FrameLayout implements IYoga {
      * @param moduleName The name of .lua script without suffix
      */
     public long render(String moduleName) {
-        if (loadSuccess) {
+        if (sLoadSuccess) {
             return loadLua(moduleName);
         }
         return 0;
@@ -119,6 +128,19 @@ public class YogaView extends FrameLayout implements IYoga {
     @Override
     public YogaNode getYogaNode() {
         return rootNode;
+    }
+
+    public void calculateLayout() {
+        if (rootNode.getWidth().value > 0 && rootNode.getHeight().value > 0) {
+            // Set the layout parameter to the Recycler item.
+            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            params.width = (int) rootNode.getWidth().value;
+            params.height = (int) rootNode.getHeight().value;
+            setLayoutParams(params);
+        } else {
+            rootNode.calculateLayout(getWidth(), getHeight());
+        }
     }
 
     /**
@@ -167,10 +189,15 @@ public class YogaView extends FrameLayout implements IYoga {
 
     @Override
     public void setNativePointer(long self, long parent, long root) {
+        // TODO : Ignore
+    }
+
+    /**
+     * java and jni both calling.
+     * @param self the jni pointer address.
+     */
+    public void setSelfPointer(long self) {
         this.self = self;
-        this.parent = parent;
-        this.root = root;
-        LogUtil.i(TAG, "The self = " + self + ", parent = " + parent + ", root = " + root);
     }
 
     @Override
@@ -180,12 +207,12 @@ public class YogaView extends FrameLayout implements IYoga {
 
     @Override
     public long getParentPointer() {
-        return parent;
+        return 0;
     }
 
     @Override
     public long getRootPointer() {
-        return root;
+        return 0;
     }
 
     @Override

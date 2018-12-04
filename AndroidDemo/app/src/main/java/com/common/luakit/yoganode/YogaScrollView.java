@@ -93,8 +93,6 @@ public class YogaScrollView extends ScrollView implements IYoga {
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         params.width = (int) yogaNode.getWidth().value;
         params.height = (int) yogaNode.getHeight().value;
-        params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT).value, (int) yogaNode.getMargin(YogaEdge.TOP).value,
-                (int) yogaNode.getMargin(YogaEdge.RIGHT).value, (int) yogaNode.getMargin(YogaEdge.BOTTOM).value);
         setLayoutParams(params);
     }
 

@@ -32,8 +32,10 @@ public class MainActivity extends AppCompatActivity {
         }
         LogUtil.i(TAG, "Begin to render the yoga layout !!!!!!");
         long root = yogaView.render("testYoga");
+        yogaView.setSelfPointer(root);
+        // long root = yogaView.render("AndoridTestYoga");
         LogUtil.i(TAG, "The root address is : " + root);
-        yogaView.getYogaNode().calculateLayout(yogaView.getWidth(), yogaView.getHeight());
+        yogaView.calculateLayout();
         if (root != -1) {
             yogaLayoutHelper.inflate(yogaView);
             hasLoadLua = true;
