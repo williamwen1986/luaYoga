@@ -14,7 +14,7 @@ local yogaBuilder = function(container)
 
     local tvContainer = container.addContainer()
     tvContainer.isEnabled = true
-    tvContainer.alignItems = YGAlignFlexStart
+    --tvContainer.alignItems = YGAlignFlexStart
     tvContainer.flexDirection = YGFlexDirectionColumn --垂直布局
     tvContainer.width = container.width
     tvContainer.height = container.height * 0.5
@@ -22,13 +22,17 @@ local yogaBuilder = function(container)
 
     local titleTv = tvContainer.addTextView()
     titleTv.isEnabled = true
+    titleTv.width = tvContainer.width * 0.8
+    titleTv.height = 180
     titleTv.text = 'MOBILE LEGENDS'
     titleTv.textTable = { color = { a = 1.0, r = 1.0, g = 1.0, b = 1.0 },
                           alignment = TextAlignmentCenter,
-                          fontSize = 18, isBold = true }
+                          fontSize = 18,
+                          isBold = true }
 
     local descriptionTv = tvContainer.addTextView()
     descriptionTv.width = tvContainer.width * 0.8
+    descriptionTv.height = 80
     descriptionTv.isEnabled = true
     descriptionTv.text = '专业的数据分析体系，让你了解你的全面数据'
     descriptionTv.textTable = {
