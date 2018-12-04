@@ -76,16 +76,16 @@ public class YogaScrollView extends ScrollView implements IYoga {
 
     @Override
     public void inflate() {
-        setPadding((int) yogaNode.getPadding(YogaEdge.LEFT), (int) yogaNode.getPadding(YogaEdge.TOP),
-                (int) yogaNode.getPadding(YogaEdge.RIGHT), (int) yogaNode.getPadding(YogaEdge.BOTTOM));
+        setPadding((int) yogaNode.getPadding(YogaEdge.LEFT).value, (int) yogaNode.getPadding(YogaEdge.TOP).value,
+                (int) yogaNode.getPadding(YogaEdge.RIGHT).value, (int) yogaNode.getPadding(YogaEdge.BOTTOM).value);
         setX(yogaNode.getLayoutX());
         setY(yogaNode.getLayoutY());
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.width = (int) yogaNode.getWidth();
-        params.height = (int) yogaNode.getHeight();
-        params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT), (int) yogaNode.getMargin(YogaEdge.TOP),
-                (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));
+        params.width = (int) yogaNode.getWidth().value;
+        params.height = (int) yogaNode.getHeight().value;
+        params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT).value, (int) yogaNode.getMargin(YogaEdge.TOP).value,
+                (int) yogaNode.getMargin(YogaEdge.RIGHT).value, (int) yogaNode.getMargin(YogaEdge.BOTTOM).value);
         setLayoutParams(params);
     }
 

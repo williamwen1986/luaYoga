@@ -122,20 +122,20 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
 
     @Override
     public void inflate() {
-        setPadding((int) yogaNode.getPadding(YogaEdge.LEFT), (int) yogaNode.getPadding(YogaEdge.TOP),
-                (int) yogaNode.getPadding(YogaEdge.RIGHT), (int) yogaNode.getPadding(YogaEdge.BOTTOM));
+        setPadding((int) yogaNode.getPadding(YogaEdge.LEFT).value, (int) yogaNode.getPadding(YogaEdge.TOP).value,
+                (int) yogaNode.getPadding(YogaEdge.RIGHT).value, (int) yogaNode.getPadding(YogaEdge.BOTTOM).value);
         setX(yogaNode.getLayoutX());
         setY(yogaNode.getLayoutY());
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        if (yogaNode.getWidth() != 0) {
-            params.width = (int) yogaNode.getWidth();
+        if (yogaNode.getWidth().value != 0) {
+            params.width = (int) yogaNode.getWidth().value;
         }
-        if (yogaNode.getHeight() != 0) {
-            params.height = (int) yogaNode.getHeight();
+        if (yogaNode.getHeight().value != 0) {
+            params.height = (int) yogaNode.getHeight().value;
         }
-        params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT), (int) yogaNode.getMargin(YogaEdge.TOP),
-                (int) yogaNode.getMargin(YogaEdge.RIGHT), (int) yogaNode.getMargin(YogaEdge.BOTTOM));
+        params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT).value, (int) yogaNode.getMargin(YogaEdge.TOP).value,
+                (int) yogaNode.getMargin(YogaEdge.RIGHT).value, (int) yogaNode.getMargin(YogaEdge.BOTTOM).value);
         setLayoutParams(params);
         for (int i = 0; i < yogaNode.getChildCount(); i++) {
             yogaNodeWrapper.getChildView(i).inflate();

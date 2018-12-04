@@ -3,11 +3,9 @@ package com.common.luakit.yoganode;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.v4.content.ContextCompat;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.demo.luayoga.yy.androiddemo.R;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaNode;
@@ -79,18 +77,19 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
 
     @Override
     public void inflate() {
-        setPadding((int) yogaNode.getPadding(YogaEdge.LEFT), (int) yogaNode.getPadding(YogaEdge.TOP),
-                (int) yogaNode.getPadding(YogaEdge.RIGHT), (int) yogaNode.getPadding(YogaEdge.BOTTOM));
+        setPadding((int) yogaNode.getPadding(YogaEdge.LEFT).value, (int) yogaNode.getPadding(YogaEdge.TOP).value,
+                (int) yogaNode.getPadding(YogaEdge.RIGHT).value, (int) yogaNode.getPadding(YogaEdge.BOTTOM).value);
         setX(yogaNode.getLayoutX());
         setY(yogaNode.getLayoutY());
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        if ((int) yogaNode.getWidth() > 0) {
-            params.width = (int) yogaNode.getWidth();
+        if ((int) yogaNode.getWidth().value > 0) {
+            params.width = (int) yogaNode.getWidth().value;
         }
-        if ((int) yogaNode.getHeight() > 0) {
-            params.height = (int) yogaNode.getHeight();
+        if ((int) yogaNode.getHeight().value > 0) {
+            params.height = (int) yogaNode.getHeight().value;
         }
+
         LogUtil.i(TAG, "params.width = " + params.width + ", params.height = " + params.height);
         setLayoutParams(params);
     }

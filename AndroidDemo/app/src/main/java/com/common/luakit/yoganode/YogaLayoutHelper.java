@@ -160,7 +160,7 @@ public class YogaLayoutHelper {
         } else if (PropertyType.YOGA_ALIGN_SELF.equals(propertyName)) {
             return yogaNode.getAlignSelf().intValue();
         } else if (PropertyType.YOGA_POSITION.equals(propertyName)) {
-            return yogaNode.getPosition(YogaEdge.ALL);
+            return yogaNode.getPosition(YogaEdge.ALL).value;
         } else if (PropertyType.YOGA_FLEX_WRAP.equals(propertyName)) {
             // TODO : The property not found...
         } else if (PropertyType.YOGA_OVERFLOW.equals(propertyName)) {
@@ -172,55 +172,55 @@ public class YogaLayoutHelper {
         } else if (PropertyType.YOGA_FLEX_SHRINK.equals(propertyName)) {
             return yogaNode.getFlexShrink();
         } else if (PropertyType.YOGA_FLEX_BASIS.equals(propertyName)) {
-            return yogaNode.getFlexBasis();
+            return yogaNode.getFlexBasis().value;
         } else if (PropertyType.YOGA_LEFT.equals(propertyName)) {
-            return yogaNode.getPosition(YogaEdge.LEFT);
+            return yogaNode.getPosition(YogaEdge.LEFT).value;
         } else if (PropertyType.YOGA_TOP.equals(propertyName)) {
-            return yogaNode.getPosition(YogaEdge.TOP);
+            return yogaNode.getPosition(YogaEdge.TOP).value;
         } else if (PropertyType.YOGA_RIGHT.equals(propertyName)) {
-            return yogaNode.getPosition(YogaEdge.RIGHT);
+            return yogaNode.getPosition(YogaEdge.RIGHT).value;
         } else if (PropertyType.YOGA_BOTTOM.equals(propertyName)) {
-            return yogaNode.getPosition(YogaEdge.BOTTOM);
+            return yogaNode.getPosition(YogaEdge.BOTTOM).value;
         } else if (PropertyType.YOGA_START.equals(propertyName)) {
-            return yogaNode.getPosition(YogaEdge.START);
+            return yogaNode.getPosition(YogaEdge.START).value;
         } else if (PropertyType.YOGA_END.equals(propertyName)) {
-            return yogaNode.getPosition(YogaEdge.END);
+            return yogaNode.getPosition(YogaEdge.END).value;
         } else if (PropertyType.YOGA_MARGIN_LEFT.equals(propertyName)) {
-            return yogaNode.getMargin(YogaEdge.LEFT);
+            return yogaNode.getMargin(YogaEdge.LEFT).value;
         } else if (PropertyType.YOGA_MARGIN_TOP.equals(propertyName)) {
-            return yogaNode.getMargin(YogaEdge.TOP);
+            return yogaNode.getMargin(YogaEdge.TOP).value;
         } else if (PropertyType.YOGA_MARGIN_RIGHT.equals(propertyName)) {
-            return yogaNode.getMargin(YogaEdge.RIGHT);
+            return yogaNode.getMargin(YogaEdge.RIGHT).value;
         } else if (PropertyType.YOGA_MARGIN_BOTTOM.equals(propertyName)) {
-            return yogaNode.getMargin(YogaEdge.BOTTOM);
+            return yogaNode.getMargin(YogaEdge.BOTTOM).value;
         } else if (PropertyType.YOGA_MARGIN_START.equals(propertyName)) {
-            return yogaNode.getMargin(YogaEdge.START);
+            return yogaNode.getMargin(YogaEdge.START).value;
         } else if (PropertyType.YOGA_MARGIN_END.equals(propertyName)) {
-            return yogaNode.getMargin(YogaEdge.END);
+            return yogaNode.getMargin(YogaEdge.END).value;
         } else if (PropertyType.YOGA_MARGIN_HORIZONTAL.equals(propertyName)) {
-            return yogaNode.getMargin(YogaEdge.HORIZONTAL);
+            return yogaNode.getMargin(YogaEdge.HORIZONTAL).value;
         } else if (PropertyType.YOGA_MARGIN.equals(propertyName)) {
-            return yogaNode.getMargin(YogaEdge.ALL);
+            return yogaNode.getMargin(YogaEdge.ALL).value;
         } else if (PropertyType.YOGA_MARGIN_VERTICAL.equals(propertyName)) {
-            return yogaNode.getMargin(YogaEdge.VERTICAL);
+            return yogaNode.getMargin(YogaEdge.VERTICAL).value;
         } else if (PropertyType.YOGA_PADDING_LEFT.equals(propertyName)) {
-            return yogaNode.getPadding(YogaEdge.LEFT);
+            return yogaNode.getPadding(YogaEdge.LEFT).value;
         } else if (PropertyType.YOGA_PADDING_TOP.equals(propertyName)) {
-            return yogaNode.getPadding(YogaEdge.TOP);
+            return yogaNode.getPadding(YogaEdge.TOP).value;
         } else if (PropertyType.YOGA_PADDING_RIGHT.equals(propertyName)) {
-            return yogaNode.getPadding(YogaEdge.RIGHT);
+            return yogaNode.getPadding(YogaEdge.RIGHT).value;
         } else if (PropertyType.YOGA_PADDING_BOTTOM.equals(propertyName)) {
-            return yogaNode.getPadding(YogaEdge.BOTTOM);
+            return yogaNode.getPadding(YogaEdge.BOTTOM).value;
         } else if (PropertyType.YOGA_PADDING_START.equals(propertyName)) {
-            return yogaNode.getPadding(YogaEdge.START);
+            return yogaNode.getPadding(YogaEdge.START).value;
         } else if (PropertyType.YOGA_PADDING_END.equals(propertyName)) {
-            return yogaNode.getPadding(YogaEdge.END);
+            return yogaNode.getPadding(YogaEdge.END).value;
         } else if (PropertyType.YOGA_PADDING_HORIZONTAL.equals(propertyName)) {
-            return yogaNode.getPadding(YogaEdge.HORIZONTAL);
+            return yogaNode.getPadding(YogaEdge.HORIZONTAL).value;
         } else if (PropertyType.YOGA_PADDING_VERTICAL.equals(propertyName)) {
-            return yogaNode.getPadding(YogaEdge.VERTICAL);
+            return yogaNode.getPadding(YogaEdge.VERTICAL).value;
         } else if (PropertyType.YOGA_PADDING.equals(propertyName)) {
-            return yogaNode.getPadding(YogaEdge.ALL);
+            return yogaNode.getPadding(YogaEdge.ALL).value;
         } else if (PropertyType.YOGA_BORDER_LEFT.equals(propertyName)) {
             return yogaNode.getBorder(YogaEdge.LEFT);
         } else if (PropertyType.YOGA_BORDER_TOP.equals(propertyName)) {
@@ -236,17 +236,17 @@ public class YogaLayoutHelper {
         } else if (PropertyType.YOGA_BORDER.equals(propertyName)) {
             return yogaNode.getBorder(YogaEdge.ALL);
         } else if (PropertyType.YOGA_WIDTH.equals(propertyName)) {
-            return yogaNode.getWidth();
+            return yogaNode.getWidth().value;
         } else if (PropertyType.YOGA_HEIGHT.equals(propertyName)) {
-            return yogaNode.getHeight();
+            return yogaNode.getHeight().value;
         } else if (PropertyType.YOGA_MIN_WIDTH.equals(propertyName)) {
-            return yogaNode.getMinWidth();
+            return yogaNode.getMinWidth().value;
         } else if (PropertyType.YOGA_MIN_HEIGHT.equals(propertyName)) {
-            return yogaNode.getMinHeight();
+            return yogaNode.getMinHeight().value;
         } else if (PropertyType.YOGA_MAX_WIDTH.equals(propertyName)) {
-            return yogaNode.getMaxWidth();
+            return yogaNode.getMaxWidth().value;
         } else if (PropertyType.YOGA_MAX_HEIGHT.equals(propertyName)) {
-            return yogaNode.getMaxHeight();
+            return yogaNode.getMaxHeight().value;
         } else if (PropertyType.YOGA_ASPECT_RATIO.equals(propertyName)) {
             return yogaNode.getAspectRatio();
         }
