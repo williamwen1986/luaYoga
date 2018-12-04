@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.common.luakit.constant.PropertyType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaNode;
@@ -33,7 +34,14 @@ public class YogaButton extends android.support.v7.widget.AppCompatButton implem
 
     @Override
     public boolean setYogaProperty(int type, String propertyName, float value) {
-        return yogaLayoutHelper.setYogaProperty(yogaNode, propertyName, value);
+        if (PropertyType.YOGA_IS_ENABLE.equals(propertyName)) {
+            boolean enabled = value == 1.0f;
+            setEnabled(enabled);
+            setClickable(enabled);
+            return true;
+        } else {
+            return yogaLayoutHelper.setYogaProperty(yogaNode, propertyName, value);
+        }
     }
 
     @Override

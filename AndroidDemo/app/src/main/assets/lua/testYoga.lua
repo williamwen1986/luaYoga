@@ -27,7 +27,7 @@ local yogaBuilder = function (container)
     listView.numberOfGroups = function ()
         return 1
     end
-    print("listView.columnsInGrouplistView.columnsInGrouplistView.columnsInGroup")
+
     listView.columnsInGroup = function (group)
         return 10
     end

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.common.luakit.constant.PropertyType;
 import com.common.luakit.constant.ViewType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaEdge;
@@ -42,7 +43,14 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
 
     @Override
     public boolean setYogaProperty(int type, String propertyName, float value) {
-        return yogaLayoutHelper.setYogaProperty(yogaNode, propertyName, value);
+        if (PropertyType.YOGA_IS_ENABLE.equals(propertyName)) {
+            boolean enabled = value == 1.0f;
+            setEnabled(enabled);
+            setClickable(enabled);
+            return true;
+        } else {
+            return yogaLayoutHelper.setYogaProperty(yogaNode, propertyName, value);
+        }
     }
 
     @Override
