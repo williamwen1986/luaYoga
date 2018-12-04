@@ -35,6 +35,7 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
 
     @Override
     public boolean setYogaProperty(int type, String propertyName, float value) {
+        LogUtil.i(TAG, "setYogaProperty -> propertyName: " + propertyName + ", value: " + value);
         if (PropertyType.YOGA_IS_ENABLE.equals(propertyName)) {
             boolean enabled = value == 1.0f;
             setEnabled(enabled);
