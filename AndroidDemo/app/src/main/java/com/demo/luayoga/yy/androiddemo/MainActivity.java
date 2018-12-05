@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.common.luakit.YogaView;
 import com.common.luakit.yoganode.YogaLayoutHelper;
+import com.common.luakit.DimensUtils;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DimensUtils.setDensity(this);
         initView();
         initMember();
     }
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         LogUtil.i(TAG, "Begin to render the yoga layout !!!!!!");
-        long root = yogaView.render("testYoga");
+        long root = yogaView.render("MLDataCard");
         yogaView.setSelfPointer(root);
         // long root = yogaView.render("AndoridTestYoga");
         LogUtil.i(TAG, "The root address is : " + root);

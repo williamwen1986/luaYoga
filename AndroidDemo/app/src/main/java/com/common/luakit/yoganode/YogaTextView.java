@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.common.luakit.DimensUtils;
 import com.common.luakit.constant.PropertyType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaEdge;
@@ -98,7 +99,8 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
         if ((int) yogaNode.getHeight().value > 0) {
             params.height = (int) yogaNode.getHeight().value;
         }
-
+        params.setMargins((int) yogaNode.getMargin(YogaEdge.LEFT).value, (int) yogaNode.getMargin(YogaEdge.TOP).value,
+                (int) yogaNode.getMargin(YogaEdge.RIGHT).value, (int) yogaNode.getMargin(YogaEdge.BOTTOM).value);
         LogUtil.i(TAG, "params.width = " + params.width + ", params.height = " + params.height);
         setLayoutParams(params);
     }

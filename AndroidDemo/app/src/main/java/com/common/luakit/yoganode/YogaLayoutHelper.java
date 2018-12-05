@@ -1,5 +1,8 @@
 package com.common.luakit.yoganode;
 
+import android.view.View;
+
+import com.common.luakit.DimensUtils;
 import com.common.luakit.YogaView;
 import com.common.luakit.constant.PropertyType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
@@ -64,79 +67,79 @@ public class YogaLayoutHelper {
         } else if (PropertyType.YOGA_FLEX_BASIS.equals(propertyName)) {
             yogaNode.setFlexBasis(value);
         } else if (PropertyType.YOGA_LEFT.equals(propertyName)) {
-            yogaNode.setPosition(YogaEdge.LEFT, value);
+            yogaNode.setPosition(YogaEdge.LEFT, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_TOP.equals(propertyName)) {
-            yogaNode.setPosition(YogaEdge.TOP, value);
+            yogaNode.setPosition(YogaEdge.TOP, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_RIGHT.equals(propertyName)) {
-            yogaNode.setPosition(YogaEdge.RIGHT, value);
+            yogaNode.setPosition(YogaEdge.RIGHT, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_BOTTOM.equals(propertyName)) {
-            yogaNode.setPosition(YogaEdge.BOTTOM, value);
+            yogaNode.setPosition(YogaEdge.BOTTOM, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_START.equals(propertyName)) {
-            yogaNode.setPosition(YogaEdge.START, value);
+            yogaNode.setPosition(YogaEdge.START, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_END.equals(propertyName)) {
-            yogaNode.setPosition(YogaEdge.END, value);
+            yogaNode.setPosition(YogaEdge.END, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_MARGIN_LEFT.equals(propertyName)) {
-            yogaNode.setMargin(YogaEdge.LEFT, value);
+            yogaNode.setMargin(YogaEdge.LEFT, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_MARGIN_TOP.equals(propertyName)) {
-            yogaNode.setMargin(YogaEdge.TOP, value);
+            yogaNode.setMargin(YogaEdge.TOP, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_MARGIN_RIGHT.equals(propertyName)) {
-            yogaNode.setMargin(YogaEdge.RIGHT, value);
+            yogaNode.setMargin(YogaEdge.RIGHT, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_MARGIN_BOTTOM.equals(propertyName)) {
-            yogaNode.setMargin(YogaEdge.BOTTOM, value);
+            yogaNode.setMargin(YogaEdge.BOTTOM, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_MARGIN_START.equals(propertyName)) {
-            yogaNode.setMargin(YogaEdge.START, value);
+            yogaNode.setMargin(YogaEdge.START, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_MARGIN_END.equals(propertyName)) {
-            yogaNode.setMargin(YogaEdge.END, value);
+            yogaNode.setMargin(YogaEdge.END, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_MARGIN_HORIZONTAL.equals(propertyName)) {
-            yogaNode.setMargin(YogaEdge.HORIZONTAL, value);
+            yogaNode.setMargin(YogaEdge.HORIZONTAL, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_MARGIN.equals(propertyName)) {
-            yogaNode.setMargin(YogaEdge.ALL, value);
+            yogaNode.setMargin(YogaEdge.ALL, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_MARGIN_VERTICAL.equals(propertyName)) {
-            yogaNode.setMargin(YogaEdge.VERTICAL, value);
+            yogaNode.setMargin(YogaEdge.VERTICAL, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_PADDING_LEFT.equals(propertyName)) {
-            yogaNode.setPadding(YogaEdge.LEFT, value);
+            yogaNode.setPadding(YogaEdge.LEFT, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_PADDING_TOP.equals(propertyName)) {
-            yogaNode.setPadding(YogaEdge.TOP, value);
+            yogaNode.setPadding(YogaEdge.TOP, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_PADDING_RIGHT.equals(propertyName)) {
-            yogaNode.setPadding(YogaEdge.RIGHT, value);
+            yogaNode.setPadding(YogaEdge.RIGHT, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_PADDING_BOTTOM.equals(propertyName)) {
-            yogaNode.setPadding(YogaEdge.BOTTOM, value);
+            yogaNode.setPadding(YogaEdge.BOTTOM, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_PADDING_START.equals(propertyName)) {
-            yogaNode.setPadding(YogaEdge.START, value);
+            yogaNode.setPadding(YogaEdge.START, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_PADDING_END.equals(propertyName)) {
-            yogaNode.setPadding(YogaEdge.END, value);
+            yogaNode.setPadding(YogaEdge.END, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_PADDING_HORIZONTAL.equals(propertyName)) {
-            yogaNode.setPadding(YogaEdge.HORIZONTAL, value);
+            yogaNode.setPadding(YogaEdge.HORIZONTAL, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_PADDING_VERTICAL.equals(propertyName)) {
-            yogaNode.setPadding(YogaEdge.VERTICAL, value);
+            yogaNode.setPadding(YogaEdge.VERTICAL, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_PADDING.equals(propertyName)) {
-            yogaNode.setPadding(YogaEdge.ALL, value);
+            yogaNode.setPadding(YogaEdge.ALL, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_BORDER_LEFT.equals(propertyName)) {
-            yogaNode.setBorder(YogaEdge.LEFT, value);
+            yogaNode.setBorder(YogaEdge.LEFT, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_BORDER_TOP.equals(propertyName)) {
-            yogaNode.setBorder(YogaEdge.TOP, value);
+            yogaNode.setBorder(YogaEdge.TOP, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_BORDER_RIGHT.equals(propertyName)) {
-            yogaNode.setBorder(YogaEdge.RIGHT, value);
+            yogaNode.setBorder(YogaEdge.RIGHT, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_BORDER_BOTTOM.equals(propertyName)) {
-            yogaNode.setBorder(YogaEdge.BOTTOM, value);
+            yogaNode.setBorder(YogaEdge.BOTTOM, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_BORDER_START.equals(propertyName)) {
-            yogaNode.setBorder(YogaEdge.START, value);
+            yogaNode.setBorder(YogaEdge.START, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_BORDER_END.equals(propertyName)) {
-            yogaNode.setBorder(YogaEdge.END, value);
+            yogaNode.setBorder(YogaEdge.END, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_BORDER.equals(propertyName)) {
-            yogaNode.setBorder(YogaEdge.ALL, value);
+            yogaNode.setBorder(YogaEdge.ALL, DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_WIDTH.equals(propertyName)) {
-            yogaNode.setWidth(value);
+            yogaNode.setWidth(DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_HEIGHT.equals(propertyName)) {
-            yogaNode.setHeight(value);
+            yogaNode.setHeight(DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_MIN_WIDTH.equals(propertyName)) {
-            yogaNode.setMinWidth(value);
+            yogaNode.setMinWidth(DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_MIN_HEIGHT.equals(propertyName)) {
-            yogaNode.setMinHeight(value);
+            yogaNode.setMinHeight(DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_MAX_WIDTH.equals(propertyName)) {
-            yogaNode.setMaxWidth(value);
+            yogaNode.setMaxWidth(DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_MAX_HEIGHT.equals(propertyName)) {
-            yogaNode.setMaxHeight(value);
+            yogaNode.setMaxHeight(DimensUtils.dp2px(value));
         } else if (PropertyType.YOGA_ASPECT_RATIO.equals(propertyName)) {
             yogaNode.setAspectRatio(value);
         } else {
