@@ -14,6 +14,7 @@
 		2E3A746321957BCE0053B9EE /* imageView.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746021957BCE0053B9EE /* imageView.lua */; };
 		2E3A746421957BCE0053B9EE /* yoga.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746121957BCE0053B9EE /* yoga.lua */; };
 		2E3A746521957BCE0053B9EE /* listView.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746221957BCE0053B9EE /* listView.lua */; };
+		2E8408DB21B7FA8C00B7D9A3 /* commonHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E8408DA21B7FA8C00B7D9A3 /* commonHelper.cpp */; };
 		2EFF348321A6E58500DA68F1 /* LuaCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF348221A6E58500DA68F1 /* LuaCollectionView.m */; };
 		3C23C1DF2181CCD100DB6052 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C1DE2181CCD100DB6052 /* AppDelegate.m */; };
 		3C23C1E22181CCD100DB6052 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C1E12181CCD100DB6052 /* ViewController.mm */; };
@@ -56,6 +57,7 @@
 		2E3A746021957BCE0053B9EE /* imageView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = imageView.lua; sourceTree = "<group>"; };
 		2E3A746121957BCE0053B9EE /* yoga.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yoga.lua; sourceTree = "<group>"; };
 		2E3A746221957BCE0053B9EE /* listView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = listView.lua; sourceTree = "<group>"; };
+		2E8408DA21B7FA8C00B7D9A3 /* commonHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = commonHelper.cpp; path = src/Projects/yoga/commonHelper.cpp; sourceTree = SOURCE_ROOT; };
 		2EFF348121A6E58500DA68F1 /* LuaCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LuaCollectionView.h; sourceTree = "<group>"; };
 		2EFF348221A6E58500DA68F1 /* LuaCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuaCollectionView.m; sourceTree = "<group>"; };
 		3C23C1DA2181CCD100DB6052 /* luaYoga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = luaYoga.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,8 +152,9 @@
 				2E301C8F21ABD19100CB2E23 /* folder_screenShot.png */,
 				2EFF348121A6E58500DA68F1 /* LuaCollectionView.h */,
 				2EFF348221A6E58500DA68F1 /* LuaCollectionView.m */,
-				3C7E2115218ADCDC0061B5F8 /* lua_yoga.cpp */,
 				3C7E2117218ADCDC0061B5F8 /* lua_yoga.h */,
+				3C7E2115218ADCDC0061B5F8 /* lua_yoga.cpp */,
+				2E8408DA21B7FA8C00B7D9A3 /* commonHelper.cpp */,
 				3C7E2116218ADCDC0061B5F8 /* luaYogaBridge.h */,
 				3C7E2114218ADCDC0061B5F8 /* luaYogaBridge.mm */,
 				3C23C21B2181D08000DB6052 /* LuaYogaView.h */,
@@ -342,6 +345,7 @@
 			files = (
 				3C7E2119218ADCDC0061B5F8 /* lua_yoga.cpp in Sources */,
 				3C6160AE2191AFFA0012E389 /* LuaTableView.mm in Sources */,
+				2E8408DB21B7FA8C00B7D9A3 /* commonHelper.cpp in Sources */,
 				3C23C1E22181CCD100DB6052 /* ViewController.mm in Sources */,
 				3C7E2118218ADCDC0061B5F8 /* luaYogaBridge.mm in Sources */,
 				2EFF348321A6E58500DA68F1 /* LuaCollectionView.m in Sources */,

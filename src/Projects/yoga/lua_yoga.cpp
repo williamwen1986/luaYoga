@@ -9,6 +9,8 @@ extern "C" {
 #include <vector>
 #include <string>
 #include <tuple>
+#include "commonHelper.cpp"
+
 
 enum ActionType {
     ACTION_NONE,
@@ -31,9 +33,9 @@ struct YogaFunction {
 
 
 static LuaModel getValueFromState(lua_State *state,LuaValueType valueType, std::string luaKey){
-    
     struct LuaModel result;
     result.type = valueType;
+
     
     switch (valueType) {
         case Value_String:{
@@ -95,6 +97,7 @@ static std::vector<float> process_Color(lua_State *L){
     color.push_back(getValueFromState(L, Value_Number, "g").value_float);
     color.push_back(getValueFromState(L, Value_Number, "b").value_float);
     color.push_back(getValueFromState(L, Value_Number, "a").value_float);
+    
     
     return color;
 }

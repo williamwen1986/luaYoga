@@ -430,3 +430,63 @@ void setTextNumberOfLines(void *view,float numberOfLines){
     label.numberOfLines = numberOfLines;
 };
 
+
+float heightForTextTable(std::string text,float textWidth,float textFontSize,std::string fontName){
+    
+    NSString *textStr = [NSString stringWithCString:text.c_str() encoding:NSUTF8StringEncoding];
+    
+    if (!textStr.length) {
+        return 0;
+    }
+    
+    NSString *textFontName = [NSString stringWithCString:fontName.c_str() encoding:NSUTF8StringEncoding];
+    
+    UIFont *targetFont = [UIFont systemFontOfSize:textFontSize];
+    
+    if (fontName.length()) {
+        targetFont = [UIFont fontWithName:textFontName size:textFontSize];
+        
+        if (!targetFont) { // 如果传入fontname 资源包不存在 则采用系统font
+            targetFont = [UIFont systemFontOfSize:textFontSize];
+        }
+    }
+    
+    CGRect  rect = [textStr boundingRectWithSize:CGSizeMake(textWidth, MAXFLOAT)
+                                      options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                   attributes:@{NSFontAttributeName:targetFont}
+                                      context:nil];
+    
+    
+    return rect.size.height;
+    
+}
+
+float widthForTextTable(std::string text,float textHeight,float textFontSize,std::string fontName){
+    
+    NSString *textStr = [NSString stringWithCString:text.c_str() encoding:NSUTF8StringEncoding];
+    
+    if (!textStr.length) {
+        return 0;
+    }
+    
+    NSString *textFontName = [NSString stringWithCString:fontName.c_str() encoding:NSUTF8StringEncoding];
+    
+    UIFont *targetFont = [UIFont systemFontOfSize:textFontSize];
+    
+    if (fontName.length()) {
+        targetFont = [UIFont fontWithName:textFontName size:textFontSize];
+        
+        if (!targetFont) { // 如果传入fontname 资源包不存在 则采用系统font
+            targetFont = [UIFont systemFontOfSize:textFontSize];
+        }
+    }
+    
+    CGRect  rect = [textStr boundingRectWithSize:CGSizeMake(MAXFLOAT, textHeight)
+                                         options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                      attributes:@{NSFontAttributeName:targetFont}
+                                         context:nil];
+    
+    
+    return rect.size.width;
+    
+}
