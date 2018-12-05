@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         LogUtil.i(TAG, "Begin to render the yoga layout !!!!!!");
-        long root = yogaView.render("MLDataCard");
+        // long root = yogaView.render("MLDataCard");
+        long root = yogaView.render("testYoga");
         yogaView.setSelfPointer(root);
-        // long root = yogaView.render("AndoridTestYoga");
         LogUtil.i(TAG, "The root address is : " + root);
         yogaView.calculateLayout();
         if (root != -1) {

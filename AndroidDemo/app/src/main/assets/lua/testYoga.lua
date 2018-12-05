@@ -30,10 +30,10 @@ local yogaBuilder = function (container)
     end
 
     listView.columnsInGroup = function (group)
-        return 10
+        return 20
     end
 
-    listView.itemHeight = function (group,column)
+    listView.itemHeight = function (group, column)
         return 50
     end
 
@@ -47,14 +47,14 @@ local yogaBuilder = function (container)
             cell.im = cell.addImageView()
         end
         cell.im.isEnabled = true;
-        cell.im.width = 30
-        cell.im.height = 30
+        cell.im.width = 300
+        cell.im.height = 100
         cell.im.margin = 5
         if column%2 == 0 then
-            cell.im.imageName = 'testImg'
+            cell.im.imagePath = 'zz.png'
             cell.im.imageName_hl = 'highlightImage'
         else
-            cell.im.imageName = 'highlightImage'
+            cell.im.imagePath = 'zz.png'
             cell.im.imageName_hl = 'testImg'
         end
         cell.hasInit = true

@@ -36,8 +36,7 @@ public class YogaListViewAdapter extends RecyclerView.Adapter<YogaListViewAdapte
         LogUtil.i(TAG, "onCreateViewHolder");
         YogaView content = new YogaView(context);
         yogaLayoutHelper.onCreateView(listViewSelf, listViewRoot, content);
-        content.calculateLayout();
-        yogaLayoutHelper.inflate(content);
+        // viewGroup.addView(content);
         return new YogaViewHolder(content);
     }
 
@@ -45,8 +44,10 @@ public class YogaListViewAdapter extends RecyclerView.Adapter<YogaListViewAdapte
     public void onBindViewHolder(@NonNull YogaViewHolder viewHolder, int position) {
         // TODO : YogaListView.reload()? how to trigger.
         LogUtil.i(TAG, "onBindViewHolder");
-        yogaLayoutHelper.onBindView(listViewSelf, listViewRoot,
-                ((YogaView)viewHolder.itemView).getSelfPointer(), position);
+        YogaView content = ((YogaView) viewHolder.itemView);
+        yogaLayoutHelper.onBindView(listViewSelf, listViewRoot, content.getSelfPointer(), position);
+        content.calculateLayout();
+        yogaLayoutHelper.inflate(content);
     }
 
     @Override
