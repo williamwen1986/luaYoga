@@ -1,4 +1,4 @@
-package com.common.luakit;
+package com.common.luakit.utils;
 
 import android.content.Context;
 

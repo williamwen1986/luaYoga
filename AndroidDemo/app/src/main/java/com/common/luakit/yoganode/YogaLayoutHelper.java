@@ -1,8 +1,6 @@
 package com.common.luakit.yoganode;
 
-import android.view.View;
-
-import com.common.luakit.DimensUtils;
+import com.common.luakit.utils.DimensUtils;
 import com.common.luakit.YogaView;
 import com.common.luakit.constant.PropertyType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;

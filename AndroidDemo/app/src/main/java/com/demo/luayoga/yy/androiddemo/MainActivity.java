@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.common.luakit.YogaView;
 import com.common.luakit.yoganode.YogaLayoutHelper;
-import com.common.luakit.DimensUtils;
+import com.common.luakit.utils.DimensUtils;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 
 public class MainActivity extends AppCompatActivity {

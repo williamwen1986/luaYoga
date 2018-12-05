@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.common.luakit.DimensUtils;
 import com.common.luakit.constant.PropertyType;
 import com.common.luakit.constant.ViewType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;

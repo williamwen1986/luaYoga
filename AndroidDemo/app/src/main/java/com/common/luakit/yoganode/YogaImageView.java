@@ -17,7 +17,7 @@ import java.io.InputStream;
 /**
  * Created by hjx on 2018/11/19
  */
-public class YogaImageView extends android.support.v7.widget.AppCompatImageView implements IYoga {
+public class YogaImageView extends SimpleCircleImageView implements IYoga {
 
     private static final String TAG = "YogaImageView";
 

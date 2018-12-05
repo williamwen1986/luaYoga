@@ -30,7 +30,7 @@ local yogaBuilder = function (container)
     end
 
     listView.columnsInGroup = function (group)
-        return 20
+        return 2
     end
 
     listView.itemHeight = function (group, column)
