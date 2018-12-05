@@ -22,7 +22,7 @@ JNIEXPORT void JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreate
   (JNIEnv *, jobject, jlong, jlong, jobject);
 
 JNIEXPORT jobject JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onBindView
-  (JNIEnv *, jobject, jlong, jlong, jobject, jint);
+  (JNIEnv *, jobject, jlong, jlong, jlong, jint);
 
 #ifdef __cplusplus
 }

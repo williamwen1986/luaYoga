@@ -45,7 +45,8 @@ public class YogaListViewAdapter extends RecyclerView.Adapter<YogaListViewAdapte
     public void onBindViewHolder(@NonNull YogaViewHolder viewHolder, int position) {
         // TODO : YogaListView.reload()? how to trigger.
         LogUtil.i(TAG, "onBindViewHolder");
-        yogaLayoutHelper.onBindView(listViewSelf, listViewRoot, viewHolder.itemView, position);
+        yogaLayoutHelper.onBindView(listViewSelf, listViewRoot,
+                ((YogaView)viewHolder.itemView).getSelfPointer(), position);
     }
 
     @Override

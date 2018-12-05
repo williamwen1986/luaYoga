@@ -122,7 +122,7 @@ void setPointer(void * self) {
 
 JNIEXPORT void JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreateView
   (JNIEnv *env , jobject thiz, jlong hostView, jlong rootView, jobject contentView) {
-  	LOGD("Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreateView");
+    LOGD("Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreateView");
 
     lua_State * state = BusinessThread::GetCurrentThreadLuaState();
     BEGIN_STACK_MODIFY(state);
@@ -150,9 +150,11 @@ JNIEXPORT void JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreate
 }
 
 JNIEXPORT jobject JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onBindView
-  (JNIEnv *env, jobject thiz, jlong hostView, jlong rootView, jobject contentView, jint position){
+  (JNIEnv *env, jobject thiz, jlong hostView, jlong rootView, jlong contentView, jint position) {
+    LOGD("Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreateView");
     assert(hostView != 0);
-    java_weak_ref *view = new java_weak_ref(contentView);
+    java_weak_ref *view = (java_weak_ref *)contentView;
+    LOGD("The view is %d", view);
     lua_State * state = BusinessThread::GetCurrentThreadLuaState();
     BEGIN_STACK_MODIFY(state);
     pushUserdataInStrongTable(state,(void *)rootView);
@@ -160,7 +162,8 @@ JNIEXPORT jobject JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onBin
     lua_pushlightuserdata(state, (void *)hostView);
     lua_rawget(state, -2);
     assert(lua_type(state, -1) == LUA_TUSERDATA);
-    if(lua_type(state, -1) == LUA_TUSERDATA){
+    if(lua_type(state, -1) == LUA_TUSERDATA) {
+
         lua_getfield(state, -1, List_RenderItem);
         if (lua_type(state, -1) == LUA_TFUNCTION) {
             pushStrongUserdataTable(state);
@@ -174,11 +177,11 @@ JNIEXPORT jobject JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onBin
             lua_pushinteger(state, position);
             lua_pcall(state, 3, 0, 0);
         } else {
-            LOGD("tableView onCreateView not function");
+            LOGD("tableView onBindView not function");
             assert(false);
         }
     } else {
-        LOGD("tableView onCreateView no userdata");
+        LOGD("tableView onBindView no userdata");
         assert(false);
     }
     END_STACK_MODIFY(state, 0)

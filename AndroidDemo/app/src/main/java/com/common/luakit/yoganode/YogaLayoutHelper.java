@@ -1,7 +1,5 @@
 package com.common.luakit.yoganode;
 
-import android.view.View;
-
 import com.common.luakit.YogaView;
 import com.common.luakit.constant.PropertyType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
@@ -25,7 +23,7 @@ public class YogaLayoutHelper {
 
     public native void onCreateView(long hostView, long rootView, YogaView contentView);
 
-    public native void onBindView(long hostView, long rootView, View contentView, int position);
+    public native void onBindView(long hostView, long rootView, long contentView, int position);
 
     public native float getItemHeight(long hostView, int position);
 
