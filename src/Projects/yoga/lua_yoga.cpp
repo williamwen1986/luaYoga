@@ -5,6 +5,8 @@ extern "C" {
 #include "tools/lua_helpers.h"
 #include "lua_yoga.h"
 #include "luaYogaBridge.h"
+//#include "commonHelper.h"
+
 #include "base/logging.h"
 #include <vector>
 #include <string>
@@ -12,7 +14,6 @@ extern "C" {
 
 
 
-#include "commonHelper.cpp"
 
 
 enum ActionType {
@@ -502,6 +503,46 @@ extern int luaopen_yoga_func(lua_State *L) {
     return 0;
 }
 
+extern int heightForTextTable(lua_State *L) {
+    BEGIN_STACK_MODIFY(L);
+    
+    std::string text = getValueFromState(L, Value_String, "text").value_string;
+   
+    std::string fontName = getValueFromState(L, Value_String, "fontName").value_string;
+    
+    float textFontSize = getValueFromState(L, Value_Number, "fontSize").value_float;
+    
+    float textWidth = getValueFromState(L, Value_Number, "textWidth").value_float;
+
+    float result = heightForTextTable(text, textWidth, textFontSize, fontName);
+    
+    lua_pushnumber(L, result);
+    
+    END_STACK_MODIFY(L, 1)
+    
+    return 1;
+}
+
+extern int widthForTextTable(lua_State *L) {
+    BEGIN_STACK_MODIFY(L);
+    
+    std::string text = getValueFromState(L, Value_String, "text").value_string;
+    
+    std::string fontName = getValueFromState(L, Value_String, "fontName").value_string;
+    
+    float textHeight = getValueFromState(L, Value_Number, "textHeight").value_float;
+    
+    float textFontSize = getValueFromState(L, Value_Number, "textFontSize").value_float;
+    
+    float result = widthForTextTable(text, textHeight, textFontSize, fontName);
+    
+    lua_pushnumber(L, result);
+    
+    END_STACK_MODIFY(L, 1)
+    
+    return 1;
+}
+
 static void addYogaEnum(lua_State *L) {
     //    YGAlign
     lua_pushinteger(L, 0);
@@ -600,4 +641,11 @@ static void addYogaEnum(lua_State *L) {
     lua_setglobal(L, "ContentModeCenter");//android center_crop
     lua_pushinteger(L, 9);
     lua_setglobal(L, "ContentModeTopLeft");//android matrix
+    
+    lua_pushcfunction(L, heightForTextTable);
+    lua_setglobal(L, "heightForTextTable");
+
+    lua_pushcfunction(L, widthForTextTable);
+    lua_setglobal(L, "widthForTextTable");
+    
 }

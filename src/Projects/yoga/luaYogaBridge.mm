@@ -450,6 +450,10 @@ float heightForTextTable(std::string text,float textWidth,float textFontSize,std
     
     NSString *textFontName = [NSString stringWithCString:fontName.c_str() encoding:NSUTF8StringEncoding];
     
+    if (textFontSize == 0) {
+        textFontSize = 17.0;
+    }
+    
     UIFont *targetFont = [UIFont systemFontOfSize:textFontSize];
     
     if (fontName.length()) {
@@ -476,6 +480,10 @@ float widthForTextTable(std::string text,float textHeight,float textFontSize,std
     
     if (!textStr.length) {
         return 0;
+    }
+    
+    if (textFontSize == 0) {
+        textFontSize = 17.0;
     }
     
     NSString *textFontName = [NSString stringWithCString:fontName.c_str() encoding:NSUTF8StringEncoding];

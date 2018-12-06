@@ -63,7 +63,7 @@ extern "C" {
     [self.yoga applyLayoutPreservingOrigin:YES];
 }
 
--(void)dealloc
+- (void)dealloc
 {
     lua_State * state = BusinessThread::GetCurrentThreadLuaState();
     void *v = (__bridge void*)self;

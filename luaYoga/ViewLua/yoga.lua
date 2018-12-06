@@ -6,12 +6,12 @@ container.alignItems = YGAlignFlexStart
 container.flexDirection = YGFlexDirectionColumn
 
 
+local textContent = 'pengweijun is A developer'
 
 
---Playground
 
+textH = heightForTextTable(textContent,100,20)
 
- 
 
 
 end
