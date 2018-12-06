@@ -237,7 +237,7 @@ public class YogaView extends FrameLayout implements IYoga {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        // TODO : Fix me ! occurs crash!
-        // dispose(self);
+        // important! Release the native memory.
+        dispose(self);
     }
 }
