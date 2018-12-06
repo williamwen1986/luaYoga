@@ -21,9 +21,8 @@ public class DimensUtils {
         return (int) (dpValue * scale + 0.5f);
     }
 
-    public static int pixel2dip(Context context, float pxValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (pxValue / scale + 0.5f);
+    public static int px2dp(float pxValue) {
+        return (int) (pxValue / DENSITY + 0.5f);
     }
 
     public static int sp2pixel(Context context, float spValue) {

@@ -131,13 +131,17 @@ public class YogaView extends FrameLayout implements IYoga {
     }
 
     public void calculateLayout() {
-        if (rootNode.getWidth().value > 0 && rootNode.getHeight().value > 0) {
+        int yogaWidth = (int)rootNode.getWidth().value;
+        int yogaHeight = (int)rootNode.getHeight().value;
+        LogUtil.i(TAG, "calculateLayout-> yogaWidth = " + yogaWidth + ", yogaHeight = " + yogaHeight);
+        if (yogaWidth > 0 && yogaHeight > 0) {
             // Set the layout parameter to the Recycler item.
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            params.width = (int) rootNode.getWidth().value;
-            params.height = (int) rootNode.getHeight().value;
+            params.width = yogaWidth;
+            params.height = yogaHeight;
             setLayoutParams(params);
+            rootNode.calculateLayout(yogaWidth, yogaHeight);
         } else {
             rootNode.calculateLayout(getWidth(), getHeight());
         }

@@ -6,7 +6,7 @@
 local TAG = "MLDataCard"
 local yogaBuilder = function(container)
     container.isEnabled = true
-    container.alignItems = YGAlignFlexStart
+    container.alignItems = YGAlignCenter
     container.flexDirection = YGFlexDirectionColumn --垂直布局
 
     local backgroundIv = container.addImageView()      --取值->添加图层关系： addImageView()

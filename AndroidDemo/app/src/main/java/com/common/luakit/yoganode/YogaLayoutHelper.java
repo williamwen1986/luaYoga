@@ -237,9 +237,9 @@ public class YogaLayoutHelper {
         } else if (PropertyType.YOGA_BORDER.equals(propertyName)) {
             return yogaNode.getBorder(YogaEdge.ALL);
         } else if (PropertyType.YOGA_WIDTH.equals(propertyName)) {
-            return yogaNode.getWidth().value;
+            return DimensUtils.dp2px(yogaNode.getWidth().value);
         } else if (PropertyType.YOGA_HEIGHT.equals(propertyName)) {
-            return yogaNode.getHeight().value;
+            return DimensUtils.dp2px(yogaNode.getHeight().value);
         } else if (PropertyType.YOGA_MIN_WIDTH.equals(propertyName)) {
             return yogaNode.getMinWidth().value;
         } else if (PropertyType.YOGA_MIN_HEIGHT.equals(propertyName)) {
