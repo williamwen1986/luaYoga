@@ -144,14 +144,13 @@ local yogaBuilder = function(container)
     local dataSubContainerFlexDirection = YGFlexDirectionColumn
     local subContainerTextTable_Value = {
         fontSize = 18,
-        isBold = true,
         alignment = TextAlignmentCenter,
+        fontName = "DIN-Bold.otf",
         color = { a = 1.0, r = 1.0, g = 1.0, b = 1.0 }
     }
 
     local subContainerTextTable_Tip = {
         fontSize = 12,
-        isBold = false,
         alignment = TextAlignmentCenter,
         color = { a = 0.6, r = 1.0, g = 1.0, b = 1.0 }
     }

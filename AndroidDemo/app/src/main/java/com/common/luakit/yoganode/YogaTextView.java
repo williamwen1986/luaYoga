@@ -2,7 +2,9 @@ package com.common.luakit.yoganode;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.text.TextUtils;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
@@ -94,6 +96,8 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         if ((int) yogaNode.getWidth().value > 0) {
             params.width = (int) yogaNode.getWidth().value;
+            Paint mPaint = new Paint();
+            float mWidth = mPaint.measureText(getText().toString());
         }
         if ((int) yogaNode.getHeight().value > 0) {
             params.height = (int) yogaNode.getHeight().value;
@@ -129,11 +133,21 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
         }
     }
 
-    public void nativeSetTextFont(float textSize, boolean isBold) {
-        LogUtil.i(TAG, this + " textSize=" + textSize + ", isBold=" + isBold);
+    public void nativeSetTextFont(String fontName, float textSize, boolean isBold) {
+        LogUtil.i(TAG, this + " fontName: " + fontName + " textSize=" + textSize + ", isBold=" + isBold);
         setTextSize(textSize);
-        if (isBold) {
-            setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+        if (!TextUtils.isEmpty(fontName)) {
+            try {
+                setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/" + fontName));
+            } catch (Exception e) {
+                if (isBold) {
+                    setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                }
+            }
+        } else {
+            if (isBold) {
+                setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            }
         }
     }
 

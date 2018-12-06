@@ -189,8 +189,7 @@ static int __yogaViewNewIndex(lua_State *L)
             bool textBold = getValueFromState(L, Value_Boolean, isBold).value_bool;
             long textAlignment = getValueFromState(L, Value_Number, alignment).value_float;
             long lines = getValueFromState(L, Value_Number, numberOfLines).value_float;
-            
-            
+            std::string textFontName = getValueFromState(L, Value_String, fontName).value_string;
             
             std::vector<float> color ;
             std::vector<float> color_gl ;
@@ -212,7 +211,7 @@ static int __yogaViewNewIndex(lua_State *L)
             lua_pop(L, 1);
 
             if (textFontSize > 0) {
-                setTextFont(viewInfo->view,getValueFromState(L,Value_String,fontName).value_string ,textFontSize, textBold);
+                setTextFont(viewInfo->view,getValueFromState(L,Value_String,textFontName).value_string ,textFontSize, textBold);
             }
             
             if (textAlignment >= 0) {

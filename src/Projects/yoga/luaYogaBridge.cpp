@@ -24,6 +24,7 @@ void setPointer(void * self, void * parentView, void * root) {
     jmethodID jmid = env->GetMethodID(selfClass, "setNativePointer", "(JJJ)V");
     if (jmid == NULL) {
         LOGD("Failed!! The method setNativePointer is null");
+        return;
     }
     env->CallVoidMethod(jself, jmid, (jlong)self, (jlong)parentView, (jlong)root);
 }
@@ -166,6 +167,7 @@ void listReload(void * view) { //notifyDataChanged()
     jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeListReload", "()V");
     if (jmid == NULL) {
         LOGD("Failed, The method nativeListReload is not found");
+        return;
     }
     env->CallVoidMethod(jhostView, jmid);
 }
@@ -190,6 +192,7 @@ void setViewCornerRadius(void *view, float cornerRadius)
     jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetImageRadius", "(F)V");
     if (jmid == NULL) {
         LOGD("Failed, The method nativeListReload is not found");
+        return;
     }
     env->CallVoidMethod(jhostView, jmid, (jfloat)cornerRadius);
 }
@@ -304,12 +307,13 @@ void setTextFont(void * view, std::string fontName,float fontSize, bool isBold) 
     JniEnvWrapper env;
     jobject jhostView = ((java_weak_ref *)view)->obj();
     jclass jhostViewClass = env->GetObjectClass(jhostView);
-    jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetTextFont", "(FZ)V");
+    jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetTextFont", "(Ljava/lang/String;FZ)V");
     if (jmid == NULL) {
         LOGD("Failed!! method nativeSetTextFont not found");
         return;
     }
-    env->CallVoidMethod(jhostView, jmid, (jfloat)fontSize, (jboolean)isBold);
+    jstring jFontName = env->NewStringUTF(fontName.c_str());
+    env->CallVoidMethod(jhostView, jmid, jFontName, (jfloat)fontSize, (jboolean)isBold);
 }
 
 void setTextNumberOfLines(void *view, float numberOfLines) {
