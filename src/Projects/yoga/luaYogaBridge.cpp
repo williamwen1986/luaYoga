@@ -177,7 +177,14 @@ void setImageViewContentMode(void * imageView, float contentModeType)
 
 void setViewCornerRadius(void *view, float cornerRadius)
 {
-    
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref *)view)->obj();
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetImageRadius", "(F)V");
+    if (jmid == NULL) {
+        LOGD("Failed, The method nativeListReload is not found");
+    }
+    env->CallVoidMethod(jhostView, jmid, (jfloat)cornerRadius);
 }
 
 void setImageName(void * imageView,  std::string imageName)

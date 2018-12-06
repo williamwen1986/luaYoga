@@ -8,11 +8,13 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.common.luakit.constant.PropertyType;
+import com.common.luakit.utils.DimensUtils;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaNode;
 
 import java.io.InputStream;
+
 
 /**
  * Created by hjx on 2018/11/19
@@ -131,6 +133,13 @@ public class YogaImageView extends SimpleCircleImageView implements IYoga {
             e.printStackTrace();
         }
 
+    }
+
+    public void nativeSetImageRadius(float radius) {
+        // radius = width/2 圆形
+        LogUtil.i(TAG, "image radius: " + radius);
+        setType(TYPE_ROUND);
+        setRoundRadius((int)DimensUtils.dp2px(radius));
     }
 
     private int calculateInSampleSize(BitmapFactory.Options options,

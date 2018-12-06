@@ -48,6 +48,7 @@ local yogaBuilder = function(container)
     local userAvatarIv = userInfoContainer.addImageView()
     userAvatarIv.width = 46
     userAvatarIv.height = 46
+    userAvatarIv.viewCornerRadius = 23
     userAvatarIv.imagePath = 'zz.png'
     userAvatarIv.marginStart = 16
 
