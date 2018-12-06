@@ -170,9 +170,16 @@ void listReload(void * view) { //notifyDataChanged()
     env->CallVoidMethod(jhostView, jmid);
 }
 
-void setImageViewContentMode(void * imageView, float contentModeType)
-{
-
+void setImageViewContentMode(void * imageView, float contentModeType) {
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref *)imageView)->obj();
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetScaleType", "(F)V");
+    if (jmid == NULL) {
+        LOGD("Failed, The method setImageViewContentMode is not found");
+        return;
+    }
+    env->CallVoidMethod(jhostView, jmid, (jfloat)contentModeType);
 }
 
 void setViewCornerRadius(void *view, float cornerRadius)
@@ -251,6 +258,7 @@ void setText(void * textView,  std::string text) {
     JniEnvWrapper env;
     jobject jhostView = ((java_weak_ref *) textView)->obj();
     jclass jhostViewClass = env->GetObjectClass(jhostView);
+    
     jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetText", "(Ljava/lang/String;)V");
     if (jmid == NULL) {
         LOGD("Failed!! method nativeSetText not found");

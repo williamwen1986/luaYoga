@@ -132,7 +132,32 @@ public class YogaImageView extends SimpleCircleImageView implements IYoga {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    /**
+     * Jni calling method.
+     * Set the imageView scale type
+     * ContentModeScaleToFill = 0
+     * ContentModeScaleAspectFit = 1
+     * ContentModeScaleAspectFill = 2
+     * ContentModeCenter = 4
+     * ContentModeTopLeft = 9
+     *
+     * @param scaleType The scale type
+     */
+    public void nativeSetScaleType(float scaleType) {
+        LogUtil.i(TAG, "The scale type is : " + scaleType);
+        if (scaleType == 0) {
+            setScaleType(ScaleType.FIT_XY);
+        } else if (scaleType == 1) {
+            setScaleType(ScaleType.CENTER_INSIDE);
+        } else if (scaleType == 2) {
+            setScaleType(ScaleType.CENTER);
+        } else if (scaleType == 4) {
+            setScaleType(ScaleType.CENTER_CROP);
+        } else if (scaleType == 9) {
+            setScaleType(ScaleType.MATRIX);
+        }
     }
 
     public void nativeSetImageRadius(float radius) {
@@ -163,6 +188,5 @@ public class YogaImageView extends SimpleCircleImageView implements IYoga {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-
     }
 }

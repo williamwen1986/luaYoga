@@ -48,6 +48,7 @@ local yogaBuilder = function (container)
         end
         cell.im.isEnabled = true;
         cell.im.width = 300
+        cell.im.imageViewContentMode = ContentModeTopLeft
         cell.im.height = 100
         cell.im.margin = 5
         if column%2 == 0 then
