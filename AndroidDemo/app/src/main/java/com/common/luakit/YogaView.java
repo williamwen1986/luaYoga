@@ -138,11 +138,12 @@ public class YogaView extends FrameLayout implements IYoga {
             // Set the layout parameter to the Recycler item.
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            params.width = yogaWidth;
-            params.height = yogaHeight;
+            params.width = 1080;
+            params.height = 540;
             setLayoutParams(params);
-            rootNode.calculateLayout(yogaWidth, yogaHeight);
+            rootNode.calculateLayout(1080, 540);
         } else {
+            LogUtil.i(TAG, "getWidth() = " + getWidth() + ", getHeight() = " + getHeight());
             rootNode.calculateLayout(getWidth(), getHeight());
         }
     }

@@ -30,7 +30,7 @@ local yogaBuilder = function (container)
     end
 
     listView.columnsInGroup = function (group)
-        return 1
+        return 2
     end
 
     listView.itemHeight = function (group, column)
@@ -39,10 +39,10 @@ local yogaBuilder = function (container)
 
     listView.renderItem = function (cell, group ,column)
         cell.isEnabled = true
-        cell.width=container.width
+        cell.width=360
         cell.height=180
         --cell.backgroundColor = {g=0.5, r=1.0, b=0.5}
-        cell.flexDirection = YGFlexDirectionRow
+        cell.flexDirection = YGFlexDirectionColumn
         cell.alignItems = YGAlignCenter
         -- cell 重用 not init 才add，以im为key存储
         --[[
