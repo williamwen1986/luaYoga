@@ -85,8 +85,6 @@ public class YogaButton extends android.support.v7.widget.AppCompatButton implem
 
     @Override
     public void inflate() {
-        setPadding((int) yogaNode.getPadding(YogaEdge.LEFT).value, (int) yogaNode.getPadding(YogaEdge.TOP).value,
-                (int) yogaNode.getPadding(YogaEdge.RIGHT).value, (int) yogaNode.getPadding(YogaEdge.BOTTOM).value);
         setX(yogaNode.getLayoutX());
         setY(yogaNode.getLayoutY());
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,

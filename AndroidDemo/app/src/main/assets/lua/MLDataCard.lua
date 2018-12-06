@@ -6,7 +6,7 @@
 local TAG = "MLDataCard"
 local yogaBuilder = function(container)
     container.isEnabled = true
-    container.alignItems = YGAlignCenter
+    container.alignItems = YGAlignFlexStart
     container.flexDirection = YGFlexDirectionColumn --垂直布局
 
     local backgroundIv = container.addImageView()      --取值->添加图层关系： addImageView()
@@ -16,14 +16,22 @@ local yogaBuilder = function(container)
     backgroundIv.imagePath = 'tools_card_ml.png'
     backgroundIv.marginStart = 13
 
-    local titleContainer = container.addContainer()
+    local allContentContainer = container.addContainer()
+    allContentContainer.width = 334
+    allContentContainer.height = 180
+    allContentContainer.marginStart = 13
+    allContentContainer.marginTop = -180
+    allContentContainer.alignItems = YGAlignFlexStart
+    allContentContainer.flexDirection = YGFlexDirectionColumn
+
+    local titleContainer = allContentContainer.addContainer()
     titleContainer.width = 334
     titleContainer.height = 45
     titleContainer.isEnabled = true
     titleContainer.alignItems = YGAlignCenter
     titleContainer.flexDirection = YGFlexDirectionColumn
-    titleContainer.marginTop = -85
     titleContainer.marginStart = 13
+    titleContainer.marginTop = 14
 
     local titleTv = titleContainer.addTextView()
     titleTv.width = 300
@@ -36,13 +44,12 @@ local yogaBuilder = function(container)
         color = { a = 1.0, r = 1.0, g = 1.0, b = 1.0 }
     }
 
-    local userInfoContainer = container.addContainer()
+    local userInfoContainer = allContentContainer.addContainer()
     userInfoContainer.isEnabled = true
     userInfoContainer.width = 334
     userInfoContainer.height = 66
     userInfoContainer.alignItems = YGAlignFlexStart
     userInfoContainer.flexDirection = YGFlexDirectionRow
-    userInfoContainer.marginTop = -40
     userInfoContainer.marginStart = 13
 
     local userAvatarIv = userInfoContainer.addImageView()
@@ -110,13 +117,12 @@ local yogaBuilder = function(container)
     local rankIv = rankContainer.addImageView()
     rankIv.width = 60
     rankIv.height = 52
-    rankIv.marginTop = -27
+    rankIv.marginTop = -52
     rankIv.imagePath = "rank_master.png"
 
     local starsContainer = rankContainer.addContainer()
     starsContainer.width = 60
     starsContainer.height = 9
-    starsContainer.marginTop = -12
     starsContainer.alignItems = YGAlignFlexStart
     starsContainer.flexDirection = YGFlexDirectionRow
     starsContainer.justifyContent = YGJustifyCenter
@@ -126,10 +132,9 @@ local yogaBuilder = function(container)
     starsIv.height = 9
     starsIv.imagePath = "star.png"
 
-    local dataContainer = container.addContainer()
+    local dataContainer = allContentContainer.addContainer()
     dataContainer.width = 334
     dataContainer.height = 40
-    dataContainer.marginTop = -18
     dataContainer.marginStart = 19
     dataContainer.alignItems = YGAlignFlexStart
     dataContainer.justifyContent = YGJustifySpaceBetween
