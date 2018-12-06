@@ -285,7 +285,7 @@ void setTextHighlightedColor(void * textView,  std::vector<float> color)
     }
 }
 
-void setTextFont(void * view, float fontSize, bool isBold) { //对应移动端默认字体 iOS-> PingFang ，默认字号是17pt
+void setTextFont(void * view, std::string fontName,float fontSize, bool isBold) { //对应移动端默认字体 iOS-> PingFang ，默认字号是17pt
     JniEnvWrapper env;
     jobject jhostView = ((java_weak_ref *)view)->obj();
     jclass jhostViewClass = env->GetObjectClass(jhostView);

@@ -9,6 +9,9 @@ extern "C" {
 #include <vector>
 #include <string>
 #include <tuple>
+
+
+
 #include "commonHelper.cpp"
 
 
@@ -180,12 +183,15 @@ static int __yogaViewNewIndex(lua_State *L)
             std::string isBold = "isBold";
             std::string alignment = "alignment";
             std::string numberOfLines = "numberOfLines";
+            std::string fontName = "fontName";
 
             long textFontSize = getValueFromState(L, Value_Number, fontSize).value_float;
             bool textBold = getValueFromState(L, Value_Boolean, isBold).value_bool;
             long textAlignment = getValueFromState(L, Value_Number, alignment).value_float;
             long lines = getValueFromState(L, Value_Number, numberOfLines).value_float;
-
+            
+            
+            
             std::vector<float> color ;
             std::vector<float> color_gl ;
             
@@ -206,7 +212,7 @@ static int __yogaViewNewIndex(lua_State *L)
             lua_pop(L, 1);
 
             if (textFontSize > 0) {
-                setTextFont(viewInfo->view, textFontSize, textBold);
+                setTextFont(viewInfo->view,getValueFromState(L,Value_String,fontName).value_string ,textFontSize, textBold);
             }
             
             if (textAlignment >= 0) {
@@ -253,10 +259,11 @@ static int __yogaViewNewIndex(lua_State *L)
             
             
         }else if (name == Text_TextFont){
+            std::string fontName = "fontName";
 
             long fontSize =  lua_tointeger(L, -1);
 
-            setTextFont(viewInfo->view, fontSize, 0);
+            setTextFont(viewInfo->view,getValueFromState(L,Value_String,fontName).value_string,fontSize, 0);
             
             
         }else if (name == View_Highlighted){
