@@ -6,22 +6,21 @@
 local TAG = "MLDataCard"
 local yogaBuilder = function(container)
     container.isEnabled = true
-    container.alignItems = YGAlignFlexStart
+    container.alignItems = YGAlignCenter
     container.flexDirection = YGFlexDirectionColumn --垂直布局
+    container.backgroundColor = { a = 1.0, r = 0.114, g = 0.122, b = 0.129 }
 
     local backgroundIv = container.addImageView()      --取值->添加图层关系： addImageView()
     backgroundIv.isEnabled = true
     backgroundIv.width = 334
     backgroundIv.height = 180
     backgroundIv.imagePath = 'tools_card_ml.png'
-    backgroundIv.marginStart = 13
 
     local allContentContainer = container.addContainer()
     allContentContainer.width = 334
     allContentContainer.height = 180
-    allContentContainer.marginStart = 13
     allContentContainer.marginTop = -180
-    allContentContainer.alignItems = YGAlignFlexStart
+    allContentContainer.alignItems = YGAlignCenter
     allContentContainer.flexDirection = YGFlexDirectionColumn
 
     local titleContainer = allContentContainer.addContainer()
@@ -30,7 +29,7 @@ local yogaBuilder = function(container)
     titleContainer.isEnabled = true
     titleContainer.alignItems = YGAlignCenter
     titleContainer.flexDirection = YGFlexDirectionColumn
-    titleContainer.marginStart = 13
+    --titleContainer.marginStart = 13
     titleContainer.marginTop = 14
 
     local titleTv = titleContainer.addTextView()
@@ -50,7 +49,7 @@ local yogaBuilder = function(container)
     userInfoContainer.height = 66
     userInfoContainer.alignItems = YGAlignFlexStart
     userInfoContainer.flexDirection = YGFlexDirectionRow
-    userInfoContainer.marginStart = 13
+    --userInfoContainer.marginStart = 13
 
     local userAvatarIv = userInfoContainer.addImageView()
     userAvatarIv.width = 46
@@ -65,7 +64,7 @@ local yogaBuilder = function(container)
     userNameContainer.alignItems = YGAlignFlexStart
     userNameContainer.flexDirection = YGFlexDirectionColumn
     userNameContainer.marginStart = 9
-    userNameContainer.marginTop = 2
+    userNameContainer.marginTop = 4
 
     local userNameTv = userNameContainer.addTextView()
     userNameTv.width = 172
@@ -105,7 +104,7 @@ local yogaBuilder = function(container)
     local rankContainer = userInfoContainer.addContainer()
     rankContainer.width = 60
     rankContainer.height = 64
-    rankContainer.marginStart = 13
+    rankContainer.marginStart = 15
     rankContainer.alignItems = YGAlignFlexStart
     rankContainer.flexDirection = YGFlexDirectionColumn
 
@@ -135,8 +134,9 @@ local yogaBuilder = function(container)
     local dataContainer = allContentContainer.addContainer()
     dataContainer.width = 334
     dataContainer.height = 40
-    dataContainer.marginStart = 19
-    dataContainer.alignItems = YGAlignFlexStart
+    --dataContainer.marginStart = 19
+    dataContainer.marginTop = 6
+    dataContainer.alignItems = YGAlignCenter
     dataContainer.justifyContent = YGJustifySpaceBetween
     dataContainer.flexDirection = YGFlexDirectionRow
 
@@ -145,7 +145,7 @@ local yogaBuilder = function(container)
     local textViewWidth = 70
     local textValueHeight = 22
     local textTipHeight = 14
-    local dataSubContainerAlignItems = YGAlignFlexStart
+    local dataSubContainerAlignItems = YGAlignCenter
     local dataSubContainerFlexDirection = YGFlexDirectionColumn
     local subContainerTextTable_Value = {
         fontSize = 18,
