@@ -328,3 +328,7 @@ void setTextNumberOfLines(void *view, float numberOfLines) {
     env->CallVoidMethod(jhostView, jmid, (jfloat)numberOfLines);
 }
 
+void showToast(std::string toastContent){
+    
+    
+}

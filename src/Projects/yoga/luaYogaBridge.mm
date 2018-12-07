@@ -13,6 +13,7 @@ extern "C" {
 #include "common/business_runtime.h"
 #include "tools/lua_helpers.h"
 #import "UIImage+Add.h"
+#import "SodaGlobalProgressHud.h"
 
 @interface UIView (LuaGesture)
 
@@ -136,6 +137,8 @@ void * addView(void * parentView, YogaType type, void * root)
         default:
             break;
     }
+    child.yoga.isEnabled = YES;
+    
     [v addSubview:child];
 
     return (__bridge void *)child;
@@ -318,15 +321,21 @@ void setImageName_hl(void * imageView,  std::string imageName)
 
 void setImagePath(void * imageView,  std::string imagePath)
 {
+    
+    NSString *str= [NSString stringWithFormat:@"%s",imagePath.c_str()];
+
+    
     UIImageView * v = (__bridge UIImageView *)imageView;
     
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *resourcePath = [bundle resourcePath];
     NSString *filePath = [resourcePath stringByAppendingPathComponent:@"folder_screenShot.png"];
- 
+// /Users/pengweijun/luaYoga/AndroidDemo/app/src/main/assets/rank_4.png
 //    NSString *filePath= [NSString stringWithFormat:@"%s",imagePath.c_str()];
     
-    v.image = [UIImage imageWithContentsOfFile:filePath];
+//    v.image = [UIImage imageWithContentsOfFile:filePath];
+    v.image = [UIImage imageNamed:str];
+
 }
 
 void setViewCornerRadius(void *view, float cornerRadius)
@@ -506,4 +515,10 @@ float widthForTextTable(std::string text,float textHeight,float textFontSize,std
     
     return rect.size.width;
     
+}
+
+void showToast(std::string toastContent){
+    NSString *toastContentStr = [NSString stringWithCString:toastContent.c_str() encoding:NSUTF8StringEncoding];
+    
+    [NSObject presentMessageTips:toastContentStr];
 }

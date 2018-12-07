@@ -327,21 +327,6 @@ static void processUserData(lua_State *state,
     viewInfo->isDead = isDead;
 }
 
-static YogaType processFunc(std::string functionName){
-    YogaType backType =  CONTAINER;
-    
-    if(functionName == ADD_CONTAINER){ backType = CONTAINER;}
-    else if(functionName == ADD_ListView){ backType = LIST;}
-    else if(functionName == ADD_CollectionView){ backType = COLLECTIONVIEW;}
-    else if(functionName == RELOAD_YOGA){ backType = OTHER;}
-    else if(functionName == REMOVE_FROM_PARENT){ backType = OTHER;}
-    else if(functionName == ADD_ImageView){ backType = IMAGE;}
-    else if(functionName == ADD_TEXT){ backType = TEXT;}
-    else if(functionName == List_Reload){ backType = OTHER;}
-    
-    return backType;
-}
-
 static int __yogaViewIndex(lua_State *L)
 {
     BEGIN_STACK_MODIFY(L);
@@ -543,6 +528,18 @@ extern int widthForTextTable(lua_State *L) {
     return 1;
 }
 
+
+extern int showToast(lua_State *state) {
+    
+    BEGIN_STACK_MODIFY(state);
+   
+    showToast(lua_tostring(state, -1));
+    
+    END_STACK_MODIFY(state, 0)
+    
+    return 0;
+}
+
 static void addYogaEnum(lua_State *L) {
     //    YGAlign
     lua_pushinteger(L, 0);
@@ -648,4 +645,6 @@ static void addYogaEnum(lua_State *L) {
     lua_pushcfunction(L, widthForTextTable);
     lua_setglobal(L, "widthForTextTable");
     
+    lua_pushcfunction(L, showToast);
+    lua_setglobal(L, "showToast");
 }

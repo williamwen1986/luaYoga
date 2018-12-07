@@ -67,3 +67,5 @@ void setTextNumberOfLines(void *view,float numberOfLines);
 float heightForTextTable(std::string text,float textWidth,float textFontSize,std::string fontName);
 
 float widthForTextTable(std::string text,float textHeight,float textFontSize,std::string fontName);
+
+void showToast(std::string toastContent);

@@ -75,6 +75,7 @@ end
 
 listView.didSelect = function (group ,column)
 	listView.reload()
+    showToast('啊点了第'..group..column)
 	print('didSelect '..group.."-"..column)
 end
 
