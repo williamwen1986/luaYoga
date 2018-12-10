@@ -508,6 +508,22 @@ extern int heightForTextTable(lua_State *L) {
     return 1;
 }
 
+extern int goFlutter(lua_State *L) {
+    BEGIN_STACK_MODIFY(L);
+    
+    std::string module = lua_tostring(L, 1);
+    
+    std::string version = "";
+    
+    if (lua_gettop(L)>1) {
+        version = lua_tostring(L, 2);
+    }
+    
+    END_STACK_MODIFY(L, 0)
+    
+    return 0;
+}
+
 extern int widthForTextTable(lua_State *L) {
     BEGIN_STACK_MODIFY(L);
     
@@ -641,6 +657,9 @@ static void addYogaEnum(lua_State *L) {
     
     lua_pushcfunction(L, heightForTextTable);
     lua_setglobal(L, "heightForTextTable");
+    
+    lua_pushcfunction(L, goFlutter);
+    lua_setglobal(L, "goFlutter");
 
     lua_pushcfunction(L, widthForTextTable);
     lua_setglobal(L, "widthForTextTable");
