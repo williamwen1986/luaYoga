@@ -5,13 +5,9 @@
 
 #import "LuaTableView.h"
 #import <objc/runtime.h>
-extern "C" {
-#include "lua.h"
-#include "lauxlib.h"
-    
-}
-#include "common/business_runtime.h"
-#include "tools/lua_helpers.h"
+
+#include <LuakitPod/lua_helpers.h>
+#include <LuakitPod/business_client_thread.h>
 #import "UIImage+Add.h"
 #import "SodaGlobalProgressHud.h"
 

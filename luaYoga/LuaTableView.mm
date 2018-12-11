@@ -7,15 +7,21 @@
 //
 
 #import "LuaTableView.h"
-extern "C" {
-#include "lua.h"
-#include "lauxlib.h"
-}
-#include "common/business_runtime.h"
-#include "tools/lua_helpers.h"
+
+#include <LuakitPod/lua_helpers.h>
+#include <LuakitPod/business_client_thread.h>
 #import "lua_yoga.h"
 #import "LuaYogaView.h"
 #import <YogaKit/UIView+Yoga.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+#include "lua.h"
+#include "lauxlib.h"
+#ifdef __cplusplus
+}
+#endif
 
 #define LUA_CELL_TAG 999
 

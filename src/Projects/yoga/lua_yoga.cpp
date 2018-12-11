@@ -2,12 +2,22 @@ extern "C" {
 #include "lua.h"
 #include "lauxlib.h"
 }
+
+#if defined(OS_ANDROID)
 #include "tools/lua_helpers.h"
+#else
+#include <LuakitPod/lua_helpers.h>
+#endif
+
 #include "lua_yoga.h"
 #include "luaYogaBridge.h"
-//#include "commonHelper.h"
 
+#if defined(OS_ANDROID)
 #include "base/logging.h"
+#else
+#include <LuakitPod/logging.h>
+#endif
+
 #include <vector>
 #include <string>
 #include <tuple>

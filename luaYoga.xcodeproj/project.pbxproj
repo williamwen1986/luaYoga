@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D1D9843EEEEF496668016CC /* Pods_luaYoga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7BDA3A508F9548488DA8150 /* Pods_luaYoga.framework */; };
+		1AF9D84C2B55F522E6B45171 /* libPods-luaYoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EF8660BC1C1992B8FEBA46 /* libPods-luaYoga.a */; };
 		2E111BB72195913500A833EF /* textView.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E111BB62195913500A833EF /* textView.lua */; };
 		2E1789D621BA253A005150BC /* SODAHUD.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 2E1789CB21BA253A005150BC /* SODAHUD.podspec */; };
 		2E1789D721BA253A005150BC /* SodaGlobalProgressHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1789CC21BA253A005150BC /* SodaGlobalProgressHud.m */; };
@@ -22,42 +22,22 @@
 		2E3A746321957BCE0053B9EE /* imageView.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746021957BCE0053B9EE /* imageView.lua */; };
 		2E3A746421957BCE0053B9EE /* yoga.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746121957BCE0053B9EE /* yoga.lua */; };
 		2E3A746521957BCE0053B9EE /* listView.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746221957BCE0053B9EE /* listView.lua */; };
-		2E8408DB21B7FA8C00B7D9A3 /* commonHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E8408DA21B7FA8C00B7D9A3 /* commonHelper.cpp */; };
 		2EBD13CD21B9507E00380EA8 /* testYoga.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2EBD13CC21B9507E00380EA8 /* testYoga.lua */; };
 		2EBD13CF21B9620400380EA8 /* MLDataCard.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2EBD13CE21B9620400380EA8 /* MLDataCard.lua */; };
-		2EFF348321A6E58500DA68F1 /* LuaCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFF348221A6E58500DA68F1 /* LuaCollectionView.m */; };
 		3C23C1DF2181CCD100DB6052 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C1DE2181CCD100DB6052 /* AppDelegate.m */; };
 		3C23C1E22181CCD100DB6052 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C1E12181CCD100DB6052 /* ViewController.mm */; };
 		3C23C1E52181CCD100DB6052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C23C1E32181CCD100DB6052 /* Main.storyboard */; };
 		3C23C1E72181CCD200DB6052 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C23C1E62181CCD200DB6052 /* Assets.xcassets */; };
 		3C23C1EA2181CCD200DB6052 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C23C1E82181CCD200DB6052 /* LaunchScreen.storyboard */; };
 		3C23C1ED2181CCD200DB6052 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C1EC2181CCD200DB6052 /* main.mm */; };
-		3C23C2052181CDE800DB6052 /* libLuakit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C23C2012181CD3A00DB6052 /* libLuakit.a */; };
 		3C23C2072181CDF400DB6052 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C23C2062181CDF400DB6052 /* libz.tbd */; };
-		3C23C20A2181CE0A00DB6052 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C23C2082181CE0A00DB6052 /* libcrypto.a */; };
-		3C23C20B2181CE0A00DB6052 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C23C2092181CE0A00DB6052 /* libssl.a */; };
-		3C23C21D2181D08000DB6052 /* LuaYogaView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C2192181D08000DB6052 /* LuaYogaView.mm */; };
-		3C6160AE2191AFFA0012E389 /* LuaTableView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C6160AC2191AFFA0012E389 /* LuaTableView.mm */; };
-		3C7E2118218ADCDC0061B5F8 /* luaYogaBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C7E2114218ADCDC0061B5F8 /* luaYogaBridge.mm */; };
-		3C7E2119218ADCDC0061B5F8 /* lua_yoga.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7E2115218ADCDC0061B5F8 /* lua_yoga.cpp */; };
+		3C95CF1821BFF6BA00F82C60 /* LuaTableView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C95CF1221BFF6B900F82C60 /* LuaTableView.mm */; };
+		3C95CF1921BFF6BA00F82C60 /* LuaCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C95CF1321BFF6B900F82C60 /* LuaCollectionView.m */; };
+		3C95CF1A21BFF6BA00F82C60 /* LuaYogaView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C95CF1721BFF6B900F82C60 /* LuaYogaView.mm */; };
+		3C95CF2121BFF6D200F82C60 /* commonHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C95CF1D21BFF6D200F82C60 /* commonHelper.cpp */; };
+		3C95CF2221BFF6D200F82C60 /* lua_yoga.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C95CF1E21BFF6D200F82C60 /* lua_yoga.cpp */; };
+		3C95CF2321BFF6D200F82C60 /* luaYogaBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C95CF2021BFF6D200F82C60 /* luaYogaBridge.mm */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3C23C2002181CD3A00DB6052 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3C23C1F32181CD3900DB6052 /* Luakit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2883AC9120B43DFB005E1F54;
-			remoteInfo = Luakit;
-		};
-		3C23C2022181CDCF00DB6052 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3C23C1F32181CD3900DB6052 /* Luakit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2883AC9020B43DFB005E1F54;
-			remoteInfo = Luakit;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2E111BB62195913500A833EF /* textView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = textView.lua; sourceTree = "<group>"; };
@@ -82,12 +62,8 @@
 		2E3A746021957BCE0053B9EE /* imageView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = imageView.lua; sourceTree = "<group>"; };
 		2E3A746121957BCE0053B9EE /* yoga.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yoga.lua; sourceTree = "<group>"; };
 		2E3A746221957BCE0053B9EE /* listView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = listView.lua; sourceTree = "<group>"; };
-		2E8408DA21B7FA8C00B7D9A3 /* commonHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = commonHelper.cpp; path = src/Projects/yoga/commonHelper.cpp; sourceTree = SOURCE_ROOT; };
-		2EBD13AD21B93DBC00380EA8 /* commonHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = commonHelper.h; path = src/Projects/yoga/commonHelper.h; sourceTree = SOURCE_ROOT; };
 		2EBD13CC21B9507E00380EA8 /* testYoga.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = testYoga.lua; path = AndroidDemo/app/src/main/assets/lua/testYoga.lua; sourceTree = SOURCE_ROOT; };
 		2EBD13CE21B9620400380EA8 /* MLDataCard.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MLDataCard.lua; path = AndroidDemo/app/src/main/assets/lua/MLDataCard.lua; sourceTree = SOURCE_ROOT; };
-		2EFF348121A6E58500DA68F1 /* LuaCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LuaCollectionView.h; sourceTree = "<group>"; };
-		2EFF348221A6E58500DA68F1 /* LuaCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LuaCollectionView.m; sourceTree = "<group>"; };
 		3C23C1DA2181CCD100DB6052 /* luaYoga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = luaYoga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C23C1DD2181CCD100DB6052 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C23C1DE2181CCD100DB6052 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -98,20 +74,21 @@
 		3C23C1E92181CCD200DB6052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C23C1EB2181CCD200DB6052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C23C1EC2181CCD200DB6052 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		3C23C1F32181CD3900DB6052 /* Luakit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Luakit.xcodeproj; path = IOSFrameWork/Luakit.xcodeproj; sourceTree = "<group>"; };
 		3C23C2062181CDF400DB6052 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		3C23C2082181CE0A00DB6052 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = src/Projects/openssl/lib/libcrypto.a; sourceTree = "<group>"; };
-		3C23C2092181CE0A00DB6052 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = src/Projects/openssl/lib/libssl.a; sourceTree = "<group>"; };
-		3C23C2192181D08000DB6052 /* LuaYogaView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaYogaView.mm; sourceTree = "<group>"; };
-		3C23C21B2181D08000DB6052 /* LuaYogaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaYogaView.h; sourceTree = "<group>"; };
-		3C6160AC2191AFFA0012E389 /* LuaTableView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaTableView.mm; sourceTree = "<group>"; };
-		3C6160AD2191AFFA0012E389 /* LuaTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaTableView.h; sourceTree = "<group>"; };
-		3C7E2114218ADCDC0061B5F8 /* luaYogaBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = luaYogaBridge.mm; path = src/Projects/yoga/luaYogaBridge.mm; sourceTree = SOURCE_ROOT; };
-		3C7E2115218ADCDC0061B5F8 /* lua_yoga.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lua_yoga.cpp; path = src/Projects/yoga/lua_yoga.cpp; sourceTree = SOURCE_ROOT; };
-		3C7E2116218ADCDC0061B5F8 /* luaYogaBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = luaYogaBridge.h; path = src/Projects/yoga/luaYogaBridge.h; sourceTree = SOURCE_ROOT; };
-		3C7E2117218ADCDC0061B5F8 /* lua_yoga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lua_yoga.h; path = src/Projects/yoga/lua_yoga.h; sourceTree = SOURCE_ROOT; };
+		3C95CF1221BFF6B900F82C60 /* LuaTableView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaTableView.mm; sourceTree = "<group>"; };
+		3C95CF1321BFF6B900F82C60 /* LuaCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LuaCollectionView.m; sourceTree = "<group>"; };
+		3C95CF1421BFF6B900F82C60 /* LuaYogaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaYogaView.h; sourceTree = "<group>"; };
+		3C95CF1521BFF6B900F82C60 /* LuaCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaCollectionView.h; sourceTree = "<group>"; };
+		3C95CF1621BFF6B900F82C60 /* LuaTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuaTableView.h; sourceTree = "<group>"; };
+		3C95CF1721BFF6B900F82C60 /* LuaYogaView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LuaYogaView.mm; sourceTree = "<group>"; };
+		3C95CF1B21BFF6D200F82C60 /* lua_yoga.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lua_yoga.h; path = src/Projects/yoga/lua_yoga.h; sourceTree = SOURCE_ROOT; };
+		3C95CF1C21BFF6D200F82C60 /* luaYogaBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = luaYogaBridge.h; path = src/Projects/yoga/luaYogaBridge.h; sourceTree = SOURCE_ROOT; };
+		3C95CF1D21BFF6D200F82C60 /* commonHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = commonHelper.cpp; path = src/Projects/yoga/commonHelper.cpp; sourceTree = SOURCE_ROOT; };
+		3C95CF1E21BFF6D200F82C60 /* lua_yoga.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lua_yoga.cpp; path = src/Projects/yoga/lua_yoga.cpp; sourceTree = SOURCE_ROOT; };
+		3C95CF1F21BFF6D200F82C60 /* commonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = commonHelper.h; path = src/Projects/yoga/commonHelper.h; sourceTree = SOURCE_ROOT; };
+		3C95CF2021BFF6D200F82C60 /* luaYogaBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = luaYogaBridge.mm; path = src/Projects/yoga/luaYogaBridge.mm; sourceTree = SOURCE_ROOT; };
 		CE1410E565BC336620A05D7F /* Pods-luaYoga.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-luaYoga.release.xcconfig"; path = "Pods/Target Support Files/Pods-luaYoga/Pods-luaYoga.release.xcconfig"; sourceTree = "<group>"; };
-		D7BDA3A508F9548488DA8150 /* Pods_luaYoga.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_luaYoga.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2EF8660BC1C1992B8FEBA46 /* libPods-luaYoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-luaYoga.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE0B7182FCCD129E3C8C80A0 /* Pods-luaYoga.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-luaYoga.debug.xcconfig"; path = "Pods/Target Support Files/Pods-luaYoga/Pods-luaYoga.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,11 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C23C20A2181CE0A00DB6052 /* libcrypto.a in Frameworks */,
-				3C23C20B2181CE0A00DB6052 /* libssl.a in Frameworks */,
 				3C23C2072181CDF400DB6052 /* libz.tbd in Frameworks */,
-				3C23C2052181CDE800DB6052 /* libLuakit.a in Frameworks */,
-				0D1D9843EEEEF496668016CC /* Pods_luaYoga.framework in Frameworks */,
+				1AF9D84C2B55F522E6B45171 /* libPods-luaYoga.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +152,6 @@
 		3C23C1D12181CCD100DB6052 = {
 			isa = PBXGroup;
 			children = (
-				3C23C1F32181CD3900DB6052 /* Luakit.xcodeproj */,
 				3C23C1DC2181CCD100DB6052 /* luaYoga */,
 				3C23C1DB2181CCD100DB6052 /* Products */,
 				3C23C2042181CDE800DB6052 /* Frameworks */,
@@ -197,22 +170,22 @@
 		3C23C1DC2181CCD100DB6052 /* luaYoga */ = {
 			isa = PBXGroup;
 			children = (
+				3C95CF1D21BFF6D200F82C60 /* commonHelper.cpp */,
+				3C95CF1F21BFF6D200F82C60 /* commonHelper.h */,
+				3C95CF1E21BFF6D200F82C60 /* lua_yoga.cpp */,
+				3C95CF1B21BFF6D200F82C60 /* lua_yoga.h */,
+				3C95CF1C21BFF6D200F82C60 /* luaYogaBridge.h */,
+				3C95CF2021BFF6D200F82C60 /* luaYogaBridge.mm */,
+				3C95CF1521BFF6B900F82C60 /* LuaCollectionView.h */,
+				3C95CF1321BFF6B900F82C60 /* LuaCollectionView.m */,
+				3C95CF1621BFF6B900F82C60 /* LuaTableView.h */,
+				3C95CF1221BFF6B900F82C60 /* LuaTableView.mm */,
+				3C95CF1421BFF6B900F82C60 /* LuaYogaView.h */,
+				3C95CF1721BFF6B900F82C60 /* LuaYogaView.mm */,
 				2E1789C621BA253A005150BC /* SODAHUD */,
 				2E3A745F21957BCE0053B9EE /* ViewLua */,
 				2E3A745B21957BC90053B9EE /* Catergory */,
-				3C6160AD2191AFFA0012E389 /* LuaTableView.h */,
-				3C6160AC2191AFFA0012E389 /* LuaTableView.mm */,
 				2E301C8F21ABD19100CB2E23 /* folder_screenShot.png */,
-				2EFF348121A6E58500DA68F1 /* LuaCollectionView.h */,
-				2EFF348221A6E58500DA68F1 /* LuaCollectionView.m */,
-				3C7E2117218ADCDC0061B5F8 /* lua_yoga.h */,
-				3C7E2115218ADCDC0061B5F8 /* lua_yoga.cpp */,
-				2EBD13AD21B93DBC00380EA8 /* commonHelper.h */,
-				2E8408DA21B7FA8C00B7D9A3 /* commonHelper.cpp */,
-				3C7E2116218ADCDC0061B5F8 /* luaYogaBridge.h */,
-				3C7E2114218ADCDC0061B5F8 /* luaYogaBridge.mm */,
-				3C23C21B2181D08000DB6052 /* LuaYogaView.h */,
-				3C23C2192181D08000DB6052 /* LuaYogaView.mm */,
 				3C23C1DD2181CCD100DB6052 /* AppDelegate.h */,
 				3C23C1DE2181CCD100DB6052 /* AppDelegate.m */,
 				3C23C1E02181CCD100DB6052 /* ViewController.h */,
@@ -226,21 +199,11 @@
 			path = luaYoga;
 			sourceTree = "<group>";
 		};
-		3C23C1F42181CD3900DB6052 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3C23C2012181CD3A00DB6052 /* libLuakit.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		3C23C2042181CDE800DB6052 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3C23C2082181CE0A00DB6052 /* libcrypto.a */,
-				3C23C2092181CE0A00DB6052 /* libssl.a */,
 				3C23C2062181CDF400DB6052 /* libz.tbd */,
-				D7BDA3A508F9548488DA8150 /* Pods_luaYoga.framework */,
+				D2EF8660BC1C1992B8FEBA46 /* libPods-luaYoga.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -265,12 +228,10 @@
 				3C23C1D62181CCD100DB6052 /* Sources */,
 				3C23C1D72181CCD100DB6052 /* Frameworks */,
 				3C23C1D82181CCD100DB6052 /* Resources */,
-				B68A1C81CE7E78CEA7302F40 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3C23C2032181CDCF00DB6052 /* PBXTargetDependency */,
 			);
 			name = luaYoga;
 			productName = luaYoga;
@@ -302,28 +263,12 @@
 			mainGroup = 3C23C1D12181CCD100DB6052;
 			productRefGroup = 3C23C1DB2181CCD100DB6052 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 3C23C1F42181CD3900DB6052 /* Products */;
-					ProjectRef = 3C23C1F32181CD3900DB6052 /* Luakit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				3C23C1D92181CCD100DB6052 /* luaYoga */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		3C23C2012181CD3A00DB6052 /* libLuakit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libLuakit.a;
-			remoteRef = 3C23C2002181CD3A00DB6052 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3C23C1D82181CCD100DB6052 /* Resources */ = {
@@ -348,30 +293,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B68A1C81CE7E78CEA7302F40 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-luaYoga/Pods-luaYoga-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Yoga/yoga.framework",
-				"${BUILT_PRODUCTS_DIR}/YogaKit/YogaKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YogaKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-luaYoga/Pods-luaYoga-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D5C2E86AFA9EF1282947DD9B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -403,32 +324,24 @@
 			files = (
 				2E1789DC21BA253A005150BC /* SodaSectorProgressView.m in Sources */,
 				2E1789DA21BA253A005150BC /* SodaCirleProgressView.m in Sources */,
-				3C7E2119218ADCDC0061B5F8 /* lua_yoga.cpp in Sources */,
 				2E1789DB21BA253A005150BC /* NSObject+SODAHUD.m in Sources */,
 				2E1789D921BA253A005150BC /* NOZStatusBarHUD.m in Sources */,
-				3C6160AE2191AFFA0012E389 /* LuaTableView.mm in Sources */,
 				2E1789DD21BA253A005150BC /* SODACreateHUD.m in Sources */,
-				2E8408DB21B7FA8C00B7D9A3 /* commonHelper.cpp in Sources */,
 				3C23C1E22181CCD100DB6052 /* ViewController.mm in Sources */,
-				3C7E2118218ADCDC0061B5F8 /* luaYogaBridge.mm in Sources */,
-				2EFF348321A6E58500DA68F1 /* LuaCollectionView.m in Sources */,
 				3C23C1ED2181CCD200DB6052 /* main.mm in Sources */,
+				3C95CF2321BFF6D200F82C60 /* luaYogaBridge.mm in Sources */,
+				3C95CF1921BFF6BA00F82C60 /* LuaCollectionView.m in Sources */,
 				2E3A745E21957BC90053B9EE /* UIImage+Add.m in Sources */,
+				3C95CF2221BFF6D200F82C60 /* lua_yoga.cpp in Sources */,
+				3C95CF1821BFF6BA00F82C60 /* LuaTableView.mm in Sources */,
+				3C95CF2121BFF6D200F82C60 /* commonHelper.cpp in Sources */,
+				3C95CF1A21BFF6BA00F82C60 /* LuaYogaView.mm in Sources */,
 				2E1789D721BA253A005150BC /* SodaGlobalProgressHud.m in Sources */,
-				3C23C21D2181D08000DB6052 /* LuaYogaView.mm in Sources */,
 				3C23C1DF2181CCD100DB6052 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3C23C2032181CDCF00DB6052 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Luakit;
-			targetProxy = 3C23C2022181CDCF00DB6052 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3C23C1E32181CCD100DB6052 /* Main.storyboard */ = {
@@ -502,18 +415,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/src/Projects/openssl/lib";
+				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SYSTEM_HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/src/Projects",
-					"$(SRCROOT)/src/Projects/curl-7.43.0/include",
-					"$(SRCROOT)/src/Projects/lua-5.1.5/lua",
-					"$(SRCROOT)/src/Projects/common",
-					"$(SRCROOT)/IOSFrameWork/Luakit/OCHelper",
-				);
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -563,17 +470,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/src/Projects/openssl/lib";
+				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SYSTEM_HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/src/Projects",
-					"$(SRCROOT)/src/Projects/curl-7.43.0/include",
-					"$(SRCROOT)/src/Projects/lua-5.1.5/lua",
-					"$(SRCROOT)/src/Projects/common",
-					"$(SRCROOT)/IOSFrameWork/Luakit/OCHelper",
-				);
+				SYSTEM_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -582,22 +483,26 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EE0B7182FCCD129E3C8C80A0 /* Pods-luaYoga.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5PQZNNQ6TT;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = luaYoga/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/src/Projects/openssl/lib",
+					"\"${PODS_ROOT}/LuakitPod/lib\"",
+					"\"${PODS_ROOT}/curl/lib\"",
+					"\"${PODS_ROOT}/YogaKit/lib\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoga.luaYoga;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoga.luaYoga.william;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -606,22 +511,21 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CE1410E565BC336620A05D7F /* Pods-luaYoga.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5PQZNNQ6TT;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = luaYoga/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/src/Projects/openssl/lib",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoga.luaYoga;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoga.luaYoga.william;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
