@@ -155,6 +155,16 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
     }
 
     @Override
+    public void nativeAddTapGesture() {
+
+    }
+
+    @Override
+    public void nativeAddLongPressGesture() {
+
+    }
+
+    @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         // TODO : jni call deadlocK to release the jni object.

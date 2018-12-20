@@ -99,4 +99,14 @@ public class YogaOther extends View implements IYoga {
 
     }
 
+    @Override
+    public void nativeAddTapGesture() {
+
+    }
+
+    @Override
+    public void nativeAddLongPressGesture() {
+
+    }
+
 }

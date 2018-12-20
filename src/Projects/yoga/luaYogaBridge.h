@@ -10,8 +10,10 @@ bool setYogaProperty(void * view, YogaType type, std::string propertyName, float
 void setBackgroundColor(void * view, float r, float g, float b, float a);
 
 void addTapGesture(void * view, void *root);
+void onTapGesture(void * view);
 
 void addLongPressGesture(void * view, void *root);
+void onLongPressGesture(void * view);
 
 void reloadYoga(void * view);
 

@@ -35,6 +35,13 @@ JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_startLuaKitNative
     luaopen_yoga_func(L);
 }
 
+JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_callback
+  (JNIEnv *env, jclass c, jint type, jlong ref)
+{
+    LOG(ERROR) << "Java_com_common_luakit_LuaHelper_callback";
+    callbackToYoga((int)type, (void *)ref);
+}
+
 void pushLuaModule(std::string moduleName)
 {
     lua_State * L = BusinessThread::GetCurrentThreadLuaState();

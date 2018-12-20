@@ -498,6 +498,14 @@ extern int luaopen_yoga_func(lua_State *L) {
     return 0;
 }
 
+extern void callbackToYoga(int type, void * v) {
+    if (type == 0) {
+        onTapGesture(v);        
+    } else if (type == 1) {
+        onLongPressGesture(v);
+    }
+}
+
 extern int heightForTextTable(lua_State *L) {
     BEGIN_STACK_MODIFY(L);
     

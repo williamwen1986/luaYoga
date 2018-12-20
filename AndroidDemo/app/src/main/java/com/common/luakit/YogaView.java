@@ -240,6 +240,16 @@ public class YogaView extends FrameLayout implements IYoga {
     }
 
     @Override
+    public void nativeAddTapGesture() {
+
+    }
+
+    @Override
+    public void nativeAddLongPressGesture() {
+
+    }
+
+    @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         // important! Release the native memory.

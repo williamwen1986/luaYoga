@@ -111,6 +111,16 @@ public class YogaListView extends RecyclerView implements IYoga {
 
     }
 
+    @Override
+    public void nativeAddTapGesture() {
+
+    }
+
+    @Override
+    public void nativeAddLongPressGesture() {
+
+    }
+
     public void nativeListReload() {
         notifyDataSetChanged();
     }

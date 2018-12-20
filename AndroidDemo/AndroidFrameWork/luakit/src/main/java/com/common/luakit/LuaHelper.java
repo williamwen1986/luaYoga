@@ -2,6 +2,8 @@ package com.common.luakit;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
+
 import org.chromium.base.PathUtils;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -10,7 +12,12 @@ import java.io.InputStream;
 
 public class LuaHelper {
 
+    public static final int TYPE_CALLBACK_PRESS = 0;
+    public static final int TYPE_CALLBACK_LONG_PRESS = 1;
+
     private static native void startLuaKitNative(Context c);
+
+    public static native void callback(int type, long ref);
 
     public static native Object callLuaFunction(String moduleName, String methodName);
 

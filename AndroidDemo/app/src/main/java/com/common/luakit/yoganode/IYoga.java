@@ -34,6 +34,18 @@ public interface IYoga {
 
     void nativeSetBackgroundColor(float r, float g, float b, float a);
 
+    /**
+     * Called in jni.
+     * represent the click event.
+     */
+    void nativeAddTapGesture();
+
+    /**
+     * Called in jni.
+     * represent the long click event.
+     */
+    void nativeAddLongPressGesture();
+
     YogaNode getYogaNode();
 
     long getSelfPointer();

@@ -2,9 +2,11 @@ package com.common.luakit.yoganode;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.common.luakit.LuaHelper;
 import com.common.luakit.constant.PropertyType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaEdge;
@@ -97,6 +99,31 @@ public class YogaButton extends android.support.v7.widget.AppCompatButton implem
     @Override
     public void nativeSetBackgroundColor(float r, float g, float b, float a) {
         setBackgroundColor(Color.argb((int) (255 * a), (int) (255 * r), (int) (255 * g), (int) (255 * b)));
+    }
+
+    @Override
+    public void nativeAddTapGesture() {
+        LogUtil.i(TAG, this + "AddTapGesture");
+        setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LogUtil.i(TAG, this + "onClick");
+                LuaHelper.callback(LuaHelper.TYPE_CALLBACK_PRESS, self);
+            }
+        });
+    }
+
+    @Override
+    public void nativeAddLongPressGesture() {
+        LogUtil.i(TAG, this + "AddLongTapGesture");
+        setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                LogUtil.i(TAG, this + "onLongClick");
+                LuaHelper.callback(LuaHelper.TYPE_CALLBACK_LONG_PRESS, self);
+                return true;
+            }
+        });
     }
 
     public void nativeSetText(String text) {

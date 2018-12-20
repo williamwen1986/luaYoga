@@ -5,9 +5,11 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.text.TextUtils;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.common.luakit.LuaHelper;
 import com.common.luakit.constant.PropertyType;
 import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
 import com.facebook.yoga.YogaEdge;
@@ -154,4 +156,28 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
         }
     }
 
+    @Override
+    public void nativeAddTapGesture() {
+        LogUtil.i(TAG, this + "AddTapGesture");
+        setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LogUtil.i(TAG, this + "onClick");
+                LuaHelper.callback(LuaHelper.TYPE_CALLBACK_PRESS, self);
+            }
+        });
+    }
+
+    @Override
+    public void nativeAddLongPressGesture() {
+        LogUtil.i(TAG, this + "AddLongTapGesture");
+        setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                LogUtil.i(TAG, this + "onLongClick");
+                LuaHelper.callback(LuaHelper.TYPE_CALLBACK_LONG_PRESS, self);
+                return true;
+            }
+        });
+    }
 }

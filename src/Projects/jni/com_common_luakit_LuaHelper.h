@@ -11,6 +11,9 @@ extern "C" {
 JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_startLuaKitNative
   (JNIEnv *, jclass, jobject);
 
+JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_callback
+  (JNIEnv *, jclass, jint, jlong);
+
 JNIEXPORT jobject JNICALL Java_com_common_luakit_LuaHelper_callLuaFunction__Ljava_lang_String_2Ljava_lang_String_2
   (JNIEnv *, jclass, jstring, jstring);
 

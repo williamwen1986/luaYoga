@@ -99,4 +99,14 @@ public class YogaScrollView extends ScrollView implements IYoga {
 
     }
 
+    @Override
+    public void nativeAddTapGesture() {
+
+    }
+
+    @Override
+    public void nativeAddLongPressGesture() {
+
+    }
+
 }

@@ -4,11 +4,16 @@
 #include "JniEnvWrapper.h"
 #include "android/log.h"
 #include "java_weak_ref.h"
+#include "common/business_runtime.h"
+#include "tools/lua_helpers.h"
+#include <map>
 
 #define INVALID_VIEW_TYPE -1
 
 #define TAG    "LuaYogaDemo-jni" 
 #define LOGD(...)  __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
+
+static std::map<void *, void *> m;
 
 void setPointer(void * self, void * parentView, void * root) {
     jobject jself = ((java_weak_ref *)self)->obj();
@@ -135,14 +140,82 @@ void setBackgroundColor(void * view, float r, float g, float b, float a) {
     env->CallVoidMethod(jhostView, mid, (jfloat)r, (jfloat)g, (jfloat)b, (jfloat)a);
 }
 
-void addTapGesture(void * view, void *root)
-{
+void addTapGesture(void * view, void *root) {
+    LOGD("addTapGesture in native");
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref *)view)->obj();
+    jobject jroot = ((java_weak_ref *)root)->obj();
+    m[view] = root;
 
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    jmethodID mid = env->GetMethodID(jhostViewClass, "nativeAddTapGesture", "()V");
+    if (mid == NULL) {
+        return;
+    }
+    env->CallVoidMethod(jhostView, mid);
+}
+
+void onTapGesture(void * view) {
+    LOGD("onTapGesture in native");
+    void * root = m[view];
+
+    lua_State * state = BusinessThread::GetCurrentThreadLuaState();
+    BEGIN_STACK_MODIFY(state);
+    pushUserdataInStrongTable(state, root);
+    // assert(lua_type(state, -1) == LUA_TTABLE);
+    lua_pushlightuserdata(state, view);
+    lua_rawget(state, -2);
+    // assert(lua_type(state, -1) == LUA_TUSERDATA);
+    if(lua_type(state, -1) == LUA_TUSERDATA){
+        lua_getfield(state, -1, TAP_FUNCTION);
+        if (lua_type(state, -1) == LUA_TFUNCTION) {
+            lua_pcall(state, 0, 0, 0);
+        }
+    } else {
+        LOGD("view tapGesture no userdata ");
+        // assert(false);
+    }
+    END_STACK_MODIFY(state, 0)
 }
 
 void addLongPressGesture(void * view, void *root)
 {
+    LOGD("addLongPressGesture in native");
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref *)view)->obj();
+    jobject jroot = ((java_weak_ref *)root)->obj();
+    m[view] = root;
 
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    jmethodID mid = env->GetMethodID(jhostViewClass, "nativeAddLongPressGesture", "()V");
+    if (mid == NULL) {
+        return;
+    }
+    env->CallVoidMethod(jhostView, mid);
+}
+
+void onLongPressGesture(void * view)
+{
+    LOGD("onLongPressGesture in native");
+    void * root = m[view];
+
+    lua_State * state = BusinessThread::GetCurrentThreadLuaState();
+    BEGIN_STACK_MODIFY(state);
+    pushUserdataInStrongTable(state, root);
+    // assert(lua_type(state, -1) == LUA_TTABLE);
+    lua_pushlightuserdata(state, view);
+    lua_rawget(state, -2);
+    // assert(lua_type(state, -1) == LUA_TUSERDATA);
+    if(lua_type(state, -1) == LUA_TUSERDATA){
+        lua_getfield(state, -1, LONGPRESS_FUNCTION);
+        if (lua_type(state, -1) == LUA_TFUNCTION) {
+            lua_pcall(state, 0, 0, 0);
+        }
+    } else {
+        LOGD("view onLongPressGesture no userdata ");
+        // assert(false);
+    }
+    END_STACK_MODIFY(state, 0)
 }
 
 void reloadYoga(void * view)

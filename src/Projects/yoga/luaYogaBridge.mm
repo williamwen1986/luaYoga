@@ -285,6 +285,12 @@ void addLongPressGesture(void * view, void *root)
     [v addGestureRecognizer:recognizer];
 }
 
+void onTapGesture(void * view){
+}
+
+void onLongPressGesture(void * view){
+}
+
 void setListSeperatorColor(void * view, float r, float g, float b, float a)
 {
     UITableView *t = (__bridge UITableView *)view;

@@ -5,6 +5,25 @@ local yogaBuilder = function (container)
     container.alignItems = YGAlignFlexStart
     container.flexDirection = YGFlexDirectionColumn
 
+    local button = container.addTextView()
+    button.isEnabled = true
+    button.width = 300
+    button.height = 20
+    button.text = "button test"
+    button.textTable = {
+        fontSize = 16,
+        isBold = false,
+        alignment = TextAlignmentCenter,
+        color = { a = 1.0, r = 1.0, g = 1.0, b = 1.0 }
+    }
+    button.backgroundColor = {g=1.0}
+    button.tapFunction = function()
+        button.text = "button test tapFunction"
+    end
+    button.longPressFunction = function()
+        button.text = "button longPressFunction"
+    end
+
     local listView
 
     listView = container.addListView()

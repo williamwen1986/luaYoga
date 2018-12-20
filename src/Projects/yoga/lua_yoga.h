@@ -176,5 +176,6 @@ struct LuaModel {
 
 extern int luaopen_yoga(lua_State* L);
 extern int luaopen_yoga_func(lua_State *L);
+extern void callbackToYoga(int type, void * v);
 
 
