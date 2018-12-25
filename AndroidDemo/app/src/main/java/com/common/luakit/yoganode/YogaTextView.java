@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.FrameLayout;
 
 import com.common.luakit.LuaHelper;
@@ -181,5 +182,27 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
                 return true;
             }
         });
+    }
+
+    @Override
+    public boolean removeFromParent() {
+        LogUtil.i(TAG, "removeFromParent");
+        ViewParent parent = getParent();
+
+        if (parent != null && parent instanceof ViewGroup) {
+            ViewGroup vp = (ViewGroup) parent;
+            vp.removeView(this);
+            YogaNode yogaNodeParent = yogaNode.getParent();
+            if (yogaNodeParent != null && yogaNodeParent.getChildCount() > 0) {
+                for (int i = 0; i < yogaNodeParent.getChildCount(); i++) {
+                    if (yogaNodeParent.getChildAt(i) == yogaNode) {
+                        LogUtil.i(TAG, "find this node");
+                        yogaNodeParent.removeChildAt(i);
+                        yogaNode.reset();
+                    }
+                }
+            }
+        }
+        return true;
     }
 }

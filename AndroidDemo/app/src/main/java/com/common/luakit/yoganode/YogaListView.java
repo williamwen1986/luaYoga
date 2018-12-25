@@ -120,6 +120,11 @@ public class YogaListView extends RecyclerView implements IYoga {
 
     }
 
+    @Override
+    public boolean removeFromParent() {
+        return false;
+    }
+
     /**
      * Jni calling method
      */

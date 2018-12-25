@@ -125,6 +125,11 @@ public class YogaButton extends android.support.v7.widget.AppCompatButton implem
         });
     }
 
+    @Override
+    public boolean removeFromParent() {
+        return false;
+    }
+
     public void nativeSetText(String text) {
         setText(text);
     }

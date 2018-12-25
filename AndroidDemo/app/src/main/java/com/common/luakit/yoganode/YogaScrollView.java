@@ -108,4 +108,9 @@ public class YogaScrollView extends ScrollView implements IYoga {
 
     }
 
+    @Override
+    public boolean removeFromParent() {
+        return false;
+    }
+
 }

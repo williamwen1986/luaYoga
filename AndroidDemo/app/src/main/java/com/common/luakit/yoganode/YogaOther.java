@@ -108,4 +108,9 @@ public class YogaOther extends View implements IYoga {
 
     }
 
+    @Override
+    public boolean removeFromParent() {
+        return false;
+    }
+
 }

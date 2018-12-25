@@ -227,7 +227,16 @@ void reloadYoga(void * view)
 
 void removeFromParent(void * view)
 {
+    LOGD("removeFromParent in native");
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref *)view)->obj();
 
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    jmethodID mid = env->GetMethodID(jhostViewClass, "removeFromParent", "()Z");
+    if (mid == NULL) {
+        return;
+    }
+    env->CallBooleanMethod(jhostView, mid);
 }
 
 void setListSeperatorColor(void * view, float r, float g, float b, float a)

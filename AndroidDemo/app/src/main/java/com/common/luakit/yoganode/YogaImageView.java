@@ -132,6 +132,11 @@ public class YogaImageView extends SimpleCircleImageView implements IYoga {
         });
     }
 
+    @Override
+    public boolean removeFromParent() {
+        return false;
+    }
+
     /**
      * Jni calling method.
      * Set the image source to the view.

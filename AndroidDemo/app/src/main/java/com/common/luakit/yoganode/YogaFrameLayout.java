@@ -173,6 +173,11 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
     }
 
     @Override
+    public boolean removeFromParent() {
+        return false;
+    }
+
+    @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         // TODO : jni call deadlocK to release the jni object.

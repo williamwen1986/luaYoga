@@ -46,6 +46,8 @@ public interface IYoga {
      */
     void nativeAddLongPressGesture();
 
+    boolean removeFromParent();
+
     YogaNode getYogaNode();
 
     long getSelfPointer();

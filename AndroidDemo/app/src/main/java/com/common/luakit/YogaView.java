@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.FrameLayout;
 
 import com.common.luakit.constant.PropertyType;
@@ -258,6 +259,20 @@ public class YogaView extends FrameLayout implements IYoga {
     @Override
     public void nativeAddLongPressGesture() {
 
+    }
+
+    @Override
+    public boolean removeFromParent() {
+        LogUtil.i(TAG, "removeFromParent");
+        ViewParent parent = getParent();
+
+        if (parent != null && parent instanceof ViewGroup) {
+            ViewGroup vp = (ViewGroup) parent;
+            vp.removeView(this);
+            rootNode.reset();
+            dispose(self);
+        }
+        return true;
     }
 
     public void releaseNativeMemory() {

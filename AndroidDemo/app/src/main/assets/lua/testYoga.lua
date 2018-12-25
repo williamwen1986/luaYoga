@@ -5,11 +5,24 @@ local yogaBuilder = function (container)
     container.alignItems = YGAlignFlexStart
     container.flexDirection = YGFlexDirectionColumn
 
+    local textView = container.addTextView()
+    textView.isEnabled = true
+    textView.width = 300
+    textView.height = 20
+    textView.text = "wait for remove"
+    textView.textTable = {
+        fontSize = 16,
+        isBold = false,
+        alignment = TextAlignmentCenter,
+        color = { a = 1.0, r = 1.0, g = 1.0, b = 1.0 }
+    }
+    textView.backgroundColor = {b=1.0}
+
     local button = container.addTextView()
     button.isEnabled = true
     button.width = 300
     button.height = 20
-    button.text = "button test"
+    button.text = "remove view above"
     button.textTable = {
         fontSize = 16,
         isBold = false,
@@ -18,7 +31,8 @@ local yogaBuilder = function (container)
     }
     button.backgroundColor = {g=1.0}
     button.tapFunction = function()
-        button.text = "button test tapFunction"
+        button.text = "clicked"
+        textView.removeFromParent()
     end
     button.longPressFunction = function()
         button.text = "button longPressFunction"
