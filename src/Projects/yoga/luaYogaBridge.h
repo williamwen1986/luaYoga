@@ -71,3 +71,5 @@ float heightForTextTable(std::string text,float textWidth,float textFontSize,std
 float widthForTextTable(std::string text,float textHeight,float textFontSize,std::string fontName);
 
 void showToast(std::string toastContent);
+
+void goFlutter(std::string moduleName, std::string pluginVersion, std::string type, std::string url);

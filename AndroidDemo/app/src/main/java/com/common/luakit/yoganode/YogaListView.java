@@ -8,8 +8,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.common.luakit.constant.PropertyType;
-import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
-import com.facebook.yoga.YogaEdge;
+import com.common.luakit.utils.LogUtil;
 import com.facebook.yoga.YogaNode;
 
 /**
@@ -121,11 +120,15 @@ public class YogaListView extends RecyclerView implements IYoga {
 
     }
 
+    /**
+     * Jni calling method
+     */
     public void nativeListReload() {
         notifyDataSetChanged();
     }
 
     private void notifyDataSetChanged() {
+        LogUtil.i(TAG, "android listReload");
         if (adapter != null) {
             adapter.notifyDataSetChanged();
         }

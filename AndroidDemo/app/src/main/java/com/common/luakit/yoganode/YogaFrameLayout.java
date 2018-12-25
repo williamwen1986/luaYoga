@@ -9,8 +9,7 @@ import android.widget.FrameLayout;
 
 import com.common.luakit.constant.PropertyType;
 import com.common.luakit.constant.ViewType;
-import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
-import com.facebook.yoga.YogaEdge;
+import com.common.luakit.utils.LogUtil;
 import com.facebook.yoga.YogaNode;
 
 /**
@@ -32,6 +31,8 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
     private YogaNodeWrapper yogaNodeWrapper;
 
     private YogaLayoutHelper yogaLayoutHelper;
+
+    private boolean hasInflate = false;
 
     public YogaFrameLayout(@NonNull Context context) {
         super(context);
@@ -143,10 +144,17 @@ public class YogaFrameLayout extends FrameLayout implements IYoga {
             params.height = (int) yogaNode.getHeight().value;
         }
         setLayoutParams(params);
+        if (hasInflate) {
+            for (int i = 0; i < yogaNode.getChildCount(); i++) {
+                yogaNodeWrapper.getChildView(i).inflate();
+            }
+            return;
+        }
         for (int i = 0; i < yogaNode.getChildCount(); i++) {
             yogaNodeWrapper.getChildView(i).inflate();
             addView((View) yogaNodeWrapper.getChildView(i), i);
         }
+        hasInflate = true;
     }
 
     @Override

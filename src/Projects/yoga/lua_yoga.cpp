@@ -531,11 +531,34 @@ extern int goFlutter(lua_State *L) {
     
     std::string module = lua_tostring(L, 1);
     
-    std::string version = "";
-    
-    if (lua_gettop(L)>1) {
-        version = lua_tostring(L, 2);
+    int number = lua_gettop(L);
+
+    if (number == 4) {
+        std::string version = lua_tostring(L, 2);
+        
+        std::string type = lua_tostring(L, 3);
+
+        std::string url = lua_tostring(L, 4);
+
+        goFlutter(module, version, type, url);
+    } else if (number == 3) {
+        std::string version = lua_tostring(L, 2);
+        
+        std::string type = lua_tostring(L, 3);
+        
+        goFlutter(module, version, type, "");
+        
+    } else if (number == 2) {
+        
+        std::string version = lua_tostring(L, 2);
+        
+        goFlutter(module, version, "flutter", "");
+        
+    } else {
+        goFlutter(module, "", "flutter", "");
     }
+    
+    
     
     END_STACK_MODIFY(L, 0)
     
@@ -675,13 +698,13 @@ static void addYogaEnum(lua_State *L) {
     
     lua_pushcfunction(L, heightForTextTable);
     lua_setglobal(L, "heightForTextTable");
-    
-    lua_pushcfunction(L, goFlutter);
-    lua_setglobal(L, "goFlutter");
 
     lua_pushcfunction(L, widthForTextTable);
     lua_setglobal(L, "widthForTextTable");
     
     lua_pushcfunction(L, showToast);
     lua_setglobal(L, "showToast");
+
+    lua_pushcfunction(L, goFlutter);
+    lua_setglobal(L, "goFlutter");
 }

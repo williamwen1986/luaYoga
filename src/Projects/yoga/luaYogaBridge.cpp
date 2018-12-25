@@ -10,7 +10,7 @@
 
 #define INVALID_VIEW_TYPE -1
 
-#define TAG    "LuaYogaDemo-jni" 
+#define TAG    "LuaYoga-jni" 
 #define LOGD(...)  __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
 
 static std::map<void *, void *> m;
@@ -78,6 +78,7 @@ float getYogaProperty(void * view, YogaType type, std::string propertyName) {
         return false;
     }
     jfloat value = (jfloat)env->CallFloatMethod(jhostView, mid, (jint)viewType, jpropertyName);
+    env->DeleteLocalRef(jpropertyName);
     return (float)value; 
 }
 
@@ -126,6 +127,7 @@ bool setYogaProperty(void * view, YogaType type, std::string propertyName, float
         return false;
     }
     jboolean success = (jboolean)env->CallBooleanMethod(jhostView, mid, (jint)viewType, jpropertyName, (jfloat)value);
+    env->DeleteLocalRef(jpropertyName);
     return (bool)success; 
 }
 
@@ -251,7 +253,7 @@ void setImageViewContentMode(void * imageView, float contentModeType) {
     jclass jhostViewClass = env->GetObjectClass(jhostView);
     jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetScaleType", "(F)V");
     if (jmid == NULL) {
-        LOGD("Failed, The method setImageViewContentMode is not found");
+        LOGD("Failed, The method nativeSetScaleType is not found");
         return;
     }
     env->CallVoidMethod(jhostView, jmid, (jfloat)contentModeType);
@@ -264,7 +266,7 @@ void setViewCornerRadius(void *view, float cornerRadius)
     jclass jhostViewClass = env->GetObjectClass(jhostView);
     jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetImageRadius", "(F)V");
     if (jmid == NULL) {
-        LOGD("Failed, The method nativeListReload is not found");
+        LOGD("Failed, The method nativeSetImageRadius is not found");
         return;
     }
     env->CallVoidMethod(jhostView, jmid, (jfloat)cornerRadius);
@@ -368,7 +370,7 @@ void setTextHighlightedColor(void * textView,  std::vector<float> color)
     LOGD("Text setHighlighted Color size: %d", color.size());
     jmethodID jmid = env->GetMethodID(jhostViewClass, "nativeSetTextHighlightedColor", "(FFFF)V");
     if (jmid == NULL) {
-        LOGD("Failed!! method setTextHighlightedColor not found");
+        LOGD("Failed!! method nativeSetTextHighlightedColor not found");
         return;
     }
     if (color.size() == 4) {
@@ -401,7 +403,59 @@ void setTextNumberOfLines(void *view, float numberOfLines) {
     env->CallVoidMethod(jhostView, jmid, (jfloat)numberOfLines);
 }
 
-void showToast(std::string toastContent){
+float heightForTextTable(std::string text,float textWidth,float textFontSize,std::string fontName) {
+    JniEnvWrapper env;
+    jclass clazz = env->FindClass("com/common/luakit/utils/TextViewUtils");
+    if (clazz == NULL) {
+        LOGD("Failed!! Class TextViewUtils not found");
+        return -1;
+    }
+    jstring jtext = env->NewStringUTF(text.c_str());
+    jstring jfontName = env->NewStringUTF(fontName.c_str());
+    jmethodID jmid = env->GetStaticMethodID(clazz, "calculatorHeightOfTextView", "(Ljava/lang/String;FFLjava/lang/String;)F");
+    if (jmid == NULL) {
+        LOGD("Failed!! Method calculatorHeightOfTextView not found");
+        return -1;
+    }
+    return (jfloat)env->CallStaticFloatMethod(clazz, jmid, jtext, (jfloat)textWidth, (jfloat)textFontSize, jfontName);
+}
+
+float widthForTextTable(std::string text,float textHeight,float textFontSize,std::string fontName) {
+    JniEnvWrapper env;
+    jclass clazz = env->FindClass("com/common/luakit/utils/TextViewUtils");
+    if (clazz == NULL) {
+        LOGD("Failed!! Class TextViewUtils not found");
+        return -1;
+    }
+    jstring jtext = env->NewStringUTF(text.c_str());
+    jstring jfontName = env->NewStringUTF(fontName.c_str());
+    jmethodID jmid = env->GetStaticMethodID(clazz, "calculatorWidthOfTextView", "(Ljava/lang/String;FFLjava/lang/String;)F");
+    if (jmid == NULL) {
+        LOGD("Failed!! Method calculatorWidthOfTextView not found");
+        return -1;
+    }
+    return (jfloat)env->CallStaticFloatMethod(clazz, jmid, jtext, (jfloat)textHeight, (jfloat)textFontSize, jfontName);
+}
+
+void showToast(std::string toastContent) {
     
-    
+}
+
+void goFlutter(std::string moduleName, std::string pluginVersion, std::string type, std::string url) {
+    JniEnvWrapper env;
+    jclass clazz = env->FindClass("com/common/luakit/utils/PluginUtils");
+    if (clazz == NULL) {
+        LOGD("Failed!! Class IntentUtils not found");
+        return;
+    }
+    jstring jmoduleName = env->NewStringUTF(moduleName.c_str());
+    jstring jpluginVersion = env->NewStringUTF(pluginVersion.c_str());
+    jstring jtype = env->NewStringUTF(type.c_str());
+    jstring jurl = env->NewStringUTF(url.c_str());
+    jmethodID jmid = env->GetStaticMethodID(clazz, "goFlutter", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
+    if (jmid == NULL) {
+        LOGD("Failed!! Method goFlutter not found");
+        return;
+    }
+    env->CallStaticVoidMethod(clazz, jmid, jmoduleName, jpluginVersion, jtype, jurl);
 }

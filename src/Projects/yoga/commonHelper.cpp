@@ -1,6 +1,11 @@
-
+extern "C" {
+#include "lua.h"
+#include "lauxlib.h"
+}
+#include "tools/lua_helpers.h"
 #include "lua_yoga.h"
 #include "luaYogaBridge.h"
+#include "base/logging.h"
 #include <vector>
 #include <string>
 #include <tuple>

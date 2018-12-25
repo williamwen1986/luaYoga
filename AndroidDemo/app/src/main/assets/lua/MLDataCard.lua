@@ -4,7 +4,53 @@
 --- DateTime: 2018/12/5 7:51 PM
 ---
 local TAG = "MLDataCard"
+local fadeData = "{\"code\":0,\"msg\":\"test\",\"responseData\":\"{\"matchList\":[],\"userInfo\":{\"gameUid\":326890862,\"userIcon\":\"103\",\"rise\":1,\"score\":2.0,\"rating\":\"B\",\"nickName\":\"Agez Helen\",\"level\":4,\"heroCount\":3,\"heroSkinCount\":0,\"matchCount\":1,\"heartCount\":0,\"pickCount\":0,\"markLevel\":0,\"highestRank\":{\"rank\":\"warrior\",\"img\":\"https://dianhu-1253537286.cos.eu-moscow.myqcloud.com/mobileLegend/rankImage/warrior.png\",\"level\":3,\"star\":3},\"nowRank\":{\"rank\":\"warrior\",\"img\":\"https://dianhu-1253537286.cos.eu-moscow.myqcloud.com/mobileLegend/rankImage/warrior.png\",\"level\":3,\"star\":3},\"currentSeason\":{\"seasonId\":\"0:0\",\"model\":0,\"matchCount\":0,\"winRate\":0.0,\"mvpCount\":0,\"mvpLostCount\":0,\"legendary\":0,\"pentaKill\":0,\"quadraKill\":0,\"tripleKill\":0,\"doubleKill\":0,\"firstBlood\":0,\"highestKill\":0,\"highestAssist\":0,\"highestWinningStreak\":0,\"highestDamagePerMin\":0,\"highestSufferPerMin\":0,\"highestGoldPerMin\":0,\"damage\":0.0,\"farm\":0.0,\"boost\":0.0,\"kda\":0.0,\"survival\":0.0,\"teamFight\":0.0},\"totalSeason\":{\"seasonId\":\"0:0\",\"model\":0,\"matchCount\":0,\"winRate\":0.0,\"mvpCount\":0,\"mvpLostCount\":0,\"legendary\":0,\"pentaKill\":0,\"quadraKill\":0,\"tripleKill\":0,\"doubleKill\":0,\"firstBlood\":0,\"highestKill\":0,\"highestAssist\":0,\"highestWinningStreak\":0,\"highestDamagePerMin\":0,\"highestSufferPerMin\":0,\"highestGoldPerMin\":0,\"damage\":0.0,\"farm\":0.0,\"boost\":0.0,\"kda\":0.0,\"survival\":0.0,\"teamFight\":0.0},\"commonlyUsedHero\":[{\"id\":\"18\",\"name\":\"akai\",\"photoUrl\":\"https://dianhu-1253537286.cos.eu-moscow.myqcloud.com/mobileLegend/heroImage/akai.jpg\",\"iconUrl\":\"https://dianhu-1253537286.cos.eu-moscow.myqcloud.com/mobileLegend/heroIcon/akai.jpg\",\"matchCount\":1,\"winCount\":1,\"winRate\":100.0,\"mvpCount\":0,\"pantaKill\":0,\"legendary\":0,\"score\":0.0,\"damagePerMin\":0,\"sufferPerMin\":0,\"assistKing\":0}],\"shard\":38}}\"}"
+--local fadeData = "{\"highestRank\":{\"rank\":\"warrior\",\"img\":\"eee\",\"level\":3,\"star\":3}}"
+local mlDataSource = {}
+local rankBgList = { "rank_1.png", "rank_2.png", "rank_3.png", "rank_4.png", "rank_5.png" }
+local getDataFromNet = function()
+    --print(TAG .. " getDataFromNet " .. fadeData)
+    local allData = cjson.decode(fadeData)
+    if allData ~= null then
+        print(TAG .. " null")
+    end
+    print(TAG .. "test")
+    for i, v in pairs(allData) do
+        print(TAG .. "key: " .. i)
+    end
+    --print(TAG .. " userInfo: " .. allData["userInfo"])
+    --if allData["userInfo"] then
+    --    mlDataSource = cjson.decode(allData["userInfo"])
+    --end
+end
+
+local getDataFromDb = function()
+
+end
+
+local getNowRankTable = function()
+    if mlDataSource ~= null then
+        if mlDataSource["nowRank"] then
+            local mlRank = cjson.decode(mlDataSource["MLRank"])
+            return mlRank
+        end
+    end
+end
+
+local getTotalSeasonTable = function()
+    if mlDataSource then
+        if mlDataSource["totalSeason"] then
+            local mlTotalSeason = cjson.decode(mlDataSource["totalSeason"])
+            return mlTotalSeason
+        end
+    end
+end
+
 local yogaBuilder = function(container)
+    getDataFromNet()
+    local nowRank = getNowRankTable()
+    local totalSeason = getTotalSeasonTable()
+    print(TAG .. " test " .. "1")
     container.isEnabled = true
     container.alignItems = YGAlignCenter
     container.flexDirection = YGFlexDirectionColumn --垂直布局
@@ -29,7 +75,6 @@ local yogaBuilder = function(container)
     titleContainer.isEnabled = true
     titleContainer.alignItems = YGAlignCenter
     titleContainer.flexDirection = YGFlexDirectionColumn
-    --titleContainer.marginStart = 13
     titleContainer.marginTop = 14
 
     local titleTv = titleContainer.addTextView()
@@ -49,15 +94,20 @@ local yogaBuilder = function(container)
     userInfoContainer.height = 66
     userInfoContainer.alignItems = YGAlignFlexStart
     userInfoContainer.flexDirection = YGFlexDirectionRow
-    --userInfoContainer.marginStart = 13
 
+    print(TAG .. " test " .. "2")
     local userAvatarIv = userInfoContainer.addImageView()
     userAvatarIv.width = 46
     userAvatarIv.height = 46
     userAvatarIv.viewCornerRadius = 23
-    userAvatarIv.imagePath = 'zz.png'
+    if mlDataSource["userIcon"] then
+        userAvatarIv.imagePath = mlDataSource["userIcon"]
+    else
+        userAvatarIv.imagePath = 'zz.png'
+    end
     userAvatarIv.marginStart = 16
 
+    print(TAG .. " test " .. "3")
     local userNameContainer = userInfoContainer.addContainer()
     userNameContainer.width = 172
     userNameContainer.height = 36
@@ -66,10 +116,15 @@ local yogaBuilder = function(container)
     userNameContainer.marginStart = 9
     userNameContainer.marginTop = 4
 
+    print(TAG .. " test " .. "4")
     local userNameTv = userNameContainer.addTextView()
     userNameTv.width = 172
     userNameTv.height = 18
-    userNameTv.text = "Gary Wu"
+    if mlDataSource.nickName then
+        userNameTv.text = mlDataSource.nickName
+    else
+        userNameTv.text = "---"
+    end
     userNameTv.textTable = {
         fontSize = 15,
         isBold = false,
@@ -85,15 +140,24 @@ local yogaBuilder = function(container)
     nearlyStatusContainer.alignItems = YGAlignCenter
     nearlyStatusContainer.flexDirection = YGFlexDirectionRow
 
+    print(TAG .. " test " .. "5")
     local nearlyStatusIv = nearlyStatusContainer.addImageView()
     nearlyStatusIv.width = 12
     nearlyStatusIv.height = 12
+    -- 读取最近上升还是下降
     nearlyStatusIv.imagePath = "stars_rise.png"
 
     local nearlyStatusTv = nearlyStatusContainer.addTextView()
     nearlyStatusTv.width = 172
     nearlyStatusTv.height = 18
-    nearlyStatusTv.text = "Nearly status:" .. " " .. "5" .. " " .. "stars"
+    --读取最近等级状态
+    local recentStars = mlDataSource["rise"]
+    if recentStars then
+        nearlyStatusTv.text = "Nearly status:" .. " " .. recentStars .. " " .. "stars"
+    else
+        nearlyStatusTv.text = "Nearly status:" .. " " .. "-" .. " " .. "stars"
+    end
+
     nearlyStatusTv.textTable = {
         fontSize = 12,
         isBold = false,
@@ -101,6 +165,7 @@ local yogaBuilder = function(container)
         color = { a = 0.6, r = 1.0, g = 1.0, b = 1.0 }
     }
 
+    print(TAG .. " test " .. "6")
     local rankContainer = userInfoContainer.addContainer()
     rankContainer.width = 60
     rankContainer.height = 64
@@ -111,14 +176,30 @@ local yogaBuilder = function(container)
     local rankBgIv = rankContainer.addImageView()
     rankBgIv.width = 60
     rankBgIv.height = 52
-    rankBgIv.imagePath = "rank_4.png"
+    -- 根据等级匹配图片
+    local rankLevel = mlDataSource["level"]
+    if rankLevel then
+        rankBgIv.imagePath = rankBgList[rankLevel]
+    else
+        rankBgIv.imagePath = "rank_3.png"
+    end
+    print(TAG .. " test " .. "7")
 
     local rankIv = rankContainer.addImageView()
     rankIv.width = 60
     rankIv.height = 52
     rankIv.marginTop = -52
-    rankIv.imagePath = "rank_master.png"
+    -- 根据等级匹配图片
+    if nowRank then
+        local rankImgPath = nowRank["img"]
+        if rankImgPath then
+            rankIv.imagePath = rankImgPath
+        else
+            rankIv.imagePath = "rank_warrior.png"
+        end
+    end
 
+    print(TAG .. " test " .. "8")
     local starsContainer = rankContainer.addContainer()
     starsContainer.width = 60
     starsContainer.height = 9
@@ -126,25 +207,33 @@ local yogaBuilder = function(container)
     starsContainer.flexDirection = YGFlexDirectionRow
     starsContainer.justifyContent = YGJustifyCenter
 
-    local starsIv = starsContainer.addImageView()
-    starsIv.width = 9
-    starsIv.height = 9
-    starsIv.imagePath = "star.png"
+    -- 根据星星数量增加星星数量
+    if nowRank then
+        local stars = nowRank["star"]
+        if stars ~= null and stars > 0 then
+            for i = 1, stars do
+                local starsIv = starsContainer.addImageView()
+                starsIv.width = 9
+                starsIv.height = 9
+                starsIv.imagePath = "star.png"
+            end
+        end
+    end
 
+    print(TAG .. " test " .. "9")
     local dataContainer = allContentContainer.addContainer()
     dataContainer.width = 334
-    dataContainer.height = 40
-    --dataContainer.marginStart = 19
+    dataContainer.height = 44
     dataContainer.marginTop = 6
     dataContainer.alignItems = YGAlignCenter
     dataContainer.justifyContent = YGJustifySpaceBetween
     dataContainer.flexDirection = YGFlexDirectionRow
 
     local dataSubContainerWidth = 82
-    local dataSubContainerHeight = 40
-    local textViewWidth = 70
+    local dataSubContainerHeight = 44
+    local textViewWidth = 82
     local textValueHeight = 22
-    local textTipHeight = 14
+    local textTipHeight = 16
     local dataSubContainerAlignItems = YGAlignCenter
     local dataSubContainerFlexDirection = YGFlexDirectionColumn
     local subContainerTextTable_Value = {
@@ -160,83 +249,103 @@ local yogaBuilder = function(container)
         color = { a = 0.6, r = 1.0, g = 1.0, b = 1.0 }
     }
 
-    local sessionsContainer = dataContainer.addContainer()
-    sessionsContainer.width = dataSubContainerWidth
-    sessionsContainer.height = dataSubContainerHeight
-    sessionsContainer.alignItems = dataSubContainerAlignItems
-    sessionsContainer.flexDirection = dataSubContainerFlexDirection
+    local winLossContainer = dataContainer.addContainer()
+    winLossContainer.width = dataSubContainerWidth
+    winLossContainer.height = dataSubContainerHeight
+    winLossContainer.alignItems = dataSubContainerAlignItems
+    winLossContainer.flexDirection = dataSubContainerFlexDirection
 
-    local sessionsValueTv = sessionsContainer.addTextView()
-    sessionsValueTv.width = textViewWidth
-    sessionsValueTv.height = textValueHeight
-    sessionsValueTv.text = "1490"
-    sessionsValueTv.textTable = subContainerTextTable_Value
+    local winLostValueTv = winLossContainer.addTextView()
+    winLostValueTv.width = textViewWidth
+    winLostValueTv.height = textValueHeight
+    --读取最近十场胜负数
+    winLostValueTv.text = "---"
+    winLostValueTv.textTable = subContainerTextTable_Value
 
-    local sessionsTv = sessionsContainer.addTextView()
-    sessionsTv.width = textViewWidth
-    sessionsTv.height = textTipHeight
-    sessionsTv.marginTop = 1
-    sessionsTv.text = "Sessions"
-    sessionsTv.textTable = subContainerTextTable_Tip
+    local winLossTv = winLossContainer.addTextView()
+    winLossTv.width = textViewWidth
+    winLossTv.height = textTipHeight
+    winLossTv.marginTop = 1
+    --多语言
+    winLossTv.text = "Win/Loss"
+    winLossTv.textTable = subContainerTextTable_Tip
 
+    local killsContainer = dataContainer.addContainer()
+    killsContainer.width = dataSubContainerWidth
+    killsContainer.height = dataSubContainerHeight
+    killsContainer.alignItems = dataSubContainerAlignItems
+    killsContainer.flexDirection = dataSubContainerFlexDirection
 
-    local winRateContainer = dataContainer.addContainer()
-    winRateContainer.width = dataSubContainerWidth
-    winRateContainer.height = dataSubContainerHeight
-    winRateContainer.alignItems = dataSubContainerAlignItems
-    winRateContainer.flexDirection = dataSubContainerFlexDirection
+    local killsValueTv = killsContainer.addTextView()
+    killsValueTv.width = textViewWidth
+    killsValueTv.height = textValueHeight
+    -- 最高击杀
+    if totalSeason then
+        killsValueTv.text = totalSeason["highestKill"]
+    else
+        killsValueTv.text = "---"
+    end
+    killsValueTv.textTable = subContainerTextTable_Value
 
-    local winRateValueTv = winRateContainer.addTextView()
-    winRateValueTv.width = textViewWidth
-    winRateValueTv.height = textValueHeight
-    winRateValueTv.text = "49" .. "%"
-    winRateValueTv.textTable = subContainerTextTable_Value
+    local killsTv = killsContainer.addTextView()
+    killsTv.width = textViewWidth
+    killsTv.height = textTipHeight
+    killsTv.marginTop = 1
+    -- 多语言
+    killsTv.text = "Kills"
+    killsTv.textTable = subContainerTextTable_Tip
 
-    local winRateTv = winRateContainer.addTextView()
-    winRateTv.width = textViewWidth
-    winRateTv.height = textTipHeight
-    winRateTv.marginTop = 1
-    winRateTv.text = "Win"
-    winRateTv.textTable = subContainerTextTable_Tip
+    local assistsContainer = dataContainer.addContainer()
+    assistsContainer.width = dataSubContainerWidth
+    assistsContainer.height = dataSubContainerHeight
+    assistsContainer.alignItems = dataSubContainerAlignItems
+    assistsContainer.flexDirection = dataSubContainerFlexDirection
 
-    local mvpContainer = dataContainer.addContainer()
-    mvpContainer.width = dataSubContainerWidth
-    mvpContainer.height = dataSubContainerHeight
-    mvpContainer.alignItems = dataSubContainerAlignItems
-    mvpContainer.flexDirection = dataSubContainerFlexDirection
+    local assistsValueTv = assistsContainer.addTextView()
+    assistsValueTv.width = textViewWidth
+    assistsValueTv.height = textValueHeight
+    --最高助攻数
+    if totalSeason then
+        assistsValueTv.text = totalSeason["highestAssist"]
+    else
+        assistsValueTv.text = "---"
+    end
+    assistsValueTv.textTable = subContainerTextTable_Value
 
-    local mvpValueTv = mvpContainer.addTextView()
-    mvpValueTv.width = textViewWidth
-    mvpValueTv.height = textValueHeight
-    mvpValueTv.text = "398"
-    mvpValueTv.textTable = subContainerTextTable_Value
+    local assistsTv = assistsContainer.addTextView()
+    assistsTv.width = textViewWidth
+    assistsTv.height = textTipHeight
+    assistsTv.marginTop = 1
+    --多语言
+    assistsTv.text = "Assists"
+    assistsTv.textTable = subContainerTextTable_Tip
 
-    local mvpTv = mvpContainer.addTextView()
-    mvpTv.width = textViewWidth
-    mvpTv.height = textTipHeight
-    mvpTv.marginTop = 1
-    mvpTv.text = "MVP"
-    mvpTv.textTable = subContainerTextTable_Tip
+    local ratingContainer = dataContainer.addContainer()
+    ratingContainer.width = dataSubContainerWidth
+    ratingContainer.height = dataSubContainerHeight
+    ratingContainer.alignItems = dataSubContainerAlignItems
+    ratingContainer.flexDirection = dataSubContainerFlexDirection
 
-    local powerContainer = dataContainer.addContainer()
-    powerContainer.width = dataSubContainerWidth
-    powerContainer.height = dataSubContainerHeight
-    powerContainer.alignItems = dataSubContainerAlignItems
-    powerContainer.flexDirection = dataSubContainerFlexDirection
+    local ratingValueTv = ratingContainer.addTextView()
+    ratingValueTv.width = textViewWidth
+    ratingValueTv.height = textValueHeight
+    ratingValueTv.marginStart = -6
+    --综合评分
+    local rating = mlDataSource["rating"]
+    if rating then
+        ratingValueTv.text = rating
+    else
+        ratingValueTv.text = "---"
+    end
+    ratingValueTv.textTable = subContainerTextTable_Value
 
-    local powerValueTv = powerContainer.addTextView()
-    powerValueTv.width = textViewWidth
-    powerValueTv.height = textValueHeight
-    powerValueTv.marginStart = -6
-    powerValueTv.text = "7878"
-    powerValueTv.textTable = subContainerTextTable_Value
-
-    local powerTv = powerContainer.addTextView()
-    powerTv.width = textViewWidth
-    powerTv.height = textTipHeight
-    powerTv.marginStart = -6
-    powerTv.text = "Power"
-    powerTv.textTable = subContainerTextTable_Tip
+    local ratingTv = ratingContainer.addTextView()
+    ratingTv.width = textViewWidth
+    ratingTv.height = textTipHeight
+    ratingTv.marginStart = -6
+    --多语言
+    ratingTv.text = "Rating"
+    ratingTv.textTable = subContainerTextTable_Tip
 
 end
 

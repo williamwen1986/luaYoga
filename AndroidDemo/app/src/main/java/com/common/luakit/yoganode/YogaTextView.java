@@ -11,8 +11,7 @@ import android.widget.FrameLayout;
 
 import com.common.luakit.LuaHelper;
 import com.common.luakit.constant.PropertyType;
-import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
-import com.facebook.yoga.YogaEdge;
+import com.common.luakit.utils.LogUtil;
 import com.facebook.yoga.YogaNode;
 
 /**
@@ -96,10 +95,13 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         if ((int) yogaNode.getWidth().value > 0) {
             params.width = (int) yogaNode.getWidth().value;
+            Paint mPaint = new Paint();
+            float mWidth = mPaint.measureText(getText().toString());
         }
         if ((int) yogaNode.getHeight().value > 0) {
             params.height = (int) yogaNode.getHeight().value;
         }
+        LogUtil.i(TAG, "params.width = " + params.width + ", params.height = " + params.height);
         setLayoutParams(params);
     }
 

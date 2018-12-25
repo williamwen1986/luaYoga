@@ -11,8 +11,7 @@ import android.widget.FrameLayout;
 import com.common.luakit.LuaHelper;
 import com.common.luakit.constant.PropertyType;
 import com.common.luakit.utils.DimensUtils;
-import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
-import com.facebook.yoga.YogaEdge;
+import com.common.luakit.utils.LogUtil;
 import com.facebook.yoga.YogaNode;
 
 import java.io.InputStream;
@@ -141,7 +140,7 @@ public class YogaImageView extends SimpleCircleImageView implements IYoga {
      */
     public void nativeSetImagePath(String imagePath) {
         try {
-            InputStream inputStream = getContext().getAssets().open(imagePath);
+            InputStream inputStream = getContext().getAssets().open("images/" + imagePath);
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeStream(inputStream, null, options);

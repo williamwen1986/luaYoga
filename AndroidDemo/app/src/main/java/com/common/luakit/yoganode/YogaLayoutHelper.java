@@ -3,7 +3,7 @@ package com.common.luakit.yoganode;
 import com.common.luakit.utils.DimensUtils;
 import com.common.luakit.YogaView;
 import com.common.luakit.constant.PropertyType;
-import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
+import com.common.luakit.utils.LogUtil;
 import com.facebook.yoga.YogaAlign;
 import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaFlexDirection;
@@ -11,6 +11,8 @@ import com.facebook.yoga.YogaJustify;
 import com.facebook.yoga.YogaNode;
 import com.facebook.yoga.YogaOverflow;
 import com.facebook.yoga.YogaWrap;
+
+import java.util.ArrayList;
 
 public class YogaLayoutHelper {
 
@@ -27,6 +29,10 @@ public class YogaLayoutHelper {
     public native void onBindView(long hostView, long rootView, long contentView, int position);
 
     public native float getItemHeight(long hostView, int position);
+
+    public native void onItemClick(long hostView, long rootView, int position);
+
+    private ArrayList<YogaView> yogaViews = new ArrayList<>();
 
     public static YogaLayoutHelper getInstance() {
         if(yogaLayoutHelper == null) {
@@ -257,8 +263,20 @@ public class YogaLayoutHelper {
     /**
      * recursive to inflate the layout with YogaNode.
      */
-    public void inflate(IYoga root) {
+    public void inflate(YogaView root) {
+        if (!yogaViews.contains(root)) {
+            yogaViews.add(root);
+        }
         root.inflate();
+    }
+
+    public void releaseNativeMemory() {
+        for(YogaView yogaView : yogaViews) {
+            if (yogaView != null) {
+                yogaView.releaseNativeMemory();
+            }
+        }
+        yogaViews.clear();
     }
 
 }

@@ -6,8 +6,7 @@ import android.widget.FrameLayout;
 import android.widget.ScrollView;
 
 import com.common.luakit.constant.PropertyType;
-import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
-import com.facebook.yoga.YogaEdge;
+import com.common.luakit.utils.LogUtil;
 import com.facebook.yoga.YogaNode;
 
 /**

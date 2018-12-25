@@ -1,4 +1,4 @@
-package com.demo.luayoga.yy.androiddemo.utils;
+package com.common.luakit.utils;
 
 import android.util.Log;
 

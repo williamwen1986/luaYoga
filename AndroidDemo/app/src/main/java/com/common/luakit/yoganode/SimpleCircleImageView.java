@@ -11,7 +11,7 @@ import android.graphics.RectF;
 import android.graphics.Xfermode;
 import android.graphics.drawable.Drawable;
 
-import com.demo.luayoga.yy.androiddemo.utils.LogUtil;
+import com.common.luakit.utils.LogUtil;
 
 import java.lang.ref.WeakReference;
 
