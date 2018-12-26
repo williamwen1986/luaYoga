@@ -113,4 +113,9 @@ public class YogaScrollView extends ScrollView implements IYoga {
         return false;
     }
 
+    @Override
+    public void reloadYoga() {
+
+    }
+
 }

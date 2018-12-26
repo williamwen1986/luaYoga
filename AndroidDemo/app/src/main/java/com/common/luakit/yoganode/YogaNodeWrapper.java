@@ -31,6 +31,10 @@ public class YogaNodeWrapper {
         childViewList.add(index,  yoga);
     }
 
+    public void removeChild(IYoga yoga) {
+        childViewList.remove(yoga);
+    }
+
     private View getView() {
         return view;
     }

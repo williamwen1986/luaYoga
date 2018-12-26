@@ -193,16 +193,16 @@ public class YogaTextView extends android.support.v7.widget.AppCompatTextView im
             ViewGroup vp = (ViewGroup) parent;
             vp.removeView(this);
             YogaNode yogaNodeParent = yogaNode.getParent();
-            if (yogaNodeParent != null && yogaNodeParent.getChildCount() > 0) {
-                for (int i = 0; i < yogaNodeParent.getChildCount(); i++) {
-                    if (yogaNodeParent.getChildAt(i) == yogaNode) {
-                        LogUtil.i(TAG, "find this node");
-                        yogaNodeParent.removeChildAt(i);
-                        yogaNode.reset();
-                    }
-                }
+            if (yogaNodeParent != null) {
+                yogaNodeParent.removeChildAt(yogaNodeParent.indexOf(yogaNode));
+                yogaNode.reset();
             }
         }
         return true;
+    }
+
+    @Override
+    public void reloadYoga() {
+
     }
 }

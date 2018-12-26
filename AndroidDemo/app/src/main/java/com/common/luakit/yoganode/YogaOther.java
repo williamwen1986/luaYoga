@@ -113,4 +113,9 @@ public class YogaOther extends View implements IYoga {
         return false;
     }
 
+    @Override
+    public void reloadYoga() {
+
+    }
+
 }

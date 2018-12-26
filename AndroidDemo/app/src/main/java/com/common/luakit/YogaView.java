@@ -269,10 +269,19 @@ public class YogaView extends FrameLayout implements IYoga {
         if (parent != null && parent instanceof ViewGroup) {
             ViewGroup vp = (ViewGroup) parent;
             vp.removeView(this);
+            yogaNodeWrapper.removeChild(this);
             rootNode.reset();
             dispose(self);
         }
         return true;
+    }
+
+    @Override
+    public void reloadYoga() {
+        calculateLayout();
+        for (int i = 0; i < rootNode.getChildCount(); i++) {
+            yogaNodeWrapper.getChildView(i).inflate();
+        }
     }
 
     public void releaseNativeMemory() {
@@ -280,4 +289,12 @@ public class YogaView extends FrameLayout implements IYoga {
         dispose(self);
     }
 
+    @Override
+    public void removeView(View view) {
+        super.removeView(view);
+        if (view instanceof IYoga) {
+            LogUtil.i(TAG, "removeView yoga node");
+            yogaNodeWrapper.removeChild((IYoga) view);
+        }
+    }
 }

@@ -33,6 +33,7 @@ local yogaBuilder = function (container)
     button.tapFunction = function()
         button.text = "clicked"
         textView.removeFromParent()
+        container.reloadYoga()
     end
     button.longPressFunction = function()
         button.text = "button longPressFunction"

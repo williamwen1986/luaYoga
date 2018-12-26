@@ -48,6 +48,8 @@ public interface IYoga {
 
     boolean removeFromParent();
 
+    void reloadYoga();
+
     YogaNode getYogaNode();
 
     long getSelfPointer();

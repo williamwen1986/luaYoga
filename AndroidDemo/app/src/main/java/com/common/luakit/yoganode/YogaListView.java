@@ -125,6 +125,11 @@ public class YogaListView extends RecyclerView implements IYoga {
         return false;
     }
 
+    @Override
+    public void reloadYoga() {
+
+    }
+
     /**
      * Jni calling method
      */

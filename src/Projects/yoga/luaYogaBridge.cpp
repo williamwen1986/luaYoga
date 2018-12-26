@@ -222,7 +222,16 @@ void onLongPressGesture(void * view)
 
 void reloadYoga(void * view)
 {
+    LOGD("reloadYoga in native");
+    JniEnvWrapper env;
+    jobject jhostView = ((java_weak_ref *)view)->obj();
 
+    jclass jhostViewClass = env->GetObjectClass(jhostView);
+    jmethodID mid = env->GetMethodID(jhostViewClass, "reloadYoga", "()V");
+    if (mid == NULL) {
+        return;
+    }
+    env->CallVoidMethod(jhostView, mid);
 }
 
 void removeFromParent(void * view)
