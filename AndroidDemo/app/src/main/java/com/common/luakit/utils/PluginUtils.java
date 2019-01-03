@@ -9,4 +9,8 @@ public class PluginUtils {
         LogUtil.i(TAG, "------>>> goFlutter : moduleName = " + moduleName + ", version = " + version + ", type = " + type + ", url = " + url);
     }
 
+    public static void test(int a, boolean b, char c, long l, float f, double d, short s, byte by, PluginUtils pluginUtils) {
+        LogUtil.i(TAG, "-");
+    }
+
 }

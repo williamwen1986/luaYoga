@@ -33,6 +33,77 @@ JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_startLuaKitNative
     lua_State * L = BusinessThread::GetCurrentThreadLuaState();
     luaopen_yoga(L);
     luaopen_yoga_func(L);
+    luaopen_dynamic_func(L);
+}
+
+JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_registerCalleeNative
+(JNIEnv *env, jclass c, jint size, jobjectArray nodes)
+{
+    LOG(ERROR) << "Java_com_common_luakit_LuaHelper_registerCalleeNative";
+    const char * classNames[size];
+    const char * methodNames[size];
+    const char * returnNames[size];
+    const char * paramsNames[size];
+    const char * methodSignatures[size];
+
+    for(int i=0; i < size; i++) {
+        jobject methodObj = (jobject) env->GetObjectArrayElement(nodes, i);
+        jclass methodObjClass = env->GetObjectClass(methodObj);
+
+        jmethodID mid;
+        // class name
+        mid = env->GetMethodID(methodObjClass, "getClassName", "()Ljava/lang/String;");
+        if (mid == NULL) {
+            LOG(ERROR) << "get method id getClassName() failed";
+            return;
+        }
+        jstring jClassName = (jstring)env->CallObjectMethod(methodObj, mid);
+        const char* className = env->GetStringUTFChars(jClassName, NULL);
+        classNames[i] = className;
+
+        // method name
+        mid = env->GetMethodID(methodObjClass, "getMethodName", "()Ljava/lang/String;");
+        if (mid == NULL) {
+            LOG(ERROR) << "get method id getMethodName() failed";
+            return;
+        }
+        jstring jMethodName = (jstring)env->CallObjectMethod(methodObj, mid);
+        const char* methodName = env->GetStringUTFChars(jMethodName, NULL);
+        methodNames[i] = methodName;
+
+        // return name
+        mid = env->GetMethodID(methodObjClass, "getReturnName", "()Ljava/lang/String;");
+        if (mid == NULL) {
+            LOG(ERROR) << "get method id getReturnName() failed";
+            return;
+        }
+        jstring jReturnName = (jstring)env->CallObjectMethod(methodObj, mid);
+        const char* returnName = env->GetStringUTFChars(jReturnName, NULL);
+        returnNames[i] = returnName;
+
+        // param name
+        mid = env->GetMethodID(methodObjClass, "getParamsName", "()Ljava/lang/String;");
+        if (mid == NULL) {
+            LOG(ERROR) << "get method id getParamsName() failed";
+            return;
+        }
+        jstring jParamsName = (jstring)env->CallObjectMethod(methodObj, mid);
+        const char* paramsName = env->GetStringUTFChars(jParamsName, NULL);
+        paramsNames[i] = paramsName;
+
+        // method signature
+        mid = env->GetMethodID(methodObjClass, "getMethodSignature", "()Ljava/lang/String;");
+        if (mid == NULL) {
+            LOG(ERROR) << "get method id getMethodSignature() failed";
+            return;
+        }
+        jstring jMethodSignature = (jstring)env->CallObjectMethod(methodObj, mid);
+        const char* methodSignature = env->GetStringUTFChars(jMethodSignature, NULL);
+        methodSignatures[i] = methodSignature;
+    }
+
+    lua_State * L = BusinessThread::GetCurrentThreadLuaState();
+    registerFunction(L, classNames, methodNames, returnNames, paramsNames, methodSignatures);
 }
 
 JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_callback

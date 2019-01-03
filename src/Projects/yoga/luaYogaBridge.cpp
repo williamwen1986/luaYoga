@@ -2,6 +2,7 @@
 #include "lua_yoga.h"
 #include "jni.h"
 #include "JniEnvWrapper.h"
+#include "JniLuaConvertor.h"
 #include "android/log.h"
 #include "java_weak_ref.h"
 #include "common/business_runtime.h"
@@ -11,7 +12,10 @@
 #define INVALID_VIEW_TYPE -1
 
 #define TAG    "LuaYoga-jni" 
-#define LOGD(...)  __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
+#define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
+#define  LOGW(...)  __android_log_print(ANDROID_LOG_WARN,TAG,__VA_ARGS__)
+#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
+#define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
 
 static std::map<void *, void *> m;
 
@@ -476,4 +480,38 @@ void goFlutter(std::string moduleName, std::string pluginVersion, std::string ty
         return;
     }
     env->CallStaticVoidMethod(clazz, jmid, jmoduleName, jpluginVersion, jtype, jurl);
+}
+
+void callDynamicFunction(const char * className, const char * methodName, const char * returnName, const char * paramsName, int paramSize, const char * methodSignature) {
+    LOGD("callDynamicFunction");
+    JniEnvWrapper env;
+
+    jclass clazz = env->FindClass(className);
+    if (clazz == NULL) {
+        LOGD("Failed!! Class not found");
+        return;
+    }
+
+    lua_State * state = BusinessThread::GetCurrentThreadLuaState();
+    int number = lua_gettop(state);
+    jvalue objparams[number];
+    LOGD("param count: %d", number);
+    for (int i = 0; i < number - 1; ++i) // ignore userdata
+    {
+        objparams[i].l = object_copyToJava(state, env, i + 2);
+    }
+
+    // jstring jmoduleName = env->NewStringUTF(moduleName.c_str());
+    // jstring jpluginVersion = env->NewStringUTF(pluginVersion.c_str());
+    // jstring jtype = env->NewStringUTF(type.c_str());
+    // jstring jurl = env->NewStringUTF(url.c_str());
+    jmethodID jmid = env->GetStaticMethodID(clazz, methodName, methodSignature);
+    if (jmid == NULL) {
+        LOGD("Failed!! Method not found");
+        // LOGD("Failed!! Method " + methodName + " " + paramsName + " not found");
+        return;
+    }
+
+    // return type
+    env->CallStaticVoidMethodA(clazz, jmid, objparams);
 }
