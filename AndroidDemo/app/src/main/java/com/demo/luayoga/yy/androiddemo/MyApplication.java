@@ -19,7 +19,7 @@ public class MyApplication extends Application {
         List<Method> methods = new ArrayList<>();
         try {
             methods.add(PluginUtils.class.getMethod("goFlutter", String.class, String.class, String.class, String.class)); // goFlutter(String moduleName, String version, String type, String url)
-            methods.add(PluginUtils.class.getMethod("test", int.class, boolean.class, char.class, long.class, float.class, double.class, short.class, byte.class, PluginUtils.class)); // test(int a, boolean b, char c, long l, float f, double d, short s, byte by, PluginUtils pluginUtils)
+            methods.add(PluginUtils.class.getMethod("test", Integer.class, Boolean.class, Character.class, Long.class, Float.class, Double.class, Short.class, Byte.class)); // test(Integer a, Boolean b, Character c, Long l, Float f, Double d, Short s, Byte by)
             LuaHelper.registerCallee(methods);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();

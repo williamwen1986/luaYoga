@@ -179,5 +179,5 @@ extern int luaopen_yoga(lua_State* L);
 extern int luaopen_yoga_func(lua_State *L);
 extern int luaopen_dynamic_func(lua_State *L);
 extern void callbackToYoga(int type, void * v);
-extern void registerFunction(lua_State *L, const char* classNames[], const char* methodNames[], const char* returnNames[], const char* paramsNames[], const char* methodSignatures[]);
+extern void registerFunction(lua_State *L, const char* simpleClassNames[], const char* classNames[], const char* methodNames[], const char* returnNames[], const char* paramsNames[], const char* methodSignatures[]);
 

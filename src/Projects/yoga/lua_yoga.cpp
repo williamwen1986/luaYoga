@@ -46,6 +46,7 @@ struct YogaFunction {
 };
 
 struct DynamicFunction {
+    const char* simpleClassName;
     const char* className;
     const char* methodName;
     const char* returnName;
@@ -547,7 +548,7 @@ extern void callbackToYoga(int type, void * v) {
     }
 }
 
-extern void registerFunction(lua_State *L, const char* classNames[], const char* methodNames[], const char* returnNames[], const char* paramsNames[], const char* methodSignatures[]) {
+extern void registerFunction(lua_State *L, const char* simpleClassNames[], const char* classNames[], const char* methodNames[], const char* returnNames[], const char* paramsNames[], const char* methodSignatures[]) {
     LOG(WARNING)<<"registerFunction";
     BEGIN_STACK_MODIFY(L);
 
@@ -558,6 +559,8 @@ extern void registerFunction(lua_State *L, const char* classNames[], const char*
         DynamicFunction *nf = (DynamicFunction *)lua_newuserdata(L, nbytes);
         luaL_getmetatable(L, LUA_YOGA_DYNAMIC_FUNCTION_METATABLE_NAME);
         lua_setmetatable(L, -2);
+
+        nf->simpleClassName = simpleClassNames[i];
         nf->className = classNames[i];
         nf->methodName = methodNames[i];
         nf->returnName = returnNames[i];
@@ -565,8 +568,10 @@ extern void registerFunction(lua_State *L, const char* classNames[], const char*
         nf->methodSignature = methodSignatures[i];
 
         // lua_pushcfunction(L, __dynamicFuncCall);
-        lua_setglobal(L, nf->methodName);
-        LOG(WARNING)<<"className:"<<nf->className<<",methodName:"<<nf->methodName<<",returnName:"<<nf->returnName<<",paramsName:"<<nf->paramsName<<",methodSignature:"<<nf->methodSignature;
+        std::string fullName( std::string(nf->simpleClassName) + "_" + nf->methodName );
+        LOG(WARNING)<<"fullName:"<<fullName.c_str();
+        lua_setglobal(L, fullName.c_str());
+        LOG(WARNING)<<"simpleClassName:"<<nf->simpleClassName<<"className:"<<nf->className<<",methodName:"<<nf->methodName<<",returnName:"<<nf->returnName<<",paramsName:"<<nf->paramsName<<",methodSignature:"<<nf->methodSignature;
     }
     END_STACK_MODIFY(L, 0)
 }

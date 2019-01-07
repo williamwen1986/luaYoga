@@ -55,17 +55,6 @@ public class LuaHelper {
     public static void registerCallee(List<Method> methods) {
         List<MethodInfo> methodInfos = new ArrayList<>(methods.size());
         for (Method method : methods) {
-            Log.d(TAG, "Class: " + method.getDeclaringClass().getName());
-            Log.d(TAG, "Method: " + method.getName());
-            Log.d(TAG, "Return: " + method.getReturnType().getName());
-
-            StringBuilder params = new StringBuilder("");
-            for (Class<?> aClass : method.getParameterTypes()) {
-                params.append(aClass.getName());
-                params.append(", ");
-            }
-            Log.d(TAG, "Params: " + params);
-
             MethodInfo methodInfo = new MethodInfo(method);
             Log.d(TAG, "JNI Class: " + methodInfo.getClassName());
             Log.d(TAG, "JNI Method: " + methodInfo.getMethodName());

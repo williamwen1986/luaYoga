@@ -40,6 +40,7 @@ JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_registerCalleeNative
 (JNIEnv *env, jclass c, jint size, jobjectArray nodes)
 {
     LOG(ERROR) << "Java_com_common_luakit_LuaHelper_registerCalleeNative";
+    const char * simpleClassNames[size];
     const char * classNames[size];
     const char * methodNames[size];
     const char * returnNames[size];
@@ -51,6 +52,16 @@ JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_registerCalleeNative
         jclass methodObjClass = env->GetObjectClass(methodObj);
 
         jmethodID mid;
+        // simple class name
+        mid = env->GetMethodID(methodObjClass, "getSimpleClassName", "()Ljava/lang/String;");
+        if (mid == NULL) {
+            LOG(ERROR) << "get method id getSimpleClassName() failed";
+            return;
+        }
+        jstring jSimpleClassName = (jstring)env->CallObjectMethod(methodObj, mid);
+        const char* simpleClassName = env->GetStringUTFChars(jSimpleClassName, NULL);
+        simpleClassNames[i] = simpleClassName;
+
         // class name
         mid = env->GetMethodID(methodObjClass, "getClassName", "()Ljava/lang/String;");
         if (mid == NULL) {
@@ -103,7 +114,7 @@ JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_registerCalleeNative
     }
 
     lua_State * L = BusinessThread::GetCurrentThreadLuaState();
-    registerFunction(L, classNames, methodNames, returnNames, paramsNames, methodSignatures);
+    registerFunction(L, simpleClassNames, classNames, methodNames, returnNames, paramsNames, methodSignatures);
 }
 
 JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_callback

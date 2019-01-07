@@ -3,7 +3,7 @@ package com.common.luakit;
 import java.lang.reflect.Method;
 
 /**
- *
+ * Called by Jni
  * Type Signature	Java Type
  * Z	boolean
  * B	byte
@@ -25,6 +25,10 @@ public class MethodInfo {
     Method mMethodRef;
     MethodInfo(Method method) {
         mMethodRef = method;
+    }
+
+    public String getSimpleClassName() {
+        return mMethodRef.getDeclaringClass().getSimpleName();
     }
 
     public String getClassName() {
