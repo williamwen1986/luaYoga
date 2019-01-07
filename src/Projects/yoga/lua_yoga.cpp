@@ -548,11 +548,11 @@ extern void callbackToYoga(int type, void * v) {
     }
 }
 
-extern void registerFunction(lua_State *L, const char* simpleClassNames[], const char* classNames[], const char* methodNames[], const char* returnNames[], const char* paramsNames[], const char* methodSignatures[]) {
+extern void registerFunction(lua_State *L, int size, const char* simpleClassNames[], const char* classNames[], const char* methodNames[], const char* returnNames[], const char* paramsNames[], const char* methodSignatures[]) {
     LOG(WARNING)<<"registerFunction";
     BEGIN_STACK_MODIFY(L);
 
-    int size = sizeof(classNames)/sizeof(classNames[0]);
+    LOG(WARNING)<<"size:"<< size;
     for (int i = 0; i < size; ++i)
     {
         size_t nbytes = sizeof(DynamicFunction);

@@ -1,6 +1,10 @@
 package com.common.luakit.utils;
 
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
 public class PluginUtils {
 
     private static final String TAG = "PluginUtils";
@@ -9,8 +13,12 @@ public class PluginUtils {
         LogUtil.i(TAG, "------>>> goFlutter : moduleName = " + moduleName + ", version = " + version + ", type = " + type + ", url = " + url);
     }
 
-    public static void test(Integer a, Boolean b, Character c, Long l, Float f, Double d, Short s, Byte by) {
-        LogUtil.i(TAG, String.format("test [a:%s][b:%s][c:%s][l:%s][f:%s][d:%s][s:%s][by:%s][", a.toString(), b.toString(), c.toString(), l.toString(), f.toString(), d.toString(), s.toString(), by.toString()));
+    public static void test(String s, Integer a, Boolean b, Double d, HashMap map) {
+        LogUtil.i(TAG, String.format("test [s:%s][a:%s][b:%s][d:%s]", s, a.toString(), b.toString(), d.toString()));
+        Set set = map.keySet();
+        for (Object obj : set) {
+            LogUtil.i(TAG, String.format("test hashmap [key:%s][value:%s]", obj.toString(), map.get(obj)));
+        }
     }
 
 }

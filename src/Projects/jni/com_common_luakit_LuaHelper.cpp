@@ -48,8 +48,10 @@ JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_registerCalleeNative
     const char * methodSignatures[size];
 
     for(int i=0; i < size; i++) {
+
         jobject methodObj = (jobject) env->GetObjectArrayElement(nodes, i);
         jclass methodObjClass = env->GetObjectClass(methodObj);
+        LOG(ERROR) << "size"<< size << ",index i" << i;
 
         jmethodID mid;
         // simple class name
@@ -114,7 +116,7 @@ JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_registerCalleeNative
     }
 
     lua_State * L = BusinessThread::GetCurrentThreadLuaState();
-    registerFunction(L, simpleClassNames, classNames, methodNames, returnNames, paramsNames, methodSignatures);
+    registerFunction(L, (int) size, simpleClassNames, classNames, methodNames, returnNames, paramsNames, methodSignatures);
 }
 
 JNIEXPORT void JNICALL Java_com_common_luakit_LuaHelper_callback
