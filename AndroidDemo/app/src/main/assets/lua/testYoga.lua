@@ -1,7 +1,7 @@
 local yogaBuilder = function (container)
 
     PluginUtils_goFlutter("a", "b", "c", "d")
-    PluginUtils_test("string", 1, true, 1.1, { a = 1.0, r = 1.0, g = 1.0, b = 1.0 }) -- test(String s, Integer a, Boolean b, Double d, HashMap map)
+    local result = PluginUtils_test("string", 1, true, 1.1, { a = 1.0, r = 1.0, g = 1.0, b = 1.0 }) -- test(String s, Integer a, Boolean b, Double d, HashMap map)
     --container.backgroundColor = {r=1.0}
     container.isEnabled = true
     container.alignItems = YGAlignFlexStart
@@ -11,7 +11,7 @@ local yogaBuilder = function (container)
     textView.isEnabled = true
     textView.width = 300
     textView.height = 20
-    textView.text = "wait for remove"
+    textView.text = result
     textView.textTable = {
         fontSize = 16,
         isBold = false,

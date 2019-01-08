@@ -501,10 +501,6 @@ void callDynamicFunction(const char * className, const char * methodName, const 
         objparams[i].l = object_copyToJava(state, env, i + 2);
     }
 
-    // jstring jmoduleName = env->NewStringUTF(moduleName.c_str());
-    // jstring jpluginVersion = env->NewStringUTF(pluginVersion.c_str());
-    // jstring jtype = env->NewStringUTF(type.c_str());
-    // jstring jurl = env->NewStringUTF(url.c_str());
     jmethodID jmid = env->GetStaticMethodID(clazz, methodName, methodSignature);
     if (jmid == NULL) {
         LOGD("Failed!! Method not found");
@@ -513,5 +509,10 @@ void callDynamicFunction(const char * className, const char * methodName, const 
     }
 
     // return type
-    env->CallStaticVoidMethodA(clazz, jmid, objparams);
+    if (strcmp(returnName, "V") == 0) {
+        env->CallStaticVoidMethodA(clazz, jmid, objparams);
+    } else {
+        jobject jobj = env->CallStaticObjectMethodA(clazz, jmid, objparams);
+        object_fromjava(state, env, jobj);
+    }
 }
