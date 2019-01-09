@@ -13,7 +13,6 @@
 #import "UIImage+Add.h"
 #import "SodaGlobalProgressHud.h"
 
-#import "MOSDownloader.h"
 
 @interface UIView (LuaGesture)
 
@@ -239,8 +238,11 @@ bool setYogaProperty(void * view, YogaType type, std::string propertyName, float
         v.yoga.borderWidth= value;
     } else if(propertyName == YOGA_WIDTH){
         v.yoga.width = YGPointValue(value);
+        v.frame = CGRectMake(v.frame.origin.x, v.frame.origin.y, YGPointValue(value).value, v.frame.size.height);
+        
     } else if(propertyName == YOGA_HEIGHT){
         v.yoga.height = YGPointValue(value);
+        v.frame = CGRectMake(v.frame.origin.x, v.frame.origin.y, v.frame.size.width, YGPointValue(value).value);
     } else if(propertyName == YOGA_MIN_WIDTH){
         v.yoga.minWidth = YGPointValue(value);
     } else if(propertyName == YOGA_MIN_HEIGHT){
@@ -289,12 +291,6 @@ void addLongPressGesture(void * view, void *root)
     [v addGestureRecognizer:recognizer];
 }
 
-void onTapGesture(void * view){
-}
-
-void onLongPressGesture(void * view){
-}
-
 void setListSeperatorColor(void * view, float r, float g, float b, float a)
 {
     UITableView *t = (__bridge UITableView *)view;
@@ -329,15 +325,16 @@ void setImagePath(void * imageView,  std::string imagePath)
 {
     
     NSString *str= [NSString stringWithFormat:@"%s",imagePath.c_str()];
-
-    
+ 
     UIImageView * v = (__bridge UIImageView *)imageView;
     
     NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString * path = [paths objectAtIndex:0] ;
     
     NSString *filePath = [path stringByAppendingPathComponent:str];
-    
+    if (![NSFileManager.defaultManager fileExistsAtPath:filePath]) {
+        filePath = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:str];
+    }
     v.image = [UIImage imageWithContentsOfFile:filePath];
 
 }
@@ -528,10 +525,12 @@ void showToast(std::string toastContent){
 }
 
 void goFlutter(std::string moduleName, std::string pluginVersion, std::string type, std::string url){
+    
     NSString *moduleNameStr = [NSString stringWithCString:moduleName.c_str() encoding:NSUTF8StringEncoding];
+    NSString *pluginVersionStr = [NSString stringWithCString:pluginVersion.c_str() encoding:NSUTF8StringEncoding];
+    NSString *typeStr = [NSString stringWithCString:type.c_str() encoding:NSUTF8StringEncoding];
+    NSString *urlStr = [NSString stringWithCString:url.c_str() encoding:NSUTF8StringEncoding];
     
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"Plugin_Tools_Flutter" object:moduleNameStr];
     
-    [NSObject presentMessageTips:[NSString stringWithFormat:@"来啦老弟～:%@",moduleNameStr]];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Plugin_Tools_Flutter" object:moduleNameStr userInfo:@{@"moduleName":moduleNameStr, @"pluginVersion":pluginVersionStr, @"type":typeStr, @"url":urlStr }];     
 }

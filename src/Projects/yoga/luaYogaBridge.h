@@ -10,10 +10,8 @@ bool setYogaProperty(void * view, YogaType type, std::string propertyName, float
 void setBackgroundColor(void * view, float r, float g, float b, float a);
 
 void addTapGesture(void * view, void *root);
-void onTapGesture(void * view);
 
 void addLongPressGesture(void * view, void *root);
-void onLongPressGesture(void * view);
 
 void reloadYoga(void * view);
 
@@ -73,5 +71,3 @@ float widthForTextTable(std::string text,float textHeight,float textFontSize,std
 void showToast(std::string toastContent);
 
 void goFlutter(std::string moduleName, std::string pluginVersion, std::string type, std::string url);
-
-void callDynamicFunction(const char * className, const char * methodName, const char * returnName, const char * paramsName, int paramSize, const char * methodSignature);

@@ -45,16 +45,6 @@ struct YogaFunction {
     void * root;
 };
 
-struct DynamicFunction {
-    const char* simpleClassName;
-    const char* className;
-    const char* methodName;
-    const char* returnName;
-    const char* paramsName;
-    const char* methodSignature;
-    int paramSize;
-};
-
 
 static LuaModel getValueFromState(lua_State *state,LuaValueType valueType, std::string luaKey){
     struct LuaModel result;
@@ -405,7 +395,15 @@ static int __yogaViewIndex(lua_State *L)
             lua_rawget(L, 3);
         }
     } else {
-        if(name == ADD_CONTAINER || name == ADD_ListView || name == ADD_ImageView || name == ADD_TEXT){
+        if(name == ADD_CONTAINER 
+            || name == ADD_ListView 
+            || name == ADD_ImageView 
+            || name == ADD_TEXT
+            || name == ADD_CollectionView
+            || name == RELOAD_YOGA
+            || name == REMOVE_FROM_PARENT
+            || name == List_Reload
+            ){
             size_t nbytes = sizeof(YogaFunction);
             YogaFunction *yf = (YogaFunction *)lua_newuserdata(L, nbytes);
             luaL_getmetatable(L, LUA_YOGA_FUNCTION_METATABLE_NAME);
@@ -466,18 +464,6 @@ static int __yogaFuncCall(lua_State *L)
     return 1;
 }
 
-static int __dynamicFuncCall(lua_State *L)
-{
-    LOG(WARNING)<<"__dynamicFuncCall";
-    BEGIN_STACK_MODIFY(L);
-    DynamicFunction *df = (DynamicFunction *)luaL_checkudata(L, 1, LUA_YOGA_DYNAMIC_FUNCTION_METATABLE_NAME);
-    
-    callDynamicFunction(df->className, df->methodName, df->returnName, df->paramsName, df->paramSize, df->methodSignature);
-
-    END_STACK_MODIFY(L, 1)
-    return 1;
-}
-
 static const struct luaL_Reg yogaViewMetaFunctions[] = {
     {"__newindex",__yogaViewNewIndex},
     {"__index",__yogaViewIndex},
@@ -494,15 +480,6 @@ static const struct luaL_Reg yogaFuncMetaFunctions[] = {
 };
 
 static const struct luaL_Reg yogaFuncFunctions[] = {
-    {NULL, NULL}
-};
-
-static const struct luaL_Reg yogaFuncDynamicMetaFunctions[] = {
-    {"__call",__dynamicFuncCall},
-    {NULL, NULL}
-};
-
-static const struct luaL_Reg yogaFuncDynamicFunctions[] = {
     {NULL, NULL}
 };
 
@@ -527,53 +504,6 @@ extern int luaopen_yoga_func(lua_State *L) {
     lua_setmetatable(L, -2);
     END_STACK_MODIFY(L, 0)
     return 0;
-}
-
-extern int luaopen_dynamic_func(lua_State *L) {
-    BEGIN_STACK_MODIFY(L);
-    luaL_newmetatable(L, LUA_YOGA_DYNAMIC_FUNCTION_METATABLE_NAME);
-    luaL_register(L, NULL, yogaFuncDynamicMetaFunctions);
-    luaL_register(L, LUA_YOGA_DYNAMIC_FUNCTION_METATABLE_NAME, yogaFuncDynamicFunctions);
-    lua_pushvalue(L, -2);
-    lua_setmetatable(L, -2);
-    END_STACK_MODIFY(L, 0)
-    return 0;
-}
-
-extern void callbackToYoga(int type, void * v) {
-    if (type == 0) {
-        onTapGesture(v);
-    } else if (type == 1) {
-        onLongPressGesture(v);
-    }
-}
-
-extern void registerFunction(lua_State *L, int size, const char* simpleClassNames[], const char* classNames[], const char* methodNames[], const char* returnNames[], const char* paramsNames[], const char* methodSignatures[]) {
-    LOG(WARNING)<<"registerFunction";
-    BEGIN_STACK_MODIFY(L);
-
-    LOG(WARNING)<<"size:"<< size;
-    for (int i = 0; i < size; ++i)
-    {
-        size_t nbytes = sizeof(DynamicFunction);
-        DynamicFunction *nf = (DynamicFunction *)lua_newuserdata(L, nbytes);
-        luaL_getmetatable(L, LUA_YOGA_DYNAMIC_FUNCTION_METATABLE_NAME);
-        lua_setmetatable(L, -2);
-
-        nf->simpleClassName = simpleClassNames[i];
-        nf->className = classNames[i];
-        nf->methodName = methodNames[i];
-        nf->returnName = returnNames[i];
-        nf->paramsName = paramsNames[i];
-        nf->methodSignature = methodSignatures[i];
-
-        // lua_pushcfunction(L, __dynamicFuncCall);
-        std::string fullName( std::string(nf->simpleClassName) + "_" + nf->methodName );
-        LOG(WARNING)<<"fullName:"<<fullName.c_str();
-        lua_setglobal(L, fullName.c_str());
-        LOG(WARNING)<<"simpleClassName:"<<nf->simpleClassName<<"className:"<<nf->className<<",methodName:"<<nf->methodName<<",returnName:"<<nf->returnName<<",paramsName:"<<nf->paramsName<<",methodSignature:"<<nf->methodSignature;
-    }
-    END_STACK_MODIFY(L, 0)
 }
 
 extern int heightForTextTable(lua_State *L) {

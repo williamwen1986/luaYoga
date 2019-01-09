@@ -37,6 +37,9 @@ extern "C" {
     if (self) {
         self.delegate = self;
         self.dataSource = self;
+        self.backgroundView.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor clearColor];
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return self;
 }
@@ -61,7 +64,7 @@ extern "C" {
     assert(lua_type(state, -1) == LUA_TTABLE);
     lua_pushlightuserdata(state, (__bridge void *)self);
     lua_rawget(state, -2);
-    assert(lua_type(state, -1) == LUA_TUSERDATA);
+    //assert(lua_type(state, -1) == LUA_TUSERDATA);
     if(lua_type(state, -1) == LUA_TUSERDATA){
         lua_getfield(state, -1, List_ColumnsInGroup);
         if (lua_type(state, -1) == LUA_TFUNCTION) {
@@ -71,7 +74,7 @@ extern "C" {
         }
     } else {
         NSLog(@"tableView numberOfRowsInSection no userdata ");
-        assert(false);
+//        assert(false);
     }
     END_STACK_MODIFY(state, 0)
     return num;
@@ -86,7 +89,8 @@ extern "C" {
     assert(lua_type(state, -1) == LUA_TTABLE);
     lua_pushlightuserdata(state, (__bridge void *)self);
     lua_rawget(state, -2);
-    assert(lua_type(state, -1) == LUA_TUSERDATA);
+    NSLog(@"section:%@",@(lua_type(state, -1)));
+    //assert(lua_type(state, -1) == LUA_TUSERDATA);
     if(lua_type(state, -1) == LUA_TUSERDATA){
         lua_getfield(state, -1, List_NumberOfGroups);
         if (lua_type(state, -1) == LUA_TFUNCTION) {
@@ -95,7 +99,7 @@ extern "C" {
         }
     } else {
         NSLog(@"tableView numberOfSectionsInTableView no userdata ");
-        assert(false);
+//        assert(false);
     }
     END_STACK_MODIFY(state, 0)
     return num;
@@ -135,12 +139,15 @@ extern "C" {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString * identifier = @"cell";
+    NSString * identifier = [self getIdentifier:indexPath];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+
     lua_State * state = BusinessThread::GetCurrentThreadLuaState();
     BEGIN_STACK_MODIFY(state);
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell.contentView.backgroundColor = [UIColor clearColor];
+        cell.backgroundColor  = [UIColor clearColor];
         LuaYogaView * view = [[LuaYogaView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, [self heightForSection:indexPath.section row:indexPath.row])];
         size_t nbytes = sizeof(YogaInfo);
         YogaInfo *yi = (YogaInfo *)lua_newuserdata(state, nbytes);
@@ -170,7 +177,7 @@ extern "C" {
     assert(lua_type(state, -1) == LUA_TTABLE);
     lua_pushlightuserdata(state, (__bridge void *)self);
     lua_rawget(state, -2);
-    assert(lua_type(state, -1) == LUA_TUSERDATA);
+//    assert(lua_type(state, -1) == LUA_TUSERDATA);
     if(lua_type(state, -1) == LUA_TUSERDATA){
         lua_getfield(state, -1, List_RenderItem);
         if (lua_type(state, -1) == LUA_TFUNCTION) {
@@ -186,11 +193,11 @@ extern "C" {
             lua_pcall(state, 3, 0, 0);
         } else {
             NSLog(@"tableView List_ItemHeight not function ");
-            assert(false);
+//            assert(false);
         }
     } else {
         NSLog(@"tableView cellForRowAtIndexPath no userdata ");
-        assert(false);
+//        assert(false);
     }
     [v.yoga applyLayoutPreservingOrigin:YES];
     END_STACK_MODIFY(state, 0)

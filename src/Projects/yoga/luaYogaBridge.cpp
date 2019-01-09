@@ -2,22 +2,13 @@
 #include "lua_yoga.h"
 #include "jni.h"
 #include "JniEnvWrapper.h"
-#include "JniLuaConvertor.h"
 #include "android/log.h"
 #include "java_weak_ref.h"
-#include "common/business_runtime.h"
-#include "tools/lua_helpers.h"
-#include <map>
 
 #define INVALID_VIEW_TYPE -1
 
 #define TAG    "LuaYoga-jni" 
-#define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,TAG,__VA_ARGS__)
-#define  LOGW(...)  __android_log_print(ANDROID_LOG_WARN,TAG,__VA_ARGS__)
-#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
-#define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
-
-static std::map<void *, void *> m;
+#define LOGD(...)  __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
 
 void setPointer(void * self, void * parentView, void * root) {
     jobject jself = ((java_weak_ref *)self)->obj();
@@ -146,110 +137,24 @@ void setBackgroundColor(void * view, float r, float g, float b, float a) {
     env->CallVoidMethod(jhostView, mid, (jfloat)r, (jfloat)g, (jfloat)b, (jfloat)a);
 }
 
-void addTapGesture(void * view, void *root) {
-    LOGD("addTapGesture in native");
-    JniEnvWrapper env;
-    jobject jhostView = ((java_weak_ref *)view)->obj();
-    jobject jroot = ((java_weak_ref *)root)->obj();
-    m[view] = root;
+void addTapGesture(void * view, void *root)
+{
 
-    jclass jhostViewClass = env->GetObjectClass(jhostView);
-    jmethodID mid = env->GetMethodID(jhostViewClass, "nativeAddTapGesture", "()V");
-    if (mid == NULL) {
-        return;
-    }
-    env->CallVoidMethod(jhostView, mid);
-}
-
-void onTapGesture(void * view) {
-    LOGD("onTapGesture in native");
-    void * root = m[view];
-
-    lua_State * state = BusinessThread::GetCurrentThreadLuaState();
-    BEGIN_STACK_MODIFY(state);
-    pushUserdataInStrongTable(state, root);
-    // assert(lua_type(state, -1) == LUA_TTABLE);
-    lua_pushlightuserdata(state, view);
-    lua_rawget(state, -2);
-    // assert(lua_type(state, -1) == LUA_TUSERDATA);
-    if(lua_type(state, -1) == LUA_TUSERDATA){
-        lua_getfield(state, -1, TAP_FUNCTION);
-        if (lua_type(state, -1) == LUA_TFUNCTION) {
-            lua_pcall(state, 0, 0, 0);
-        }
-    } else {
-        LOGD("view tapGesture no userdata ");
-        // assert(false);
-    }
-    END_STACK_MODIFY(state, 0)
 }
 
 void addLongPressGesture(void * view, void *root)
 {
-    LOGD("addLongPressGesture in native");
-    JniEnvWrapper env;
-    jobject jhostView = ((java_weak_ref *)view)->obj();
-    jobject jroot = ((java_weak_ref *)root)->obj();
-    m[view] = root;
 
-    jclass jhostViewClass = env->GetObjectClass(jhostView);
-    jmethodID mid = env->GetMethodID(jhostViewClass, "nativeAddLongPressGesture", "()V");
-    if (mid == NULL) {
-        return;
-    }
-    env->CallVoidMethod(jhostView, mid);
-}
-
-void onLongPressGesture(void * view)
-{
-    LOGD("onLongPressGesture in native");
-    void * root = m[view];
-
-    lua_State * state = BusinessThread::GetCurrentThreadLuaState();
-    BEGIN_STACK_MODIFY(state);
-    pushUserdataInStrongTable(state, root);
-    // assert(lua_type(state, -1) == LUA_TTABLE);
-    lua_pushlightuserdata(state, view);
-    lua_rawget(state, -2);
-    // assert(lua_type(state, -1) == LUA_TUSERDATA);
-    if(lua_type(state, -1) == LUA_TUSERDATA){
-        lua_getfield(state, -1, LONGPRESS_FUNCTION);
-        if (lua_type(state, -1) == LUA_TFUNCTION) {
-            lua_pcall(state, 0, 0, 0);
-        }
-    } else {
-        LOGD("view onLongPressGesture no userdata ");
-        // assert(false);
-    }
-    END_STACK_MODIFY(state, 0)
 }
 
 void reloadYoga(void * view)
 {
-    LOGD("reloadYoga in native");
-    JniEnvWrapper env;
-    jobject jhostView = ((java_weak_ref *)view)->obj();
 
-    jclass jhostViewClass = env->GetObjectClass(jhostView);
-    jmethodID mid = env->GetMethodID(jhostViewClass, "reloadYoga", "()V");
-    if (mid == NULL) {
-        return;
-    }
-    env->CallVoidMethod(jhostView, mid);
 }
 
 void removeFromParent(void * view)
 {
-    LOGD("removeFromParent in native");
-    JniEnvWrapper env;
-    jobject jhostView = ((java_weak_ref *)view)->obj();
 
-    jclass jhostViewClass = env->GetObjectClass(jhostView);
-    jmethodID mid = env->GetMethodID(jhostViewClass, "removeFromParent", "()Z");
-    if (mid == NULL) {
-        return;
-    }
-    env->CallBooleanMethod(jhostView, mid);
 }
 
 void setListSeperatorColor(void * view, float r, float g, float b, float a)
@@ -480,39 +385,4 @@ void goFlutter(std::string moduleName, std::string pluginVersion, std::string ty
         return;
     }
     env->CallStaticVoidMethod(clazz, jmid, jmoduleName, jpluginVersion, jtype, jurl);
-}
-
-void callDynamicFunction(const char * className, const char * methodName, const char * returnName, const char * paramsName, int paramSize, const char * methodSignature) {
-    LOGD("callDynamicFunction");
-    JniEnvWrapper env;
-
-    jclass clazz = env->FindClass(className);
-    if (clazz == NULL) {
-        LOGD("Failed!! Class not found");
-        return;
-    }
-
-    lua_State * state = BusinessThread::GetCurrentThreadLuaState();
-    int number = lua_gettop(state);
-    jvalue objparams[number];
-    LOGD("param count: %d", number);
-    for (int i = 0; i < number - 1; ++i) // ignore userdata
-    {
-        objparams[i].l = object_copyToJava(state, env, i + 2);
-    }
-
-    jmethodID jmid = env->GetStaticMethodID(clazz, methodName, methodSignature);
-    if (jmid == NULL) {
-        LOGD("Failed!! Method not found");
-        // LOGD("Failed!! Method " + methodName + " " + paramsName + " not found");
-        return;
-    }
-
-    // return type
-    if (strcmp(returnName, "V") == 0) {
-        env->CallStaticVoidMethodA(clazz, jmid, objparams);
-    } else {
-        jobject jobj = env->CallStaticObjectMethodA(clazz, jmid, objparams);
-        object_fromjava(state, env, jobj);
-    }
 }
