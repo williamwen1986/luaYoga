@@ -7,11 +7,29 @@ local yogaBuilder = function (container)
     container.alignItems = YGAlignFlexStart
     container.flexDirection = YGFlexDirectionColumn
 
+    local jumpYoga = container.addTextView()
+    jumpYoga.isEnabled = true
+    jumpYoga.width = 300
+    jumpYoga.height = 20
+    jumpYoga.text = result
+    jumpYoga.textTable = {
+        fontSize = 16,
+        isBold = false,
+        alignment = TextAlignmentCenter,
+        color = { a = 1.0, r = 1.0, g = 1.0, b = 1.0 }
+    }
+    jumpYoga.backgroundColor = {r=1.0}
+    jumpYoga.tapFunction = function()
+        goYoga("test2")
+        jumpYoga.text = "gone"
+
+    end
+
     local textView = container.addTextView()
     textView.isEnabled = true
     textView.width = 300
     textView.height = 20
-    textView.text = result
+    textView.text = "wait for remove"
     textView.textTable = {
         fontSize = 16,
         isBold = false,

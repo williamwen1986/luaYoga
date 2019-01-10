@@ -18,7 +18,12 @@ public class PluginUtils {
         for (Object obj : set) {
             LogUtil.i(TAG, String.format("test hashmap [key:%s][value:%s]", obj.toString(), map.get(obj)));
         }
-        return "returned";
+        return "click to jump yoga";
+    }
+
+    public static void goYoga(String moduleName) {
+        LogUtil.i(TAG, "------>>> goYoga : moduleName = " + moduleName);
+
     }
 
 }
