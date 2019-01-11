@@ -8,6 +8,7 @@ extern "C" {
 
 #define LUA_YOGA_VIEW_METATABLE_NAME "lua.yoga.view"
 #define LUA_YOGA_FUNCTION_METATABLE_NAME "lua.yoga.function"
+#define LUA_YOGA_DYNAMIC_FUNCTION_METATABLE_NAME "lua.yoga.dynamic.function"
  
 enum YogaType {
     CONTAINER,
@@ -67,7 +68,7 @@ struct LuaModel {
 #define LONGPRESS_FUNCTION "longPressFunction"
 #define RELOAD_YOGA "reloadYoga"
 #define REMOVE_FROM_PARENT "removeFromParent"
-
+#define GO_YOGA "goYogaModule"
 
 
 #pragma mark - View相关
@@ -176,5 +177,7 @@ struct LuaModel {
 
 extern int luaopen_yoga(lua_State* L);
 extern int luaopen_yoga_func(lua_State *L);
-
+extern int luaopen_dynamic_func(lua_State *L);
+extern void callbackToYoga(int type, void * v);
+extern void registerFunction(lua_State *L, int size, const char* simpleClassNames[], const char* classNames[], const char* methodNames[], const char* returnNames[], const char* paramsNames[], const char* methodSignatures[]);
 

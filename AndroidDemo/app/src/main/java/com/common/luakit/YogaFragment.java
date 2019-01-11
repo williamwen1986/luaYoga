@@ -17,11 +17,11 @@ import com.common.luakit.yoganode.YogaLayoutHelper;
 /**
  * Created by xianjiachao on 2019/1/9.
  */
-public class YogaFragment extends Fragment {
+public class YogaFragment extends Fragment implements YogaTransition {
 
 
     private static final String TAG = "YogaFragment";
-    private static final String YOGA_MODULE = "YOGA_MODULE";
+    private static final String YOGA_MODULE = "yoga_module";
 
     private YogaView yogaView;
 
@@ -51,6 +51,7 @@ public class YogaFragment extends Fragment {
 //        View view = inflater.inflate(com.demo.luayoga.yy.androiddemo.R.layout.activity_main, container);
 
         yogaView = new YogaView(getContext());
+        yogaView.setYogaTransition(this);
         yogaView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
         // start load after the first measure ensure parent width height
@@ -95,7 +96,8 @@ public class YogaFragment extends Fragment {
         yogaLayoutHelper = YogaLayoutHelper.getInstance();
     }
 
-    public void goYogaFragment(String moduleName) {
+    @Override
+    public void toYoga(String moduleName) {
         getFragmentManager()
                 .beginTransaction()
                 .replace(((View) getView().getParent()).getId(), YogaFragment.newInstance(moduleName))

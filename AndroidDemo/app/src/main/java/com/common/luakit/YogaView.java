@@ -52,6 +52,8 @@ public class YogaView extends FrameLayout implements IYoga {
 
 //    private boolean hasInflate = false;
 
+    private YogaTransition mYogaTransition;
+
     public YogaView(@NonNull Context context) {
         this(context, null);
     }
@@ -297,5 +299,16 @@ public class YogaView extends FrameLayout implements IYoga {
             LogUtil.i(TAG, "removeView yoga node");
             yogaNodeWrapper.removeChild((IYoga) view);
         }
+    }
+
+    public void goYogaModule(String module) {
+        LogUtil.i(TAG, "goYogaModule");
+        if (mYogaTransition != null) {
+            mYogaTransition.toYoga(module);
+        }
+    }
+
+    public void setYogaTransition(YogaTransition yogaTransition) {
+        mYogaTransition = yogaTransition;
     }
 }
