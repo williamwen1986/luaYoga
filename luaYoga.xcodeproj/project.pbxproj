@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1AF9D84C2B55F522E6B45171 /* libPods-luaYoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EF8660BC1C1992B8FEBA46 /* libPods-luaYoga.a */; };
-		2E111BB72195913500A833EF /* textView.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E111BB62195913500A833EF /* textView.lua */; };
 		2E1789D621BA253A005150BC /* SODAHUD.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 2E1789CB21BA253A005150BC /* SODAHUD.podspec */; };
 		2E1789D721BA253A005150BC /* SodaGlobalProgressHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1789CC21BA253A005150BC /* SodaGlobalProgressHud.m */; };
 		2E1789D821BA253A005150BC /* MBNSObject+SODAHUD.zip in Resources */ = {isa = PBXBuildFile; fileRef = 2E1789CD21BA253A005150BC /* MBNSObject+SODAHUD.zip */; };
@@ -19,12 +18,8 @@
 		2E1789DD21BA253A005150BC /* SODACreateHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1789D221BA253A005150BC /* SODACreateHUD.m */; };
 		2E301C9021ABD19100CB2E23 /* folder_screenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E301C8F21ABD19100CB2E23 /* folder_screenShot.png */; };
 		2E3A745E21957BC90053B9EE /* UIImage+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3A745C21957BC90053B9EE /* UIImage+Add.m */; };
-		2E3A746321957BCE0053B9EE /* imageView.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746021957BCE0053B9EE /* imageView.lua */; };
-		2E3A746421957BCE0053B9EE /* yoga.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746121957BCE0053B9EE /* yoga.lua */; };
-		2E3A746521957BCE0053B9EE /* listView.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A746221957BCE0053B9EE /* listView.lua */; };
-		2EBD13CD21B9507E00380EA8 /* testYoga.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2EBD13CC21B9507E00380EA8 /* testYoga.lua */; };
-		2EBD13CF21B9620400380EA8 /* MLDataCard.lua in Resources */ = {isa = PBXBuildFile; fileRef = 2EBD13CE21B9620400380EA8 /* MLDataCard.lua */; };
 		3C1A784421E5EA8D002DE35C /* UIImage+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1A784221E5EA8C002DE35C /* UIImage+Add.m */; };
+		3C1A784E21E772C3002DE35C /* lua in Resources */ = {isa = PBXBuildFile; fileRef = 3C1A784D21E772C3002DE35C /* lua */; };
 		3C23C1DF2181CCD100DB6052 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C1DE2181CCD100DB6052 /* AppDelegate.m */; };
 		3C23C1E22181CCD100DB6052 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C1E12181CCD100DB6052 /* ViewController.mm */; };
 		3C23C1E52181CCD100DB6052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C23C1E32181CCD100DB6052 /* Main.storyboard */; };
@@ -40,7 +35,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E111BB62195913500A833EF /* textView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = textView.lua; sourceTree = "<group>"; };
 		2E1789C721BA253A005150BC /* SodaCirleProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SodaCirleProgressView.h; sourceTree = "<group>"; };
 		2E1789C821BA253A005150BC /* SodaSectorProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SodaSectorProgressView.h; sourceTree = "<group>"; };
 		2E1789C921BA253A005150BC /* NSObject+SODAHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SODAHUD.h"; sourceTree = "<group>"; };
@@ -59,13 +53,9 @@
 		2E301C8F21ABD19100CB2E23 /* folder_screenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder_screenShot.png; sourceTree = "<group>"; };
 		2E3A745C21957BC90053B9EE /* UIImage+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Add.m"; sourceTree = "<group>"; };
 		2E3A745D21957BC90053B9EE /* UIImage+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Add.h"; sourceTree = "<group>"; };
-		2E3A746021957BCE0053B9EE /* imageView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = imageView.lua; sourceTree = "<group>"; };
-		2E3A746121957BCE0053B9EE /* yoga.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yoga.lua; sourceTree = "<group>"; };
-		2E3A746221957BCE0053B9EE /* listView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = listView.lua; sourceTree = "<group>"; };
-		2EBD13CC21B9507E00380EA8 /* testYoga.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = testYoga.lua; path = AndroidDemo/app/src/main/assets/lua/testYoga.lua; sourceTree = SOURCE_ROOT; };
-		2EBD13CE21B9620400380EA8 /* MLDataCard.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = MLDataCard.lua; path = AndroidDemo/app/src/main/assets/lua/MLDataCard.lua; sourceTree = SOURCE_ROOT; };
 		3C1A784221E5EA8C002DE35C /* UIImage+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Add.m"; sourceTree = "<group>"; };
 		3C1A784321E5EA8C002DE35C /* UIImage+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Add.h"; sourceTree = "<group>"; };
+		3C1A784D21E772C3002DE35C /* lua */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lua; path = luaYoga/lua; sourceTree = "<group>"; };
 		3C23C1DA2181CCD100DB6052 /* luaYoga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = luaYoga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C23C1DD2181CCD100DB6052 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C23C1DE2181CCD100DB6052 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -136,22 +126,10 @@
 			path = Catergory;
 			sourceTree = "<group>";
 		};
-		2E3A745F21957BCE0053B9EE /* ViewLua */ = {
-			isa = PBXGroup;
-			children = (
-				2EBD13CC21B9507E00380EA8 /* testYoga.lua */,
-				2E3A746121957BCE0053B9EE /* yoga.lua */,
-				2E3A746221957BCE0053B9EE /* listView.lua */,
-				2E3A746021957BCE0053B9EE /* imageView.lua */,
-				2E111BB62195913500A833EF /* textView.lua */,
-				2EBD13CE21B9620400380EA8 /* MLDataCard.lua */,
-			);
-			path = ViewLua;
-			sourceTree = "<group>";
-		};
 		3C23C1D12181CCD100DB6052 = {
 			isa = PBXGroup;
 			children = (
+				3C1A784D21E772C3002DE35C /* lua */,
 				3C23C1DC2181CCD100DB6052 /* luaYoga */,
 				3C23C1DB2181CCD100DB6052 /* Products */,
 				3C23C2042181CDE800DB6052 /* Frameworks */,
@@ -183,7 +161,6 @@
 				3C95CF1421BFF6B900F82C60 /* LuaYogaView.h */,
 				3C95CF1721BFF6B900F82C60 /* LuaYogaView.mm */,
 				2E1789C621BA253A005150BC /* SODAHUD */,
-				2E3A745F21957BCE0053B9EE /* ViewLua */,
 				2E3A745B21957BC90053B9EE /* Catergory */,
 				2E301C8F21ABD19100CB2E23 /* folder_screenShot.png */,
 				3C23C1DD2181CCD100DB6052 /* AppDelegate.h */,
@@ -275,18 +252,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E3A746421957BCE0053B9EE /* yoga.lua in Resources */,
 				2E301C9021ABD19100CB2E23 /* folder_screenShot.png in Resources */,
-				2E3A746521957BCE0053B9EE /* listView.lua in Resources */,
 				3C23C1EA2181CCD200DB6052 /* LaunchScreen.storyboard in Resources */,
 				3C23C1E72181CCD200DB6052 /* Assets.xcassets in Resources */,
+				3C1A784E21E772C3002DE35C /* lua in Resources */,
 				3C23C1E52181CCD100DB6052 /* Main.storyboard in Resources */,
 				2E1789D621BA253A005150BC /* SODAHUD.podspec in Resources */,
-				2E3A746321957BCE0053B9EE /* imageView.lua in Resources */,
-				2EBD13CD21B9507E00380EA8 /* testYoga.lua in Resources */,
 				2E1789D821BA253A005150BC /* MBNSObject+SODAHUD.zip in Resources */,
-				2E111BB72195913500A833EF /* textView.lua in Resources */,
-				2EBD13CF21B9620400380EA8 /* MLDataCard.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

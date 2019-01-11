@@ -49,6 +49,26 @@
     END_STACK_MODIFY(state, 0)
 }
 
+void callDynamicFunction(const char * className, const char * methodName, const char * returnName, const char * paramsName, int paramSize, const char * methodSignature)
+{
+    
+}
+
+void goYogaModule(void * view, std::string moduleName)
+{
+    
+}
+
+void onTapGesture(void * view)
+{
+    
+}
+
+void onLongPressGesture(void * view)
+{
+    
+}
+
 -(void)longPressGesture:(UIGestureRecognizer *)gesture
 {
     if ([gesture state] == UIGestureRecognizerStateBegan) {
