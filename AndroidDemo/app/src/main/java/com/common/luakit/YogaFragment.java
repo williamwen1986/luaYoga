@@ -19,18 +19,13 @@ import com.common.luakit.yoganode.YogaLayoutHelper;
  */
 public class YogaFragment extends Fragment implements YogaTransition {
 
-
     private static final String TAG = "YogaFragment";
     private static final String YOGA_MODULE = "yoga_module";
 
     private YogaView yogaView;
-
     private YogaLayoutHelper yogaLayoutHelper;
 
-    private boolean hasLoadLua;
-
     public static YogaFragment newInstance(String yogaModule) {
-
         Bundle args = new Bundle();
         args.putString(YOGA_MODULE, yogaModule);
         YogaFragment fragment = new YogaFragment();
@@ -48,10 +43,17 @@ public class YogaFragment extends Fragment implements YogaTransition {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        View view = inflater.inflate(com.demo.luayoga.yy.androiddemo.R.layout.activity_main, container);
-
         yogaView = new YogaView(getContext());
-        yogaView.setYogaTransition(this);
+
+        YogaTransition yt;
+        Fragment parentFragment = getParentFragment();
+        if (parentFragment != null && parentFragment instanceof YogaTransition) {
+            yt = (YogaTransition) parentFragment;
+        } else {
+            yt = this;
+        }
+
+        yogaView.setYogaTransition(yt);
         yogaView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
         // start load after the first measure ensure parent width height
@@ -98,9 +100,25 @@ public class YogaFragment extends Fragment implements YogaTransition {
 
     @Override
     public void toYoga(String moduleName) {
-        getFragmentManager()
-                .beginTransaction()
-                .replace(((View) getView().getParent()).getId(), YogaFragment.newInstance(moduleName))
-                .commitAllowingStateLoss();
+        String tag = getTag() + "_" + moduleName;
+        Fragment fragment = getParentFragment().getFragmentManager().findFragmentByTag(tag);
+
+        if (fragment != null) { // already added
+            getParentFragment().getFragmentManager()
+//            getFragmentManager()
+                    .beginTransaction()
+                    .hide(getParentFragment())
+                    .show(fragment)
+                    .addToBackStack(null)
+                    .commitAllowingStateLoss();
+        } else {
+            getParentFragment().getFragmentManager()
+//            getFragmentManager()
+                    .beginTransaction()
+                    .hide(getParentFragment())
+                    .add(((View) getParentFragment().getView().getParent()).getId(), YogaFragment.newInstance(moduleName), tag)
+                    .addToBackStack(null)
+                    .commitAllowingStateLoss();
+        }
     }
 }

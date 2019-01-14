@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,9 +69,13 @@ public class YogaContainerFragment extends Fragment implements YogaTransition {
 
     @Override
     public void toYoga(String moduleName) {
-        getFragmentManager()
+        String tag = getTag() + "_" + moduleName;
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager
                 .beginTransaction()
-                .replace(((View) getView().getParent()).getId(), YogaFragment.newInstance(moduleName))
+                .hide(this)
+                .replace(((View) getView().getParent()).getId(), YogaFragment.newInstance(moduleName), tag)
+                .addToBackStack(null)
                 .commitAllowingStateLoss();
     }
 }

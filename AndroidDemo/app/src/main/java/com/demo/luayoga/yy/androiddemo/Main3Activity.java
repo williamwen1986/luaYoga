@@ -1,6 +1,8 @@
 package com.demo.luayoga.yy.androiddemo;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.common.luakit.YogaContainerFragment;
@@ -42,4 +44,24 @@ public class Main3Activity extends AppCompatActivity {
                 .commitAllowingStateLoss();
     }
 
+    @Override
+    public void onBackPressed() {
+        FragmentManager fm = getSupportFragmentManager();
+//        for (Fragment frag : fm.getFragments()) {
+////            if (frag.isVisible()) {
+//                FragmentManager childFm = frag.getFragmentManager();
+//                if (childFm.getBackStackEntryCount() > 0) {
+//                    childFm.popBackStack();
+//                    return;
+//                }
+////            }
+//        }
+
+        if (fm.getBackStackEntryCount() > 0) {
+            fm.popBackStack();
+            return;
+        }
+
+        super.onBackPressed();
+    }
 }
