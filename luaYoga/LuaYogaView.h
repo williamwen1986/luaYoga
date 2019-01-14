@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LuaYogaView : UIView
 
-- (void)loadLua:(NSString *)module type:(YogaType)type;
+- (void)loadLua:(NSString *)module;
 
 @end
 

@@ -32,7 +32,7 @@ extern "C" {
 }
 */
 
-- (void)loadLua:(NSString *)module type:(YogaType)type
+- (void)loadLua:(NSString *)module
 {
     std::string moduleStr = [module cStringUsingEncoding:NSUTF8StringEncoding];
     std::string lua = "LUA_YOGA_VIEW_FACTORY = require('"+moduleStr+"')";
@@ -47,7 +47,7 @@ extern "C" {
         lua_newtable(state);
         lua_setfenv(state, -2);
         yi->view = (__bridge void *)self;
-        yi->type = type;
+        yi->type = CONTAINER;
         yi->isDead = false;
         yi->root = NULL;
         pushStrongUserdataTable(state);

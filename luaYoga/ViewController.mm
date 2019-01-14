@@ -25,7 +25,7 @@
 //    [root loadLua:@"yoga" type:CONTAINER];
 //    [root loadLua:@"listView" type:CONTAINER];
 //    [root loadLua:@"imageView" type:CONTAINER];
-    [root loadLua:@"textView" type:CONTAINER];
+    [root loadLua:@"textView"];
 
     
     //    UIView * containView = [[UIScrollView alloc] initWithFrame:CGRectZero];
