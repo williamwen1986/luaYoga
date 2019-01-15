@@ -12,6 +12,7 @@
 
 #import "UIImage+Add.h"
 #import "SodaGlobalProgressHud.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 @interface UIView (LuaGesture)
@@ -343,20 +344,23 @@ void setImageName_hl(void * imageView,  std::string imageName)
 
 void setImagePath(void * imageView,  std::string imagePath)
 {
-    
     NSString *str= [NSString stringWithFormat:@"%s",imagePath.c_str()];
- 
     UIImageView * v = (__bridge UIImageView *)imageView;
-    
-    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString * path = [paths objectAtIndex:0] ;
-    
-    NSString *filePath = [path stringByAppendingPathComponent:str];
-    if (![NSFileManager.defaultManager fileExistsAtPath:filePath]) {
-        filePath = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:str];
+    if([[str lowercaseString] rangeOfString:@"http"].location == 0) {
+        [v sd_setImageWithURL:[NSURL URLWithString:str]
+                     placeholderImage:nil];
+    } else {
+        NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString * path = [paths objectAtIndex:0] ;
+        path =  [path stringByAppendingPathComponent:@"luaImg"];
+        NSString *filePath = [path stringByAppendingPathComponent:str];
+        if (![NSFileManager.defaultManager fileExistsAtPath:filePath]) {
+            filePath = [[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:str];
+        }
+        if([NSFileManager.defaultManager fileExistsAtPath:filePath]){
+            v.image = [UIImage imageWithContentsOfFile:filePath];
+        }
     }
-    v.image = [UIImage imageWithContentsOfFile:filePath];
-
 }
 
 void setViewCornerRadius(void *view, float cornerRadius)
