@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)loadLua:(NSString *)module;
 
+- (void)loadLuaStr:(NSString *)luaStr;
+
 @end
 
 NS_ASSUME_NONNULL_END

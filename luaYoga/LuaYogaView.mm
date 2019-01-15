@@ -32,6 +32,26 @@ extern "C" {
 }
 */
 
+- (void)loadLuaStr:(NSString *)luaStr
+{
+    if (!luaStr.length) {
+        return;
+    }
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *path = [paths objectAtIndex:0];
+    NSString *fileNamePrefix = [NSString stringWithFormat:@"tem%@",@(time(0))];
+    NSString *fileName = [NSString stringWithFormat:@"%@.lua",fileNamePrefix];
+    NSString *luaPath = [NSString stringWithFormat:@"%@/lua/%@",path,fileName];
+    NSFileManager *manager = [NSFileManager defaultManager];
+    [manager removeItemAtPath:luaPath error:nil];
+    [luaStr writeToFile:luaPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    [self loadLua:fileNamePrefix];
+    [manager removeItemAtPath:luaPath error:nil];
+    NSString* lua = [NSString stringWithFormat:@"package.loaded['%@'] = nil",fileNamePrefix];
+    lua_State * state = BusinessThread::GetCurrentThreadLuaState();
+    luaL_dostring(state, [lua cStringUsingEncoding:NSUTF8StringEncoding]);
+}
+
 - (void)loadLua:(NSString *)module
 {
     std::string moduleStr = [module cStringUsingEncoding:NSUTF8StringEncoding];

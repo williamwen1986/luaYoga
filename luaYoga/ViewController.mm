@@ -25,7 +25,13 @@
 //    [root loadLua:@"yoga" type:CONTAINER];
 //    [root loadLua:@"listView" type:CONTAINER];
 //    [root loadLua:@"imageView" type:CONTAINER];
-    [root loadLua:@"textView"];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *path = [paths objectAtIndex:0];
+    NSString *luaPath = [NSString stringWithFormat:@"%@/lua/textView.lua",path];
+    NSString *content = [NSString stringWithContentsOfFile:luaPath encoding:NSUTF8StringEncoding error:nil];
+//    [root loadLua:@"textView"];
+    [root loadLuaStr:content];
 
     
     //    UIView * containView = [[UIScrollView alloc] initWithFrame:CGRectZero];
