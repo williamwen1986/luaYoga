@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YogaViewController : UIViewController
 
+@property (strong, nonatomic) NSString *lua;
+@property (strong, nonatomic) NSString *moduleName;
+@property (strong, nonatomic) NSString *customTitle;
+
 @end
 
 NS_ASSUME_NONNULL_END

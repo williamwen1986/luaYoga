@@ -20,6 +20,7 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    self.view.backgroundColor = [UIColor whiteColor];
     LuaYogaView *root = [[LuaYogaView alloc] initWithFrame:CGRectMake(0, 200, self.view.bounds.size.width, self.view.bounds.size.height*2/3)];
     
 //    [root loadLua:@"yoga" type:CONTAINER];

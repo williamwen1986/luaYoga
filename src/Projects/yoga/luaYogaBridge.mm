@@ -13,7 +13,7 @@
 #import "UIImage+Add.h"
 #import "SodaGlobalProgressHud.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import "YogaViewController.h"
 
 @interface UIView (LuaGesture)
 
@@ -69,7 +69,18 @@ UIViewController *findViewController(UIView *sourceView)
 
 void goYogaModule(void * view, std::string moduleName, std::string lua, std::string title)
 {
-    
+    UIView * v = (__bridge UIView *)view;
+    UIViewController *c = findViewController(v);
+    NSString *moduleNameStr = [NSString stringWithUTF8String:moduleName.c_str()];
+    NSString *luaStr = [NSString stringWithUTF8String:lua.c_str()];
+    NSString *titleStr = [NSString stringWithUTF8String:title.c_str()];
+    if (c.navigationController) {
+        YogaViewController * yc = [[YogaViewController alloc] init];
+        yc.customTitle = titleStr;
+        yc.moduleName = moduleNameStr;
+        yc.lua = luaStr;
+        [c.navigationController pushViewController:yc animated:YES];
+    }
 }
 
 void onTapGesture(void * view)

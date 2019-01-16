@@ -1,33 +1,23 @@
 //
-//  YogaViewController.m
+//  DemoNavigationViewController.m
 //  luaYoga
 //
 //  Created by wen william on 2019/1/16.
 //  Copyright © 2019年 wen william. All rights reserved.
 //
 
-#import "YogaViewController.h"
-#import "LuaYogaView.h"
-@interface YogaViewController ()
+#import "DemoNavigationViewController.h"
+#import "ViewController.h"
+@interface DemoNavigationViewController ()
 
 @end
 
-@implementation YogaViewController
+@implementation DemoNavigationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    if (self.customTitle.length) {
-        [self.navigationController setTitle:self.customTitle];
-    }
-    LuaYogaView *yogaView = [[LuaYogaView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:yogaView];
-    
-    if (self.lua.length) {
-        [yogaView loadLuaStr:self.lua];
-    } else if(self.moduleName.length){
-        [yogaView loadLua:self.moduleName];
-    }
+    ViewController * c = [[ViewController alloc] init];
+    [self pushViewController:c animated:NO];
     // Do any additional setup after loading the view.
 }
 
