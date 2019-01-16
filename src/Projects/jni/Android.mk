@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := luaFramework
+LOCAL_MODULE := luaYoga
 
 LOCAL_CFLAGS := -DANDROID -DOS_ANDROID
 

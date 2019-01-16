@@ -87,10 +87,10 @@ public class YogaView extends FrameLayout implements IYoga {
             return;
         }
         try {
-            System.loadLibrary("luaFramework");
+            System.loadLibrary("luaYoga");
             sLoadSuccess = true;
         } catch (Throwable e) {
-            LogUtil.i(TAG, "Load libluaFramework.so failed : " + e);
+            LogUtil.i(TAG, "Load libluaYoga.so failed : " + e);
             sLoadSuccess = false;
         }
     }

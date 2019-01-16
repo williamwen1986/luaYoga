@@ -37,7 +37,7 @@ public class LuaHelper {
 
     public static native Object callLuaFunction(String moduleName, String methodName, Object p1, Object p2, Object p3, Object p4, Object p5);
 
-    static { System.loadLibrary("luaFramework");}
+    static { System.loadLibrary("luaYoga");}
 
     public static void startLuaKit(Context c){
         String toPath = PathUtils.getDataDirectory(c)+"/lua";
