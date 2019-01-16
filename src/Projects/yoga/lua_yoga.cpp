@@ -466,8 +466,10 @@ static int __yogaFuncCall(lua_State *L)
             lua_pop(L, 1);
         } else if(yf->action == GO_YOGA_MODULE){
             std::string module = lua_tostring(L, 2);
+            std::string lua = lua_tostring(L, 3);
+            std::string title = lua_tostring(L, 4);
             LOG(WARNING)<<"GO_YOGA_MODULE "<< module;
-            goYogaModule(yf->view, module);
+            goYogaModule(yf->view, module, lua, title);
             lua_pushnil(L);
         } else if(yf->action == LIST_RELOAD){
             listReload(yf->view);

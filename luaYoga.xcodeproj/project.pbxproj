@@ -20,6 +20,7 @@
 		2E3A745E21957BC90053B9EE /* UIImage+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3A745C21957BC90053B9EE /* UIImage+Add.m */; };
 		3C1A784421E5EA8D002DE35C /* UIImage+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1A784221E5EA8C002DE35C /* UIImage+Add.m */; };
 		3C1A784E21E772C3002DE35C /* lua in Resources */ = {isa = PBXBuildFile; fileRef = 3C1A784D21E772C3002DE35C /* lua */; };
+		3C1A787721EF180A002DE35C /* YogaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C1A787621EF180A002DE35C /* YogaViewController.m */; };
 		3C23C1DF2181CCD100DB6052 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C1DE2181CCD100DB6052 /* AppDelegate.m */; };
 		3C23C1E22181CCD100DB6052 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3C23C1E12181CCD100DB6052 /* ViewController.mm */; };
 		3C23C1E52181CCD100DB6052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C23C1E32181CCD100DB6052 /* Main.storyboard */; };
@@ -56,6 +57,8 @@
 		3C1A784221E5EA8C002DE35C /* UIImage+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Add.m"; sourceTree = "<group>"; };
 		3C1A784321E5EA8C002DE35C /* UIImage+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Add.h"; sourceTree = "<group>"; };
 		3C1A784D21E772C3002DE35C /* lua */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lua; path = luaYoga/lua; sourceTree = "<group>"; };
+		3C1A787521EF180A002DE35C /* YogaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YogaViewController.h; sourceTree = "<group>"; };
+		3C1A787621EF180A002DE35C /* YogaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YogaViewController.m; sourceTree = "<group>"; };
 		3C23C1DA2181CCD100DB6052 /* luaYoga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = luaYoga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C23C1DD2181CCD100DB6052 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C23C1DE2181CCD100DB6052 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 				3C23C1E82181CCD200DB6052 /* LaunchScreen.storyboard */,
 				3C23C1EB2181CCD200DB6052 /* Info.plist */,
 				3C23C1EC2181CCD200DB6052 /* main.mm */,
+				3C1A787521EF180A002DE35C /* YogaViewController.h */,
+				3C1A787621EF180A002DE35C /* YogaViewController.m */,
 			);
 			path = luaYoga;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				2E3A745E21957BC90053B9EE /* UIImage+Add.m in Sources */,
 				3C95CF2221BFF6D200F82C60 /* lua_yoga.cpp in Sources */,
 				3C95CF1821BFF6BA00F82C60 /* LuaTableView.mm in Sources */,
+				3C1A787721EF180A002DE35C /* YogaViewController.m in Sources */,
 				3C95CF1A21BFF6BA00F82C60 /* LuaYogaView.mm in Sources */,
 				3C1A784421E5EA8D002DE35C /* UIImage+Add.m in Sources */,
 				2E1789D721BA253A005150BC /* SodaGlobalProgressHud.m in Sources */,

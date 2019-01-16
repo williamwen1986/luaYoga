@@ -74,6 +74,6 @@ void showToast(std::string toastContent);
 
 void goFlutter(std::string moduleName, std::string pluginVersion, std::string type, std::string url);
 
-void goYogaModule(void * view, std::string moduleName);
+void goYogaModule(void * view, std::string moduleName, std::string lua, std::string title);
 
 void callDynamicFunction(const char * className, const char * methodName, const char * returnName, const char * paramsName, int paramSize, const char * methodSignature);

@@ -55,7 +55,19 @@ void callDynamicFunction(const char * className, const char * methodName, const 
     
 }
 
-void goYogaModule(void * view, std::string moduleName)
+UIViewController *findViewController(UIView *sourceView)
+{
+    id target = sourceView;
+    while(target) {
+        target= ((UIResponder *)target).nextResponder;
+        if([target isKindOfClass:[UIViewController class]]) {
+            return target;
+        }
+    }
+    return nil;
+}
+
+void goYogaModule(void * view, std::string moduleName, std::string lua, std::string title)
 {
     
 }
