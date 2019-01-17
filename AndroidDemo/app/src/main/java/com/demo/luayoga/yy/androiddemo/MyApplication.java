@@ -3,7 +3,7 @@ package com.demo.luayoga.yy.androiddemo;
 import android.app.Application;
 
 import com.common.luakit.LuaHelper;
-import com.common.luakit.utils.PluginUtils;
+import com.flua.luayoga.utils.PluginUtils;
 import com.facebook.soloader.SoLoader;
 
 import java.lang.reflect.Method;

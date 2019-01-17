@@ -1,4 +1,4 @@
-#include "com_common_luakit_yoganode_YogaLayoutHelper.h"
+#include "com_flua_luayoga_yoganode_YogaLayoutHelper.h"
 #include "JNIModel.h"
 #include "common/business_runtime.h"
 #include "lua_yoga.h"
@@ -15,7 +15,7 @@ extern "C" {
 #define TAG    "LuaYoga-jni" 
 #define LOGD(...)  __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
 
-JNIEXPORT jint JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemcount 
+JNIEXPORT jint JNICALL Java_com_flua_luayoga_yoganode_YogaLayoutHelper_getItemcount 
     (JNIEnv *env, jobject thiz, jint section, jlong hostView, jlong rootView) {
      LOGD("Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemcount");
 
@@ -43,7 +43,7 @@ JNIEXPORT jint JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemc
     return num;
 }
 
-JNIEXPORT jstring JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemViewType
+JNIEXPORT jstring JNICALL Java_com_flua_luayoga_yoganode_YogaLayoutHelper_getItemViewType
   (JNIEnv *env, jobject thiz, jlong hostView, jlong rootView, jint position) {
   	LOGD("Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemViewType");
   	const char * s;
@@ -76,7 +76,7 @@ JNIEXPORT jstring JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getIt
     return jidentifier;
 }
 
-JNIEXPORT jfloat JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemHeight
+JNIEXPORT jfloat JNICALL Java_com_flua_luayoga_yoganode_YogaLayoutHelper_getItemHeight
   (JNIEnv *env, jobject thiz, jlong hostView, jlong rootView, jint position) {
     LOGD("Java_com_common_luakit_yoganode_YogaLayoutHelper_getItemHeight");
 
@@ -120,7 +120,7 @@ void setPointer(void * self) {
     env->CallVoidMethod(jself, jmid, (jlong)self);
 }
 
-JNIEXPORT void JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreateView
+JNIEXPORT void JNICALL Java_com_flua_luayoga_yoganode_YogaLayoutHelper_onCreateView
   (JNIEnv *env , jobject thiz, jlong hostView, jlong rootView, jobject contentView) {
     LOGD("Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreateView");
 
@@ -149,7 +149,7 @@ JNIEXPORT void JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onCreate
     lua_pop(state, 2);
 }
 
-JNIEXPORT jobject JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onBindView
+JNIEXPORT jobject JNICALL Java_com_flua_luayoga_yoganode_YogaLayoutHelper_onBindView
   (JNIEnv *env, jobject thiz, jlong hostView, jlong rootView, jlong contentView, jint position) {
     LOGD("Java_com_common_luakit_yoganode_YogaLayoutHelper_onBindView");
     assert(rootView != 0);
@@ -186,7 +186,7 @@ JNIEXPORT jobject JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onBin
     END_STACK_MODIFY(state, 0)
 }
 
-JNIEXPORT jobject JNICALL Java_com_common_luakit_yoganode_YogaLayoutHelper_onItemClick
+JNIEXPORT jobject JNICALL Java_com_flua_luayoga_yoganode_YogaLayoutHelper_onItemClick
   (JNIEnv *env, jobject thiz, jlong hostView, jlong rootView, jint position) {
     LOGD("Java_com_common_luakit_yoganode_YogaLayoutHelper_onItemClick");
     lua_State * state = BusinessThread::GetCurrentThreadLuaState();

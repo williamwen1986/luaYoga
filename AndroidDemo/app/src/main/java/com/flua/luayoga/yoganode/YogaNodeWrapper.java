@@ -1,4 +1,4 @@
-package com.common.luakit.yoganode;
+package com.flua.luayoga.yoganode;
 
 import android.view.View;
 

@@ -1,9 +1,9 @@
-package com.common.luakit.yoganode;
+package com.flua.luayoga.yoganode;
 
-import com.common.luakit.utils.DimensUtils;
-import com.common.luakit.YogaView;
-import com.common.luakit.constant.PropertyType;
-import com.common.luakit.utils.LogUtil;
+import com.flua.luayoga.utils.DimensUtils;
+import com.flua.luayoga.YogaView;
+import com.flua.luayoga.constant.PropertyType;
+import com.flua.luayoga.utils.LogUtil;
 import com.facebook.yoga.YogaAlign;
 import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaFlexDirection;

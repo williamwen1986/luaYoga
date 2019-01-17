@@ -1,4 +1,4 @@
-package com.common.luakit.utils;
+package com.flua.luayoga.utils;
 
 public class TextViewUtils {
 

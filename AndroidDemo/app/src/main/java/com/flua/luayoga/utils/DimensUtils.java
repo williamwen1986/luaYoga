@@ -1,4 +1,4 @@
-package com.common.luakit.utils;
+package com.flua.luayoga.utils;
 
 import android.content.Context;
 

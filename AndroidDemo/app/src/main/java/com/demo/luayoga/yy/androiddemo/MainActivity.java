@@ -8,10 +8,10 @@ import android.widget.Toast;
 
 import com.common.luakit.ILuaCallback;
 import com.common.luakit.LuaHelper;
-import com.common.luakit.YogaView;
-import com.common.luakit.yoganode.YogaLayoutHelper;
-import com.common.luakit.utils.DimensUtils;
-import com.common.luakit.utils.LogUtil;
+import com.flua.luayoga.YogaView;
+import com.flua.luayoga.yoganode.YogaLayoutHelper;
+import com.flua.luayoga.utils.DimensUtils;
+import com.flua.luayoga.utils.LogUtil;
 
 public class MainActivity extends AppCompatActivity {
 

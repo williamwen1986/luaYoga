@@ -1,29 +1,34 @@
-package com.common.luakit;
+package com.flua.luayoga;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
 
-import com.common.luakit.constant.PropertyType;
-import com.common.luakit.constant.ViewType;
-import com.common.luakit.yoganode.IYoga;
-import com.common.luakit.yoganode.YogaButton;
-import com.common.luakit.yoganode.YogaFrameLayout;
-import com.common.luakit.yoganode.YogaImageView;
-import com.common.luakit.yoganode.YogaLayoutHelper;
-import com.common.luakit.yoganode.YogaListView;
-import com.common.luakit.yoganode.YogaNodeWrapper;
-import com.common.luakit.yoganode.YogaOther;
-import com.common.luakit.yoganode.YogaScrollView;
-import com.common.luakit.yoganode.YogaTextView;
-import com.common.luakit.utils.LogUtil;
+import com.common.luakit.LuaHelper;
+import com.flua.luayoga.constant.PropertyType;
+import com.flua.luayoga.constant.ViewType;
+import com.flua.luayoga.utils.FileUtils;
+import com.flua.luayoga.yoganode.IYoga;
+import com.flua.luayoga.yoganode.YogaButton;
+import com.flua.luayoga.yoganode.YogaFrameLayout;
+import com.flua.luayoga.yoganode.YogaImageView;
+import com.flua.luayoga.yoganode.YogaLayoutHelper;
+import com.flua.luayoga.yoganode.YogaListView;
+import com.flua.luayoga.yoganode.YogaNodeWrapper;
+import com.flua.luayoga.yoganode.YogaOther;
+import com.flua.luayoga.yoganode.YogaScrollView;
+import com.flua.luayoga.yoganode.YogaTextView;
+import com.flua.luayoga.utils.LogUtil;
 import com.facebook.yoga.YogaNode;
+
+import java.io.File;
 
 public class YogaView extends FrameLayout implements IYoga {
 
@@ -301,10 +306,30 @@ public class YogaView extends FrameLayout implements IYoga {
         }
     }
 
-    public void goYogaModule(String module) {
+    /**
+     * Called by jni
+     * @param module
+     * @param luaString
+     * @param title
+     */
+    public void goYogaModule(String module, String luaString, String title) {
         LogUtil.i(TAG, "goYogaModule");
-        if (mYogaTransition != null) {
-            mYogaTransition.toYoga(module);
+
+        String moduleToLoad = "";
+        if (!TextUtils.isEmpty(module)) {
+            moduleToLoad = module;
+        } else if (!TextUtils.isEmpty(luaString)) { // save lua string to file
+            String luaDir = LuaHelper.getLuaPath(getContext());
+            String tempLuaFileName = "temp_" + System.currentTimeMillis() + ".lua";
+            File tempLuaFile = new File(luaDir, tempLuaFileName);
+            FileUtils.StringToFile(luaString, tempLuaFile);
+            if (tempLuaFile.exists()) {
+                moduleToLoad = tempLuaFileName;
+            }
+        }
+
+        if (!moduleToLoad.isEmpty() && mYogaTransition != null) {
+            mYogaTransition.toYoga(moduleToLoad, title);
         }
     }
 

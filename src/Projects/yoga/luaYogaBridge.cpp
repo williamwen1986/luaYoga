@@ -425,7 +425,7 @@ void setTextNumberOfLines(void *view, float numberOfLines) {
     env->CallVoidMethod(jhostView, jmid, (jfloat)numberOfLines);
 }
 
-void goYogaModule(void * view, std::string moduleName) {
+void goYogaModule(void * view, std::string moduleName, std::string lua, std::string title) {
     LOGD("goYogaModule ");
     // LOGD(moduleName);
     JniEnvWrapper env;
@@ -434,7 +434,7 @@ void goYogaModule(void * view, std::string moduleName) {
     if (jhostViewClass == NULL) {
         return;
     }
-    jmethodID mid = env->GetMethodID(jhostViewClass, "goYogaModule", "(Ljava/lang/String;)V");
+    jmethodID mid = env->GetMethodID(jhostViewClass, "goYogaModule", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
     if (mid == NULL) {
         return;
     }
@@ -442,8 +442,13 @@ void goYogaModule(void * view, std::string moduleName) {
     if (jmoduleName == NULL) {
         return;
     }
-    env->CallVoidMethod(jhostView, mid, jmoduleName);
+    jstring jlua = env->NewStringUTF(lua.c_str());
+    jstring jtitle = env->NewStringUTF(title.c_str());
+
+    env->CallVoidMethod(jhostView, mid, jmoduleName, jlua, jtitle);
     env->DeleteLocalRef(jmoduleName);
+    env->DeleteLocalRef(jlua);
+    env->DeleteLocalRef(jtitle);
 }
 
 float heightForTextTable(std::string text,float textWidth,float textFontSize,std::string fontName) {

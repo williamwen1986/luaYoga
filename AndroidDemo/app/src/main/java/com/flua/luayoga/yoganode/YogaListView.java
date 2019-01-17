@@ -1,4 +1,4 @@
-package com.common.luakit.yoganode;
+package com.flua.luayoga.yoganode;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,8 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.common.luakit.constant.PropertyType;
-import com.common.luakit.utils.LogUtil;
+import com.flua.luayoga.constant.PropertyType;
+import com.flua.luayoga.utils.LogUtil;
 import com.facebook.yoga.YogaNode;
 
 /**

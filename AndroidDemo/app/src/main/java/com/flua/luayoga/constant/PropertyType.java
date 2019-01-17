@@ -1,4 +1,4 @@
-package com.common.luakit.constant;
+package com.flua.luayoga.constant;
 
 /**
  * Created by hjx on 2018/11/14

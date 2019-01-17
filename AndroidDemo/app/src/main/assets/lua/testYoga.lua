@@ -20,7 +20,7 @@ local yogaBuilder = function (container)
     }
     jumpYoga.backgroundColor = {r=1.0}
     jumpYoga.tapFunction = function()
-        container.goYogaModule("testYoga2")
+        container.goYogaModule("testYoga2", "", "aaaa")
         jumpYoga.text = "gone"
 
     end

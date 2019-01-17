@@ -4,15 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.common.luakit.ILuaCallback;
 import com.common.luakit.LuaHelper;
-import com.common.luakit.YogaFragment;
-import com.common.luakit.YogaView;
-import com.common.luakit.utils.DimensUtils;
-import com.common.luakit.utils.LogUtil;
-import com.common.luakit.yoganode.YogaLayoutHelper;
+import com.flua.luayoga.YogaFragment;
+import com.flua.luayoga.utils.DimensUtils;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -37,7 +32,7 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.demo_root_container, YogaFragment.newInstance("testYoga"))
+                .replace(R.id.demo_root_container, YogaFragment.newInstance("testYoga", getTitle().toString()))
                 .commitAllowingStateLoss();
         mButton = findViewById(R.id.button);
         mButton.setOnClickListener(new View.OnClickListener() {

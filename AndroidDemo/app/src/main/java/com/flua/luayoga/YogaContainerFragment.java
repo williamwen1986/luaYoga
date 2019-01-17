@@ -1,4 +1,4 @@
-package com.common.luakit;
+package com.flua.luayoga;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,6 +22,7 @@ public class YogaContainerFragment extends Fragment implements YogaTransition {
     public static final String KEY_LAYOUT_ID = "layout_id";
     public static final String KEY_YOGA_ID_LIST = "yoga_id_list";
     public static final String KEY_YOGA_MODULE_LIST = "yoga_module_list";
+    public static final String KEY_YOGA_MODULE_TITLE = "yoga_module_title";
 
     public static YogaContainerFragment newInstance(int layoutId, ArrayList<Integer> yogaViewIdList, ArrayList<String> yogaViewModuleList) {
         Bundle args = new Bundle();
@@ -59,7 +60,7 @@ public class YogaContainerFragment extends Fragment implements YogaTransition {
             for (int i = 0; i < yogaViewIdList.size(); i++) {
                 Integer viewId = yogaViewIdList.get(i);
                 String yogaModule = yogaViewModuleList.get(i);
-                ft.add(viewId, YogaFragment.newInstance(yogaModule));
+                ft.add(viewId, YogaFragment.newInstance(yogaModule, null));
             }
             ft.commitAllowingStateLoss();
         }
@@ -68,13 +69,13 @@ public class YogaContainerFragment extends Fragment implements YogaTransition {
     }
 
     @Override
-    public void toYoga(String moduleName) {
+    public void toYoga(String moduleName, String title) {
         String tag = getTag() + "_" + moduleName;
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager
                 .beginTransaction()
                 .hide(this)
-                .replace(((View) getView().getParent()).getId(), YogaFragment.newInstance(moduleName), tag)
+                .replace(((View) getView().getParent()).getId(), YogaFragment.newInstance(moduleName, title), tag)
                 .addToBackStack(null)
                 .commitAllowingStateLoss();
     }

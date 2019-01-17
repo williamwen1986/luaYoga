@@ -40,7 +40,7 @@ public class LuaHelper {
     static { System.loadLibrary("luaYoga");}
 
     public static void startLuaKit(Context c){
-        String toPath = PathUtils.getDataDirectory(c)+"/lua";
+        String toPath = getLuaPath(c);
         File toFolder = new File(toPath);
         if (toFolder.exists()){
             deleteDirection(toFolder);
@@ -50,6 +50,10 @@ public class LuaHelper {
         copyFolderFromAssets(c, "lua",toPath);
         Log.d(TAG, "copyFolderFromAssets");
         startLuaKitNative(c);
+    }
+
+    public static String getLuaPath(Context context) {
+        return PathUtils.getDataDirectory(context) + "/lua";
     }
 
     public static void registerCallee(List<Method> methods) {

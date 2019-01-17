@@ -1,4 +1,4 @@
-#include "com_common_luakit_YogaView.h"
+#include "com_flua_luayoga_YogaView.h"
 #include "JNIModel.h"
 #include "common/business_runtime.h"
 #include "lua_yoga.h"
@@ -15,7 +15,7 @@ extern "C" {
 #define LOGD(...)  __android_log_print(ANDROID_LOG_INFO,TAG,__VA_ARGS__)
 
 
-JNIEXPORT jlong JNICALL Java_com_common_luakit_YogaView_loadLua
+JNIEXPORT jlong JNICALL Java_com_flua_luayoga_YogaView_loadLua
 (JNIEnv *env, jobject thiz, jstring moduleName) {
     std::string moduleStr = JNIModel::String::ConvertToNative(env,moduleName);
     std::string lua = "LUA_YOGA_VIEW_FACTORY = require('"+moduleStr+"')";
@@ -50,9 +50,9 @@ JNIEXPORT jlong JNICALL Java_com_common_luakit_YogaView_loadLua
     return (jlong)weakRef;
   }
 
-JNIEXPORT void JNICALL Java_com_common_luakit_YogaView_dispose
+JNIEXPORT void JNICALL Java_com_flua_luayoga_YogaView_dispose
 (JNIEnv *env, jobject thiz, jlong ref) {
-    LOGD("Java_com_common_luakit_YogaView_dispose");
+    LOGD("Java_com_flua_luayoga_YogaView_dispose");
 	lua_State * state = BusinessThread::GetCurrentThreadLuaState();
     java_weak_ref *v = (java_weak_ref *)ref;
     pushStrongUserdataTable(state);

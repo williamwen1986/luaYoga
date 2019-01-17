@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.common.luakit.YogaView
+    <com.flua.luayoga.YogaView
         android:id="@+id/demo_root_container"
         android:layout_width="match_parent"
         android:layout_height="360dp" />

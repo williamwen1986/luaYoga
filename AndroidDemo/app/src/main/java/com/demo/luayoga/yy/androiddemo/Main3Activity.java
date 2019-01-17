@@ -1,12 +1,11 @@
 package com.demo.luayoga.yy.androiddemo;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.common.luakit.YogaContainerFragment;
-import com.common.luakit.utils.DimensUtils;
+import com.flua.luayoga.YogaContainerFragment;
+import com.flua.luayoga.utils.DimensUtils;
 
 import java.util.ArrayList;
 
